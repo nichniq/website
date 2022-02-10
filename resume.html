@@ -1,0 +1,265 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Resume - Nicholas Cassleman</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,600" rel="stylesheet">
+    <style>
+      * {
+        font-size: 11pt;
+        font-weight: inherit;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: #fcfefd;
+        font-family: 'Nunito Sans', sans-serif;
+        font-size: 1rem;
+      }
+      ul {
+        padding-left: 2rem;
+      }
+      .resume {
+        background-color: #fff;
+        box-sizing: border-box;
+        margin: 0 auto;
+        padding: 3rem 4rem;
+        width: 8in;
+      }
+      .intro {
+        align-items: baseline;
+        display: flex;
+        justify-content: space-between;
+      }
+      .name {
+        font-size: 2rem;
+        font-weight: 600;
+      }
+      .label {
+        font-size: 1.3rem;
+      }
+      .contact li {
+        list-style-type: none;
+        text-align: right;
+      }
+      .section {
+        display: grid;
+        grid-template-columns: [body-indent] 1rem [body-start] 1.5fr [body-right] 1fr;
+        margin-top: 1rem;
+      }
+      .section-title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        grid-column: body-indent / end;
+        margin-bottom: 0.4rem;
+      }
+      .entity,
+      .capacity {
+        grid-column: body-start / body-right;
+      }
+      .entity {
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+      .entity:nth-of-type(n+2) {
+        margin-top: 0.5rem;
+      }
+      .capacity {
+        font-size: 1.05rem;
+        font-style: italic;
+      }
+      .location,
+      .time-period {
+        align-self: end;
+        color: #333;
+        grid-column: body-right / end;
+        text-align: right;
+      }
+      .description,
+      .summary {
+        color: #222;
+        grid-column: body-start / end;
+        margin-top: 0.2rem;
+      }
+      .summary:not(:last-of-type) {
+        margin-bottom: 0.2rem;
+      }
+      .description {
+        color: #333;
+        font-style: italic;
+        margin-bottom: 0.2rem;
+        padding-left: 1rem;
+      }
+      b {
+        font-weight: bolder;
+      }
+      cite[medium="game"] {
+        /**
+         * Browsers usually style `cite` with italics, so this is redundant, but
+         * it's to start a pattern of citing other things (like song titles,
+         * albums, poems) which should be styled in other ways (quotation marks,
+         * underline). e.g.
+         *   - cite[medium="song"] { font-style: none }
+         *     cite[medium="song"]::before { content: `“` }
+         *     cite[medium="song"]::after { content: `”` }
+         *   - cite[medium="album"] { font-style: italic }
+         */
+
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <main role="main" class="resume">
+      <header class="intro" style="flex-wrap: wrap">
+        <div>
+          <h1 class="name">Nicholas Cassleman</h1>
+          <p class="label" style="margin-top: -0.2em">Software Engineer, Frontend Specialist</p>
+        </div>
+        <div style="color: #333;">[ he, him, his ]</div>
+        <!--nav class="contact">
+          <ul>
+            <li>
+              Crawlers, don't steal my email address
+            </li>
+            <li>
+              Crawlers, don't steal my telephone number
+            </li>
+          </ul>
+        </nav-->
+        <p style="flex: 1 0 100%; margin-top: 0.2em;">San Francisco, CA</p>
+      </header>
+
+      <section class="section">
+
+
+        <h1 class="section-title">Employment</h1>
+
+        <h2 class="entity">Pilot.com</h2>
+        <p class="location">San Francisco</p>
+
+        <h3 class="capacity">Software Engineer</h3>
+        <p class="time-period">Apr 2019 &ndash; present</p>
+
+        <ul class="summary">
+          <li>
+            Coding admin- and customer-facing UIs using <b>Vue</b>, <b>TypeScript</b>, and <b>typed Python</b> backend
+
+            <ul>
+              <li>
+                Building and maintaining the customer-facing side of the application
+
+                <ul>
+                  <li>
+                    Pages include the primary dashboard, tasks, financial insights, and tax forms
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                Built administrative UIs and domain-specific tools for financial experts
+              </li>
+
+              <li>
+                Designed foundational page components for our new unified <b>design system</b>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            Improving <b>developer experience</b> in the frontend through code, education, and advocacy
+
+            <ul>
+              <li>
+                Introducing <b>scalable component architecture</b> into code via functional design patterns
+              </li>
+              <li>
+                Set early standard for <b>component library</b> code and its documentation in Storybook
+              </li>
+              <li>
+                Led initiatives to progressively add typing across large surfaces of legacy code
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            Supporting junior engineers in the frontend through long-term <b>mentoring</b> relationships
+          </li>
+        </ul>
+
+        <h2 class="entity">Yext</h2>
+        <p class="location">New York</p>
+
+        <h3 class="capacity">Frontend Engineer</h3>
+        <p class="time-period">Feb 2015 &ndash; Aug 2018</p>
+
+        <ul class="summary">
+          <li>
+            Built customer-facing UIs using <b>jQuery</b> and <b>Closure Templates</b> with <b>Java</b> backend
+
+            <ul>
+              <li>
+                Owned analytics dashboard UI and tools to generate data visualizations
+              </li>
+              <li>
+                Wrote the UI for an online review aggregator and response tool
+              </li>
+            </ul>
+          </li>
+          <li>
+            Recruited for frontend task force to invest in <b>frontend systems</b> and infrastructure
+
+            <ul>
+              <li>
+                Initiated UI <b>component library</b>, including search and filter controls and form elements
+              </li>
+              <li>
+                Established <b>design system</b> with a single source of truth for icons and colors
+              </li>
+              <li>
+                Championed accessibility initiative (<b>WCAG</b>) starting with semantic form elements
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            Trained teammates in frontend topics via offsite presentations and blog posts
+          </li>
+
+          <li>
+            Co-founded employee resources groups and led the LGBTQ group
+          </li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h1 class="section-title">Education</h1>
+
+        <h2 class="entity">Recurse Center</h2>
+        <p class="location">New York</p>
+
+        <h3 class="capacity">Batch: Fall 2, 2018</h3>
+        <p class="time-period">Sept 2018 &ndash; Dec 2018</p>
+        <ul class="summary">
+          <li>Researched <b>compositional software design</b>; the effects of documentation, environment, and initial structure on <b>application growth</b>; and the philosophy of programming</li>
+        </ul>
+
+        <h3 class="capacity">Batch: Fall 2, 2014</h3>
+        <p class="time-period">Oct 2014 &ndash; Dec 2014</p>
+        <ul class="summary">
+          <li>Studied specifications and technical details of <b>JavaScript</b>, <b>HTML</b>, <b>CSS</b> and web architecture</li>
+        </ul>
+
+        <h2 class="entity">University of Chicago</h2>
+        <p class="location">Chicago</p>
+
+        <h3 class="capacity">BA with Honors, Interactive Media and Game Design</h3>
+        <p class="time-period">Oct 2009 &ndash; June 2013</p>
+        <ul class="summary">
+          <li>GPA: 3.67 / 4.0. Designed an interdisciplinary curriculum across creative writing, visual arts, psychology, and computer science. Senior thesis was an <b>ActionScript</b> game, <cite medium="game">Æffect</cite>, that played with the mechanics of affect theory</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
