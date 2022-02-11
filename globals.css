@@ -1,3 +1,18 @@
+/**
+  * Monospace font gives a strong aesthetic anchor to this website. It's the
+  * first rule in the stylesheet! It says: "this website was built on a
+  * computer." Hopefully, that hints at the underlying beauty of the code,
+  * itself rendered in monospace font.
+  *
+  * I mostly test in my browser of choice: up-to-date Mozilla Firefox. I limit
+  * the control I try to exert over the browser. I'm letting it do the heavy
+  * lifting and adding a bit of makeup here and there.
+  *
+  * Monospace also reminds me of videogame walkthroughs on GameFAQs (the
+  * inspiration for my upcoming website: GameFAGs). They were so well structured
+  * and thorough, simple and easy-to-use.
+  */
+
 body {
   font-family: monospace;
 }
