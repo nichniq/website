@@ -61,3 +61,7 @@ cite[data-medium="blog-post"]::before {
 cite[data-medium="blog-post"]::after {
   content: "“";
 }
+
+cite[data-medium="podcast-series"] {
+  font-style: italic;
+}
