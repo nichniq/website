@@ -1,0 +1,15 @@
+body {
+  font-family: monospace;
+}
+
+cite {
+  font-style: unset; /* remove browser default */
+}
+
+cite[data-medium="blog-post"]::before {
+  content: "”";
+}
+
+cite[data-medium="blog-post"]::after {
+  content: "“";
+}
