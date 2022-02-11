@@ -30,7 +30,7 @@ body {
 
 body::after {
   border-top: 1px solid gray;
-  content: "I am a website! You can see my insides! Right click an empty spot \
+  content: "I am a website! You can see my insides! Right click some text \
     on the page until the little menu says `View Page Source`. Click it and \
     behold: the language of the ~*WeB bRoWsEr*~. The commit history is cute \
     too, if you know what I mean ;)";
