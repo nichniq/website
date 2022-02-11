@@ -1,0 +1,67 @@
+/**
+  * Monospace font gives a strong aesthetic anchor to this website. It's the
+  * first rule in the stylesheet! It says: "this website was built on a
+  * computer." Hopefully, that hints at the underlying beauty of the code,
+  * itself rendered in monospace font.
+  *
+  * I mostly test in my browser of choice: up-to-date Mozilla Firefox. I limit
+  * the control I try to exert over the browser. I'm letting it do the heavy
+  * lifting and adding a bit of makeup here and there.
+  *
+  * Monospace also reminds me of videogame walkthroughs on GameFAQs (the
+  * inspiration for my upcoming website: GameFAGs). They were so well structured
+  * and thorough, simple and easy-to-use.
+  */
+
+body {
+  font-family: monospace;
+}
+
+/**
+   * This is a cute little note for everyone to see at the bottom of every page
+   * (that includes this stylesheet). I implement this as a style because it
+   * doesn't have to do with page content AND because I wanted to write it once
+   * and only once.
+   *
+   * I include it because I've tried hard to make this code understandable. I
+   * struggled with too much werdz, so the simpler the code and the less there
+   * is, the better.
+  */
+
+body::after {
+  border-top: 1px solid gray;
+  content: "I am a website! You can see my insides! Right click some text \
+    on the page until the little menu says `View Page Source`. Click it and \
+    behold: the language of the ~*WeB bRoWsEr*~. The commit history is cute \
+    too, if you know what I mean ;)";
+  display: block;
+  font-size: 0.8em;
+  font-style: italic;
+  margin: 1rem 1rem 0;
+  padding: 1rem;
+}
+
+/**
+ * I like to use `cite` whenever I'm referencing something like a book or a
+ * movie or a blog post. Something that's been named. An Artifact of Some
+ * Medium, if ya nasty.
+ *
+ * By using a data attribute, I can enrich the HTML itself and then use that as
+ * a selector in CSS.
+ */
+
+cite {
+  font-style: unset; /* remove browser default */
+}
+
+cite[data-medium="blog-post"]::before {
+  content: "”";
+}
+
+cite[data-medium="blog-post"]::after {
+  content: "“";
+}
+
+cite[data-medium="podcast-series"] {
+  font-style: italic;
+}
