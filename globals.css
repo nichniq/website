@@ -17,6 +17,15 @@ body {
   font-family: monospace;
 }
 
+/**
+ * I like to use `cite` whenever I'm referencing something like a book or a
+ * movie or a blog post. Something that's been named. An Artifact of Some
+ * Medium, if ya nasty.
+ *
+ * By using a data attribute, I can enrich the HTML itself and then use that as
+ * a selector in CSS.
+ */
+
 cite {
   font-style: unset; /* remove browser default */
 }
