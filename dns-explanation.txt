@@ -1,0 +1,22 @@
+Long
+
+- Type: The kind of DNS record
+  - A: This is a stable IP address, super direct
+  - ALIAS: Points to another name, used for apex (can't also have A)
+  - CNAME: Points to another name
+  - MX: Records for email exchange
+  - TXT: Arbitrary text, like these comments or lightweight verification
+- Name: The domain or subcomain
+  - @: This refers to the root, i.e. nichniq.name
+  - $name: This refers to a subdomain, e.g. name.nichniq.name
+- TTL: How long the resolution should be cached by the requester
+  - DNS resolutions take time, especially if there's redirection
+  - Each request needs to be processed, so we avoid them if possible
+  - We can cache responses based on their of Time to Live (TTL)
+  - Set long TTLs for stable records you don't expect to change
+  - Load balancers need short TTLs to stay up-to-date
+  - I shorten TTLs while developing (if I don't expect traffic)
+
+Short
+
+"[ TYPES ] A: Stable IP address. ALIAS: Another name, used for apex. CNAME: Another name. MX: Email exchange. TXT: Arbitrary text and lightweight verif" "ication. [ NAME ] @: Root (nichniq.name). $subdomain: Subdomain (subdomain.nichniq.name). [ TTL ] How long should people cache a DNS lookup response? " "Long time-to-live for stable connections, short if freshness is necessary (e.g. load balancing)"
