@@ -1,3 +1,5 @@
+Long
+
 - Type: The kind of DNS record
   - A: This is a stable IP address, super direct
   - ALIAS: Points to another name, used for apex (can't also have A)
@@ -14,3 +16,7 @@
   - Set long TTLs for stable records you don't expect to change
   - Load balancers need short TTLs to stay up-to-date
   - I shorten TTLs while developing (if I don't expect traffic)
+
+Short
+
+"[ TYPES ] A: Stable IP address. ALIAS: Another name, used for apex. CNAME: Another name. MX: Email exchange. TXT: Arbitrary text and lightweight verif" "ication. [ NAME ] @: Root (nichniq.name). $subdomain: Subdomain (subdomain.nichniq.name). [ TTL ] How long should people cache a DNS lookup response? " "Long time-to-live for stable connections, short if freshness is necessary (e.g. load balancing)"
