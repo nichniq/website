@@ -1,4 +1,23 @@
-- Add alt text to WS illustrations
-- Add poems
-- Add Drink n Draw
-- Make WS blog posts link to web archive
+# Content
+
+- WS illustrations: Add alt text
+- Poetry: Create page
+- Drink n Draw: Create page
+- My Favorite (Component) Shapes: Add mirrors
+  - Archived: https://archive.is/RxxD7
+  - Self-hosted: Create page
+
+# Access
+
+- robots.txt: Create file
+  - Figure out what I want the rules to be, add first as comments
+- Search indexing: Block indexing
+  - `<meta name="robots" content="noindex">`
+  - `<meta name="googlebot" content="noindex">`
+- Change log: Create page (RSS feed?)
+- Site map: Create map
+
+# Service
+
+- DNS: Create record file with comments
+  - Note that it isn't live
