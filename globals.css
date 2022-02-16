@@ -62,14 +62,18 @@ cite {
   font-style: unset; /* remove browser default */
 }
 
+cite[data-medium="poem"]::before,
 cite[data-medium="blog-post"]::before {
   content: "”";
 }
 
+cite[data-medium="poem"]::after,
 cite[data-medium="blog-post"]::after {
   content: "“";
 }
 
+cite[data-medium="magazine"],
+cite[data-medium="album"],
 cite[data-medium="podcast-series"] {
   font-style: italic;
 }
