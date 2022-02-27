@@ -1,0 +1,1211 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>Nick Cassleman - Seasonal playlists</title>
+
+        <link rel="stylesheet" type="text/css" href="/globals.css" />
+
+        <style>
+            .spotify-playlist-widget {
+                animation: 2s ease-in-out 0s infinite alternate loading;
+            }
+
+            @keyframes loading {
+                from {
+                    background: lightgray;
+                }
+
+                to {
+                    background: gray;
+                }
+            }
+        </style>
+
+        <script>
+            function createSpotifyPlaylistWidget(playlistId, title) {
+                /**
+                 * 1. Get the playlist widget template
+                 *
+                 *   This is referring to This has to keep in sync with the template.
+                 */
+
+                const playlistWidgetTemplate = document.getElementById(
+                    "spotify-iframe-template",
+                );
+
+                /**
+                 * 2. Clone the content of the template widget
+                 */
+
+                const playlistWidget = playlistWidgetTemplate
+                    .content // get the content: a document root
+                    .firstElementChild // first element to avoid comment nodes
+                    .cloneNode(false); // shallow clone: iframes should be empty
+
+                /**
+                 * 3. Assign the playlist ID
+                 */
+
+                playlistWidget.src = decodeURIComponent(playlistWidget.src)
+                    .replace(
+                        "{{ playlistId }}",
+                        playlistId,
+                    );
+
+                /**
+                 * 4. Replace the title with the playlist name
+                 */
+
+                playlistWidget.title = playlistWidget.title.replace(
+                    "{{ title }}",
+                    title,
+                );
+
+                // 6. Return the widget
+
+                return playlistWidget;
+            }
+
+            function replaceButtonWithSpotifyPlaylistWidget(button) {
+                // 1. Get Spotify playlist ID from button
+
+                const spotifyPlaylistId = button.dataset.spotifyPlaylistId;
+
+                // 2. Get playlist title from button
+
+                const playlistTitle = button.dataset.playlistTitle;
+
+                // 3. Created playlist widget from ID and title
+
+                const playlistWidget = createSpotifyPlaylistWidget(
+                    spotifyPlaylistId,
+                    playlistTitle
+                );
+
+                // 4. Replace the button with the widget
+
+                button.replaceWith(playlistWidget);
+            }
+        </script>
+
+        <template id="spotify-iframe-template">
+            <iframe
+                alt="On devices that support nested browsing contexts (as inline frames), Spotify can serve you a playlist widget"
+                src="https://open.spotify.com/embed/playlist/{{ playlistId }}"
+                title="{{ title }}"
+                height="380"
+                width="100%"
+                allow="
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    fullscreen;
+                    picture-in-picture;
+                "
+                frameBorder="0"
+                allowfullscreen=""
+                class="spotify-playlist-widget"
+            ></iframe>
+        </template>
+
+        <!--
+            To get the tracklists, I created a bookmarklet and ran it on each
+            of the Spotify playlists pages in my browser. Spotify tries to be
+            fancy about its rendering, so I had to zoom out to 30% to make sure
+            the entire playlist was visible and rendered in HTML.
+
+            ```
+            javascript:(function() { navigator.clipboard.writeText("<ol>\n" + Array.from(document.querySelectorAll("[data-testid='tracklist-row']")).map((ele) => { const info = ele.querySelector("[aria-colindex='2']").children[1]; const song = info.querySelector("[dir='auto']").textContent; const artist = info.querySelector("[draggable=true]").textContent; return `    <li><span>${song}</span> - <span>${artist}</span></li>`; }).join("\n") + "\n</ol>") })()
+            ```
+        -->
+    </head>
+    <body>
+        <h1><a href="/">Nick Cassleman</a> - Seasonal playlists</h1>
+
+        <header>
+            <p>
+                I started using Spotify in 2015. They have a feature called Discover Weekly that gives you a playlist of songs they think you'll like. I started saving my favorites and round that each season collected about 20 songs, so I broke them up into seasonal playlists. Music evokes strong memory in me, so each of these playlists is very tied to time and place.
+            </p>
+
+            <p>
+                I've provided the song list, a link to the playlist on Spotify,
+                and a button that allows you to embed a playlist widget provided
+                by Spotify. Note that Spotify requires DRM compliance and posts
+                a <a href="https://developer.spotify.com/documentation/widgets/terms/">Spotify Widget Terms of Use</a>.
+            </p>
+        </header>
+
+        <h2>2021</h2>
+
+        <article>
+            <h1>2021 Autumn</h1>
+
+            <ol>
+                <li><span>Frozen Away</span> - <span>altopalo</span></li>
+                <li><span>Best Friend - Be Kind Version</span> - <span>The Staves</span></li>
+                <li><span>Talk Talk Talk - Phantogram Remix</span> - <span>Ilan Rubin</span></li>
+                <li><span>Move into Me (feat. Broods)</span> - <span>Bad Sounds</span></li>
+                <li><span>Maker</span> - <span>Hana Vu</span></li>
+                <li><span>Anthem Grey</span> - <span>Awir Leon</span></li>
+                <li><span>Came out of a Lady</span> - <span>Rubblebucket</span></li>
+                <li><span>Jessica WJ</span> - <span>Cayucas</span></li>
+                <li><span>This Head I Hold</span> - <span>Electric Guest</span></li>
+                <li><span>Wallflower</span> - <span>Latir</span></li>
+                <li><span>Chills Me to the Bone</span> - <span>Tricky</span></li>
+                <li><span>Brown Liquor</span> - <span>RÜDE CÅT</span></li>
+                <li><span>Silence & Secrets</span> - <span>WhoMadeWho</span></li>
+                <li><span>Lemonade</span> - <span>Rubblebucket</span></li>
+                <li><span>Outré Lux (feat. Madison McFerrin)</span> - <span>Photay</span></li>
+                <li><span>Pure Heart</span> - <span>Martina Topley-Bird</span></li>
+                <li><span>Highway 6</span> - <span>The Beaches</span></li>
+                <li><span>Oh Devil</span> - <span>Electric Guest</span></li>
+                <li><span>Afro Blue</span> - <span>Melanie De Biasio</span></li>
+                <li><span>stabilise</span> - <span>Nilüfer Yanya</span></li>
+                <li><span>Still Cold</span> - <span>Cleo Sol</span></li>
+                <li><span>Sharpness</span> - <span>Jamie Woon</span></li>
+                <li><span>Stranger</span> - <span>Gabriels</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/5qWNmJgxmzxfviroOLTnwa">2021 Autumn playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="5qWNmJgxmzxfviroOLTnwa"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2021 Autumn playlist (Spotify widget)</button>
+        </article>
+
+        <article>
+            <h1>2021 Summer</h1>
+
+            <ol>
+                <li><span>Tropics</span> - <span>Sunny & Gabe</span></li>
+                <li><span>I Owe You Nothing</span> - <span>Seinabo Sey</span></li>
+                <li><span>A Mermaid in Lisbon</span> - <span>Patrick Watson</span></li>
+                <li><span>Lemon [Feat. Sharon Van Etten] - Kareem Ali Remix</span> - <span>Local Natives</span></li>
+                <li><span>Parallel</span> - <span>Anna Mieke</span></li>
+                <li><span>Arch Enemy</span> - <span>Everything Everything</span></li>
+                <li><span>Make It</span> - <span>Isaac Delusion</span></li>
+                <li><span>Vita</span> - <span>La rappresentante di lista</span></li>
+                <li><span>Ordinary Boy - The Cinematic Orchestra Remix</span> - <span>Ultraísta</span></li>
+                <li><span>I'll Never Let You Go</span> - <span>mmeadows</span></li>
+                <li><span>Magnified</span> - <span>Island Police</span></li>
+                <li><span>Everything Is Connected</span> - <span>Zara McFarlane</span></li>
+                <li><span>Loud(y)</span> - <span>Lewis Del Mar</span></li>
+                <li><span>Divisionary (Do The Right Thing)</span> - <span>Ages and Ages</span></li>
+                <li><span>Boomerang</span> - <span>Yebba</span></li>
+                <li><span>How Come My Body</span> - <span>Half Moon Run</span></li>
+                <li><span>Vampire Weeknight</span> - <span>Jenny Owen Youngs</span></li>
+                <li><span>Weather Girl</span> - <span>Figueroa</span></li>
+                <li><span>Leave Earth</span> - <span>Clarence Clarity</span></li>
+                <li><span>Waterfalls</span> - <span>SAULT</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/0n1YOf6QzNE8VpTfMX1XQC">2021 Summer playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="0n1YOf6QzNE8VpTfMX1XQC"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2021 Summer playlist (Spotify widget)</button>
+        </article>
+
+        <article>
+            <h1>2021 Spring</h1>
+
+            <ol>
+                <li><span>Sleep On The Wing</span> - <span>Bibio</span></li>
+                <li><span>Working For The Men</span> - <span>Drab City</span></li>
+                <li><span>MONTERO (Call Me By Your Name)</span> - <span>Lil Nas X</span></li>
+                <li><span>No Me Toques Mal</span> - <span>Santiago Navas</span></li>
+                <li><span>Imagination</span> - <span>Jordan Rakei</span></li>
+                <li><span>Good Days</span> - <span>SZA</span></li>
+                <li><span>Festival of Panic</span> - <span>Y La Bamba</span></li>
+                <li><span>Brown Eyed Lover</span> - <span>Allen Stone</span></li>
+                <li><span>Strange Town</span> - <span>Buzzy Lee</span></li>
+                <li><span>Free to Live in Colour</span> - <span>Pixey</span></li>
+                <li><span>Lost Day</span> - <span>Other Lives</span></li>
+                <li><span>Paraguaya</span> - <span>Juana Molina</span></li>
+                <li><span>The Other Lover (Little Dragon & Moses Sumney)</span> - <span>Little Dragon</span></li>
+                <li><span>Oh No</span> - <span>Biig Piig</span></li>
+                <li><span>Happen To Me</span> - <span>BENEE</span></li>
+                <li><span>In Your Arms</span> - <span>Low Island</span></li>
+                <li><span>Ing-Maries vals</span> - <span>Sara Parkman</span></li>
+                <li><span>From a Place of Love</span> - <span>Kele</span></li>
+                <li><span>Shattering The Hourglass</span> - <span>Deep Sea Diver</span></li>
+                <li><span>All Night</span> - <span>Marika Hackman</span></li>
+                <li><span>Think About Things</span> - <span>Daði Freyr</span></li>
+                <li><span>Grow</span> - <span>MUNA</span></li>
+                <li><span>Potential Breakup Song</span> - <span>Aly & AJ</span></li>
+                <li><span>The Rip</span> - <span>Portishead</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/2QiYlXZknloNSOJK12W3GK">2021 Spring playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="2QiYlXZknloNSOJK12W3GK"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2021 Spring playlist (Spotify widget)</button>
+        </article>
+
+        <article>
+            <h1>2021 Early Spring</h1>
+
+            <ol>
+                <li><span>Villain (feat. golda may)</span> - <span>Photay</span></li>
+                <li><span>Liberty Bell</span> - <span>DARKSIDE</span></li>
+                <li><span>Shadow On The Sea</span> - <span>CHAMPS</span></li>
+                <li><span>For The Sky</span> - <span>HAERTS</span></li>
+                <li><span>Long Road Home</span> - <span>Oneohtrix Point Never</span></li>
+                <li><span>Shadows (feat. Lou Stone)</span> - <span>Zero 7</span></li>
+                <li><span>Orange Blossoms</span> - <span>Half Waif</span></li>
+                <li><span>Garden of Eden</span> - <span>Billie Marten</span></li>
+                <li><span>Nothing’s Impossible</span> - <span>Caroline Rose</span></li>
+                <li><span>Desert Lake</span> - <span>Donna Blue</span></li>
+                <li><span>I'll Take It Boring</span> - <span>Jordana</span></li>
+                <li><span>Flowers To My Demons</span> - <span>NNAMDÏ</span></li>
+                <li><span>Hypotheticals - Edit</span> - <span>Lake Street Dive</span></li>
+                <li><span>Killer Scene</span> - <span>Pale Honey</span></li>
+                <li><span>Hologram</span> - <span>Max Pope</span></li>
+                <li><span>Cat's Pyjamas</span> - <span>Caro</span></li>
+                <li><span>Light - Edit</span> - <span>Michael Kiwanuka</span></li>
+                <li><span>Indigo Blue</span> - <span>Sean Christopher</span></li>
+                <li><span>Sister</span> - <span>Caribou</span></li>
+                <li><span>Call Your Name</span> - <span>Tora-i</span></li>
+                <li><span>The Loch Ness Monster</span> - <span>Matilda Mann</span></li>
+                <li><span>Let Me Tell You Something</span> - <span>Lera Lynn</span></li>
+                <li><span>Lovesick</span> - <span>Alice Phoebe Lou</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/3MveNGK5Lp9dL1a0KwekUj">2021 Early playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="3MveNGK5Lp9dL1a0KwekUj"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2021 Early playlist (Spotify widget)</button>
+        </article>
+
+        <h2>2020</h2>
+
+        <article>
+            <h1>2020 Winter</h1>
+
+            <ol>
+                <li><span>Blue</span> - <span>Angelo De Augustine</span></li>
+                <li><span>I Am a Joker!</span> - <span>BEA1991</span></li>
+                <li><span>Rock Pools</span> - <span>Saint Saviour</span></li>
+                <li><span>Pray It Away</span> - <span>Hannah Georgas</span></li>
+                <li><span>Audacious</span> - <span>Ian Chang</span></li>
+                <li><span>Paraphernalia</span> - <span>Temples</span></li>
+                <li><span>Eso Que Tu Haces</span> - <span>Lido Pimienta</span></li>
+                <li><span>Roseate</span> - <span>Ioanna Gika</span></li>
+                <li><span>Sad Music</span> - <span>Jessica Winter</span></li>
+                <li><span>Throw Stones</span> - <span>Nana Adjoa</span></li>
+                <li><span>We're Just Making It Worse</span> - <span>Cameron Avery</span></li>
+                <li><span>Don't Wanna Fight</span> - <span>Alabama Shakes</span></li>
+                <li><span>Mountain Baby</span> - <span>Austra</span></li>
+                <li><span>Dining With My Head at the Table</span> - <span>Franny London</span></li>
+                <li><span>For the Time Being</span> - <span>Erlend Øye</span></li>
+                <li><span>The Bug Collector</span> - <span>Haley Heynderickx</span></li>
+                <li><span>You Know Where My Happiness Went</span> - <span>Valentina</span></li>
+                <li><span>Wolves</span> - <span>Jensen McRae</span></li>
+                <li><span>Underneath</span> - <span>Gracie and Rachel</span></li>
+                <li><span>In Birdsong</span> - <span>Everything Everything</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/0ZC10mc5OKnRfBgQalr5zt">2020 Winter playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="0ZC10mc5OKnRfBgQalr5zt"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2020 Winter playlist (Spotify widget)</button>
+        </article>
+
+        <article>
+            <h1>2020 Autumn</h1>
+
+            <ol>
+                <li><span>Coming to Get You Nowhere</span> - <span>This Is The Kit</span></li>
+                <li><span>Thunderbird</span> - <span>Dessert</span></li>
+                <li><span>Red Lights</span> - <span>SAULT</span></li>
+                <li><span>Dad's Old Tapes</span> - <span>North Downs</span></li>
+                <li><span>Woman (feat. Lianne La Havas)</span> - <span>Nao</span></li>
+                <li><span>On My Knees (feat. Michael Kiwanuka)</span> - <span>UNKLE</span></li>
+                <li><span>Mariana Trench</span> - <span>Dwara</span></li>
+                <li><span>Remember Where You Are</span> - <span>Jessie Ware</span></li>
+                <li><span>This Is How We Walk on the Moon</span> - <span>Arthur Russell</span></li>
+                <li><span>In Your Eyes</span> - <span>Anjimile</span></li>
+                <li><span>I Fall Asleep So Fast</span> - <span>Pitou</span></li>
+                <li><span>Library Takeout</span> - <span>MicrOpaqu3</span></li>
+                <li><span>Monk's Robes</span> - <span>Deradoorian</span></li>
+                <li><span>Smoke</span> - <span>Jay-Jay Johanson</span></li>
+                <li><span>Liar Liar Liar</span> - <span>St Francis Hotel</span></li>
+                <li><span>Sound of Violence</span> - <span>Other Lives</span></li>
+                <li><span>The Other Way - Chapelier Fou Remix</span> - <span>Awir Leon</span></li>
+                <li><span>He Came from the Sun</span> - <span>C Duncan</span></li>
+                <li><span>Feral</span> - <span>Elder Island</span></li>
+                <li><span>Robber</span> - <span>The Weather Station</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/5XOCOnz7nIbwKPy5krcI4J">2020 Autumn playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="5XOCOnz7nIbwKPy5krcI4J"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2020 Autumn playlist (Spotify widget)</button>
+        </article>
+
+        <article>
+            <h1>2020 Late Summer</h1>
+
+            <ol>
+                <li><span>It's Love (feat. Matthew Young)</span> - <span>Cosmo's Midnight</span></li>
+                <li><span>Fahrenheit</span> - <span>Kitt Philippa</span></li>
+                <li><span>Bleak</span> - <span>Death Machine</span></li>
+                <li><span>Ain't No Remedy</span> - <span>Love Supreme</span></li>
+                <li><span>March March</span> - <span>The Chicks</span></li>
+                <li><span>In A Bind - Strings Version</span> - <span>Vagabon</span></li>
+                <li><span>The Atlantic</span> - <span>The Dodos</span></li>
+                <li><span>Give a Little Love (feat. Sufjan Stevens)</span> - <span>Mina Tindle</span></li>
+                <li><span>The Moon Shines Bright</span> - <span>Sam Lee</span></li>
+                <li><span>Plans We Made</span> - <span>Son Lux</span></li>
+                <li><span>Ocean Bed</span> - <span>Darlingside</span></li>
+                <li><span>If I Wunna</span> - <span>Toulouse</span></li>
+                <li><span>A Pleasing Smile</span> - <span>Aloboi</span></li>
+                <li><span>The Wheel - Live with the Metropole Orkest</span> - <span>SOHN</span></li>
+                <li><span>Lovable</span> - <span>Blaue Blume</span></li>
+                <li><span>Check The Weather</span> - <span>Pavo Pavo</span></li>
+                <li><span>Dive</span> - <span>The Seshen</span></li>
+                <li><span>Sundown Queen</span> - <span>Buzzy Lee</span></li>
+                <li><span>Nature Song</span> - <span>Twain</span></li>
+                <li><span>rbbts</span> - <span>Kate Davis</span></li>
+                <li><span>Such a Remarkable Day</span> - <span>Charlotte Gainsbourg</span></li>
+                <li><span>Yellow Jacket</span> - <span>moa moa</span></li>
+                <li><span>Bad Medication</span> - <span>Sophie Hunger</span></li>
+                <li><span>Paris</span> - <span>Saint Saviour</span></li>
+                <li><span>L.A. (Looking Alive)</span> - <span>Madison Cunningham</span></li>
+                <li><span>Keep Me Close</span> - <span>Faces on TV</span></li>
+                <li><span>Someone New</span> - <span>Helena Deland</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/66PcwnCVWvc0alLJpCfsOA">2020 Late playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="66PcwnCVWvc0alLJpCfsOA"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2020 Late playlist (Spotify widget)</button>
+        </article>
+
+        <article>
+            <h1>2020 High Summer</h1>
+
+            <ol>
+                <li><span>Young Buck</span> - <span>Braids</span></li>
+                <li><span>Francis</span> - <span>Haley Heynderickx</span></li>
+                <li><span>Bruise - Piano Version</span> - <span>Yumi Zouma</span></li>
+                <li><span>When Cameron Was in Egypt's Land Let My Cameron Go</span> - <span>Voka Gentle</span></li>
+                <li><span>The Place I Want to Be</span> - <span>Saint Saviour</span></li>
+                <li><span>Holiday</span> - <span>Steady Holiday</span></li>
+                <li><span>Face of the Sun</span> - <span>Shana Cleveland</span></li>
+                <li><span>Temple</span> - <span>Thao</span></li>
+                <li><span>Cheater</span> - <span>Wilma Archer</span></li>
+                <li><span>Harmony</span> - <span>Ultraísta</span></li>
+                <li><span>Floating Heads</span> - <span>Sister Crayon</span></li>
+                <li><span>Je k'abere</span> - <span>Surv</span></li>
+                <li><span>No Reason</span> - <span>Tōth</span></li>
+                <li><span>I Took A Ride</span> - <span>Caroline Rose</span></li>
+                <li><span>Staying Awake</span> - <span>DM Stith</span></li>
+                <li><span>Suit of Armour</span> - <span>Danika</span></li>
+                <li><span>El Búho</span> - <span>Blanco White</span></li>
+                <li><span>You</span> - <span>Kyson</span></li>
+                <li><span>The Meetings of the Waters</span> - <span>Fionn Regan</span></li>
+                <li><span>Guinevere</span> - <span>Black Sea Dahu</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/6MIhAmbfLBBcQ0JHUGR6z5">2020 High playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="6MIhAmbfLBBcQ0JHUGR6z5"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2020 High playlist (Spotify widget)</button>
+        </article>
+
+        <article>
+            <h1>2020 Spring</h1>
+
+            <ol>
+                <li><span>Coast</span> - <span>Participant</span></li>
+                <li><span>Reptilia</span> - <span>Andrew Combs</span></li>
+                <li><span>Whole</span> - <span>Girlyboi</span></li>
+                <li><span>Bipolar Rainbows</span> - <span>Clarence Clarity</span></li>
+                <li><span>The Cut Girl (feat. Howard Hobbs)</span> - <span>Invisible Minds</span></li>
+                <li><span>A Stone Is a Stone</span> - <span>Helena Deland</span></li>
+                <li><span>Far Gone (Don't Leave)</span> - <span>Pictish Trail</span></li>
+                <li><span>Afterlife</span> - <span>Public Memory</span></li>
+                <li><span>Steady Waves</span> - <span>Cross Record</span></li>
+                <li><span>Goliath</span> - <span>Woodkid</span></li>
+                <li><span>I Want You To Love Me</span> - <span>Fiona Apple</span></li>
+                <li><span>Looking for You</span> - <span>Flo Morrissey</span></li>
+                <li><span>Nobody Said</span> - <span>Takénobu</span></li>
+                <li><span>White Whale</span> - <span>Everything Everything</span></li>
+                <li><span>You Are (feat. YVA)</span> - <span>Nitin Sawhney</span></li>
+                <li><span>Breakfast Epiphany</span> - <span>Boy Azooga</span></li>
+                <li><span>Shawty</span> - <span>Remi Wolf</span></li>
+                <li><span>Everything Is Good</span> - <span>Sophie Hunger</span></li>
+                <li><span>Human Nature</span> - <span>Babeheaven</span></li>
+                <li><span>Infinity Vibraphones</span> - <span>These New Puritans</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/7piB5J6WhcjuUYkLTKaKbT">2020 Spring playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="7piB5J6WhcjuUYkLTKaKbT"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2020 Spring playlist (Spotify widget)</button>
+        </article>
+
+        <article>
+            <h1>2020 Early Spring</h1>
+
+            <ol>
+                <li><span>Blood Red</span> - <span>The Colorist Orchestra</span></li>
+                <li><span>Calm Down</span> - <span>The Clementines</span></li>
+                <li><span>Just Before Dawn</span> - <span>Sonnymoon</span></li>
+                <li><span>Lange Vinnen</span> - <span>Eefje de Visser</span></li>
+                <li><span>Red White and Black</span> - <span>Jesca Hoop</span></li>
+                <li><span>Give Me an Answer</span> - <span>Low Roar</span></li>
+                <li><span>Have to Be Around You</span> - <span>Brooke Bentham</span></li>
+                <li><span>Search For Life</span> - <span>Dirty Projectors</span></li>
+                <li><span>bye bye, sun francisco</span> - <span>Lor</span></li>
+                <li><span>Hard Time</span> - <span>Seinabo Sey</span></li>
+                <li><span>Virtuous Circle</span> - <span>Jordan Klassen</span></li>
+                <li><span>Vasco da Gama</span> - <span>Colapesce</span></li>
+                <li><span>Tuesday Afternoon</span> - <span>A House In The Trees</span></li>
+                <li><span>When Will I Belong</span> - <span>Geographer</span></li>
+                <li><span>Living</span> - <span>TENDER</span></li>
+                <li><span>My Best Self</span> - <span>Half Waif</span></li>
+                <li><span>Need Your Love</span> - <span>Tennis</span></li>
+                <li><span>Sea of Wine</span> - <span>Teleman</span></li>
+                <li><span>Token</span> - <span>Panda Bear</span></li>
+                <li><span>Suspicious</span> - <span>Faces on TV</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/2F4CZdQo3BzHfA33OywUcM">2020 Early playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="2F4CZdQo3BzHfA33OywUcM"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2020 Early playlist (Spotify widget)</button>
+        </article>
+
+        <h2>2019</h2>
+
+        <article>
+            <h1>2019 Winter</h1>
+
+            <ol>
+                <li><span>1000 Words</span> - <span>0171</span></li>
+                <li><span>Ruins</span> - <span>aYia</span></li>
+                <li><span>By Your Side</span> - <span>French 79</span></li>
+                <li><span>Retribution</span> - <span>Sucre</span></li>
+                <li><span>Swimmers</span> - <span>Zero 7</span></li>
+                <li><span>Origami</span> - <span>Totemo</span></li>
+                <li><span>Vide Noir</span> - <span>Lord Huron</span></li>
+                <li><span>I Adore</span> - <span>Laura Misch</span></li>
+                <li><span>Lover</span> - <span>Árstíðir</span></li>
+                <li><span>Sapphire</span> - <span>Diamond Thug</span></li>
+                <li><span>Drastic Measures</span> - <span>Bayonne</span></li>
+                <li><span>Canopée</span> - <span>Polo & Pan</span></li>
+                <li><span>Disarray</span> - <span>Low</span></li>
+                <li><span>Time</span> - <span>EMEFE</span></li>
+                <li><span>Speak Loud</span> - <span>Trills</span></li>
+                <li><span>The Visitor</span> - <span>Kadhja Bonet</span></li>
+                <li><span>I'm That Guy</span> - <span>Agar Agar</span></li>
+                <li><span>Freedom Falls</span> - <span>Khushi</span></li>
+                <li><span>I Don't Know</span> - <span>WhoMadeWho</span></li>
+                <li><span>There Is Still Pain Left</span> - <span>Sophie Hunger</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/5duwOVJxIpUA8AaDF8S2pU">2019 Winter playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="5duwOVJxIpUA8AaDF8S2pU"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2019 Winter playlist (Spotify widget)</button>
+        </article>
+
+        <article>
+            <h1>2019 Autumn</h1>
+
+            <ol>
+                <li><span>Devil's Sweetheart</span> - <span>Alice Phoebe Lou</span></li>
+                <li><span>Miles Away</span> - <span>Alex Ebert</span></li>
+                <li><span>Spiral</span> - <span>Wye Oak</span></li>
+                <li><span>Moonshine</span> - <span>Caravan Palace</span></li>
+                <li><span>Every Note</span> - <span>Mystery Skulls</span></li>
+                <li><span>Bottom Of The Deep Blue Sea</span> - <span>MISSIO</span></li>
+                <li><span>Thumbnail</span> - <span>Louie Zong</span></li>
+                <li><span>still feel.</span> - <span>half•alive</span></li>
+                <li><span>Siamo ospiti</span> - <span>La rappresentante di lista</span></li>
+                <li><span>My Type</span> - <span>Saint Motel</span></li>
+                <li><span>Foreign Bodies</span> - <span>Lucy Swann</span></li>
+                <li><span>Movies</span> - <span>Weyes Blood</span></li>
+                <li><span>Attack Sustain Release</span> - <span>Chrome Sparks</span></li>
+                <li><span>One Eye Open</span> - <span>O Mer</span></li>
+                <li><span>home with you</span> - <span>FKA twigs</span></li>
+                <li><span>Fragment II</span> - <span>Drinker</span></li>
+                <li><span>The Ceremony Of Innocence</span> - <span>Moby</span></li>
+                <li><span>CARONTE</span> - <span>Apparat</span></li>
+                <li><span>Run Me Through - King Princess Remix</span> - <span>Perfume Genius</span></li>
+                <li><span>I Love You, But I Need Another Year</span> - <span>Liza Anne</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/2hBpcdpOgi4ptUmZtFyysq">2019 Autumn playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="2hBpcdpOgi4ptUmZtFyysq"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2019 Autumn playlist (Spotify widget)</button>
+        </article>
+
+        <article>
+            <h1>2019 Summer</h1>
+
+            <ol>
+                <li><span>Heavy Cross</span> - <span>Gossip</span></li>
+                <li><span>Half Asleep</span> - <span>Yeasayer</span></li>
+                <li><span>Oasis</span> - <span>Jordan Rakei</span></li>
+                <li><span>I Want It All</span> - <span>Shey Baba</span></li>
+                <li><span>Hot For The Mountain</span> - <span>Natalie Prass</span></li>
+                <li><span>Horse to Water</span> - <span>Tall Heights</span></li>
+                <li><span>Ophelia</span> - <span>George Taylor</span></li>
+                <li><span>The Good Part</span> - <span>Liz Lawrence</span></li>
+                <li><span>Redwood Tree</span> - <span>Jamie Drake</span></li>
+                <li><span>High</span> - <span>Lokki</span></li>
+                <li><span>Sweet Hell</span> - <span>Maiah Manser</span></li>
+                <li><span>Two Wooden Spoons</span> - <span>This Is The Kit</span></li>
+                <li><span>Genghis Khan</span> - <span>Miike Snow</span></li>
+                <li><span>High</span> - <span>ooi</span></li>
+                <li><span>Fynbos - Mahogany Sessions</span> - <span>Alice Phoebe Lou</span></li>
+                <li><span>Line Lie</span> - <span>Violents</span></li>
+                <li><span>Bad Habits</span> - <span>Madame Gandhi</span></li>
+                <li><span>May</span> - <span>Jordan Rakei</span></li>
+                <li><span>Handmade Ego</span> - <span>TENDER</span></li>
+                <li><span>Tiger</span> - <span>Joon Moon</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/0iDI01sNxtjfFyvAqms3vK">2019 Summer playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="0iDI01sNxtjfFyvAqms3vK"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2019 Summer playlist (Spotify widget)</button>
+        </article>
+
+        <article>
+            <h1>2019 Spring</h1>
+
+            <ol>
+                <li><span>Sparrow</span> - <span>Simon & Garfunkel</span></li>
+                <li><span>Teardrops</span> - <span>Peter and Kerry</span></li>
+                <li><span>Dream Sweet in Sea Major</span> - <span>Miracle Musical</span></li>
+                <li><span>Evolve</span> - <span>Phoria</span></li>
+                <li><span>Love Crimes</span> - <span>Hayden Thorpe</span></li>
+                <li><span>On the Air</span> - <span>O Mer</span></li>
+                <li><span>Wedding Daze</span> - <span>Daniel Wilson</span></li>
+                <li><span>Reoccurring Dream</span> - <span>Ethan Gruska</span></li>
+                <li><span>All I Wanted</span> - <span>Hannah Cohen</span></li>
+                <li><span>L'aérogramme de Los Angeles</span> - <span>Woodkid</span></li>
+                <li><span>From Fire</span> - <span>Perta</span></li>
+                <li><span>Yeah I Care</span> - <span>Nick Murphy</span></li>
+                <li><span>Black Widow</span> - <span>Isaac Delusion</span></li>
+                <li><span>See The Light</span> - <span>Electric Guest</span></li>
+                <li><span>You Got Love</span> - <span>Upstairs Open</span></li>
+                <li><span>UFOF</span> - <span>Big Thief</span></li>
+                <li><span>King of Shadow</span> - <span>Kat Cunning</span></li>
+                <li><span>Falsetto</span> - <span>Chris Thile</span></li>
+                <li><span>Swimming Backwards</span> - <span>There</span></li>
+                <li><span>Cruel World</span> - <span>Active Child</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/0qEiJWBvMPpf8CrpEyOcLh">2019 Spring playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="0qEiJWBvMPpf8CrpEyOcLh"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2019 Spring playlist (Spotify widget)</button>
+        </article>
+
+        <h2>2018</h2>
+
+        <article>
+            <h1>2018 Winter</h1>
+
+            <ol>
+                <li><span>Heaven's Gate</span> - <span>Dawn Landes</span></li>
+                <li><span>Whippoorwill</span> - <span>Darlingside</span></li>
+                <li><span>Sweet Like Brandy</span> - <span>Kwamie Liv</span></li>
+                <li><span>Joy</span> - <span>Loma</span></li>
+                <li><span>Sparkle</span> - <span>aYia</span></li>
+                <li><span>Fight to Make It Up</span> - <span>Takénobu</span></li>
+                <li><span>Tightrope</span> - <span>Ness Nite</span></li>
+                <li><span>Addict</span> - <span>La Chica</span></li>
+                <li><span>Nuggets</span> - <span>Catastrophe</span></li>
+                <li><span>Sway</span> - <span>My Brightest Diamond</span></li>
+                <li><span>Manners</span> - <span>Jelani Blackman</span></li>
+                <li><span>Shelter</span> - <span>Broken Bells</span></li>
+                <li><span>Heavy</span> - <span>First Breath After Coma</span></li>
+                <li><span>Family</span> - <span>Pi Ja Ma</span></li>
+                <li><span>Gold</span> - <span>Slugabed</span></li>
+                <li><span>Here and Heaven</span> - <span>Stuart Duncan</span></li>
+                <li><span>The Lily</span> - <span>Blanco White</span></li>
+                <li><span>Without Words</span> - <span>Joseph of Mercury</span></li>
+                <li><span>New</span> - <span>Alex Stolze</span></li>
+                <li><span>One</span> - <span>Cleo Sol</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/2WUMzCWav76j816Iy7HlS7">2018 Winter playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="2WUMzCWav76j816Iy7HlS7"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2018 Winter playlist (Spotify widget)</button>
+        </article>
+
+        <article>
+            <h1>2018 Autumn</h1>
+
+            <ol>
+                <li><span>Circles</span> - <span>Acollective</span></li>
+                <li><span>Ensen Dhaif</span> - <span>Emel</span></li>
+                <li><span>Sanctify</span> - <span>Years & Years</span></li>
+                <li><span>Vertigo</span> - <span>Shey Baba</span></li>
+                <li><span>Every Animal</span> - <span>Half Waif</span></li>
+                <li><span>Yellow Dust</span> - <span>Miink</span></li>
+                <li><span>Losing You</span> - <span>Gizmo Varillas</span></li>
+                <li><span>Anthem</span> - <span>O Mer</span></li>
+                <li><span>Salam - Original Mix</span> - <span>Mashrou' Leila</span></li>
+                <li><span>Fall</span> - <span>Lisa Hannigan</span></li>
+                <li><span>Miami (feat. BIA)</span> - <span>Kali Uchis</span></li>
+                <li><span>Too Fast</span> - <span>Sonder</span></li>
+                <li><span>Bitter Winter</span> - <span>ALASKALASKA</span></li>
+                <li><span>Mockingbird</span> - <span>Uma</span></li>
+                <li><span>Remind Me</span> - <span>Emily King</span></li>
+                <li><span>Body</span> - <span>Julia Jacklin</span></li>
+                <li><span>Everybody Loves You</span> - <span>SOAK</span></li>
+                <li><span>Churchyard</span> - <span>AURORA</span></li>
+                <li><span>Sun Is Rising</span> - <span>Otzeki</span></li>
+                <li><span>Half Life</span> - <span>Oh Pep!</span></li>
+                <li><span>Hollow Days</span> - <span>Twin Shadow</span></li>
+                <li><span>Inner G</span> - <span>Low Leaf</span></li>
+                <li><span>Can You Hear Me - Rework</span> - <span>Amber Mark</span></li>
+                <li><span>Feel Your Weight - Poolside Remix</span> - <span>Rhye</span></li>
+                <li><span>Mystery</span> - <span>Fabiana Palladino</span></li>
+                <li><span>IM U</span> - <span>Beacon</span></li>
+                <li><span>Cruel</span> - <span>Monica Martin</span></li>
+                <li><span>Demolition Man</span> - <span>Rizzle Kicks</span></li>
+                <li><span>Drumsolo</span> - <span>Leyya</span></li>
+                <li><span>We Should Be Holding Hands</span> - <span>Blonde Redhead</span></li>
+                <li><span>ZeroFrame</span> - <span>When Saints Go Machine</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/4hz15AHUl7Jh2wOlo3WZim">2018 Autumn playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="4hz15AHUl7Jh2wOlo3WZim"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2018 Autumn playlist (Spotify widget)</button>
+        </article>
+
+        <article>
+            <h1>2018 Summer</h1>
+
+            <ol>
+                <li><span>Borders</span> - <span>St. Beauty</span></li>
+                <li><span>The Fog</span> - <span>Overcoats</span></li>
+                <li><span>Valerians</span> - <span>Vasser</span></li>
+                <li><span>Flashlight</span> - <span>Örvar Smárason</span></li>
+                <li><span>Birdie Bees</span> - <span>Gavin Turek</span></li>
+                <li><span>20/20 (Amelia)</span> - <span>Hannah Epperson</span></li>
+                <li><span>Un4gvn (feat. Two Beards)</span> - <span>Ruby Friedman</span></li>
+                <li><span>Inside</span> - <span>Sucre</span></li>
+                <li><span>Thunderbird</span> - <span>Evil</span></li>
+                <li><span>Elijah (feat. Laura Mvula and Jay Prince)</span> - <span>House of EL</span></li>
+                <li><span>Gravity Don't Pull Me</span> - <span>Rostam</span></li>
+                <li><span>The Wandering Star</span> - <span>Saintseneca</span></li>
+                <li><span>Little Woman</span> - <span>Twin Shadow</span></li>
+                <li><span>The Whole Summer</span> - <span>Lo-Fang</span></li>
+                <li><span>Taste - Recorded at Spotify Studios NYC</span> - <span>Rhye</span></li>
+                <li><span>Frikii</span> - <span>iZem</span></li>
+                <li><span>When The Body Is Gone - SA TA NA MA DEMO</span> - <span>Nick Mulvey</span></li>
+                <li><span>Rank & File</span> - <span>Moses Sumney</span></li>
+                <li><span>Crimson Eyes</span> - <span>Roxanne Tataei</span></li>
+                <li><span>Superior (Fuck You)</span> - <span>Schmieds Puls</span></li>
+                <li><span>Broken Arrow</span> - <span>Francis Novotny</span></li>
+                <li><span>Death Spiral</span> - <span>Dirty Projectors</span></li>
+                <li><span>Oatmeal</span> - <span>Sudan Archives</span></li>
+                <li><span>Nylon</span> - <span>Kllo</span></li>
+                <li><span>Strangest Of Ways</span> - <span>Lucy Rose</span></li>
+                <li><span>Garden</span> - <span>Jono McCleery</span></li>
+                <li><span>All the Way Home</span> - <span>Bokanté</span></li>
+                <li><span>ASTROTHUNDER</span> - <span>Travis Scott</span></li>
+                <li><span>Sinking Ship</span> - <span>Wild Child</span></li>
+                <li><span>Regina</span> - <span>Becca Stevens</span></li>
+                <li><span>Driving Down to L.A</span> - <span>Ezra Furman</span></li>
+                <li><span>Rebel Heart</span> - <span>First Aid Kit</span></li>
+                <li><span>All My Life</span> - <span>The Staves</span></li>
+                <li><span>Ivy - Throwing Snow Remix</span> - <span>Tusks</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/5dXOReQ13ONoj8YpnjZyKK">2018 Summer playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="5dXOReQ13ONoj8YpnjZyKK"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2018 Summer playlist (Spotify widget)</button>
+        </article>
+
+        <article>
+            <h1>2018 Spring</h1>
+
+            <ol>
+                <li><span>Again</span> - <span>Timmies</span></li>
+                <li><span>Yemaya</span> - <span>Kele</span></li>
+                <li><span>Good Kisser</span> - <span>Lake Street Dive</span></li>
+                <li><span>The Pharmacist</span> - <span>Groeni</span></li>
+                <li><span>NorthSea</span> - <span>Solregn</span></li>
+                <li><span>Paramount Tether</span> - <span>Febueder</span></li>
+                <li><span>In a Girls World</span> - <span>Saint Michel</span></li>
+                <li><span>Animal Games</span> - <span>The Colorist Orchestra</span></li>
+                <li><span>A Step (feat. Pete Josef)</span> - <span>Manu Delago</span></li>
+                <li><span>1-800-273-8255</span> - <span>Logic</span></li>
+                <li><span>the baptist</span> - <span>Lauren Auder</span></li>
+                <li><span>Honey</span> - <span>Kehlani</span></li>
+                <li><span>Sky Walker - Recorded at Spotify Studios NYC</span> - <span>Miguel</span></li>
+                <li><span>hard rain</span> - <span>Lykke Li</span></li>
+                <li><span>Hans</span> - <span>Febueder</span></li>
+                <li><span>Boys</span> - <span>Charli XCX</span></li>
+                <li><span>Golden Wings</span> - <span>Gabriel Garzón-Montano</span></li>
+                <li><span>Short Court Style</span> - <span>Natalie Prass</span></li>
+                <li><span>Keep Running ...and Running</span> - <span>New Venusians</span></li>
+                <li><span>Root</span> - <span>Sonnymoon</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/1N0IMpvAxd2FFlf6E0WOqX">2018 Spring playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="1N0IMpvAxd2FFlf6E0WOqX"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2018 Spring playlist (Spotify widget)</button>
+        </article>
+
+        <h2>2017</h2>
+
+        <article>
+            <h1>2017 Winter</h1>
+
+            <ol>
+                <li><span>Escapements</span> - <span>Beacon</span></li>
+                <li><span>Vow</span> - <span>TENDER</span></li>
+                <li><span>How Far</span> - <span>Tei Shi</span></li>
+                <li><span>Under</span> - <span>Sampha</span></li>
+                <li><span>Wallowa Lake Monster</span> - <span>Sufjan Stevens</span></li>
+                <li><span>Dangerous</span> - <span>Son Lux</span></li>
+                <li><span>Underwaterfall</span> - <span>Bearcubs</span></li>
+                <li><span>Severed Logic</span> - <span>Half Waif</span></li>
+                <li><span>S P A C E</span> - <span>Amber Mark</span></li>
+                <li><span>Parking Lot</span> - <span>Anderson .Paak</span></li>
+                <li><span>Passionfruit</span> - <span>Drake</span></li>
+                <li><span>Lonely World</span> - <span>Moses Sumney</span></li>
+                <li><span>Make Me Feel</span> - <span>Janelle Monáe</span></li>
+                <li><span>Try</span> - <span>Jelani Blackman</span></li>
+                <li><span>Painted Blue</span> - <span>Jono McCleery</span></li>
+                <li><span>Mortal Man</span> - <span>Camarano</span></li>
+                <li><span>Hold Us Down</span> - <span>Fyfe</span></li>
+                <li><span>Wonder Eyes</span> - <span>bailey</span></li>
+                <li><span>Emaille</span> - <span>Anna Rune</span></li>
+                <li><span>DISRESPECT IS UNIVERSAL</span> - <span>Jenny Wilson</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/7yDjTvpNgmNP0qOsC4zSOB">2017 Winter playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="7yDjTvpNgmNP0qOsC4zSOB"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2017 Winter playlist (Spotify widget)</button>
+        </article>
+
+        <article>
+            <h1>2017 Autumn</h1>
+
+            <ol>
+                <li><span>Neighbors</span> - <span>Grizzly Bear</span></li>
+                <li><span>Bad Place For A Good Time</span> - <span>Kae Tempest</span></li>
+                <li><span>A Thousand Cracks</span> - <span>Lambert</span></li>
+                <li><span>Heartbeat</span> - <span>Zola Blood</span></li>
+                <li><span>In My Bed</span> - <span>Deep Throat Choir</span></li>
+                <li><span>four ethers</span> - <span>serpentwithfeet</span></li>
+                <li><span>Anoche</span> - <span>Arca</span></li>
+                <li><span>To The Moon And Back</span> - <span>Fever Ray</span></li>
+                <li><span>Every Little Thing</span> - <span>Röyksopp</span></li>
+                <li><span>Stuck with Me</span> - <span>The Neighbourhood</span></li>
+                <li><span>Benighted</span> - <span>Keep Shelly In Athens</span></li>
+                <li><span>True Care</span> - <span>James Vincent McMorrow</span></li>
+                <li><span>33 “GOD”</span> - <span>Bon Iver</span></li>
+                <li><span>Choir</span> - <span>Perfume Genius</span></li>
+                <li><span>We Choose</span> - <span>Her</span></li>
+                <li><span>Rennen</span> - <span>SOHN</span></li>
+                <li><span>Pencils</span> - <span>ANIMA!</span></li>
+                <li><span>Feel It Still</span> - <span>Portugal. The Man</span></li>
+                <li><span>Fear & Force</span> - <span>Vagabon</span></li>
+                <li><span>Ribbon</span> - <span>Billie Marten</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/47BwEHh2yhF1hPUoP6gQoR">2017 Autumn playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="47BwEHh2yhF1hPUoP6gQoR"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2017 Autumn playlist (Spotify widget)</button>
+        </article>
+
+        <article>
+            <h1>2017 Summer</h1>
+
+            <ol>
+                <li><span>No Shortcuts</span> - <span>Heather Maloney & Darlingside</span></li>
+                <li><span>Paperwalls</span> - <span>Andreya Triana</span></li>
+                <li><span>What It's Worth</span> - <span>Elder Island</span></li>
+                <li><span>Face</span> - <span>Christian Rich</span></li>
+                <li><span>Jimmy Franco</span> - <span>Lolawolf</span></li>
+                <li><span>Is It Because You Know I Love You</span> - <span>Len Sander</span></li>
+                <li><span>Maghawir</span> - <span>Mashrou' Leila</span></li>
+                <li><span>Deep Green</span> - <span>Marika Hackman</span></li>
+                <li><span>August In Paris</span> - <span>Sage</span></li>
+                <li><span>Keep On Running</span> - <span>Gabriel Garzón-Montano</span></li>
+                <li><span>Stoned on You</span> - <span>Jaymes Young</span></li>
+                <li><span>Blood Moon</span> - <span>M. Craft</span></li>
+                <li><span>Hudea</span> - <span>Inude</span></li>
+                <li><span>Meet Me There</span> - <span>Nick Mulvey</span></li>
+                <li><span>Outside Things</span> - <span>Charlie Cunningham</span></li>
+                <li><span>Chalk</span> - <span>Blanco White</span></li>
+                <li><span>I Can't Help It</span> - <span>Soft Lit</span></li>
+                <li><span>Never Met You</span> - <span>Laskaar</span></li>
+                <li><span>Come Along</span> - <span>Cosmo Sheldrake</span></li>
+                <li><span>Put Castle</span> - <span>The/Das</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/5zy4MyCbLKCnGeNWpAvOrm">2017 Summer playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="5zy4MyCbLKCnGeNWpAvOrm"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2017 Summer playlist (Spotify widget)</button>
+        </article>
+
+        <article>
+            <h1>2017 Spring</h1>
+
+            <ol>
+                <li><span>Islands of You and Me</span> - <span>Maia Vidal</span></li>
+                <li><span>In God's House</span> - <span>Bat For Lashes</span></li>
+                <li><span>Myth</span> - <span>Tsar B</span></li>
+                <li><span>Verse</span> - <span>Rhye</span></li>
+                <li><span>Everything Is Free</span> - <span>Gillian Welch</span></li>
+                <li><span>Armour</span> - <span>TENDER</span></li>
+                <li><span>Watercolor Dreams</span> - <span>Shy Girls</span></li>
+                <li><span>With You</span> - <span>James Supercave</span></li>
+                <li><span>Caving</span> - <span>Seavera</span></li>
+                <li><span>The Deserters</span> - <span>Rachel Zeffira</span></li>
+                <li><span>Everlasting Sigh</span> - <span>Moses Sumney</span></li>
+                <li><span>Under Water</span> - <span>Baby Alpaca</span></li>
+                <li><span>Hot Coals</span> - <span>Edward Sharpe & The Magnetic Zeros</span></li>
+                <li><span>Bodies - Sin Fang Remix</span> - <span>Farao</span></li>
+                <li><span>Ridin' Round (Sky High)</span> - <span>Fatima</span></li>
+                <li><span>The Highway</span> - <span>Tunde Olaniran</span></li>
+                <li><span>Fire</span> - <span>Lowly</span></li>
+                <li><span>Virtue</span> - <span>Yates</span></li>
+                <li><span>Silver</span> - <span>Lo-Fang</span></li>
+                <li><span>So Long</span> - <span>Jono McCleery</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/4xEhOpUOQ6yyVvb5crxBgU">2017 Spring playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="4xEhOpUOQ6yyVvb5crxBgU"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2017 Spring playlist (Spotify widget)</button>
+        </article>
+
+        <h2>2016</h2>
+
+        <article>
+            <h1>2016 Winter</h1>
+
+            <ol>
+                <li><span>Stronger - Acoustic</span> - <span>Fyfe</span></li>
+                <li><span>Run Run Run</span> - <span>The Notwist</span></li>
+                <li><span>Shine Again</span> - <span>Kutiman</span></li>
+                <li><span>Glimpse of Hope</span> - <span>Nils Bech</span></li>
+                <li><span>Loveless</span> - <span>Wild Ones</span></li>
+                <li><span>Blood I Bled</span> - <span>The Staves</span></li>
+                <li><span>Easy To Read</span> - <span>Milk & Bone</span></li>
+                <li><span>To Get By</span> - <span>Empress Of</span></li>
+                <li><span>Bullets</span> - <span>Archive</span></li>
+                <li><span>A Mess Like This</span> - <span>The Dø</span></li>
+                <li><span>Murmuration</span> - <span>Nomad Soul</span></li>
+                <li><span>Empty</span> - <span>Eva + Manu</span></li>
+                <li><span>Wood</span> - <span>Rostam</span></li>
+                <li><span>Up In Hudson - edit</span> - <span>Dirty Projectors</span></li>
+                <li><span>Life Is a Liquid</span> - <span>Exec</span></li>
+                <li><span>Glamour</span> - <span>George Cosby</span></li>
+                <li><span>Underwater</span> - <span>Porches</span></li>
+                <li><span>Five Minutes</span> - <span>Her</span></li>
+                <li><span>To See You Smile</span> - <span>Yuksek</span></li>
+                <li><span>In Denial</span> - <span>William Ryan Fritch</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/1PHStfnp3e2fRjr1Qa6o4t">2016 Winter playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="1PHStfnp3e2fRjr1Qa6o4t"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2016 Winter playlist (Spotify widget)</button>
+        </article>
+
+        <article>
+            <h1>2016 Autumn</h1>
+
+            <ol>
+                <li><span>Hiding In The Rushes</span> - <span>Francesca Belmonte</span></li>
+                <li><span>White Fox in the Snow</span> - <span>Grapell</span></li>
+                <li><span>Tape2Tape (feat. Joel Compass)</span> - <span>Aqualung</span></li>
+                <li><span>Land Of All</span> - <span>Woodkid</span></li>
+                <li><span>Undone</span> - <span>Phoria</span></li>
+                <li><span>September</span> - <span>Robot Koch</span></li>
+                <li><span>How to Waste a Moment</span> - <span>James Vincent McMorrow</span></li>
+                <li><span>Irredeemer</span> - <span>Ed Tullett</span></li>
+                <li><span>Polly</span> - <span>Gem Club</span></li>
+                <li><span>Airport</span> - <span>The Attic Sleepers</span></li>
+                <li><span>Calm It Down</span> - <span>Sisyphus</span></li>
+                <li><span>For</span> - <span>C Duncan</span></li>
+                <li><span>Generation Blue</span> - <span>Niia</span></li>
+                <li><span>Kill Your Mama</span> - <span>Alicia Keys</span></li>
+                <li><span>Almost Makes Me Wish for Rain</span> - <span>Lucius</span></li>
+                <li><span>Jaigantic</span> - <span>Tora</span></li>
+                <li><span>I Left You</span> - <span>Arthur Beatrice</span></li>
+                <li><span>Phoenix</span> - <span>Kill J</span></li>
+                <li><span>By the Way</span> - <span>Scott Orr</span></li>
+                <li><span>Conversations</span> - <span>Fyfe</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/4g6ESOpEp6hgbbwDWxIRaG">2016 Autumn playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="4g6ESOpEp6hgbbwDWxIRaG"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2016 Autumn playlist (Spotify widget)</button>
+        </article>
+
+        <article>
+            <h1>2016 Summer</h1>
+
+            <ol>
+                <li><span>Aftermath</span> - <span>Hundreds</span></li>
+                <li><span>Sirens</span> - <span>Lola Marsh</span></li>
+                <li><span>Bright Luck</span> - <span>Portico</span></li>
+                <li><span>Walk On Water</span> - <span>Kat Dahlia</span></li>
+                <li><span>The Pretender</span> - <span>Tessa Rose Jackson</span></li>
+                <li><span>Now I'm Alive</span> - <span>O Mer</span></li>
+                <li><span>Slowbirth</span> - <span>Elsiane</span></li>
+                <li><span>Reconfiguration</span> - <span>Other Lives</span></li>
+                <li><span>Bloom - Wife Remix</span> - <span>Talos</span></li>
+                <li><span>Emily</span> - <span>San Fermin</span></li>
+                <li><span>Play Out</span> - <span>Zola Blood</span></li>
+                <li><span>We're So Light</span> - <span>Hook & The Twin</span></li>
+                <li><span>Marz</span> - <span>John Grant</span></li>
+                <li><span>TC and Honeybear</span> - <span>John Grant</span></li>
+                <li><span>Down On My Luck</span> - <span>VIC MENSA</span></li>
+                <li><span>Seesaw</span> - <span>Club Kuru</span></li>
+                <li><span>Shores - Orchestral</span> - <span>WE ARE MATCH</span></li>
+                <li><span>Turn To Dust</span> - <span>Wolf Alice</span></li>
+                <li><span>Take Your Face Off</span> - <span>Lydia Ainsworth</span></li>
+                <li><span>Sleep Baby Sleep</span> - <span>BROODS</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/5rQyKWfbWwOLZo41sTnX6R">2016 Summer playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="5rQyKWfbWwOLZo41sTnX6R"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2016 Summer playlist (Spotify widget)</button>
+        </article>
+
+        <article>
+            <h1>2016 Spring</h1>
+
+            <ol>
+                <li><span>What You Don't Do</span> - <span>Lianne La Havas</span></li>
+                <li><span>Some Minds (feat. Andrew Wyatt)</span> - <span>Flume</span></li>
+                <li><span>Feel</span> - <span>Dead Times</span></li>
+                <li><span>I Tried</span> - <span>Lucy Rose</span></li>
+                <li><span>Volcano - feat. Phoene Somsavath</span> - <span>Saycet</span></li>
+                <li><span>Double Dolphins On the Nickel</span> - <span>Mice Parade</span></li>
+                <li><span>Lessons</span> - <span>SOHN</span></li>
+                <li><span>Someone New</span> - <span>KANEHOLLER</span></li>
+                <li><span>Pulsing (feat. Nina K)</span> - <span>Tomas Barfod</span></li>
+                <li><span>Take Me</span> - <span>Sisyphus</span></li>
+                <li><span>To Pluto's Moon - Son Lux Remix</span> - <span>My Brightest Diamond</span></li>
+                <li><span>All These Years</span> - <span>Shivum Sharma</span></li>
+                <li><span>Family</span> - <span>Apothek</span></li>
+                <li><span>Metamorphosis</span> - <span>Wyles & Simpson</span></li>
+                <li><span>Cry No More</span> - <span>Vaults</span></li>
+                <li><span>Seconds</span> - <span>Ghost Loft</span></li>
+                <li><span>Dark Days</span> - <span>HUGOwho</span></li>
+                <li><span>Late Visitor</span> - <span>Chilly Gonzales</span></li>
+                <li><span>Why Don't You Save Me?</span> - <span>Kan Wakan</span></li>
+                <li><span>Dead Arms & Dead Legs</span> - <span>Eliot Sumner</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/5Sow5ETIAc9HbFZ4HTBCyE">2016 Spring playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="5Sow5ETIAc9HbFZ4HTBCyE"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2016 Spring playlist (Spotify widget)</button>
+        </article>
+
+        <h2>2015</h2>
+
+        <article>
+            <h1>2015 Winter</h1>
+
+            <ol>
+                <li><span>Turn Away</span> - <span>Beck</span></li>
+                <li><span>The Other Side</span> - <span>French For Rabbits</span></li>
+                <li><span>Somewhere Else</span> - <span>INDIANS</span></li>
+                <li><span>Breadwinner</span> - <span>BEA1991</span></li>
+                <li><span>Fire Rides</span> - <span>MØ</span></li>
+                <li><span>Nile</span> - <span>Douglas Dare</span></li>
+                <li><span>Everybody's Got To Learn Sometime</span> - <span>The Field</span></li>
+                <li><span>The Knower</span> - <span>Youth Lagoon</span></li>
+                <li><span>Fame</span> - <span>The Acid</span></li>
+                <li><span>Hunter</span> - <span>Farao</span></li>
+                <li><span>The Monster</span> - <span>Atella</span></li>
+                <li><span>Memex</span> - <span>Duologue</span></li>
+                <li><span>Forever (feat. Lucinda)</span> - <span>Nomad Soul</span></li>
+                <li><span>Clockwork</span> - <span>Douglas Dare</span></li>
+                <li><span>The Love You Have in You</span> - <span>Asbjørn</span></li>
+                <li><span>Secret</span> - <span>Huntington</span></li>
+                <li><span>Exxus</span> - <span>Glass Animals</span></li>
+                <li><span>Marilyn Monroe</span> - <span>Sevdaliza</span></li>
+                <li><span>To Build A Home</span> - <span>The Cinematic Orchestra</span></li>
+                <li><span>Warm on a Cold Night</span> - <span>HONNE</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/6Ext9arH0jdh0MQQ7ondJz">2015 Winter playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="6Ext9arH0jdh0MQQ7ondJz"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2015 Winter playlist (Spotify widget)</button>
+        </article>
+
+        <article>
+            <h1>2015 Autumn</h1>
+
+            <ol>
+                <li><span>Neither Here Nor There</span> - <span>Lost In The Trees</span></li>
+                <li><span>Pressure</span> - <span>My Brightest Diamond</span></li>
+                <li><span>Pressure</span> - <span>Until The Ribbon Breaks</span></li>
+                <li><span>Dust It Off</span> - <span>The Dø</span></li>
+                <li><span>Kanye</span> - <span>Bogan Via</span></li>
+                <li><span>True Love</span> - <span>Montag</span></li>
+                <li><span>Drown</span> - <span>Marika Hackman</span></li>
+                <li><span>Technicolour Beat</span> - <span>Oh Wonder</span></li>
+                <li><span>No Harm Is Done (feat. Tunji Ige)</span> - <span>Christine and the Queens</span></li>
+                <li><span>River from the Sky</span> - <span>The Weepies</span></li>
+                <li><span>Doing the Wrong Thing</span> - <span>Kaki King</span></li>
+                <li><span>Speaking Of Truth - Orchestrated</span> - <span>Laleh</span></li>
+                <li><span>Do You Remember</span> - <span>Jarryd James</span></li>
+                <li><span>Wandering Back</span> - <span>Sucre</span></li>
+                <li><span>I See I Say</span> - <span>Ebony Bones!</span></li>
+                <li><span>City Of Sin</span> - <span>Linus Young</span></li>
+                <li><span>Line Of Fire</span> - <span>Junip</span></li>
+                <li><span>Beneath the Brine</span> - <span>The Family Crest</span></li>
+                <li><span>Fuel to Fire</span> - <span>Agnes Obel</span></li>
+                <li><span>The Big Idea</span> - <span>Black Books</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/5LeLZ4L9GqOXFK2T7IeHh0">2015 Autumn playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="5LeLZ4L9GqOXFK2T7IeHh0"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2015 Autumn playlist (Spotify widget)</button>
+        </article>
+
+        <article>
+            <h1>2015 Summer</h1>
+
+            <ol>
+                <li><span>Try To Be</span> - <span>Blue Hawaii</span></li>
+                <li><span>My Song 5</span> - <span>HAIM</span></li>
+                <li><span>Make It Holy</span> - <span>The Staves</span></li>
+                <li><span>Wait for a Minute</span> - <span>Tune-Yards</span></li>
+                <li><span>Ghosting</span> - <span>Mother Mother</span></li>
+                <li><span>Russia</span> - <span>Ramona Falls</span></li>
+                <li><span>Jo</span> - <span>Goldfrapp</span></li>
+                <li><span>4th and Roebling</span> - <span>The Districts</span></li>
+                <li><span>Iamundernodisguise</span> - <span>School Of Seven Bells</span></li>
+                <li><span>Hey Now</span> - <span>London Grammar</span></li>
+                <li><span>6 8</span> - <span>Gabriel Garzón-Montano</span></li>
+                <li><span>Tongues</span> - <span>Joywave</span></li>
+                <li><span>I Want a House</span> - <span>Mr Twin Sister</span></li>
+                <li><span>Sonsick</span> - <span>San Fermin</span></li>
+                <li><span>Can't Go Back</span> - <span>Phil Beaudreau</span></li>
+                <li><span>Tempest</span> - <span>SOHN</span></li>
+                <li><span>Midnight Moon</span> - <span>Waterstrider</span></li>
+                <li><span>Float</span> - <span>FTSE</span></li>
+                <li><span>Bitch</span> - <span>Allie X</span></li>
+                <li><span>Drowning</span> - <span>BANKS</span></li>
+            </ol>
+
+            <p><a href="https://open.spotify.com/playlist/01dQyfJIETrWbNYrE3Br7D">2015 Summer playlist on Spotify</a></p>
+
+            <button
+                type="button"
+                data-spotify-playlist-id="01dQyfJIETrWbNYrE3Br7D"
+                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
+            >Embed 2015 Summer playlist (Spotify widget)</button>
+        </article>
+    </body>
+</html>
