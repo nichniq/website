@@ -63,11 +63,13 @@ cite {
 }
 
 cite[data-medium="poem"]::before,
+cite[data-medium="song"]::before,
 cite[data-medium="blog-post"]::before {
   content: "”";
 }
 
 cite[data-medium="poem"]::after,
+cite[data-medium="song"]::after,
 cite[data-medium="blog-post"]::after {
   content: "“";
 }
