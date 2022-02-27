@@ -117,7 +117,47 @@
             the entire playlist was visible and rendered in HTML.
 
             ```
-            javascript:(function() { navigator.clipboard.writeText("<ol>\n" + Array.from(document.querySelectorAll("[data-testid='tracklist-row']")).map((ele) => { const info = ele.querySelector("[aria-colindex='2']").children[1]; const song = info.querySelector("[dir='auto']").textContent; const artist = info.querySelector("[draggable=true]").textContent; return `    <li><span>${song}</span> - <span>${artist}</span></li>`; }).join("\n") + "\n</ol>") })()
+            javascript:(function() {
+                /* 1. Grab the rows */
+
+                const rows = (document) => Array.from(
+                    document.querySelectorAll(
+                        "[data-testid='tracklist-row']"
+                    )
+                );
+
+                /* 2. For each row, get the data we care about */
+
+                const title = (row) => row.querySelector(
+                    "[dir='auto']"
+                ).textContent;
+
+                const artist = (row) => row.querySelector(
+                    "[draggable=true]"
+                ).textContent;
+
+                const data = (row) => [ title(row), artist(row) ];
+
+                /* 3. Convert our data into a list item */
+
+                const li = ([ title, artist ]) => [
+                    "<li>",
+                    `<cite data-medium="song">${title}</cite> - ${artist}`,
+                    "</li>",
+                ].join("");
+
+                /* 4. Construct list by converting song info into list items */
+
+                const ol = (rows) => [
+                    "<ol>",
+                    ...rows.map((row) => " ".repeat(4) + li(data(row))),
+                    "</ol>"
+                ].join("\n");
+
+                /* 5. Copy the list to the clipboard */
+
+                navigator.clipboard.writeText(ol(rows(document)));
+             })()
             ```
         -->
     </head>
