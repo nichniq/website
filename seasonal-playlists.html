@@ -29,77 +29,87 @@
             }
         </style>
 
+        <!--
+            I'm trying out a new way of defining local scripts. I define pure
+            functions here in the head, each function within its own script tag.
+            Then, at the end of the body, I create a new script tag that uses
+            the functions. (I must execute that script after the rest of the
+            HTML has been parsed. If I called it here in the head, it would
+            attempt to grab elements that don't exist yet.)
+        -->
+
         <script>
-            function createSpotifyPlaylistWidget(playlistId, title) {
-                /**
-                 * 1. Get the playlist widget template
-                 *
-                 *   This is referring to This has to keep in sync with the template.
-                 */
+            function cloneWidget({ id, title }) {
+                // 1. Get the playlist widget template
 
                 const playlistWidgetTemplate = document.getElementById(
                     "spotify-iframe-template",
                 );
 
-                /**
-                 * 2. Clone the content of the template widget
-                 */
+                // 2. Clone the content of the template widget
 
                 const playlistWidget = playlistWidgetTemplate
                     .content // get the content: a document root
                     .firstElementChild // first element to avoid comment nodes
                     .cloneNode(false); // shallow clone: iframes should be empty
 
-                /**
-                 * 3. Assign the playlist ID
-                 */
+                // 3. Assign the playlist ID
 
                 playlistWidget.src = decodeURIComponent(playlistWidget.src)
                     .replace(
-                        "{{ playlistId }}",
-                        playlistId,
+                        "{{ id }}",
+                        id,
                     );
 
-                /**
-                 * 4. Replace the title with the playlist name
-                 */
+                // 4. Replace the title with the playlist name
 
                 playlistWidget.title = playlistWidget.title.replace(
                     "{{ title }}",
                     title,
                 );
 
-                // 6. Return the widget
+                // 5. Return the widget
 
                 return playlistWidget;
             }
+        </script>
 
-            function replaceButtonWithSpotifyPlaylistWidget(button) {
-                // 1. Get Spotify playlist ID from button
+        <script>
+            function createWidgetButton(playlist) {
+                // 1. Get the playist data we care about
 
-                const spotifyPlaylistId = button.dataset.spotifyPlaylistId;
+                const title = playlist
+                    .querySelector("h1")
+                    .textContent;
 
-                // 2. Get playlist title from button
+                const id = playlist
+                    .querySelector("[href*='spotify.com/playlist/']")
+                    .href
+                    .match(/spotify.com\/playlist\/(.+)/)[1];
 
-                const playlistTitle = button.dataset.playlistTitle;
+                // 2. Create widget for playlist
 
-                // 3. Created playlist widget from ID and title
+                const widget = cloneWidget({ id, title });
 
-                const playlistWidget = createSpotifyPlaylistWidget(
-                    spotifyPlaylistId,
-                    playlistTitle
-                );
+                // 3. Create button that replaces itself with the widget
 
-                // 4. Replace the button with the widget
+                const button = document.createElement("button");
+                button.type = "button";
+                button.textContent = `Embed ${title} (Spotify)`;
+                button.addEventListener("click", () => {
+                    button.replaceWith(widget);
+                });
 
-                button.replaceWith(playlistWidget);
+                // 4. Return the button
+
+                return button;
             }
         </script>
 
         <template id="spotify-iframe-template">
             <iframe
                 alt="On devices that support nested browsing contexts (as inline frames), Spotify can serve you a playlist widget"
-                src="https://open.spotify.com/embed/playlist/{{ playlistId }}"
+                src="https://open.spotify.com/embed/playlist/{{ id }}"
                 title="{{ title }}"
                 height="380"
                 width="100%"
@@ -132,7 +142,7 @@
                     )
                 );
 
-                /* 2. For each row, get the data we care about */
+                /* 2. For a row, get the data we care about */
 
                 const title = (row) => row.querySelector(
                     "[dir='auto']"
@@ -144,7 +154,7 @@
 
                 const data = (row) => [ title(row), artist(row) ];
 
-                /* 3. Convert our data into a list item */
+                /* 3. Convert data into a list item */
 
                 const li = ([ title, artist ]) => [
                     "<li>",
@@ -152,7 +162,7 @@
                     "</li>",
                 ].join("");
 
-                /* 4. Construct list by converting song info into list items */
+                /* 4. Construct list by converting rows into list items */
 
                 const ol = (rows) => [
                     "<ol>",
