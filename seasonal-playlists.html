@@ -8,92 +8,108 @@
         <link rel="stylesheet" type="text/css" href="/globals.css" />
 
         <style>
+            /**
+             * While the widget is loading, the iframe appears empty. I define
+             * this style to add an animated background that fills the space and
+             * indicate that something is in progress.
+             */
+
             .spotify-playlist-widget {
                 animation: 2s ease-in-out 0s infinite alternate loading;
             }
 
             @keyframes loading {
                 from {
-                    background: lightgray;
+                    background-color: lightgray;
                 }
 
                 to {
-                    background: gray;
+                    background-color: gray;
                 }
             }
         </style>
 
+        <!--
+            I'm trying out a new way of defining local scripts. I define pure
+            functions here in the head, each function within its own script tag.
+            Then, at the end of the body, I create a new script tag that uses
+            the functions. (I must execute that script after the rest of the
+            HTML has been parsed. If I called it here in the head, it would
+            attempt to grab elements that don't exist yet.)
+        -->
+
         <script>
-            function createSpotifyPlaylistWidget(playlistId, title) {
-                /**
-                 * 1. Get the playlist widget template
-                 *
-                 *   This is referring to This has to keep in sync with the template.
-                 */
+            function cloneWidget({ id, title }) {
+                // 1. Get the playlist widget template
 
                 const playlistWidgetTemplate = document.getElementById(
                     "spotify-iframe-template",
                 );
 
-                /**
-                 * 2. Clone the content of the template widget
-                 */
+                // 2. Clone the content of the template widget
 
                 const playlistWidget = playlistWidgetTemplate
                     .content // get the content: a document root
                     .firstElementChild // first element to avoid comment nodes
                     .cloneNode(false); // shallow clone: iframes should be empty
 
-                /**
-                 * 3. Assign the playlist ID
-                 */
+                // 3. Assign the playlist ID
 
                 playlistWidget.src = decodeURIComponent(playlistWidget.src)
                     .replace(
-                        "{{ playlistId }}",
-                        playlistId,
+                        "{{ id }}",
+                        id,
                     );
 
-                /**
-                 * 4. Replace the title with the playlist name
-                 */
+                // 4. Replace the title with the playlist name
 
                 playlistWidget.title = playlistWidget.title.replace(
                     "{{ title }}",
                     title,
                 );
 
-                // 6. Return the widget
+                // 5. Return the widget
 
                 return playlistWidget;
             }
+        </script>
 
-            function replaceButtonWithSpotifyPlaylistWidget(button) {
-                // 1. Get Spotify playlist ID from button
+        <script>
+            function createWidgetButton(playlist) {
+                // 1. Get the playist data we care about
 
-                const spotifyPlaylistId = button.dataset.spotifyPlaylistId;
+                const title = playlist
+                    .querySelector("h1")
+                    .textContent;
 
-                // 2. Get playlist title from button
+                const id = playlist
+                    .querySelector("[href*='spotify.com/playlist/']")
+                    .href
+                    .match(/spotify.com\/playlist\/(.+)/)[1];
 
-                const playlistTitle = button.dataset.playlistTitle;
+                // 2. Create widget for playlist
 
-                // 3. Created playlist widget from ID and title
+                const widget = cloneWidget({ id, title });
 
-                const playlistWidget = createSpotifyPlaylistWidget(
-                    spotifyPlaylistId,
-                    playlistTitle
-                );
+                // 3. Create button that replaces itself with the widget
 
-                // 4. Replace the button with the widget
+                const button = document.createElement("button");
+                button.type = "button";
+                button.textContent = `Embed ${title} (Spotify)`;
+                button.addEventListener("click", () => {
+                    button.replaceWith(widget);
+                });
 
-                button.replaceWith(playlistWidget);
+                // 4. Return the button
+
+                return button;
             }
         </script>
 
         <template id="spotify-iframe-template">
             <iframe
                 alt="On devices that support nested browsing contexts (as inline frames), Spotify can serve you a playlist widget"
-                src="https://open.spotify.com/embed/playlist/{{ playlistId }}"
+                src="https://open.spotify.com/embed/playlist/{{ id }}"
                 title="{{ title }}"
                 height="380"
                 width="100%"
@@ -126,7 +142,7 @@
                     )
                 );
 
-                /* 2. For each row, get the data we care about */
+                /* 2. For a row, get the data we care about */
 
                 const title = (row) => row.querySelector(
                     "[dir='auto']"
@@ -138,7 +154,7 @@
 
                 const data = (row) => [ title(row), artist(row) ];
 
-                /* 3. Convert our data into a list item */
+                /* 3. Convert data into a list item */
 
                 const li = ([ title, artist ]) => [
                     "<li>",
@@ -146,7 +162,7 @@
                     "</li>",
                 ].join("");
 
-                /* 4. Construct list by converting song info into list items */
+                /* 4. Construct list by converting rows into list items */
 
                 const ol = (rows) => [
                     "<ol>",
@@ -170,9 +186,7 @@
             </p>
 
             <p>
-                I've provided the song list, a link to the playlist on Spotify,
-                and a button that allows you to embed a playlist widget provided
-                by Spotify. Note that the widget requires DRM and using the widget agrees to <a href="https://developer.spotify.com/documentation/widgets/terms/">Spotify Widget Terms of Use</a>.
+                For each playlist, I've provided its track list and link to Spotify. If JavaScript is enabled, you can use the button to load the playlist widget served by Spotify. Doing so requires DRM and agreeing to the <a href="https://developer.spotify.com/documentation/widgets/terms/">Spotify Widget Terms of Use</a>.
             </p>
         </header>
 
@@ -208,12 +222,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/5qWNmJgxmzxfviroOLTnwa">2021 Autumn playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="5qWNmJgxmzxfviroOLTnwa"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2021 Autumn playlist (Spotify widget)</button>
         </article>
 
         <article>
@@ -243,12 +251,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/0n1YOf6QzNE8VpTfMX1XQC">2021 Summer playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="0n1YOf6QzNE8VpTfMX1XQC"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2021 Summer playlist (Spotify widget)</button>
         </article>
 
         <article>
@@ -282,12 +284,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/2QiYlXZknloNSOJK12W3GK">2021 Spring playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="2QiYlXZknloNSOJK12W3GK"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2021 Spring playlist (Spotify widget)</button>
         </article>
 
         <article>
@@ -320,12 +316,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/3MveNGK5Lp9dL1a0KwekUj">2021 Early playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="3MveNGK5Lp9dL1a0KwekUj"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2021 Early playlist (Spotify widget)</button>
         </article>
 
         <h2>2020</h2>
@@ -357,12 +347,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/0ZC10mc5OKnRfBgQalr5zt">2020 Winter playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="0ZC10mc5OKnRfBgQalr5zt"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2020 Winter playlist (Spotify widget)</button>
         </article>
 
         <article>
@@ -392,12 +376,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/5XOCOnz7nIbwKPy5krcI4J">2020 Autumn playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="5XOCOnz7nIbwKPy5krcI4J"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2020 Autumn playlist (Spotify widget)</button>
         </article>
 
         <article>
@@ -434,12 +412,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/66PcwnCVWvc0alLJpCfsOA">2020 Late playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="66PcwnCVWvc0alLJpCfsOA"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2020 Late playlist (Spotify widget)</button>
         </article>
 
         <article>
@@ -469,12 +441,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/6MIhAmbfLBBcQ0JHUGR6z5">2020 High playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="6MIhAmbfLBBcQ0JHUGR6z5"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2020 High playlist (Spotify widget)</button>
         </article>
 
         <article>
@@ -504,12 +470,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/7piB5J6WhcjuUYkLTKaKbT">2020 Spring playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="7piB5J6WhcjuUYkLTKaKbT"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2020 Spring playlist (Spotify widget)</button>
         </article>
 
         <article>
@@ -539,12 +499,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/2F4CZdQo3BzHfA33OywUcM">2020 Early playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="2F4CZdQo3BzHfA33OywUcM"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2020 Early playlist (Spotify widget)</button>
         </article>
 
         <h2>2019</h2>
@@ -576,12 +530,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/5duwOVJxIpUA8AaDF8S2pU">2019 Winter playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="5duwOVJxIpUA8AaDF8S2pU"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2019 Winter playlist (Spotify widget)</button>
         </article>
 
         <article>
@@ -611,12 +559,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/2hBpcdpOgi4ptUmZtFyysq">2019 Autumn playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="2hBpcdpOgi4ptUmZtFyysq"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2019 Autumn playlist (Spotify widget)</button>
         </article>
 
         <article>
@@ -646,12 +588,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/0iDI01sNxtjfFyvAqms3vK">2019 Summer playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="0iDI01sNxtjfFyvAqms3vK"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2019 Summer playlist (Spotify widget)</button>
         </article>
 
         <article>
@@ -681,12 +617,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/0qEiJWBvMPpf8CrpEyOcLh">2019 Spring playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="0qEiJWBvMPpf8CrpEyOcLh"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2019 Spring playlist (Spotify widget)</button>
         </article>
 
         <h2>2018</h2>
@@ -718,12 +648,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/2WUMzCWav76j816Iy7HlS7">2018 Winter playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="2WUMzCWav76j816Iy7HlS7"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2018 Winter playlist (Spotify widget)</button>
         </article>
 
         <article>
@@ -764,12 +688,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/4hz15AHUl7Jh2wOlo3WZim">2018 Autumn playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="4hz15AHUl7Jh2wOlo3WZim"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2018 Autumn playlist (Spotify widget)</button>
         </article>
 
         <article>
@@ -813,12 +731,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/5dXOReQ13ONoj8YpnjZyKK">2018 Summer playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="5dXOReQ13ONoj8YpnjZyKK"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2018 Summer playlist (Spotify widget)</button>
         </article>
 
         <article>
@@ -848,12 +760,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/1N0IMpvAxd2FFlf6E0WOqX">2018 Spring playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="1N0IMpvAxd2FFlf6E0WOqX"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2018 Spring playlist (Spotify widget)</button>
         </article>
 
         <h2>2017</h2>
@@ -885,12 +791,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/7yDjTvpNgmNP0qOsC4zSOB">2017 Winter playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="7yDjTvpNgmNP0qOsC4zSOB"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2017 Winter playlist (Spotify widget)</button>
         </article>
 
         <article>
@@ -920,12 +820,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/47BwEHh2yhF1hPUoP6gQoR">2017 Autumn playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="47BwEHh2yhF1hPUoP6gQoR"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2017 Autumn playlist (Spotify widget)</button>
         </article>
 
         <article>
@@ -955,12 +849,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/5zy4MyCbLKCnGeNWpAvOrm">2017 Summer playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="5zy4MyCbLKCnGeNWpAvOrm"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2017 Summer playlist (Spotify widget)</button>
         </article>
 
         <article>
@@ -990,12 +878,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/4xEhOpUOQ6yyVvb5crxBgU">2017 Spring playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="4xEhOpUOQ6yyVvb5crxBgU"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2017 Spring playlist (Spotify widget)</button>
         </article>
 
         <h2>2016</h2>
@@ -1027,12 +909,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/1PHStfnp3e2fRjr1Qa6o4t">2016 Winter playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="1PHStfnp3e2fRjr1Qa6o4t"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2016 Winter playlist (Spotify widget)</button>
         </article>
 
         <article>
@@ -1062,12 +938,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/4g6ESOpEp6hgbbwDWxIRaG">2016 Autumn playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="4g6ESOpEp6hgbbwDWxIRaG"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2016 Autumn playlist (Spotify widget)</button>
         </article>
 
         <article>
@@ -1097,12 +967,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/5rQyKWfbWwOLZo41sTnX6R">2016 Summer playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="5rQyKWfbWwOLZo41sTnX6R"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2016 Summer playlist (Spotify widget)</button>
         </article>
 
         <article>
@@ -1132,12 +996,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/5Sow5ETIAc9HbFZ4HTBCyE">2016 Spring playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="5Sow5ETIAc9HbFZ4HTBCyE"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2016 Spring playlist (Spotify widget)</button>
         </article>
 
         <h2>2015</h2>
@@ -1169,12 +1027,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/6Ext9arH0jdh0MQQ7ondJz">2015 Winter playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="6Ext9arH0jdh0MQQ7ondJz"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2015 Winter playlist (Spotify widget)</button>
         </article>
 
         <article>
@@ -1204,12 +1056,6 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/5LeLZ4L9GqOXFK2T7IeHh0">2015 Autumn playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="5LeLZ4L9GqOXFK2T7IeHh0"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2015 Autumn playlist (Spotify widget)</button>
         </article>
 
         <article>
@@ -1239,12 +1085,37 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/01dQyfJIETrWbNYrE3Br7D">2015 Summer playlist on Spotify</a></p>
-
-            <button
-                type="button"
-                data-spotify-playlist-id="01dQyfJIETrWbNYrE3Br7D"
-                onclick="replaceButtonWithSpotifyPlaylistWidget(this)"
-            >Embed 2015 Summer playlist (Spotify widget)</button>
         </article>
+
+        <script>
+            /**
+             * If JavaScript is enabled, this script will create a button based
+             * on the Spotify link information that will load a playlist widget.
+             *
+             * Originally, I had the button and not the link. However, for
+             * clients with JavaScript disabled, this button would do nothing
+             * and provide no information. I added a link alongside the button,
+             * since that would work on all clients and be helpful for anyone
+             * who wanted to open the playlist on their Spotify app instead of
+             * loading the widget.
+             *
+             * Since the buttons only work with JavaScript anyway, I deleted
+             * them from the HTML and use this script to dynamically insert
+             * them. This has the added benefit of defining the playlist ID once
+             * and deriving it from the link instead of repeating it.
+             */
+
+            // 1. Get each playlist
+
+            const playlists = Array.from(
+                document.querySelectorAll("article")
+            );
+
+            // 2. Add widget button to each playlist
+
+            for (playlist of playlists) {
+                playlist.appendChild(createWidgetButton(playlist));
+            }
+        </script>
     </body>
 </html>
