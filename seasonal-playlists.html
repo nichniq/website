@@ -1088,5 +1088,36 @@
 
             <p><a href="https://open.spotify.com/playlist/01dQyfJIETrWbNYrE3Br7D">2015 Summer playlist on Spotify</a></p>
         </article>
+
+        <script>
+            /**
+             * If JavaScript is enabled, this script will create a button based
+             * on the Spotify link information that will load a playlist widget.
+             *
+             * Originally, I had the button and not the link. However, for
+             * clients with JavaScript disabled, this button would do nothing
+             * and provide no information. I added a link alongside the button,
+             * since that would work on all clients and be helpful for anyone
+             * who wanted to open the playlist on their Spotify app instead of
+             * loading the widget.
+             *
+             * Since the buttons only work with JavaScript anyway, I deleted
+             * them from the HTML and use this script to dynamically insert
+             * them. This has the added benefit of defining the playlist ID once
+             * and deriving it from the link instead of repeating it.
+             */
+
+            // 1. Get each playlist
+
+            const playlists = Array.from(
+                document.querySelectorAll("article")
+            );
+
+            // 2. Add widget button to each playlist
+
+            for (playlist of playlists) {
+                playlist.appendChild(createWidgetButton(playlist));
+            }
+        </script>
     </body>
 </html>
