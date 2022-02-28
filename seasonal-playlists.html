@@ -8,17 +8,23 @@
         <link rel="stylesheet" type="text/css" href="/globals.css" />
 
         <style>
+            /**
+             * While the widget is loading, the iframe appears empty. I define
+             * this style to add an animated background that fills the space and
+             * indicate that something is in progress.
+             */
+
             .spotify-playlist-widget {
                 animation: 2s ease-in-out 0s infinite alternate loading;
             }
 
             @keyframes loading {
                 from {
-                    background: lightgray;
+                    background-color: lightgray;
                 }
 
                 to {
-                    background: gray;
+                    background-color: gray;
                 }
             }
         </style>
