@@ -1,31 +1,41 @@
-# Content
+# Technical writing
 
-- My Favorite (Component) Shapes: Add mirrors
-  - Archived: https://archive.is/RxxD7
-  - Self-hosted: Create page
-- Create new pages
-  - Poetry
-  - Playlists
-- Add bit about `nichniq.name`
+- Create technical writing page
+  - Add "My Favorite (Component) Shapes" to it
+  - Create self-served version of "My Favorite (Component) Shapes"
+    - Archived: https://archive.is/RxxD7
+
+# Poetry
+
+- Create poetry page
+
+# Accessibility
+
 - Add alt tags
   - College artifacts
   - BK posies
   - Library
-- Improve library
-  - Migrate library from Notion to file
-  - Add Open Library links / change from Goodread
-    - https://openlibrary.org/isbn/<isbn 10 or 13>
 
-# Access
+# Home library
+
+- Migrate library from Notion to file
+- Add Open Library links / change from Goodread
+  - https://openlibrary.org/isbn/<isbn 10 or 13>
+
+# Automation access
 
 - robots.txt: Create file
   - Figure out what I want the rules to be, add first as comments
 - Search indexing: Block indexing
   - `<meta name="robots" content="noindex">`
   - `<meta name="googlebot" content="noindex">`
-- Change log: Create page (RSS feed?)
 
-# Service
+# Updates
 
-- DNS: Create record file with comments
-  - Note that it isn't live
+- Add web feed / change log (RSS)
+
+# DNS
+
+- Create local record file based on what I have in Gandi
+  - Add comments explaining what each is
+  - Note that it isn't live (the source of truth is on Gandi)
