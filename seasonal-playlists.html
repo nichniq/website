@@ -28,6 +28,15 @@
                     background-color: gray;
                 }
             }
+
+            summary > * {
+                display: inline-block;
+                margin:  0;
+            }
+
+            details > :last-child {
+                margin-bottom: 0.7rem;
+            }
         </style>
 
         <!--
@@ -80,7 +89,7 @@
                 // 1. Get the playist data we care about
 
                 const title = playlist
-                    .querySelector("h1")
+                    .querySelector("summary")
                     .textContent;
 
                 const id = playlist
@@ -184,8 +193,10 @@
 
         <h2>2021</h2>
 
-        <article>
-            <h1>2021 Autumn</h1>
+        <details>
+            <summary>
+                <h3>2021 Autumn</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">Frozen Away</cite> - altopalo</li>
@@ -214,10 +225,12 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/5qWNmJgxmzxfviroOLTnwa">2021 Autumn playlist on Spotify</a></p>
-        </article>
+        </details>
 
-        <article>
-            <h1>2021 Summer</h1>
+        <details>
+            <summary>
+                <h3>2021 Summer</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">Tropics</cite> - Sunny & Gabe</li>
@@ -243,10 +256,12 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/0n1YOf6QzNE8VpTfMX1XQC">2021 Summer playlist on Spotify</a></p>
-        </article>
+        </details>
 
-        <article>
-            <h1>2021 Spring</h1>
+        <details>
+            <summary>
+                <h3>2021 Spring</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">Sleep On The Wing</cite> - Bibio</li>
@@ -276,10 +291,12 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/2QiYlXZknloNSOJK12W3GK">2021 Spring playlist on Spotify</a></p>
-        </article>
+        </details>
 
-        <article>
-            <h1>2021 Early Spring</h1>
+        <details>
+            <summary>
+                <h3>2021 Early Spring</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">Villain (feat. golda may)</cite> - Photay</li>
@@ -308,12 +325,14 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/3MveNGK5Lp9dL1a0KwekUj">2021 Early playlist on Spotify</a></p>
-        </article>
+        </details>
 
         <h2>2020</h2>
 
-        <article>
-            <h1>2020 Winter</h1>
+        <details>
+            <summary>
+                <h3>2020 Winter</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">Blue</cite> - Angelo De Augustine</li>
@@ -339,10 +358,12 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/0ZC10mc5OKnRfBgQalr5zt">2020 Winter playlist on Spotify</a></p>
-        </article>
+        </details>
 
-        <article>
-            <h1>2020 Autumn</h1>
+        <details>
+            <summary>
+                <h3>2020 Autumn</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">Coming to Get You Nowhere</cite> - This Is The Kit</li>
@@ -368,10 +389,12 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/5XOCOnz7nIbwKPy5krcI4J">2020 Autumn playlist on Spotify</a></p>
-        </article>
+        </details>
 
-        <article>
-            <h1>2020 Late Summer</h1>
+        <details>
+            <summary>
+                <h3>2020 Late Summer</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">It's Love (feat. Matthew Young)</cite> - Cosmo's Midnight</li>
@@ -404,10 +427,12 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/66PcwnCVWvc0alLJpCfsOA">2020 Late playlist on Spotify</a></p>
-        </article>
+        </details>
 
-        <article>
-            <h1>2020 High Summer</h1>
+        <details>
+            <summary>
+                <h3>2020 High Summer</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">Young Buck</cite> - Braids</li>
@@ -433,10 +458,12 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/6MIhAmbfLBBcQ0JHUGR6z5">2020 High playlist on Spotify</a></p>
-        </article>
+        </details>
 
-        <article>
-            <h1>2020 Spring</h1>
+        <details>
+            <summary>
+                <h3>2020 Spring</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">Coast</cite> - Participant</li>
@@ -462,10 +489,12 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/7piB5J6WhcjuUYkLTKaKbT">2020 Spring playlist on Spotify</a></p>
-        </article>
+        </details>
 
-        <article>
-            <h1>2020 Early Spring</h1>
+        <details>
+            <summary>
+                <h3>2020 Early Spring</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">Blood Red</cite> - The Colorist Orchestra</li>
@@ -491,12 +520,14 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/2F4CZdQo3BzHfA33OywUcM">2020 Early playlist on Spotify</a></p>
-        </article>
+        </details>
 
         <h2>2019</h2>
 
-        <article>
-            <h1>2019 Winter</h1>
+        <details>
+            <summary>
+                <h3>2019 Winter</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">1000 Words</cite> - 0171</li>
@@ -522,10 +553,12 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/5duwOVJxIpUA8AaDF8S2pU">2019 Winter playlist on Spotify</a></p>
-        </article>
+        </details>
 
-        <article>
-            <h1>2019 Autumn</h1>
+        <details>
+            <summary>
+                <h3>2019 Autumn</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">Devil's Sweetheart</cite> - Alice Phoebe Lou</li>
@@ -551,10 +584,12 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/2hBpcdpOgi4ptUmZtFyysq">2019 Autumn playlist on Spotify</a></p>
-        </article>
+        </details>
 
-        <article>
-            <h1>2019 Summer</h1>
+        <details>
+            <summary>
+                <h3>2019 Summer</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">Heavy Cross</cite> - Gossip</li>
@@ -580,10 +615,12 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/0iDI01sNxtjfFyvAqms3vK">2019 Summer playlist on Spotify</a></p>
-        </article>
+        </details>
 
-        <article>
-            <h1>2019 Spring</h1>
+        <details>
+            <summary>
+                <h3>2019 Spring</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">Sparrow</cite> - Simon & Garfunkel</li>
@@ -609,12 +646,14 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/0qEiJWBvMPpf8CrpEyOcLh">2019 Spring playlist on Spotify</a></p>
-        </article>
+        </details>
 
         <h2>2018</h2>
 
-        <article>
-            <h1>2018 Winter</h1>
+        <details>
+            <summary>
+                <h3>2018 Winter</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">Heaven's Gate</cite> - Dawn Landes</li>
@@ -640,10 +679,12 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/2WUMzCWav76j816Iy7HlS7">2018 Winter playlist on Spotify</a></p>
-        </article>
+        </details>
 
-        <article>
-            <h1>2018 Autumn</h1>
+        <details>
+            <summary>
+                <h3>2018 Autumn</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">Circles</cite> - Acollective</li>
@@ -680,10 +721,12 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/4hz15AHUl7Jh2wOlo3WZim">2018 Autumn playlist on Spotify</a></p>
-        </article>
+        </details>
 
-        <article>
-            <h1>2018 Summer</h1>
+        <details>
+            <summary>
+                <h3>2018 Summer</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">Borders</cite> - St. Beauty</li>
@@ -723,10 +766,12 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/5dXOReQ13ONoj8YpnjZyKK">2018 Summer playlist on Spotify</a></p>
-        </article>
+        </details>
 
-        <article>
-            <h1>2018 Spring</h1>
+        <details>
+            <summary>
+                <h3>2018 Spring</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">Again</cite> - Timmies</li>
@@ -752,12 +797,14 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/1N0IMpvAxd2FFlf6E0WOqX">2018 Spring playlist on Spotify</a></p>
-        </article>
+        </details>
 
         <h2>2017</h2>
 
-        <article>
-            <h1>2017 Winter</h1>
+        <details>
+            <summary>
+                <h3>2017 Winter</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">Escapements</cite> - Beacon</li>
@@ -783,10 +830,12 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/7yDjTvpNgmNP0qOsC4zSOB">2017 Winter playlist on Spotify</a></p>
-        </article>
+        </details>
 
-        <article>
-            <h1>2017 Autumn</h1>
+        <details>
+            <summary>
+                <h3>2017 Autumn</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">Neighbors</cite> - Grizzly Bear</li>
@@ -812,10 +861,12 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/47BwEHh2yhF1hPUoP6gQoR">2017 Autumn playlist on Spotify</a></p>
-        </article>
+        </details>
 
-        <article>
-            <h1>2017 Summer</h1>
+        <details>
+            <summary>
+                <h3>2017 Summer</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">No Shortcuts</cite> - Heather Maloney & Darlingside</li>
@@ -841,10 +892,12 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/5zy4MyCbLKCnGeNWpAvOrm">2017 Summer playlist on Spotify</a></p>
-        </article>
+        </details>
 
-        <article>
-            <h1>2017 Spring</h1>
+        <details>
+            <summary>
+                <h3>2017 Spring</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">Islands of You and Me</cite> - Maia Vidal</li>
@@ -870,12 +923,14 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/4xEhOpUOQ6yyVvb5crxBgU">2017 Spring playlist on Spotify</a></p>
-        </article>
+        </details>
 
         <h2>2016</h2>
 
-        <article>
-            <h1>2016 Winter</h1>
+        <details>
+            <summary>
+                <h3>2016 Winter</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">Stronger - Acoustic</cite> - Fyfe</li>
@@ -901,10 +956,12 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/1PHStfnp3e2fRjr1Qa6o4t">2016 Winter playlist on Spotify</a></p>
-        </article>
+        </details>
 
-        <article>
-            <h1>2016 Autumn</h1>
+        <details>
+            <summary>
+                <h3>2016 Autumn</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">Hiding In The Rushes</cite> - Francesca Belmonte</li>
@@ -930,10 +987,12 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/4g6ESOpEp6hgbbwDWxIRaG">2016 Autumn playlist on Spotify</a></p>
-        </article>
+        </details>
 
-        <article>
-            <h1>2016 Summer</h1>
+        <details>
+            <summary>
+                <h3>2016 Summer</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">Aftermath</cite> - Hundreds</li>
@@ -959,10 +1018,12 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/5rQyKWfbWwOLZo41sTnX6R">2016 Summer playlist on Spotify</a></p>
-        </article>
+        </details>
 
-        <article>
-            <h1>2016 Spring</h1>
+        <details>
+            <summary>
+                <h3>2016 Spring</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">What You Don't Do</cite> - Lianne La Havas</li>
@@ -988,12 +1049,14 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/5Sow5ETIAc9HbFZ4HTBCyE">2016 Spring playlist on Spotify</a></p>
-        </article>
+        </details>
 
         <h2>2015</h2>
 
-        <article>
-            <h1>2015 Winter</h1>
+        <details>
+            <summary>
+                <h3>2015 Winter</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">Turn Away</cite> - Beck</li>
@@ -1019,10 +1082,12 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/6Ext9arH0jdh0MQQ7ondJz">2015 Winter playlist on Spotify</a></p>
-        </article>
+        </details>
 
-        <article>
-            <h1>2015 Autumn</h1>
+        <details>
+            <summary>
+                <h3>2015 Autumn</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">Neither Here Nor There</cite> - Lost In The Trees</li>
@@ -1048,10 +1113,12 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/5LeLZ4L9GqOXFK2T7IeHh0">2015 Autumn playlist on Spotify</a></p>
-        </article>
+        </details>
 
-        <article>
-            <h1>2015 Summer</h1>
+        <details>
+            <summary>
+                <h3>2015 Summer</h3>
+            </summary>
 
             <ol>
                 <li><cite data-medium="song">Try To Be</cite> - Blue Hawaii</li>
@@ -1077,7 +1144,7 @@
             </ol>
 
             <p><a href="https://open.spotify.com/playlist/01dQyfJIETrWbNYrE3Br7D">2015 Summer playlist on Spotify</a></p>
-        </article>
+        </details>
 
         <script>
             /**
@@ -1100,7 +1167,7 @@
             // 1. Get each playlist
 
             const playlists = Array.from(
-                document.querySelectorAll("article")
+                document.querySelectorAll("details")
             );
 
             // 2. Add widget button to each playlist
