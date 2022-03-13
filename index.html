@@ -1,11 +1,121 @@
 <!doctype html>
+
+<!--
+    The first tag in an HTML should be this <!doctype html> which yells out to
+    the world: "WITNESS ME! I AM STANDARD HTML!" This is helpful for older
+    browsers that handle outdated "quirks" in "quirks mode". We are telling
+    those browsers that this file adheres to the standardized HTML specification
+    (by the W3C = World Wide Web Consortium)
+-->
+
+<!--
+    This file encodes an HTML document that is represented as a "tree" which is
+    called that because it "branches" into children:
+
+    VERTICAL                                      HORIZTONAL
+    --------                                      ----------
+
+    - root                                        --- [root] ---------
+        - 1st child                              /        \           \
+        - 2nd child                       [1st child]   [2nd child]  [3rd child]
+            - 1st g-child                               /       \
+            - 2st g-child                     [1st g-child]  [2nd g-child]
+        - 3rd child
+
+    BOXES
+    -----
+
+    +---------------------------------+
+    | root  +-----------+-----------+ |
+    |       | 1st child | 3rd child | |
+    | +-----+-----------+-----------| |
+    | | +-------------+   2nd child | |
+    | | | 1st g-child |             | |
+    | | |-------------|             | |
+    | | | 2nd g-child |             | |
+    | | +-------------+             | |
+    | +-----------------------------+ |
+    +---------------------------------+
+
+    This website's structure is:
+
+                        <html>
+                        /    \
+      (metadata)   <head>   <body>       (content)
+                              |
+                              |-- <header>   (intro to the content)
+                              |
+                              |-- <section>  (a section of the content)
+                              |    \ <h1>      (header for the section)
+                              |    \ <p>       (a paragraph in the section)
+                              |       \ <a>      (a link within the paragraph)
+                              |-- <section>
+                              |-- ...
+                              |-- <section>
+                              |
+                              |-- <footer>   (outro for the content)
+
+    The <html> element is the "root" element that contains all of the content.
+    This page is written in English so I specify lang="en"
+-->
+
 <html lang="en">
+    <!--
+        The <head> element contains metadata: data about the data. It includes
+        info that helps the browser know HOW to read and display my code
+    -->
+
     <head>
+        <!--
+            This tells browsers to interpret my code with the full UTF-8 range
+            of characters ("character set") instead of something more limited
+            like ASCII, which would render weird stuff for ™£¢∞§&👻
+        -->
+
         <meta charset="utf-8" />
+
+        <!--
+            This tells browsers to set the page's width to the device's width.
+            By default, many phones will render a page as though it is on a
+            large screen, and then your phone becomes a little magnifying glass
+            that you can move around (the "viewport"). I've built this website
+            so that it's usable at variable widths
+        -->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--
+            The title is read by screen readers, the default name for a site's
+            bookmark, and what a browser shows as the window/tab's name
+        -->
+
         <title>Nick Cassleman</title>
+
+        <!--
+            In the spirit of "no code is good code," I want there to be as few
+            styles as possible. I define the universal ones in this sheet
+
+            This allows browsers to cache the file for a slight performance gain (fewer bits are transferred across the wire per page load). It also
+            lets me specify all the core styles in one place
+
+            For pages with page-specific styles (or markup with inline
+            adjustments) I use <style> tags and the `style` attribute.
+
+            In the future, I mind find a way to serve all styles inline so that
+            each HTML page contains all the content it needs without a bunch of
+            linking
+        -->
+
         <link rel="stylesheet" type="text/css" href="/globals.css" />
     </head>
     <body>
+        <!--
+            The <header> element represents introductory text. Here, I share my
+            name and a little bit about myself. I consider it intro text instead
+            of main content, because the important stuff is what I've done, not
+            my own self description
+        -->
+
         <header>
             <h1>Nick Cassleman</h1>
 
@@ -15,12 +125,22 @@
                 <li>I program computers for <code>$$$</code> and <code><3</code></li>
                 <li><q>Never minded working hard / It's who I'm working for</q></li>
                 <li>No code is best code</li>
-                <li>Making very special video game about queer heroism, nature education, and non-violent adventure</li>
+                <li>Making very special video game about <strong>queer heroism</strong>, <strong>understanding nature</strong>, and <strong>non-violent adventure</strong></li>
             </ul>
         </header>
 
+        <!--
+            What follows are a bunch of <section>s that each describe something
+            I'd done or made or whatever
+        -->
+
         <section>
             <h1>Résumé</h1>
+
+            <!--
+                Oh yeah, I build my resume as a webpage that is formatted to
+                print out exactly as a single 8.5" x 11" sheet of paper
+            -->
 
             <p>Here's my <a href="/resume.html">résumé</a>. To contact me, gaze into a mirror during a crescent moon and whisper my name.</p>
         </section>
@@ -41,9 +161,9 @@
         </section>
 
         <section>
-            <h1>Little drawings</h1>
+            <h1>Stick people, but make it fashion</h1>
 
-            <p><img height="200" src="/ws-illustrations/robots.png" alt="A human dressed in an unconvincing robot costume is turned away from a club called Overclock'd. The bouncer and the others in line are all robots of various models." /></p>
+            <p><img style="max-height: 200px; max-width: 100%" src="/ws-illustrations/robots.png" alt="A human dressed in an unconvincing robot costume is turned away from a club called Overclock'd. The bouncer and the others in line are all robots of various models." /></p>
 
             <p>I drew a bunch of illustrations for an old job. <a href="/ws-illustrations.html">UChicago Web Services blog illustrations</a>.</p>
         </section>
@@ -52,7 +172,7 @@
         <section>
             <h1>The nekkids</h1>
 
-            <p><img height="400" src="/drink-n-draw/06.jpg" alt="A person is hunched over with long hair. They look like a sea creature. Drawn with gestural lines." /></p>
+            <p><img style="max-height: 400px; max-width: 100%" src="/drink-n-draw/06.jpg" alt="A person is hunched over with long hair. They look like a sea creature. Drawn with gestural lines." /></p>
 
             <p>I used to ride the train to drink beer and draw naked people on gray paper. <a href="/drink-n-draw.html">Figure drawings from Drink n' Draw</a>.</p>
         </section>
@@ -64,33 +184,33 @@
         </section>
 
         <section>
-            <h1>I made this butt print of myself in college</h1>
+            <h1>College was silly</h1>
 
-            <p><img height="300" src="/college-artifacts/butt-print.jpg" alt="" /></p>
+            <p><img style="max-height: 300px; max-width: 100%" src="/college-artifacts/butt-print.jpg" alt="" /></p>
 
-            <p>College was silly. I threw away most of the things I made during that time, here's what's left. <a href="/college-artifacts.html">College artifacts</a>.</p>
+            <p>I threw away most of the things I made during college because I was embarrassed by them, but feel free to leaf through what's left. <a href="/college-artifacts.html">College artifacts</a>.</p>
         </section>
 
         <section>
-            <h1>A humble posy</h1>
+            <h1>Humble posies</h1>
 
-            <img height="200" src="/bk-posies/dusty.jpg" alt="" />
+            <img style="max-height: 200px; max-width: 100%" src="/bk-posies/dusty.jpg" alt="" />
 
-            <p>In an attempt to learn the names of flowers, I arranged myself weekly bouquets for a couple of years. <a href="/bk-posies.html">Brooklyn posies</a>.</p>
+            <p>In an attempt to learn the names of flowers, I used to arrange myself bouquets. <a href="/bk-posies.html">Brooklyn posies</a>.</p>
         </section>
 
         <section>
-            <h1>Christmas turkeys for sale, don't miss out</h1>
+            <h1>Post no bills</h1>
 
-            <img height="300" src="/z-and-h-posters/christmas.jpg" alt="" />
+            <img style="max-height: 300px; max-width: 100%" src="/z-and-h-posters/christmas.jpg" alt="" />
 
-            <p>I learned how to be a regular at Z&H Market Cafe and made these signs in the process. <a href="/z-and-h-posters.html">Z&H posters</a>.</p>
+            <p>I learned how to be a regular at Z&H Market Cafe. I made these signs in the process. <a href="/z-and-h-posters.html">Z&H posters</a>.</p>
         </section>
 
         <section>
-            <h1>Music I listen to</h1>
+            <h1>Mixtapes</h1>
 
-            <p>Everybody loves a mixed tape, here are some of mine. <a href="/seasonal-playlists.html">Seasonal playlists</a>.</p>
+            <p>You can listen to the music I listen to also! <a href="/seasonal-playlists.html">Seasonal playlists</a>.</p>
         </section>
 
         <section>
@@ -102,19 +222,84 @@
         <section>
             <h1>My burden is books</h1>
 
-            <img height="200" src="/library/bookshelves.jpg" alt="" />
+            <img style="max-height: 200px; max-width: 100%" src="/library/bookshelves.jpg" alt="" />
 
             <p>I've got over five hundred books in my bedroom and they're filled with pictures. <a href="/library.html">Home library</a>.</p>
         </section>
+
+        <!--
+            Finally, we have the <footer>, which represents the "end content"
+            for this page. Specifically, it contains a single <nav> (the
+            navigational element) which links to my site map (which contains
+            links to every page on this website)
+
+            I could have put this nav in the header, but for this page
+            specifically, I wanted summaries of each page first and then a bit
+            at the very end that puts all the links in one place
+
+            This homepage could itself be considered a giant navigational
+            element for all of the subpages that have the actual content. Hmm,
+            that gives me in idea for a future iteration... (The idea = this
+            page as a single nav element)
+        -->
 
         <footer>
             <nav>
                 <h1>Site map</h1>
 
                 <p>
-                    My <a href="site-map.html">site map</a> lists every page on this website (that I want you to know about ;)).
+                    My <a href="site-map.html">site map</a> lists every page on this website (that I want you to know about).
                 </p>
             </nav>
+        </footer>
+
+        <!--
+            Okay this could probably be grouped with the other footer element,
+            but the content is unrelated so I don't think it should live next
+            to each other. It's an invitation for people to look at the code.
+            I tried to make it quite legible and informative!
+        -->
+
+        <footer style="font-size: 0.8em; font-style: italic;">
+            <hr style="margin: 2rem 0;" />
+
+            <style>
+                /**
+                 * This media query applies the styles inside of it if the
+                 * device has something that can "hover" (a mouse, usually). The
+                 * style inside it hides any element that has the class
+                 * `.pointer-only`
+                 */
+
+                @media (hover: hover) {
+                  .pointer-only {
+                    display: none;
+                  }
+                }
+            </style>
+
+            <p>I am a webpage! You can look in my insides! I left comments explaining what the code does and might even have a few secrets hidden here and there ;)</p>
+
+            <ul style="padding-left: 1em">
+                <li class="pointer-only">
+                    <!--
+                        Since this element refers to clicking, I only want to
+                        display it if there is something that can click so I
+                        add the `.pointer-only` class
+                    -->
+
+                    <code>Right click</code> / <code>option click</code> around the page the menu says "<code>View Page Source</code>" and select that
+                </li>
+                <li>
+                    For safety, your browser won't open links to <a href="view-source:"><code>View Page Source</code></a>, but you can copy/paste the link
+                </li>
+                <li>
+                    Type "<code>view-source:</code>" at the beginning of any website URL you're on, e.g. "<code>view-source:https://www.nichniq.name</code>"
+                </li>
+            </ul>
+
+            <p>
+                Another way to see how the website is made is to look at the <a href="https://github.com/nichniq/website/">code hosted by GitHub</a>. It includes all of the changes over time, back from when this site was just a wee nubbin.
         </footer>
     </body>
 </html>

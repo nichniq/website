@@ -18,44 +18,12 @@ body {
 }
 
 /**
-   * This is a cute little note for everyone to see at the bottom of every page
-   * (that includes this stylesheet). I implement this as a style because it
-   * doesn't have to do with page content AND because I wanted to write it once
-   * and only once.
-   *
-   * I include it because I've tried hard to make this code understandable. I
-   * struggled with too much werdz, so the simpler the code and the less there
-   * is, the better.
-   *
-   * This should only display if you have a mouse so query for input devices
-   * that "right click" makes sense. "Option click" is more accurate but folks
-   * might not know what that means. Not everyone has a right click, but I
-   * didn't want to add too much text so I avoided mentioning Alt/Opt + Click.
-  */
-
-@media (hover: hover) {
-  body::after {
-    border-top: 1px solid gray;
-    content: "I am a website! You can see my insides! Right click some text \
-        on the page until the little menu says `View Page Source`. Click it \
-        and behold: the language of the ~*WeB bRoWsEr*~. The commit history is \
-        cute too, if you know what I mean ;)";
-    display: block;
-    font-size: 0.8em;
-    font-style: italic;
-    margin: 1rem 1rem 0;
-    padding: 1rem;
-  }
-}
-
-
-/**
  * I like to use `cite` whenever I'm referencing something like a book or a
- * movie or a blog post. Something that's been named. An Artifact of Some
- * Medium, if ya nasty.
+ * movie or a blog post; something that's been named; an "Artifact of Some
+ * Medium", if ya nasty.
  *
  * By using a data attribute, I can enrich the HTML itself and then use that as
- * a selector in CSS.
+ * a selector in CSS to apply the correct typing for that specific work.
  */
 
 cite {
