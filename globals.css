@@ -42,6 +42,7 @@ cite[data-medium="blog-post"]::after {
   content: "”";
 }
 
+cite[data-medium="book"],
 cite[data-medium="magazine"],
 cite[data-medium="album"],
 cite[data-medium="podcast-series"] {
