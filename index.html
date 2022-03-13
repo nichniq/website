@@ -12,8 +12,8 @@
     This file encodes an HTML document that is represented as a "tree" which is
     called that because it "branches" into children:
 
-    VERTICAL                                      HORIZTONAL
-    --------                                      ----------
+    VERTICAL (LIST)                               HORIZONTAL (TREE)
+    ---------------                               -----------------
 
     - root                                        --- [root] ---------
         - 1st child                              /        \           \
@@ -22,8 +22,8 @@
             - 2st g-child                     [1st g-child]  [2nd g-child]
         - 3rd child
 
-    BOXES
-    -----
+    FLAT (BOXES)
+    ------------
 
     +---------------------------------+
     | root  +-----------+-----------+ |
@@ -95,7 +95,8 @@
             In the spirit of "no code is good code," I want there to be as few
             styles as possible. I define the universal ones in this sheet
 
-            This allows browsers to cache the file for a slight performance gain (fewer bits are transferred across the wire per page load). It also
+            This allows browsers to cache the file for a slight performance gain
+            (fewer bits are transferred across the wire per page load). It also
             lets me specify all the core styles in one place
 
             For pages with page-specific styles (or markup with inline
