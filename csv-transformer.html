@@ -46,30 +46,24 @@
         </form>
 
         <script>
-            function *processCommas(row) {
-                const queue = [];
+            function *splitRow(row) {
+                let queue = [];
                 let insideQuote = false;
 
                 for (const char of row) {
-                    switch (char) {
-                        case ",":
-                            if (insideQuote) {
-                                queue.push(char);
-                            } else {
-                                yield queue.join("");
-                                queue.splice(0, queue.length);
-                            }
-                            break;
-
-                        case '"':
-                            insideQuote = !insideQuote;
-                            break;
-
-                        default:
-                            queue.push(char);
-                            break;
+                    if (insideQuote && char === ",") {
+                        queue.push(char);
+                    } else if (!insideQuote && char === ",") {
+                        yield queue.join("");
+                        queue = [];
+                    } else if (char === '"') {
+                        insideQuote = !insideQuote;
+                    } else {
+                        queue.push(char);
                     }
                 }
+
+                yield queue.join("");
             }
 
             document.onsubmit = function captureSubmission(submission) {
