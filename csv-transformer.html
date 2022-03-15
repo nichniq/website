@@ -1,0 +1,158 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <title>Nick Cassleman - CSV transformer</title>
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <style>
+            .block { display: block }
+            .full-width { width: 100% }
+            .preformatted { white-space: pre }
+            .bold { font-weight: bold }
+        </style>
+    </head>
+
+    <body>
+        <form>
+            <label class="bold">
+                CSV data
+
+                <textarea
+                    id="csv-input"
+                    name="csv"
+                    rows="10"
+                    class="full-width preformatted block"
+                ></textarea>
+            </label>
+
+            <button>Parse</button>
+
+            <output for="csv-input" style="display: block; padding-top: 3rem">
+                <label class="bold">
+                    Result
+
+                    <textarea
+                        id="csv-output"
+                        readonly
+                        rows="10"
+                        class="full-width preformatted block"
+                    ></textarea>
+                </label>
+
+                <button type="button" id="copy-output">Copy</button>
+                <button type="button" id="clear-output">Clear</button>
+            </output>
+        </form>
+
+        <script>
+            /**
+             * This is a special generator that helps split a simple CSV row. I
+             * hope it encapsulates the low-level parsing algorithm so that each
+             * row can be parsed in a more functional way at a higher level.
+             *
+             * The basic idea is we go character by character, adding the
+             * aggregated characters to a queue. When we hit a comma, we return
+             * the value we've been accumulating. The exception is when we're in
+             * a quotation where we keep adding characters until the end of the
+             * quoted text.
+             */
+
+            function* splitRow(row) {
+                let queue = []; // the queue is filled until a comma is found
+                let insideQuote = false; // we need to know if we're in a quote
+
+                for (const char of row) {
+                    if (char === ",") {
+                        if (insideQuote) {
+                            // if we're inside a quotation, enqueue the comma
+                            queue.push(char);
+                        } else {
+                            // otherwise, return the queue and pause computation
+                            yield queue.join("");
+
+                            // after resuming, clear the queue for the next one
+                            queue = [];
+                        }
+                    }
+
+                    else if (char === '"') {
+                        // toggle the quotation state: we're entering or exiting
+                        insideQuote = !insideQuote;
+                    }
+
+                    else {
+                        queue.push(char);
+                    }
+                }
+
+                // return the last column (no trailing comma so outside loop)
+                yield queue.join("");
+            }
+        </script>
+
+        <script>
+            /**
+             * Since we want this output as a string, we take in the fields
+             * and then return a string that is formatted in the way we want.
+             *
+             * This has some funny formatting. We define a template string but
+             * don't want to include the extra indentation caused by the nested
+             * `<script>` tag. Thus, we add new lines before and after our
+             * string so that we can write the template flush-left. Before
+             * returning, we remove this extra whitespace with
+             * `String.prototype.trim`.
+             *
+             * A more flexible solution would be to create an object and then
+             * output it as JSON or another formatting.
+             */
+
+            const bookFromFields = (fields) => `
+{
+    title: "${fields[0]}",
+    subtitle: "${fields[1]}",
+    series: "${fields[2]}",
+    ids: [
+        [ "isbn10", "${fields[3]}" ],
+        [ "isbn13", "${fields[4]}" ],
+        [ "lccn", "${fields[5]}" ],
+    ],
+    external: "${fields[6]}",
+    tnxs: [
+        [ "${fields[10].toLowerCase()}", { date: "${fields[7]}", location: "${fields[8]}", city: "${fields[9]}" } ],
+    ],
+    notes: "${fields[11]}",
+},
+            `.trim();
+        </script>
+
+        <script>
+            const output = document.getElementById("csv-output");
+            const reset = document.getElementById("clear-output");
+            const copy = document.getElementById("copy-output");
+
+            document.onsubmit = function captureSubmission(submission) {
+                submission.preventDefault();
+
+                const form = submission.target;
+                const action = new URL(form.action).pathname;
+                const data = Object.fromEntries(new FormData(form).entries());
+                const [ header, ...rows ] = data.csv.split("\n");
+
+                output.value = rows.map(
+                    (row) => bookFromFields([ ...splitRow(row) ])
+                ).join("\n");
+            }
+
+            reset.addEventListener("click", () => {
+                output.value = "";
+            });
+
+            copy.addEventListener("click", () => {
+                navigator.clipboard.writeText(output.value);
+            });
+        </script>
+    </body>
+</html>
