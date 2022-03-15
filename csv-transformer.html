@@ -16,7 +16,7 @@
     </head>
 
     <body>
-        <form>
+        <form action="/parse-csv">
             <label class="bold">
                 CSV data
 
@@ -29,8 +29,10 @@
             </label>
 
             <button>Parse</button>
+        </form>
 
-            <output for="csv-input" style="display: block; padding-top: 3rem">
+        <form style="padding-top: 3rem">
+            <output>
                 <label class="bold">
                     Result
 
@@ -41,10 +43,10 @@
                         class="full-width preformatted block"
                     ></textarea>
                 </label>
-
-                <button type="button" id="copy-output">Copy</button>
-                <button type="button" id="clear-output">Clear</button>
             </output>
+
+            <button type="button" id="copy-output">Copy</button>
+            <button type="button" id="clear-output">Clear</button>
         </form>
 
         <script>
@@ -129,9 +131,23 @@
         </script>
 
         <script>
+            function parseCsv(data) {
+                const [ header, ...rows ] = data.csv.split("\n");
+
+                return rows.map(
+                    (row) => bookFromFields([ ...splitRow(row) ])
+                ).join("\n");
+            }
+        </script>
+
+        <script>
             const output = document.getElementById("csv-output");
             const reset = document.getElementById("clear-output");
             const copy = document.getElementById("copy-output");
+
+            const registry = {
+                "/parse-csv": parseCsv,
+            };
 
             document.onsubmit = function captureSubmission(submission) {
                 submission.preventDefault();
@@ -139,11 +155,8 @@
                 const form = submission.target;
                 const action = new URL(form.action).pathname;
                 const data = Object.fromEntries(new FormData(form).entries());
-                const [ header, ...rows ] = data.csv.split("\n");
 
-                output.value = rows.map(
-                    (row) => bookFromFields([ ...splitRow(row) ])
-                ).join("\n");
+                output.value = registry[action](data);
             }
 
             reset.addEventListener("click", () => {
