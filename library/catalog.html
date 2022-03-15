@@ -1,0 +1,115 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <title>Nick Cassleman - Library catalog</title>
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <script>
+            /**
+             * This might look like a strange function; I was trying to
+             * accomplish a few things:
+             *
+             * 1. Single source of truth: one place for header names + order [1]
+             * 2. Labels for column indexing
+             * 3. Clear connection between input and output / source of output
+             * 4. Sequential expressions that make sense with minimal state
+             * 5. Provide metadata that sits alongside the results for later use
+             *
+             * `mapping` aims to serve as the source of truth for this
+             * transformation. Each definition maps the column header to a value
+             * derived from the `book` input. There are a few helpers along the
+             * way.
+             *
+             * Ultimately, the return value gives you the data you want, and as
+             * bonus, you get its label alongside it (as an easily
+             * destructurable tuple). You can choose to use or discard either
+             * the headers or the column data. We provide the empty values for
+             * missing data, which makes this also serve as a way to get the
+             * header and/or default empty value for the output type.
+             */
+
+            function flattenBook(book = {}) {
+                const id = (t) => (
+                    book.ids?.find(([ type, data ]) => type === t) || []
+                )[1];
+
+                const [ txn ] = book.txns || []; // get the first txn
+                const [ purchase, { date, location, city } = {} ] = txn || [];
+
+                const mapping = {
+                    "Title": book.title || "",
+                    "Subtitle": book.subtitle || "",
+                    "Series": book.series || "",
+                    "ISBN": id("isbn10") || "",
+                    "ISBN-13": id("isbn13") || "",
+                    "LCCN": id("lccn") || "",
+                    "External link": book.external || "",
+                    "Date acquired": date || "",
+                    "Location acquired": location || "",
+                    "City acquired": city || "",
+                    "Method acquired": purchase || "",
+                    "Notes": book.notes || "",
+                };
+
+                return [
+                    Object.keys(mapping),
+                    Object.values(mapping),
+                ];
+            }
+        </script>
+
+        <script>
+            function tableFromBooks(books) {
+                const table = document.createElement("table");
+
+                const thead = document.createElement("thead");
+                table.append(thead);
+
+                const headerRow = document.createElement("tr");
+                thead.append(headerRow);
+
+                const [ headers, emptyRow ] = flattenBook();
+
+                for (const header of headers) {
+                    const th = document.createElement("th");
+                    th.textContent = header;
+                    headerRow.append(th);
+                }
+
+                const tbody = document.createElement("tbody");
+                table.append(tbody);
+
+                for (const book of books) {
+                    const tr = document.createElement("tr");
+                    const [ headers, fields ] = flattenBook(book);
+
+                    for (const field of fields) {
+                        const td = document.createElement("td");
+                        td.textContent = field;
+                        tr.append(td);
+
+                    }
+
+                    tbody.append(tr);
+                }
+
+                return table;
+            }
+        </script>
+    </head>
+
+    <body>
+        <template id="table-placeholder"></template>
+
+        <script type="module">
+            import catalog from "./catalog.js";
+
+            document.getElementById("table-placeholder").replaceWith(
+                tableFromBooks(catalog)
+            );
+        </script>
+    </body>
+</html>
