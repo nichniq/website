@@ -46,30 +46,68 @@
         </form>
 
         <script>
-            function *splitRow(row) {
-                let queue = [];
-                let insideQuote = false;
+            /**
+             * This is a special generator that helps split a simple CSV row. I
+             * hope it encapsulates the low-level parsing algorithm so that each
+             * row can be parsed in a more functional way at a higher level.
+             *
+             * The basic idea is we go character by character, adding the
+             * aggregated characters to a queue. When we hit a comma, we return
+             * the value we've been accumulating. The exception is when we're in
+             * a quotation where we keep adding characters until the end of the
+             * quoted text.
+             */
+
+            function* splitRow(row) {
+                let queue = []; // the queue is filled until a comma is found
+                let insideQuote = false; // we need to know if we're in a quote
 
                 for (const char of row) {
-                    if (insideQuote && char === ",") {
-                        queue.push(char);
-                    } else if (!insideQuote && char === ",") {
-                        yield queue.join("");
-                        queue = [];
-                    } else if (char === '"') {
+                    if (char === ",") {
+                        if (insideQuote) {
+                            // if we're inside a quotation, enqueue the comma
+                            queue.push(char);
+                        } else {
+                            // otherwise, return the queue and pause computation
+                            yield queue.join("");
+
+                            // after resuming, clear the queue for the next one
+                            queue = [];
+                        }
+                    }
+
+                    else if (char === '"') {
+                        // toggle the quotation state: we're entering or exiting
                         insideQuote = !insideQuote;
-                    } else {
+                    }
+
+                    else {
                         queue.push(char);
                     }
                 }
 
+                // return the last column (no trailing comma so outside loop)
                 yield queue.join("");
             }
+        </script>
 
-            function bookFromRow(row) {
-                const fields = [ ...splitRow(row) ];
+        <script>
+            /**
+             * Since we want this output as a string, we take in the fields
+             * and then return a string that is formatted in the way we want.
+             *
+             * This has some funny formatting. We define a template string but
+             * don't want to include the extra indentation caused by the nested
+             * `<script>` tag. Thus, we add new lines before and after our
+             * string so that we can write the template flush-left. Before
+             * returning, we remove this extra whitespace with
+             * `String.prototype.trim`.
+             *
+             * A more flexible solution would be to create an object and then
+             * output it as JSON or another formatting.
+             */
 
-                return `
+            const bookFromFields = (fields) => `
 {
     title: "${fields[0]}",
     subtitle: "${fields[1]}",
@@ -85,9 +123,10 @@
     ],
     notes: "${fields[11]}",
 },
-                `.trim();
-            }
+            `.trim();
+        </script>
 
+        <script>
             document.onsubmit = function captureSubmission(submission) {
                 submission.preventDefault();
 
@@ -97,7 +136,7 @@
                 const [ header, ...rows ] = data.csv.split("\n");
 
                 document.getElementById("csv-output").value = rows.map(
-                    (row) => bookFromRow(row)
+                    (row) => bookFromFields([ ...splitRow(row) ])
                 ).join("\n");
             }
         </script>
