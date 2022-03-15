@@ -59,6 +59,25 @@
                     Object.values(mapping),
                 ];
             }
+
+            function anotherWayOfWritingItWithAFlatShape(book) {
+                const split = (x) => [ Object.keys(x), Object.values(x) ];
+
+                return split(
+                    [ "Title",             book.title    || "" ],
+                    [ "Subtitle",          book.subtitle || "" ],
+                    [ "Series",            book.series   || "" ],
+                    [ "ISBN",              book.isbn10   || "" ],
+                    [ "ISBN-13",           book.isbn13   || "" ],
+                    [ "LCCN",              book.lccn     || "" ],
+                    [ "External link",     book.external || "" ],
+                    [ "Date acquired",     book.date     || "" ],
+                    [ "Location acquired", book.location || "" ],
+                    [ "City acquired",     book.city     || "" ],
+                    [ "Method acquired",   book.purchase || "" ],
+                    [ "Notes",             book.notes    || "" ],
+                );
+            }
         </script>
 
         <script>
