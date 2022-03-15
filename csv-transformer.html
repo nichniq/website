@@ -30,18 +30,20 @@
 
             <button>Parse</button>
 
-            <output style="display: block; padding-top: 3rem">
+            <output for="csv-input" style="display: block; padding-top: 3rem">
                 <label class="bold">
                     Result
 
                     <textarea
                         id="csv-output"
-                        for="csv-input"
                         readonly
                         rows="10"
                         class="full-width preformatted block"
                     ></textarea>
                 </label>
+
+                <button type="button" id="copy-output">Copy</button>
+                <button type="button" id="clear-output">Clear</button>
             </output>
         </form>
 
@@ -127,6 +129,10 @@
         </script>
 
         <script>
+            const output = document.getElementById("csv-output");
+            const reset = document.getElementById("clear-output");
+            const copy = document.getElementById("copy-output");
+
             document.onsubmit = function captureSubmission(submission) {
                 submission.preventDefault();
 
@@ -135,10 +141,18 @@
                 const data = Object.fromEntries(new FormData(form).entries());
                 const [ header, ...rows ] = data.csv.split("\n");
 
-                document.getElementById("csv-output").value = rows.map(
+                output.value = rows.map(
                     (row) => bookFromFields([ ...splitRow(row) ])
                 ).join("\n");
             }
+
+            reset.addEventListener("click", () => {
+                output.value = "";
+            });
+
+            copy.addEventListener("click", () => {
+                navigator.clipboard.writeText(output.value);
+            });
         </script>
     </body>
 </html>
