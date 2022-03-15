@@ -46,12 +46,41 @@
         </form>
 
         <script>
+            function *processCommas(row) {
+                const queue = [];
+                let insideQuote = false;
+
+                for (const char of row) {
+                    switch (char) {
+                        case ",":
+                            if (insideQuote) {
+                                queue.push(char);
+                            } else {
+                                yield queue.join("");
+                                queue.splice(0, queue.length);
+                            }
+                            break;
+
+                        case '"':
+                            insideQuote = !insideQuote;
+                            break;
+
+                        default:
+                            queue.push(char);
+                            break;
+                    }
+                }
+            }
+
             document.onsubmit = function captureSubmission(submission) {
                 submission.preventDefault();
 
                 const form = submission.target;
                 const action = new URL(form.action).pathname;
                 const data = Object.fromEntries(new FormData(form).entries());
+                const [ header, ...rows ] = data.csv.split("\n");
+
+                debugger;
 
                 document.getElementById("csv-output").value = data.csv + "!";
             }
