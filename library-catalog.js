@@ -13,7 +13,7 @@ export default [
     {
         title: "50 Things to Do with a Penknife",
         ids: [
-            [ "isbn10", "1616896388 " ],
+            [ "isbn10", "1616896388" ],
             [ "isbn13", "9781616896386" ],
         ],
         external: "https://www.goodreads.com/book/show/34220734-50-things-to-do-with-a-penknife",
@@ -1073,7 +1073,7 @@ export default [
             [ "isbn10", "0486247120" ],
             [ "isbn13", "9780486247120" ],
         ],
-        external: "https://www.goodreads.com/book/show/1345154.Paper_Mask_Making?ac=1&from_search=true&qid=tHvboxZA52&rank=1",
+        external: "https://www.goodreads.com/book/show/1345154.Paper_Mask_Making",
         tnxs: [
             [ "purchase", { location: "Alley Cat Books", city: "San Francisco" } ],
         ],
@@ -1119,7 +1119,7 @@ export default [
             [ "isbn10", "0500514666" ],
             [ "isbn13", "9780500514665" ],
         ],
-        external: "https://www.goodreads.com/book/show/7116966-craft-traditions-of-the-world?ac=1&from_search=true&qid=2RiaRSZT9j&rank=1",
+        external: "https://www.goodreads.com/book/show/7116966-craft-traditions-of-the-world",
         tnxs: [
             [ "purchase", { date: "January 25, 2020", location: "Books & Bookshelves", city: "San Francisco" } ],
         ],
@@ -1160,7 +1160,7 @@ export default [
             [ "isbn10", "1780678614" ],
             [ "isbn13", "9781780678610" ],
         ],
-        external: "https://www.goodreads.com/book/show/30364389-cut-and-fold-paper-textures?ac=1&from_search=true&qid=44oqdBZc1s&rank=1",
+        external: "https://www.goodreads.com/book/show/30364389-cut-and-fold-paper-textures",
         tnxs: [
             [ "purchase" ],
         ],
@@ -1201,7 +1201,7 @@ export default [
             [ "isbn10", "1579126049" ],
             [ "isbn13", "9781579126049" ],
         ],
-        external: "https://www.goodreads.com/book/show/2632218-decorative-ornament?ac=1&from_search=true&qid=l2WSCp82v0&rank=1",
+        external: "https://www.goodreads.com/book/show/2632218-decorative-ornament",
         tnxs: [
             [ "purchase", { city: "Berkeley" } ],
         ],
@@ -1324,7 +1324,7 @@ export default [
             [ "isbn10", "0760731640" ],
             [ "isbn13", "9780760731642" ],
         ],
-        external: "https://www.goodreads.com/book/show/4133320-drawing?ac=1&from_search=true&qid=B3OK2x2ASm&rank=1",
+        external: "https://www.goodreads.com/book/show/4133320-drawing",
         tnxs: [
             [ "purchase" ],
         ],
@@ -1384,7 +1384,7 @@ export default [
             [ "isbn10", "0486436691" ],
             [ "isbn13", "9780486436692" ],
         ],
-        external: "https://www.goodreads.com/book/show/985542.Dulac_s_Fairy_Tale_Illustrations_in_Full_Color?ac=1&from_search=true&qid=Dpd9uZlPMB&rank=1",
+        external: "https://www.goodreads.com/book/show/985542.Dulac_s_Fairy_Tale_Illustrations_in_Full_Color",
         tnxs: [
             [ "purchase", { date: "February 16, 2020", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
         ],
@@ -1478,7 +1478,7 @@ export default [
             [ "isbn10", "1786640287" ],
             [ "isbn13", "9781786640284" ],
         ],
-        external: "https://www.goodreads.com/book/show/30280541-egon-schiele-masterpieces-of-art?ac=1&from_search=true&qid=FYTX0MliE4&rank=1",
+        external: "https://www.goodreads.com/book/show/30280541-egon-schiele-masterpieces-of-art",
         tnxs: [
             [ "gift", { city: "New York" } ],
         ],
@@ -1498,7 +1498,7 @@ export default [
     },
     {
         title: "Elementary Alphabets",
-        external: "https://www.goodreads.com/book/show/34378457-speedball-elementary-alphabets?ac=1&from_search=true&qid=IpSg95HyXn&rank=1",
+        external: "https://www.goodreads.com/book/show/34378457-speedball-elementary-alphabets",
         tnxs: [
             [ "purchase" ],
         ],
@@ -1509,7 +1509,7 @@ export default [
             [ "isbn10", "1845337700" ],
             [ "isbn13", "9781845337704" ],
         ],
-        external: "https://www.goodreads.com/book/show/15791304-encyclopedia-of-gardening-techniques?ac=1&from_search=true&qid=LVEgjX25Z5&rank=1",
+        external: "https://www.goodreads.com/book/show/15791304-encyclopedia-of-gardening-techniques",
         tnxs: [
             [ "purchase" ],
         ],
@@ -1527,7 +1527,7 @@ export default [
             [ "isbn10", "0295953535" ],
             [ "isbn13", "9780295953533" ],
         ],
-        external: "https://www.goodreads.com/book/show/190902.Eskimo_Masks?ac=1&from_search=true&qid=2gxl1nbVpW&rank=1",
+        external: "https://www.goodreads.com/book/show/190902.Eskimo_Masks",
         tnxs: [
             [ "purchase", { date: "December 26, 2019", location: "Brused Books", city: "Pullman" } ],
         ],
@@ -1538,7 +1538,7 @@ export default [
             [ "isbn10", "0807608963" ],
             [ "isbn13", "9780807608968" ],
         ],
-        external: "https://www.goodreads.com/book/show/2215063.Ethiopian_Magic_Scrolls?ac=1&from_search=true&qid=sC6AmraIIX&rank=1",
+        external: "https://www.goodreads.com/book/show/2215063.Ethiopian_Magic_Scrolls",
         tnxs: [
             [ "purchase", { date: "December 19, 2019", location: "Russian Hill Bookstore", city: "San Francisco" } ],
         ],
@@ -1597,7 +1597,7 @@ export default [
             [ "isbn10", "080945212X" ],
             [ "isbn13", "9780809452125" ],
         ],
-        external: "https://www.goodreads.com/book/show/701615.Fairies_and_Elves?ac=1&from_search=true&qid=EIwVV3tTAb&rank=1",
+        external: "https://www.goodreads.com/book/show/701615.Fairies_and_Elves",
         tnxs: [
             [ "purchase", { date: "February 29, 2020", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
         ],
@@ -1757,7 +1757,7 @@ export default [
             [ "isbn10", "0714877557" ],
             [ "isbn13", "9780714877556" ],
         ],
-        external: "https://www.goodreads.com/book/show/40223843-flower-color-guide?ac=1&from_search=true&qid=ddjMJ0r7lH&rank=1",
+        external: "https://www.goodreads.com/book/show/40223843-flower-color-guide",
         tnxs: [
             [ "purchase" ],
         ],
@@ -1838,7 +1838,7 @@ export default [
             [ "isbn10", "087968156X" ],
             [ "isbn13", "9780879681562" ],
         ],
-        external: "https://www.goodreads.com/book/show/3457563-from-nudity-to-raiment?ac=1&from_search=true&qid=NQooEmVejo&rank=1",
+        external: "https://www.goodreads.com/book/show/3457563-from-nudity-to-raiment",
         tnxs: [
             [ "purchase", { date: "February 8, 2020", location: "Adobe Books", city: "San Francisco" } ],
         ],
@@ -1861,7 +1861,7 @@ export default [
             [ "isbn10", "1597143022" ],
             [ "isbn13", "9781597143028" ],
         ],
-        external: "https://www.goodreads.com/book/show/23374374-fylling-s-illustrated-guide-to-pacific-coast-tide-pools?ac=1&from_search=true&qid=MmUVFsp4fn&rank=1",
+        external: "https://www.goodreads.com/book/show/23374374-fylling-s-illustrated-guide-to-pacific-coast-tide-pools",
         tnxs: [
             [ "purchase", { location: "Green Arcade", city: "San Francisco" } ],
         ],
@@ -1872,7 +1872,7 @@ export default [
             [ "isbn10", "0891459359" ],
             [ "isbn13", "9780891459354" ],
         ],
-        external: "https://www.goodreads.com/book/show/2192048.Gallery_of_American_Quilts?ac=1&from_search=true&qid=kDUlnkVU8v&rank=1",
+        external: "https://www.goodreads.com/book/show/2192048.Gallery_of_American_Quilts",
         tnxs: [
             [ "purchase", { date: "December 26, 2019", location: "Brused Books", city: "Pullman" } ],
         ],
@@ -1884,7 +1884,7 @@ export default [
             [ "isbn10", "0240809742" ],
             [ "isbn13", "9780240809748" ],
         ],
-        external: "https://www.goodreads.com/book/show/2966354-game-design-workshop?ac=1&from_search=true&qid=4DGptocgMl&rank=2",
+        external: "https://www.goodreads.com/book/show/2966354-game-design-workshop",
         tnxs: [
             [ "internet order", { city: "Chicago" } ],
         ],
@@ -1896,7 +1896,7 @@ export default [
             [ "isbn10", "1851775889" ],
             [ "isbn13", "9781851775880" ],
         ],
-        external: "https://www.goodreads.com/book/show/10043089-v-pattern?ac=1&from_search=true&qid=659p5rtSnr&rank=1",
+        external: "https://www.goodreads.com/book/show/10043089-v-pattern",
         tnxs: [
             [ "purchase", { date: "February 29, 2020", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
         ],
@@ -1920,7 +1920,7 @@ export default [
             [ "isbn10", "0976184176" ],
             [ "isbn13", "9780976184171" ],
         ],
-        external: "https://www.goodreads.com/book/show/26516383-gay-semiotics?ac=1&from_search=true&qid=rxUbh0V8UB&rank=1",
+        external: "https://www.goodreads.com/book/show/26516383-gay-semiotics",
         tnxs: [
             [ "purchase", { date: "February 15, 2020", location: "Alley Cat Books", city: "San Francisco" } ],
         ],
@@ -1931,7 +1931,7 @@ export default [
             [ "isbn10", "0486215946" ],
             [ "isbn13", "9780486215945" ],
         ],
-        external: "https://www.goodreads.com/book/show/7366180-geometric-exercises-in-paper-folding?ac=1&from_search=true&qid=ZQkmmH1uDF&rank=1",
+        external: "https://www.goodreads.com/book/show/7366180-geometric-exercises-in-paper-folding",
         tnxs: [
             [ "purchase" ],
         ],
@@ -1953,7 +1953,7 @@ export default [
             [ "isbn10", "0945053282" ],
             [ "isbn13", "9780945053286" ],
         ],
-        external: "https://www.goodreads.com/book/show/257015.Getting_Started_in_Electronics?ac=1&from_search=true&qid=kufarDup8S&rank=1",
+        external: "https://www.goodreads.com/book/show/257015.Getting_Started_in_Electronics",
         tnxs: [
             [ "took", { city: "Pullman" } ],
         ],
@@ -2037,7 +2037,7 @@ export default [
             [ "isbn10", "0465026567" ],
             [ "isbn13", "9780809452736" ],
         ],
-        external: "https://www.goodreads.com/book/show/863468.Gods_and_Goddesses?ac=1&from_search=true&qid=pYKFOShPiv&rank=1",
+        external: "https://www.goodreads.com/book/show/863468.Gods_and_Goddesses",
         tnxs: [
             [ "purchase", { date: "February 29, 2020", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
         ],
@@ -2048,7 +2048,7 @@ export default [
             [ "isbn10", "0809452731" ],
             [ "isbn13", "9780684847818" ],
         ],
-        external: "https://www.goodreads.com/book/show/120253.Good_Faeries_Bad_Faeries?ac=1&from_search=true&qid=etdyUkpSFo&rank=1",
+        external: "https://www.goodreads.com/book/show/120253.Good_Faeries_Bad_Faeries",
         tnxs: [
             [ "purchase", { location: "Brused Books", city: "Pullman" } ],
         ],
@@ -2133,7 +2133,7 @@ export default [
             [ "isbn10", "0684847817" ],
             [ "isbn13", "9780465026562" ],
         ],
-        external: "https://www.goodreads.com/book/show/24113.G_del_Escher_Bach?ac=1&from_search=true&qid=tLDWx9eqqG&rank=1",
+        external: "https://www.goodreads.com/book/show/24113.G_del_Escher_Bach",
         tnxs: [
             [ "purchase" ],
         ],
@@ -2166,7 +2166,7 @@ export default [
             [ "isbn10", "0486201252" ],
             [ "isbn13", "9780486201252" ],
         ],
-        external: "https://www.goodreads.com/book/show/2282095.Handbook_of_Designs_and_Devices?ac=1&from_search=true&qid=lARVnP59j3&rank=1",
+        external: "https://www.goodreads.com/book/show/2282095.Handbook_of_Designs_and_Devices",
         tnxs: [
             [ "purchase" ],
         ],
@@ -2309,7 +2309,7 @@ export default [
             [ "isbn10", "0486264254" ],
             [ "isbn13", "9780486264257" ],
         ],
-        external: "https://www.goodreads.com/book/show/872129.Historic_Designs_And_Patterns_In_Color_From_Arabic_And_Italian_Sources?ac=1&from_search=true&qid=SFCc2jAxwf&rank=1",
+        external: "https://www.goodreads.com/book/show/872129.Historic_Designs_And_Patterns_In_Color_From_Arabic_And_Italian_Sources",
         tnxs: [
             [ "purchase", { date: "December 26, 2019", location: "Brused Books", city: "Pullman" } ],
         ],
@@ -2332,7 +2332,7 @@ export default [
             [ "isbn10", "379132490X" ],
             [ "isbn13", "9783791324906" ],
         ],
-        external: "https://www.goodreads.com/book/show/1462753.Hokusai?ac=1&from_search=true&qid=oLzoMTUA1W&rank=1",
+        external: "https://www.goodreads.com/book/show/1462753.Hokusai",
         tnxs: [
             [ "purchase" ],
         ],
@@ -2354,7 +2354,7 @@ export default [
             [ "isbn10", "0448050072" ],
             [ "isbn13", "9780448050072" ],
         ],
-        external: "https://www.goodreads.com/book/show/6454751-how-and-why-wonder-book-of-insects?ac=1&from_search=true&qid=zRL9G8hO66&rank=1",
+        external: "https://www.goodreads.com/book/show/6454751-how-and-why-wonder-book-of-insects",
         tnxs: [
             [ "took", { location: "Home", city: "Pullman" } ],
         ],
@@ -2420,7 +2420,7 @@ export default [
             [ "isbn10", "0440508274" ],
             [ "isbn13", "9780440508274" ],
         ],
-        external: "https://www.goodreads.com/book/show/598506.How_to_Think_Like_Leonardo_da_Vinci?ac=1&from_search=true&qid=Q9PHkUzINC&rank=2",
+        external: "https://www.goodreads.com/book/show/598506.How_to_Think_Like_Leonardo_da_Vinci",
         tnxs: [
             [ "purchase", { location: "Brused Books", city: "Pullman" } ],
         ],
@@ -2479,7 +2479,7 @@ export default [
             [ "isbn10", "0918080258" ],
             [ "isbn13", "9780918080257" ],
         ],
-        external: "https://www.goodreads.com/book/show/795758.Indian_Designs?ac=1&from_search=true&qid=L2PaVp7H8o&rank=1",
+        external: "https://www.goodreads.com/book/show/795758.Indian_Designs",
         tnxs: [
             [ "purchase" ],
         ],
@@ -2638,7 +2638,7 @@ export default [
             [ "isbn10", "0807611263" ],
             [ "isbn13", "9780807611265" ],
         ],
-        external: "https://www.goodreads.com/book/show/239419.Japanese_Ghosts_and_Demons?ac=1&from_search=true&qid=7Q9qmMr6PJ&rank=1",
+        external: "https://www.goodreads.com/book/show/239419.Japanese_Ghosts_and_Demons",
         tnxs: [
             [ "purchase", { date: "December 19, 2019", location: "Russian Hill Bookstore", city: "San Francisco" } ],
         ],
@@ -2683,7 +2683,7 @@ export default [
             [ "isbn10", "1552976637" ],
             [ "isbn13", "9781552976630" ],
         ],
-        external: "https://www.goodreads.com/book/show/3606904-jungle-bugs?ac=1&from_search=true&qid=97TMTpLRBJ&rank=1",
+        external: "https://www.goodreads.com/book/show/3606904-jungle-bugs",
         tnxs: [
             [ "purchase", { date: "December 26, 2019", location: "Brused Books", city: "Pullman" } ],
         ],
@@ -2762,7 +2762,7 @@ export default [
             [ "isbn10", "0879610123" ],
             [ "isbn13", "9780879610128" ],
         ],
-        external: "https://www.goodreads.com/book/show/5163512-know-your-poisonous-plants?ac=1&from_search=true&qid=U4YIiUhhrt&rank=1",
+        external: "https://www.goodreads.com/book/show/5163512-know-your-poisonous-plants",
         tnxs: [
             [ "purchase" ],
         ],
@@ -2803,7 +2803,7 @@ export default [
             [ "isbn10", "4770028520" ],
             [ "isbn13", "9784770028525" ],
         ],
-        external: "https://www.goodreads.com/book/show/1594691.Landscape_Gardening_in_Japan?ac=1&from_search=true&qid=XlmeQbg9pB&rank=1",
+        external: "https://www.goodreads.com/book/show/1594691.Landscape_Gardening_in_Japan",
         tnxs: [
             [ "purchase", { location: "Patricia's", city: "New York" } ],
         ],
@@ -2885,7 +2885,7 @@ export default [
             [ "isbn10", "0295972599" ],
             [ "isbn13", "9780295972596" ],
         ],
-        external: "https://www.goodreads.com/book/show/947723.Looking_at_Totem_Poles?ac=1&from_search=true&qid=leHxLqUE8G&rank=1",
+        external: "https://www.goodreads.com/book/show/947723.Looking_at_Totem_Poles",
         tnxs: [
             [ "purchase" ],
         ],
@@ -2907,7 +2907,7 @@ export default [
             [ "isbn10", "9701812107" ],
             [ "isbn13", "9789701812105" ],
         ],
-        external: "https://www.goodreads.com/book/show/4910226-los-mayas?ac=1&from_search=true&qid=gCutnqMDJ4&rank=1",
+        external: "https://www.goodreads.com/book/show/4910226-los-mayas",
         tnxs: [
             [ "purchase", { location: "Patricia's", city: "New York" } ],
         ],
@@ -2961,7 +2961,7 @@ export default [
             [ "isbn10", "183866064X" ],
             [ "isbn13", "9781838660642" ],
         ],
-        external: "https://www.goodreads.com/book/show/47943918-map?ac=1&from_search=true&qid=YjWDldaOOt&rank=2",
+        external: "https://www.goodreads.com/book/show/47943918-map",
         tnxs: [
             [ "purchase", { date: "March 7, 2020", location: "Green Arcade", city: "San Francisco" } ],
         ],
@@ -3016,7 +3016,7 @@ export default [
             [ "isbn10", "0486282589" ],
             [ "isbn13", "9780486282589" ],
         ],
-        external: "https://www.goodreads.com/book/show/975936.Medieval_Russian_Ornament_in_Full_Color?ac=1&from_search=true&qid=TxJsR2Y49V&rank=1",
+        external: "https://www.goodreads.com/book/show/975936.Medieval_Russian_Ornament_in_Full_Color",
         tnxs: [
             [ "purchase", { location: "31 Trinity", city: "San Francisco" } ],
         ],
@@ -3323,7 +3323,7 @@ export default [
             [ "isbn10", "1612122310" ],
             [ "isbn13", "9781612122311" ],
         ],
-        external: "https://www.goodreads.com/book/show/18796086-nature-anatomy?ac=1&from_search=true&qid=HDaLFiJI3q&rank=1",
+        external: "https://www.goodreads.com/book/show/18796086-nature-anatomy",
         tnxs: [
             [ "purchase" ],
         ],
@@ -3346,7 +3346,7 @@ export default [
             [ "isbn10", "0393031349" ],
             [ "isbn13", "9780393031348" ],
         ],
-        external: "https://www.goodreads.com/book/show/7182736-navigation-the-easy-way?ac=1&from_search=true&qid=XwNEZX6dbp&rank=1",
+        external: "https://www.goodreads.com/book/show/7182736-navigation-the-easy-way",
         tnxs: [
             [ "purchase" ],
         ],
@@ -3381,7 +3381,7 @@ export default [
             [ "isbn10", "155659495X" ],
             [ "isbn13", "9781556594953" ],
         ],
-        external: "https://www.goodreads.com/book/show/23841432-night-sky-with-exit-wounds?ac=1&from_search=true&qid=ArMSw0pjEN&rank=1",
+        external: "https://www.goodreads.com/book/show/23841432-night-sky-with-exit-wounds",
         tnxs: [
             [ "gift", { city: "New York" } ],
         ],
@@ -3416,7 +3416,7 @@ export default [
             [ "isbn10", "0300070411" ],
             [ "isbn13", "9780300070415" ],
         ],
-        external: "https://www.goodreads.com/book/show/2455241.Nordic_Landscape_Painting_in_the_Nineteenth_Century?ac=1&from_search=true&qid=7rY126lmt1&rank=1",
+        external: "https://www.goodreads.com/book/show/2455241.Nordic_Landscape_Painting_in_the_Nineteenth_Century",
         tnxs: [
             [ "purchase", { date: "February 1, 2020", location: "Green Apple Books", city: "San Francisco" } ],
         ],
@@ -3452,7 +3452,7 @@ export default [
             [ "isbn10", "0395678943" ],
             [ "isbn13", "9780395678947" ],
         ],
-        external: "https://www.goodreads.com/book/show/37507.Nursery_Tales_Around_the_World?ac=1&from_search=true&qid=WSxas5nvzf&rank=1",
+        external: "https://www.goodreads.com/book/show/37507.Nursery_Tales_Around_the_World",
         tnxs: [
             [ "purchase", { date: "December 26, 2019", location: "Brused Books", city: "Pullman" } ],
         ],
@@ -3574,7 +3574,7 @@ export default [
             [ "isbn10", "0981816703" ],
             [ "isbn13", "9780981816708" ],
         ],
-        external: "https://www.goodreads.com/book/show/6824746-palouse-perspective?ac=1&from_search=true&qid=c4AZ1Rco9w&rank=1",
+        external: "https://www.goodreads.com/book/show/6824746-palouse-perspective",
         tnxs: [
             [ "gift", { city: "Pullman" } ],
         ],
@@ -3612,7 +3612,7 @@ export default [
             [ "isbn10", "1601251505" ],
             [ "isbn13", "9781601251503" ],
         ],
-        external: "https://www.goodreads.com/book/show/6345021-pathfinder-roleplaying-game?ac=1&from_search=true&qid=BTJpAHGeLT&rank=2",
+        external: "https://www.goodreads.com/book/show/6345021-pathfinder-roleplaying-game",
         tnxs: [
             [ "found" ],
         ],
@@ -3647,7 +3647,7 @@ export default [
             [ "isbn10", "022633242X" ],
             [ "isbn13", "9780226332420" ],
         ],
-        external: "https://www.goodreads.com/book/show/26240445-patterns-in-nature?ac=1&from_search=true&qid=I18owO0GgJ&rank=4",
+        external: "https://www.goodreads.com/book/show/26240445-patterns-in-nature",
         tnxs: [
             [ "purchase", { city: "San Francisco" } ],
         ],
@@ -3659,7 +3659,7 @@ export default [
             [ "isbn10", "0810963264" ],
             [ "isbn13", "9780810963269" ],
         ],
-        external: "https://www.goodreads.com/book/show/3187620-patterns-that-connect?ac=1&from_search=true&qid=hbHv9AskEf&rank=1",
+        external: "https://www.goodreads.com/book/show/3187620-patterns-that-connect",
         tnxs: [
             [ "purchase", { date: "February 1, 2020", location: "Green Apple Books", city: "San Francisco" } ],
         ],
@@ -3896,7 +3896,7 @@ export default [
             [ "isbn10", "0486421678" ],
             [ "isbn13", "9780486421674" ],
         ],
-        external: "https://www.goodreads.com/book/show/119328.Rackham_s_Fairy_Tale_Illustrations?ac=1&from_search=true&qid=sQ6FniTX3G&rank=1",
+        external: "https://www.goodreads.com/book/show/119328.Rackham_s_Fairy_Tale_Illustrations",
         tnxs: [
             [ "purchase", { date: "January 18, 2020", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
         ],
@@ -3986,7 +3986,7 @@ export default [
             [ "isbn10", "1466864826" ],
             [ "isbn13", "9781466864825" ],
         ],
-        external: "https://www.goodreads.com/book/show/19549182-rocks-gems-and-minerals?ac=1&from_search=true&qid=L3EGhyFug0&rank=1",
+        external: "https://www.goodreads.com/book/show/19549182-rocks-gems-and-minerals",
         tnxs: [
             [ "purchase", { date: "November 25, 2019", location: "McNally Jackson Books (Williamsburg)", city: "New York" } ],
         ],
@@ -3997,7 +3997,7 @@ export default [
             [ "isbn10", "0345537262" ],
             [ "isbn13", "9780345537263" ],
         ],
-        external: "https://www.goodreads.com/book/show/20168816-rogues?ac=1&from_search=true&qid=th1FDavwyQ&rank=2",
+        external: "https://www.goodreads.com/book/show/20168816-rogues",
         tnxs: [
             [ "purchase", { location: "The Strand", city: "New York" } ],
         ],
@@ -4009,7 +4009,7 @@ export default [
             [ "isbn10", "0711232253" ],
             [ "isbn13", "9780711232259" ],
         ],
-        external: "https://www.goodreads.com/book/show/11534771-rossetti?ac=1&from_search=true&qid=HGkDzCe4wA&rank=2",
+        external: "https://www.goodreads.com/book/show/11534771-rossetti",
         tnxs: [
             [ "purchase", { date: "December 19, 2019", location: "Russian Hill Bookstore", city: "San Francisco" } ],
         ],
@@ -4088,7 +4088,7 @@ export default [
             [ "isbn10", "1476753830" ],
             [ "isbn13", "9781476753836" ],
         ],
-        external: "https://www.goodreads.com/book/show/30753841-salt-fat-acid-heat?ac=1&from_search=true&qid=dZAX2nVNBw&rank=1",
+        external: "https://www.goodreads.com/book/show/30753841-salt-fat-acid-heat",
         tnxs: [
             [ "purchase", { location: "The Strand", city: "New York" } ],
         ],
@@ -4119,7 +4119,7 @@ export default [
             [ "isbn10", "0691172730" ],
             [ "isbn13", "9780691172736" ],
         ],
-        external: "https://www.goodreads.com/book/show/36854809-scale-and-the-incas?ac=1&from_search=true&qid=dZmXDc9VN8&rank=1",
+        external: "https://www.goodreads.com/book/show/36854809-scale-and-the-incas",
         tnxs: [
             [ "purchase", { date: "February 23, 2020", location: "Point Reyes Books", city: "Point Reyes Station" } ],
         ],
@@ -4137,7 +4137,7 @@ export default [
             [ "isbn10", "1493043021" ],
             [ "isbn13", "9781493043026" ],
         ],
-        external: "https://www.goodreads.com/book/show/46637548-scats-and-tracks-of-north-america?ac=1&from_search=true&qid=ifgISW686k&rank=3",
+        external: "https://www.goodreads.com/book/show/46637548-scats-and-tracks-of-north-america",
         tnxs: [
             [ "purchase", { date: "November 25, 2019", location: "McNally Jackson Books (Williamsburg)", city: "New York" } ],
         ],
@@ -4219,7 +4219,7 @@ export default [
             [ "isbn10", "1584235780" ],
             [ "isbn13", "9781584235781" ],
         ],
-        external: "https://www.goodreads.com/book/show/22343267-shelter?ac=1&from_search=true&qid=xGVDCgiKLz&rank=1",
+        external: "https://www.goodreads.com/book/show/22343267-shelter",
         tnxs: [
             [ "purchase", { date: "January 18, 2020", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
         ],
@@ -4231,7 +4231,7 @@ export default [
             [ "isbn10", "0764940392" ],
             [ "isbn13", "9780764940392" ],
         ],
-        external: "https://www.goodreads.com/book/show/918830.Shin_Hanga?ac=1&from_search=true&qid=tUZ6byKAmV&rank=1",
+        external: "https://www.goodreads.com/book/show/918830.Shin_Hanga",
         tnxs: [
             [ "purchase", { date: "January 5, 2020", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
         ],
@@ -4266,7 +4266,7 @@ export default [
             [ "isbn10", "080271773X" ],
             [ "isbn13", "9780802717733" ],
         ],
-        external: "https://www.goodreads.com/book/show/6397048-simple-shelters?ac=1&from_search=true&qid=U2YP4Dz9nw&rank=2",
+        external: "https://www.goodreads.com/book/show/6397048-simple-shelters",
         tnxs: [
             [ "purchase", { date: "March 7, 2020", location: "Green Arcade", city: "San Francisco" } ],
         ],
@@ -4369,7 +4369,7 @@ export default [
             [ "isbn10", "8275320038" ],
             [ "isbn13", "9788275320030" ],
         ],
-        external: "https://www.goodreads.com/book/show/10662357-stav-og-laft-i-norge?ac=1&from_search=true&qid=Q7FVmB9Qpk&rank=1",
+        external: "https://www.goodreads.com/book/show/10662357-stav-og-laft-i-norge",
         tnxs: [
             [ "purchase", { date: "January 27, 2020", location: "William Stout Architectural Books", city: "San Francisco" } ],
         ],
@@ -4381,7 +4381,7 @@ export default [
             [ "isbn10", "1932974016" ],
             [ "isbn13", "9781932974010" ],
         ],
-        external: "https://www.goodreads.com/book/show/654765.Stikky_Night_Skies?ac=1&from_search=true&qid=C5jVtXaRZC&rank=1#",
+        external: "https://www.goodreads.com/book/show/654765.Stikky_Night_Skies",
         tnxs: [
             [ "purchase", { location: "Brused Books", city: "Pullman" } ],
         ],
@@ -4403,14 +4403,14 @@ export default [
             [ "isbn10", "0810938472" ],
             [ "isbn13", "9780810938472" ],
         ],
-        external: "https://www.goodreads.com/book/show/60439.Stone?ac=1&from_search=true&qid=mg3iDG6Q8c&rank=1",
+        external: "https://www.goodreads.com/book/show/60439.Stone",
         tnxs: [
             [ "purchase", { date: "February 8, 2020", location: "Alley Cat Books", city: "San Francisco" } ],
         ],
     },
     {
         title: "Stone Mattress",
-        external: "https://www.goodreads.com/book/show/48746638-stone-mattress?ac=1&from_search=true&qid=stdgvbq9VI&rank=3",
+        external: "https://www.goodreads.com/book/show/48746638-stone-mattress",
         tnxs: [
             [ "purchase", { location: "The Strand", city: "New York" } ],
         ],
@@ -4429,7 +4429,7 @@ export default [
             [ "isbn10", "0142005258" ],
             [ "isbn13", "9780142005255" ],
         ],
-        external: "https://www.goodreads.com/book/show/6434363-strange-maps?ac=1&from_search=true&qid=oS0WA6PiUx&rank=1",
+        external: "https://www.goodreads.com/book/show/6434363-strange-maps",
         tnxs: [
             [ "purchase" ],
         ],
@@ -4476,7 +4476,7 @@ export default [
             [ "isbn10", "0262510871" ],
             [ "isbn13", "9780262510875" ],
         ],
-        external: "https://www.goodreads.com/book/show/43713.Structure_and_Interpretation_of_Computer_Programs?ac=1&from_search=true&qid=csOTe1d9Me&rank=1",
+        external: "https://www.goodreads.com/book/show/43713.Structure_and_Interpretation_of_Computer_Programs",
         tnxs: [
             [ "internet order", { city: "San Francisco" } ],
         ],
@@ -4533,7 +4533,7 @@ export default [
             [ "isbn10", "0486222411" ],
             [ "isbn13", "9780486222417" ],
         ],
-        external: "https://www.goodreads.com/book/show/873200.Symbols_Signs_and_Signets?ac=1&from_search=true&qid=g1WP62pyZJ&rank=1",
+        external: "https://www.goodreads.com/book/show/873200.Symbols_Signs_and_Signets",
         tnxs: [
             [ "purchase" ],
         ],
@@ -4673,7 +4673,7 @@ export default [
             [ "isbn10", "0252012194" ],
             [ "isbn13", "9780252012198" ],
         ],
-        external: "https://www.goodreads.com/book/show/4917104-the-ancient-art-of-northern-asia?ac=1&from_search=true&qid=9Pe3CRgYSV&rank=1",
+        external: "https://www.goodreads.com/book/show/4917104-the-ancient-art-of-northern-asia",
         tnxs: [
             [ "purchase", { date: "January 14, 2020", location: "Russian Hill Bookstore", city: "San Francisco" } ],
         ],
@@ -4707,7 +4707,7 @@ export default [
             [ "isbn10", "0123694965" ],
             [ "isbn13", "9780123694966" ],
         ],
-        external: "https://www.goodreads.com/book/show/3396933-the-art-of-game-design?ac=1&from_search=true&qid=kHbJWyVAlZ&rank=1",
+        external: "https://www.goodreads.com/book/show/3396933-the-art-of-game-design",
         tnxs: [
             [ "purchase", { city: "Chicago" } ],
         ],
@@ -4719,7 +4719,7 @@ export default [
             [ "isbn10", "0517004542" ],
             [ "isbn13", "9780517004548" ],
         ],
-        external: "https://www.goodreads.com/book/show/1439269.The_Art_Of_Growing_Miniature_Trees_Plants_And_Landscapes?ac=1&from_search=true&qid=wWJCQpoXTM&rank=1",
+        external: "https://www.goodreads.com/book/show/1439269.The_Art_Of_Growing_Miniature_Trees_Plants_And_Landscapes",
         tnxs: [
             [ "purchase", { date: "March 7, 2020", location: "Green Arcade", city: "San Francisco" } ],
         ],
@@ -4847,12 +4847,12 @@ export default [
     },
     {
         title: "The Book of Pears",
-        subtitle: "The Definitive History and Guide to Over 500 Varieties ",
+        subtitle: "The Definitive History and Guide to Over 500 Varieties",
         ids: [
             [ "isbn10", "1603586660" ],
             [ "isbn13", "9781603586665" ],
         ],
-        external: "https://www.goodreads.com/book/show/26483945-the-book-of-pears?ac=1&from_search=true&qid=toFLVpnbPA&rank=3",
+        external: "https://www.goodreads.com/book/show/26483945-the-book-of-pears",
         tnxs: [
             [ "purchase", { date: "February 29, 2020", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
         ],
@@ -4864,7 +4864,7 @@ export default [
             [ "isbn10", "0226315770" ],
             [ "isbn13", "9780226315775" ],
         ],
-        external: "https://www.goodreads.com/book/show/7731182-the-book-of-shells?ac=1&from_search=true&qid=9h13JInUyA&rank=5",
+        external: "https://www.goodreads.com/book/show/7731182-the-book-of-shells",
         tnxs: [
             [ "purchase" ],
         ],
@@ -4875,7 +4875,7 @@ export default [
             [ "isbn10", "0486201627" ],
             [ "isbn13", "9780486201627" ],
         ],
-        external: "https://www.goodreads.com/book/show/825484.The_Book_of_Signs?ac=1&from_search=true&qid=yBYw2YzTMX&rank=1",
+        external: "https://www.goodreads.com/book/show/825484.The_Book_of_Signs",
         tnxs: [
             [ "purchase" ],
         ],
@@ -4887,7 +4887,7 @@ export default [
             [ "isbn10", "3836514486" ],
             [ "isbn13", "9783836514484" ],
         ],
-        external: "https://www.goodreads.com/book/show/9321125-the-book-of-symbols?ac=1&from_search=true&qid=V53nbM36DZ&rank=1",
+        external: "https://www.goodreads.com/book/show/9321125-the-book-of-symbols",
         tnxs: [
             [ "purchase", { location: "Dog Eared Books (Castro)", city: "San Francisco" } ],
         ],
@@ -4899,7 +4899,7 @@ export default [
             [ "isbn10", "1419717847" ],
             [ "isbn13", "9781419717840" ],
         ],
-        external: "https://www.goodreads.com/book/show/25158806-the-butterflies-of-north-america?ac=1&from_search=true&qid=ulv1OMhwBq&rank=1",
+        external: "https://www.goodreads.com/book/show/25158806-the-butterflies-of-north-america",
         tnxs: [
             [ "purchase", { location: "Powell's Books", city: "Chicago" } ],
         ],
@@ -4910,7 +4910,7 @@ export default [
             [ "isbn10", "0131103628" ],
             [ "isbn13", "9780131103627" ],
         ],
-        external: "https://www.goodreads.com/book/show/515601.The_C_Programming_Language?ac=1&from_search=true&qid=sUHQYsiRXN&rank=1",
+        external: "https://www.goodreads.com/book/show/515601.The_C_Programming_Language",
         tnxs: [
             [ "purchase" ],
         ],
@@ -5032,7 +5032,7 @@ export default [
             [ "isbn10", "048623701X" ],
             [ "isbn13", "9780486237015" ],
         ],
-        external: "https://www.goodreads.com/book/show/653532.The_Curves_of_Life?ac=1&from_search=true&qid=dI4YGZg3Fe&rank=1",
+        external: "https://www.goodreads.com/book/show/653532.The_Curves_of_Life",
         tnxs: [
             [ "purchase", { date: "November 30, 2019", location: "The Strand", city: "New York" } ],
         ],
@@ -5056,7 +5056,7 @@ export default [
             [ "isbn10", "0930588185" ],
             [ "isbn13", "9780930588182" ],
         ],
-        external: "https://www.goodreads.com/book/show/1015328.The_Earth_Manual?ac=1&from_search=true&qid=W5zt36ybA2&rank=3",
+        external: "https://www.goodreads.com/book/show/1015328.The_Earth_Manual",
         tnxs: [
             [ "purchase" ],
         ],
@@ -5065,7 +5065,7 @@ export default [
         title: "The Egyptian Miracle",
         subtitle: "An Introduction to the Wisdom of the Temple",
         ids: [
-            [ "isbn10", "0892810084 " ],
+            [ "isbn10", "0892810084" ],
             [ "isbn13", "9780892810086" ],
         ],
         external: "https://www.goodreads.com/book/show/1342348.The_Egyptian_Miracle",
@@ -5080,7 +5080,7 @@ export default [
             [ "isbn10", "0714867411" ],
             [ "isbn13", "9780714867410" ],
         ],
-        external: "https://www.goodreads.com/book/show/22209670-the-elements-of-sculpture?ac=1&from_search=true&qid=fMKacObt22&rank=1",
+        external: "https://www.goodreads.com/book/show/22209670-the-elements-of-sculpture",
         tnxs: [
             [ "internet order" ],
         ],
@@ -5127,7 +5127,7 @@ export default [
             [ "isbn10", "0816065098" ],
             [ "isbn13", "9780816065097" ],
         ],
-        external: "https://www.goodreads.com/book/show/9851501-the-field-guide-to-geology-new-edition?ac=1&from_search=true&qid=UworkUXxSN&rank=2",
+        external: "https://www.goodreads.com/book/show/9851501-the-field-guide-to-geology-new-edition",
         tnxs: [
             [ "purchase", { location: "Brused Books", city: "Pullman" } ],
         ],
@@ -5152,7 +5152,7 @@ export default [
     },
     {
         title: "The Flavor Bible",
-        subtitle: "The Essential Guide to Culinary Creativity, Based on the Wisdom of America's Most Imaginative Chefs ",
+        subtitle: "The Essential Guide to Culinary Creativity, Based on the Wisdom of America's Most Imaginative Chefs",
         ids: [
             [ "isbn10", "0316118400" ],
             [ "isbn13", "9780316118408" ],
@@ -5168,7 +5168,7 @@ export default [
             [ "isbn10", "1579655300" ],
             [ "isbn13", "9781579655303" ],
         ],
-        external: "https://www.goodreads.com/book/show/15953244-the-flower-recipe-book?ac=1&from_search=true&qid=e4n0Si9eVB&rank=1",
+        external: "https://www.goodreads.com/book/show/15953244-the-flower-recipe-book",
         tnxs: [
             [ "purchase" ],
         ],
@@ -5209,7 +5209,7 @@ export default [
             [ "isbn10", "0892819227" ],
             [ "isbn13", "9780892819225" ],
         ],
-        external: "https://www.goodreads.com/book/show/783246.The_Genesis_and_Geometry_of_the_Labyrinth?ac=1&from_search=true&qid=pwh4CSC4yh&rank=1",
+        external: "https://www.goodreads.com/book/show/783246.The_Genesis_and_Geometry_of_the_Labyrinth",
         tnxs: [
             [ "purchase", { date: "February 1, 2020", location: "Green Apple Books", city: "San Francisco" } ],
         ],
@@ -5316,7 +5316,7 @@ export default [
             [ "isbn10", "1423646746" ],
             [ "isbn13", "9781423646747" ],
         ],
-        external: "https://www.goodreads.com/book/show/31425227-the-illustrated-book-of-edible-plants?ac=1&from_search=true&qid=LHAAIpgmR5&rank=1",
+        external: "https://www.goodreads.com/book/show/31425227-the-illustrated-book-of-edible-plants",
         tnxs: [
             [ "purchase", { location: "Book People", city: "Moscow" } ],
         ],
@@ -5397,7 +5397,7 @@ export default [
             [ "isbn10", "1597143154" ],
             [ "isbn13", "9781597143158" ],
         ],
-        external: "https://www.goodreads.com/book/show/27791380-laws-guide-to-nature-drawing-and-journaling?ac=1&from_search=true&qid=tytRNXdXA3&rank=1",
+        external: "https://www.goodreads.com/book/show/27791380-laws-guide-to-nature-drawing-and-journaling",
         tnxs: [
             [ "purchase", { city: "San Francisco" } ],
         ],
@@ -5408,7 +5408,7 @@ export default [
             [ "isbn10", "159714195X" ],
             [ "isbn13", "9781597141956" ],
         ],
-        external: "https://www.goodreads.com/book/show/15065574-the-laws-guide-to-drawing-birds?ac=1&from_search=true&qid=RvNRLmxhAM&rank=1",
+        external: "https://www.goodreads.com/book/show/15065574-the-laws-guide-to-drawing-birds",
         tnxs: [
             [ "purchase", { city: "San Francisco" } ],
         ],
@@ -5419,7 +5419,7 @@ export default [
             [ "isbn10", "1845337700" ],
             [ "isbn13", "9781787131637" ],
         ],
-        external: "https://www.goodreads.com/book/show/38741074-the-little-guide-to-bugs?ac=1&from_search=true&qid=vZrIxCT1TJ&rank=1",
+        external: "https://www.goodreads.com/book/show/38741074-the-little-guide-to-bugs",
         tnxs: [
             [ "took", { city: "Pullman" } ],
         ],
@@ -5497,7 +5497,7 @@ export default [
             [ "isbn10", "1786273225" ],
             [ "isbn13", "9781786273222" ],
         ],
-        external: "https://www.goodreads.com/book/show/38741041-the-maze?ac=1&from_search=true&qid=DMo2F9wog2&rank=1",
+        external: "https://www.goodreads.com/book/show/38741041-the-maze",
         tnxs: [
             [ "purchase", { location: "Dog Eared Books (Castro)", city: "San Francisco" } ],
         ],
@@ -5542,7 +5542,7 @@ export default [
             [ "isbn10", "0894806246" ],
             [ "isbn13", "9780894806247" ],
         ],
-        external: "https://www.goodreads.com/book/show/540275.The_Naughty_Victorian_Hand_Book?ac=1&from_search=true&qid=C7Qg4YcTOS&rank=1",
+        external: "https://www.goodreads.com/book/show/540275.The_Naughty_Victorian_Hand_Book",
         tnxs: [
             [ "purchase", { date: "February 8, 2020", location: "Alley Cat Books", city: "San Francisco" } ],
         ],
@@ -5566,7 +5566,7 @@ export default [
             [ "isbn10", "0818403012" ],
             [ "isbn13", "9780818403019" ],
         ],
-        external: "https://www.goodreads.com/book/show/442019.New_Aikido_Complete?ac=1&from_search=true&qid=yOilinK295&rank=1",
+        external: "https://www.goodreads.com/book/show/442019.New_Aikido_Complete",
         tnxs: [
             [ "gift", { city: "Chicago" } ],
         ],
@@ -5655,7 +5655,7 @@ export default [
             [ "isbn10", "1580088082" ],
             [ "isbn13", "9781580088084" ],
         ],
-        external: "https://www.goodreads.com/book/show/261821.The_Perfect_Scoop?ac=1&from_search=true&qid=9MQ9Hk0YKP&rank=1",
+        external: "https://www.goodreads.com/book/show/261821.The_Perfect_Scoop",
         tnxs: [
             [ "internet order", { city: "Chicago" } ],
         ],
@@ -5678,7 +5678,7 @@ export default [
             [ "isbn10", "0394820371" ],
             [ "isbn13", "9780394820378" ],
         ],
-        external: "https://www.goodreads.com/book/show/378.The_Phantom_Tollbooth?ac=1&from_search=true&qid=my546ikSRG&rank=1",
+        external: "https://www.goodreads.com/book/show/378.The_Phantom_Tollbooth",
         tnxs: [
             [ "gift", { city: "Pullman" } ],
         ],
@@ -5744,7 +5744,7 @@ export default [
             [ "isbn10", "0486478750" ],
             [ "isbn13", "9780486478753" ],
         ],
-        external: "https://www.goodreads.com/book/show/10247984-the-poster-art-of-david-lance-goines?ac=1&from_search=true&qid=YG9cqnA0zX&rank=1",
+        external: "https://www.goodreads.com/book/show/10247984-the-poster-art-of-david-lance-goines",
         tnxs: [
             [ "purchase", { location: "Green Arcade", city: "San Francisco" } ],
         ],
@@ -5802,7 +5802,7 @@ export default [
             [ "isbn10", "0810948028" ],
             [ "isbn13", "9780810948020" ],
         ],
-        external: "https://www.goodreads.com/book/show/997135.The_Sea?ac=1&from_search=true&qid=0Rzw1C9IDp&rank=1",
+        external: "https://www.goodreads.com/book/show/997135.The_Sea",
         tnxs: [
             [ "purchase" ],
         ],
@@ -5848,7 +5848,7 @@ export default [
             [ "isbn10", "0756410436" ],
             [ "isbn13", "9780756410438" ],
         ],
-        external: "https://www.goodreads.com/book/show/21535271-the-slow-regard-of-silent-things?ac=1&from_search=true&qid=wIl27YuNlT&rank=1",
+        external: "https://www.goodreads.com/book/show/21535271-the-slow-regard-of-silent-things",
         tnxs: [
             [ "gift", { city: "Pullman" } ],
         ],
@@ -5861,7 +5861,7 @@ export default [
             [ "isbn10", "0963153250" ],
             [ "isbn13", "9780963153258" ],
         ],
-        external: "https://www.goodreads.com/book/show/10392797-the-speedball-textbook?ac=1&from_search=true&qid=vcEIMujGUh&rank=1",
+        external: "https://www.goodreads.com/book/show/10392797-the-speedball-textbook",
         tnxs: [
             [ "purchase" ],
         ],
@@ -5885,7 +5885,7 @@ export default [
             [ "isbn10", "0395248302" ],
             [ "isbn13", "9780395248300" ],
         ],
-        external: "https://www.goodreads.com/book/show/204382.The_Stars?ac=1&from_search=true&qid=VJw0Mj26lx&rank=1",
+        external: "https://www.goodreads.com/book/show/204382.The_Stars",
         tnxs: [
             [ "purchase", { date: "February 1, 2020", location: "Green Apple Books", city: "San Francisco" } ],
         ],
@@ -5908,7 +5908,7 @@ export default [
             [ "isbn10", "1844836177" ],
             [ "isbn13", "9781844836178" ],
         ],
-        external: "https://www.goodreads.com/book/show/3480051-symbol-detective?ac=1&from_search=true&qid=9Ru7MxTqPB&rank=1",
+        external: "https://www.goodreads.com/book/show/3480051-symbol-detective",
         tnxs: [
             [ "purchase" ],
         ],
@@ -5938,7 +5938,7 @@ export default [
             [ "isbn10", "0486255123" ],
             [ "isbn13", "9780486255125" ],
         ],
-        external: "https://www.goodreads.com/book/show/1683181.The_Technique_of_Copperplate_Calligraphy?ac=1&from_search=true&qid=xRzFdpbwPP&rank=1",
+        external: "https://www.goodreads.com/book/show/1683181.The_Technique_of_Copperplate_Calligraphy",
         tnxs: [
             [ "gift", { city: "New York" } ],
         ],
@@ -5961,7 +5961,7 @@ export default [
             [ "isbn10", "1859679110" ],
             [ "isbn13", "9781859679111" ],
         ],
-        external: "https://www.goodreads.com/book/show/584182.The_Ultimate_Encyclopedia_of_Knots_Ropework?ac=1&from_search=true&qid=IEJaQaXYx1&rank=1",
+        external: "https://www.goodreads.com/book/show/584182.The_Ultimate_Encyclopedia_of_Knots_Ropework",
         tnxs: [
             [ "purchase", { city: "Berkeley" } ],
         ],
@@ -5972,7 +5972,7 @@ export default [
             [ "isbn10", "1629142166" ],
             [ "isbn13", "9781629142166" ],
         ],
-        external: "https://www.goodreads.com/book/show/18406590-the-ultimate-guide-to-old-fashioned-country-skills?ac=1&from_search=true&qid=10rgs1nfEh&rank=1",
+        external: "https://www.goodreads.com/book/show/18406590-the-ultimate-guide-to-old-fashioned-country-skills",
         tnxs: [
             [ "purchase" ],
         ],
@@ -6030,7 +6030,7 @@ export default [
             [ "isbn10", "0553378201" ],
             [ "isbn13", "9780553378207" ],
         ],
-        external: "https://www.goodreads.com/book/show/46318627-the-wisdom-of-the-enneagram?ac=1&from_search=true&qid=tXWY5WLXI0&rank=1",
+        external: "https://www.goodreads.com/book/show/46318627-the-wisdom-of-the-enneagram",
         tnxs: [
             [ "gift", { city: "New York" } ],
         ],
@@ -6194,7 +6194,7 @@ export default [
             [ "isbn10", "8270962694" ],
             [ "isbn13", "9788270962693" ],
         ],
-        external: "https://www.goodreads.com/book/show/5563902-trolls-and-their-relatives?ac=1&from_search=true&qid=Hb0sas3Ya4&rank=1",
+        external: "https://www.goodreads.com/book/show/5563902-trolls-and-their-relatives",
         tnxs: [
             [ "purchase", { date: "December 26, 2019", location: "Brused Books", city: "Pullman" } ],
         ],
@@ -6312,12 +6312,12 @@ export default [
     },
     {
         title: "Victorian Architecture",
-        subtitle: "Two Pattern Books ",
+        subtitle: "Two Pattern Books",
         ids: [
             [ "isbn10", "0892570016" ],
             [ "isbn13", "9780892570010" ],
         ],
-        external: "https://www.goodreads.com/book/show/4021927-victorian-architecture?ac=1&from_search=true&qid=sSm5fNJk0y&rank=1",
+        external: "https://www.goodreads.com/book/show/4021927-victorian-architecture",
         tnxs: [
             [ "purchase", { date: "January 16, 2020", location: "Russian Hill Bookstore", city: "San Francisco" } ],
         ],
@@ -6413,7 +6413,7 @@ export default [
             [ "isbn10", "022657184X" ],
             [ "isbn13", "9780226571843" ],
         ],
-        external: "https://www.goodreads.com/book/show/41591199-we-made-uranium?ac=1&from_search=true&qid=79DuT0l2C8&rank=1",
+        external: "https://www.goodreads.com/book/show/41591199-we-made-uranium",
         tnxs: [
             [ "purchase", { location: "Seminary Co-op", city: "Chicago" } ],
         ],
@@ -6424,7 +6424,7 @@ export default [
             [ "isbn10", "048649103X" ],
             [ "isbn13", "9780486491035" ],
         ],
-        external: "https://www.goodreads.com/book/show/15984618-weather-almanac?ac=1&from_search=true&qid=oY8eH9TsJX&rank=4",
+        external: "https://www.goodreads.com/book/show/15984618-weather-almanac",
         tnxs: [
             [ "purchase", { date: "February 8, 2020", location: "Alley Cat Books", city: "San Francisco" } ],
         ],
@@ -6478,7 +6478,7 @@ export default [
             [ "isbn10", "0394731271" ],
             [ "isbn13", "9780394731278" ],
         ],
-        external: "https://www.goodreads.com/book/show/1074199.Western_Forests?ac=1&from_search=true&qid=CMTbUUkTed&rank=1",
+        external: "https://www.goodreads.com/book/show/1074199.Western_Forests",
         tnxs: [
             [ "purchase" ],
         ],
