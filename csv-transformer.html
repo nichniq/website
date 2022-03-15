@@ -1,0 +1,60 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <title>Nick Cassleman - CSV transformer</title>
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <style>
+            .block { display: block }
+            .full-width { width: 100% }
+            .preformatted { white-space: pre }
+            .bold { font-weight: bold }
+        </style>
+    </head>
+
+    <body>
+        <form>
+            <label class="bold">
+                CSV data
+
+                <textarea
+                    id="csv-input"
+                    name="csv"
+                    rows="10"
+                    class="full-width preformatted block"
+                ></textarea>
+            </label>
+
+            <button>Parse</button>
+
+            <output style="display: block; padding-top: 3rem">
+                <label class="bold">
+                    Result
+
+                    <textarea
+                        id="csv-output"
+                        for="csv-input"
+                        readonly
+                        rows="10"
+                        class="full-width preformatted block"
+                    ></textarea>
+                </label>
+            </output>
+        </form>
+
+        <script>
+            document.onsubmit = function captureSubmission(submission) {
+                submission.preventDefault();
+
+                const form = submission.target;
+                const action = new URL(form.action).pathname;
+                const data = Object.fromEntries(new FormData(form).entries());
+
+                document.getElementById("csv-output").value = data.csv + "!";
+            }
+        </script>
+    </body>
+</html>
