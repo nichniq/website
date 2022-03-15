@@ -71,19 +71,17 @@
                     title: row[0],
                     subtitle: row[1],
                     series: row[2],
-                    id: {
-                        isbn10: row[3],
-                        isbn13: row[4],
-                        lccn: row[5],
-                    },
+                    ids: [
+                        [ 'isbn10',  row[3] ],
+                        [ 'isbn13',  row[4] ],
+                        [ 'lccn', row[5] ],
+                    ],
                     external: row[6],
                     tnxs: [
-                        {
-                            date: row[7]
-                            location: row[8],
-                            city: row[9]
-                            method: row[10],
-                        }
+                        [
+                            method,
+                            { date: row[7], location: row[8], city: row[9] }
+                        ],
                     ],
                     notes: row[11]
                 }
