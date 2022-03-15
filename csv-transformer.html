@@ -96,11 +96,9 @@
                 const data = Object.fromEntries(new FormData(form).entries());
                 const [ header, ...rows ] = data.csv.split("\n");
 
-                debugger;
-
-                const
-
-                document.getElementById("csv-output").value = data.csv + "!";
+                document.getElementById("csv-output").value = rows.map(
+                    (row) => bookFromRow(row)
+                ).join("\n");
             }
         </script>
     </body>
