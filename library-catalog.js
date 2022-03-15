@@ -1,4 +1,4 @@
-{
+export default {
     title: "300 Art Nouveau Designs and Motifs in Full Color",
     subtitle: "",
     series: "",
@@ -8982,4 +8982,4 @@
         [ "purchase", { date: "November 3, 2021", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
     ],
     notes: "",
-},
+};
