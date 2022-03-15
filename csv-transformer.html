@@ -67,24 +67,26 @@
             }
 
             function bookFromRow(row) {
-                return {
-                    title: row[0],
-                    subtitle: row[1],
-                    series: row[2],
-                    ids: [
-                        [ 'isbn10',  row[3] ],
-                        [ 'isbn13',  row[4] ],
-                        [ 'lccn', row[5] ],
-                    ],
-                    external: row[6],
-                    tnxs: [
-                        [
-                            method,
-                            { date: row[7], location: row[8], city: row[9] }
-                        ],
-                    ],
-                    notes: row[11]
-                }
+                return `
+{
+    title: ${row[0]},
+    subtitle: ${row[1]},
+    series: ${row[2]},
+    ids: [
+        [ 'isbn10',  ${row[3] ]},
+        [ 'isbn13',  ${row[4] ]},
+        [ 'lccn', ${row[5] ]},
+    ],
+    external: ${row[6]},
+    tnxs: [
+        [
+            method: ${row[10]},
+            { date: ${row[7]}, location: ${row[8]}, city: ${row[9]} }
+        ],
+    ],
+    notes: ${row[11]},
+}
+                `.trim();
             }
 
             document.onsubmit = function captureSubmission(submission) {
@@ -96,6 +98,8 @@
                 const [ header, ...rows ] = data.csv.split("\n");
 
                 debugger;
+
+                const
 
                 document.getElementById("csv-output").value = data.csv + "!";
             }
