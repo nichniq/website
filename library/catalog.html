@@ -55,41 +55,46 @@
         </script>
 
         <script>
+             // insufferable expression to give me a better API for elements
+
+            function element(tag, children = [], attrs = {}) {
+                return children.reduce((parent, child) => {
+                    parent.appendChild(child);
+                    return parent;
+                }, Object.entries(attrs).reduce((node, [ name, value ]) => {
+                    node.setAttribute(name, value);
+                    return node;
+                }, document.createElement(tag)));
+          }
+        </script>
+
+        <script>
+            /**
+             * There are a lot of ways I could slice this one. I wasn't sure
+             * what I should compose, what I should repeat, what I should pass
+             * in. The new introduction is the `element` shorthand.
+             */
+
             function tableFromBooks(books) {
-                const table = document.createElement("table");
+                const text = (x) => document.createTextNode(x);
+                const tr = (xs) => element("tr", xs);
 
-                const thead = document.createElement("thead");
-                table.append(thead);
+                const th = (x) => element("th", [ text(x) ]);
+                const headings = () => flattenBook()[0].map(th);
+                const head = () => element("thead", [
+                    tr(headings())
+                ]);
 
-                const headerRow = document.createElement("tr");
-                thead.append(headerRow);
+                const td = (x) => element("td", [ text(x) ]);
+                const row = (cols) => tr(cols.map(td));
+                const body = (books) => element("tbody",
+                    books.map(flattenBook).map(([ headers, cols ]) => row(cols))
+                );
 
-                const [ headers, emptyRow ] = flattenBook();
-
-                for (const header of headers) {
-                    const th = document.createElement("th");
-                    th.textContent = header;
-                    headerRow.append(th);
-                }
-
-                const tbody = document.createElement("tbody");
-                table.append(tbody);
-
-                for (const book of books) {
-                    const tr = document.createElement("tr");
-                    const [ headers, fields ] = flattenBook(book);
-
-                    for (const field of fields) {
-                        const td = document.createElement("td");
-                        td.textContent = field;
-                        tr.append(td);
-
-                    }
-
-                    tbody.append(tr);
-                }
-
-                return table;
+                return element("table", [
+                    head(),
+                    body(books),
+                ]);
             }
         </script>
     </head>
