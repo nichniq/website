@@ -64,6 +64,10 @@
         </script>
 
         <script>
+            function text(content) {
+                return document.createTextNode(content);
+            }
+
             function element(tag, content = [], attributes = {}) {
                 const element = document.createElement(tag);
 
@@ -86,7 +90,6 @@
                     (book) => Book(book).row(mapping).columns()
                 );
 
-                const text = (content) => document.createTextNode(content);
                 const row = (type) => (cells) => element("tr",
                     cells.map(
                         (col) => element(type, text(col))
