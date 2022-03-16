@@ -8,6 +8,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <script>
+            function Row(mapping = {}) {
+                return {
+                    mapping: () => mapping,
+                    headings: () => Object.keys(mapping),
+                    columns: () => Object.values(mapping),
+                };
+            }
+
             function Book(model = {}) {
                 // helpers
 
@@ -25,7 +33,7 @@
 
                 // alternate representations
 
-                const row = {
+                const mapping = (model) => ({
                     "Title":             model.title                   || "",
                     "Subtitle":          model.subtitle                || "",
                     "Series":            model.series                  || "",
@@ -38,17 +46,13 @@
                     "City acquired":     firstTxn(model.txns).city     || "",
                     "Method acquired":   firstTxn(model.txns).method   || "",
                     "Notes":             model.notes                   || "",
-                };
+                });
 
                 // transformation API
 
                 return {
                     model: () => model,
-                    row: () => ({
-                        mapping: () => mapping,
-                        headings: () => Object.keys(row),
-                        columns: () => Object.values(row),
-                    }),
+                    row: () => Row(mapping(model)),
                 };
             }
         </script>
