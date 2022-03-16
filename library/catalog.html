@@ -50,21 +50,31 @@
         </script>
 
         <script>
-             // insufferable expression to give me a better API for elements
+             /**
+              * I admit this is an insufferable way to write this, but once you
+              * understand it, it doesn't need to be changed and is free of
+              * bugs and relatively short.
+              */
 
-            function element(tag, kids, attrs = {}) {
-                const children = Array.isArray(kids)
-                    ? kids
-                    : kids == null ? [] : [ kids ];
+            const foldInChild = (parent, child) => {
+                parent.append(child);
+                return parent;
+            };
 
-                return children.reduce((parent, child) => {
-                    parent.appendChild(child);
-                    return parent;
-                }, Object.entries(attrs).reduce((node, [ name, value ]) => {
-                    node.setAttribute(name, value);
-                    return node;
-                }, document.createElement(tag)));
-            }
+            const foldInAttribute = (element, [ name, value]) => {
+                element.setAttribute(name, value);
+                return element;
+            };
+
+            const element = (tag, content = [], attrs = {}) => (
+               Array.isArray(content) ? content : [ content ]
+            ).reduce(
+                foldInChild,
+                Object.entries(attributes).reduce(
+                    foldInAttribute,
+                    document.createElement(tag)
+                )
+            );
         </script>
 
         <script>
