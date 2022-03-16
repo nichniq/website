@@ -50,50 +50,19 @@
         </script>
 
         <script>
-             /**
-              * I admit this is an insufferable way to write this, but once you
-              * understand it, it doesn't need to be changed and is free of
-              * bugs and relatively short.
-              */
+            function element(tag, content = [], attributes = {}) {
+                const element = document.createElement(tag);
 
-            const foldInChild = (parent, child) => {
-                parent.append(child);
-                return parent;
-            };
+                for ( const child of [ content ].flat(1) ) {
+                    element.appendChild(child);
+                }
 
-            const foldInAttribute = (element, [ name, value ]) => {
-                element.setAttribute(name, value);
+                for ( const [ name, value ] of Object.entries(attributes) ) {
+                    element.setAttribute(name, value);
+                }
+
                 return element;
-            };
-
-            const element = (tag, content = [], attrs = {}) => (
-               Array.isArray(content) ? content : [ content ]
-            ).reduce(
-                foldInChild,
-                Object.entries(attrs).reduce(
-                    foldInAttribute,
-                    document.createElement(tag)
-                )
-            );
-
-            /**
-             * I've also written this way, which is probably clearer + more
-             * efficient (but not a single expression)
-             */
-
-            // function element(tag, content = [], attributes = {}) {
-            //     const element = document.createElement(tag);
-
-            //     for ( const child of [ content ].flat(1) ) {
-            //         element.appendChild(child);
-            //     }
-
-            //     for ( const [ name, value ] of Object.entries(attributes) ) {
-            //         element.setAttribute(name, value);
-            //     }
-
-            //     return element;
-            // }
+            }
         </script>
 
         <script>
