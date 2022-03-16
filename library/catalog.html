@@ -70,7 +70,7 @@
                Array.isArray(content) ? content : [ content ]
             ).reduce(
                 foldInChild,
-                Object.entries(attributes).reduce(
+                Object.entries(attrs).reduce(
                     foldInAttribute,
                     document.createElement(tag)
                 )
