@@ -15,46 +15,52 @@
                     columns: () => Object.values(mapping),
                 };
             }
+        </script>
 
+
+        <script>
             function Book(model = {}) {
-                // helpers
+                return {
+                    model: () => model,
+                    row: (mapping) => Row(mapping(model)),
+                };
+            }
 
-                const id = (ids = [], search) => ids.reduce(
-                    (id, [ type, data ]) => type === search ? data : id,
-                    undefined
-                );
+            Book.idType = (search, model = {}) => {
+                const { ids = [] } = model;
 
-                const firstTxn = ([ [ type, data ] = [] ] = []) => ({
+                return ids.find(([ type, data ]) => search === type)?.data;
+            };
+
+            Book.firstTxn = (model = {}) => {
+                const { txns = [] } = model;
+                const [ first = [] ] = txns;
+                const [ type, data ] = first;
+
+                return {
                     date: data?.date,
                     location: data?.location,
                     city: data?.city,
                     method: type,
-                });
+                };
+            };
 
-                // alternate representations
-
-                const mapping = (model) => ({
+            Book.originalMapping = function (model = {}) {
+                return {
                     "Title":             model.title                   || "",
                     "Subtitle":          model.subtitle                || "",
                     "Series":            model.series                  || "",
-                    "ISBN":              id(model.ids, "isbn10")       || "",
-                    "ISBN-13":           id(model.ids, "isbn13")       || "",
-                    "LCCN":              id(model.ids, "lccn")         || "",
+                    "ISBN":              Book.idType("isbn10", model)  || "",
+                    "ISBN-13":           Book.idType("isbn13", model)  || "",
+                    "LCCN":              Book.idType("lccn", model)    || "",
                     "External link":     model.external                || "",
-                    "Date acquired":     firstTxn(model.txns).date     || "",
-                    "Location acquired": firstTxn(model.txns).location || "",
-                    "City acquired":     firstTxn(model.txns).city     || "",
-                    "Method acquired":   firstTxn(model.txns).method   || "",
+                    "Date acquired":     Book.firstTxn(model).date     || "",
+                    "Location acquired": Book.firstTxn(model).location || "",
+                    "City acquired":     Book.firstTxn(model).city     || "",
+                    "Method acquired":   Book.firstTxn(model).method   || "",
                     "Notes":             model.notes                   || "",
-                });
-
-                // transformation API
-
-                return {
-                    model: () => model,
-                    row: () => Row(mapping(model)),
                 };
-            }
+            };
         </script>
 
         <script>
@@ -74,15 +80,11 @@
         </script>
 
         <script>
-            /**
-             * There are a lot of ways I could slice this one. I wasn't sure
-             * what I should compose, what I should repeat, what I should pass
-             * in. The new introduction is the `element` shorthand.
-             */
-
-            function tableFromBooks(books) {
-                const headings = Book().row().headings();
-                const rows = books.map(Book).map((book) => book.row().columns());
+            function tableFromBooks(books, mapping) {
+                const headings = Book().row(mapping).headings();
+                const rows = books.map(
+                    (book) => Book(book).row(mapping).columns()
+                );
 
                 const text = (content) => document.createTextNode(content);
                 const row = (type) => (cells) => element("tr",
@@ -108,7 +110,7 @@
             import catalog from "./catalog.js";
 
             document.getElementById("table-placeholder").replaceWith(
-                tableFromBooks(catalog)
+                tableFromBooks(catalog, Book.originalMapping)
             );
         </script>
     </body>
