@@ -52,7 +52,11 @@
         <script>
              // insufferable expression to give me a better API for elements
 
-            function element(tag, children = [], attrs = {}) {
+            function element(tag, kids, attrs = {}) {
+                const children = Array.isArray(kids)
+                    ? kids
+                    : kids == null ? [] : [ kids ];
+
                 return children.reduce((parent, child) => {
                     parent.appendChild(child);
                     return parent;
@@ -60,7 +64,7 @@
                     node.setAttribute(name, value);
                     return node;
                 }, document.createElement(tag)));
-          }
+            }
         </script>
 
         <script>
@@ -75,20 +79,16 @@
                 const rows = books.map((x) => Object.values(flattenBook(x)));
 
                 const text = (content) => document.createTextNode(content);
-                const row = (cellType, cellColumns) => element("tr",
-                    cellColumns.map(
-                        (col) => element(cellType, [ text(col) ])
+                const row = (type) => (cells) => element("tr",
+                    cells.map(
+                        (col) => element(type, text(col))
                     )
                 );
 
                 return element("table",
                     [
-                        element("thead",
-                            [ row("th", headings) ],
-                        ),
-                        element("tbody",
-                            rows.map((cols) => row("td", cols))
-                        ),
+                        element("thead", row("th")(headings)),
+                        element("tbody", rows.map(row("td"))),
                     ]
                 );
             }
