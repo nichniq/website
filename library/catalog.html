@@ -76,31 +76,25 @@
              */
 
             function tableFromBooks(books) {
-                const rows = books.map(flattenBook);
                 const headings = flattenBook()[0];
+                const rows = books.map(flattenBook);
 
-                const text = (x) => document.createTextNode(x);
-                const tr = (xs) => element("tr", xs);
-                const th = (x) => element("th", [ text(x) ]);
-                const td = (x) => element("td", [ text(x) ]);
+                const text = (content) => document.createTextNode(content);
+                const row = (cellType, cellColumns) => element("tr",
+                    cellColumns.map(
+                        (col) => element(cellType, [ text(col) ])
+                    )
+                );
 
-                const head = element(
-                    "thead",
+                return element("table",
                     [
-                        tr(headings.map(th))
-                    ],
-                );
-
-                const body = element(
-                    "tbody",
-                    rows.map(
-                        ([ headers, cols ]) => tr(cols.map(td))
-                    ),
-                );
-
-                return element(
-                    "table",
-                    [ head, body ],
+                        element("thead",
+                            [ row("th", headings) ],
+                        ),
+                        element("tbody",
+                            rows.map(([ headers, cols ]) => row("td", cols))
+                        ),
+                    ]
                 );
             }
         </script>
