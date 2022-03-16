@@ -8,18 +8,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <script>
-            /**
-             * This might look like a strange function; I was trying to
-             * accomplish a few things:
-             *
-             * 1. Single source of truth for header + column ordering
-             * 2. Direct way of mapping values of input to output
-             * 3. Centralized encoding of defaults
-             * 4. Minimize helper code; keep it short, clear, simple
-             * 5. Provide metadata that sits alongside the results for later use
-             */
+            function Book(model = {}) {
+                // helpers
 
-            function flattenBook(book = {}) {
                 const id = (ids = [], search) => ids.reduce(
                     (id, [ type, data ]) => type === search ? data : id,
                     undefined
@@ -32,19 +23,32 @@
                     method: type,
                 });
 
+                // alternate representations
+
+                const row = {
+                    "Title":             model.title                   || "",
+                    "Subtitle":          model.subtitle                || "",
+                    "Series":            model.series                  || "",
+                    "ISBN":              id(model.ids, "isbn10")       || "",
+                    "ISBN-13":           id(model.ids, "isbn13")       || "",
+                    "LCCN":              id(model.ids, "lccn")         || "",
+                    "External link":     model.external                || "",
+                    "Date acquired":     firstTxn(model.txns).date     || "",
+                    "Location acquired": firstTxn(model.txns).location || "",
+                    "City acquired":     firstTxn(model.txns).city     || "",
+                    "Method acquired":   firstTxn(model.txns).method   || "",
+                    "Notes":             model.notes                   || "",
+                };
+
+                // transformation API
+
                 return {
-                    "Title":             book.title                   || "",
-                    "Subtitle":          book.subtitle                || "",
-                    "Series":            book.series                  || "",
-                    "ISBN":              id(book.ids, "isbn10")       || "",
-                    "ISBN-13":           id(book.ids, "isbn13")       || "",
-                    "LCCN":              id(book.ids, "lccn")         || "",
-                    "External link":     book.external                || "",
-                    "Date acquired":     firstTxn(book.txns).date     || "",
-                    "Location acquired": firstTxn(book.txns).location || "",
-                    "City acquired":     firstTxn(book.txns).city     || "",
-                    "Method acquired":   firstTxn(book.txns).method   || "",
-                    "Notes":             book.notes                   || "",
+                    model: () => model,
+                    row: () => ({
+                        mapping: () => mapping,
+                        headings: () => Object.keys(row),
+                        columns: () => Object.values(row),
+                    }),
                 };
             }
         </script>
@@ -73,8 +77,8 @@
              */
 
             function tableFromBooks(books) {
-                const headings = Object.keys(flattenBook());
-                const rows = books.map((x) => Object.values(flattenBook(x)));
+                const headings = Book().row().headings();
+                const rows = books.map(Book).map((book) => book.row().columns());
 
                 const text = (content) => document.createTextNode(content);
                 const row = (type) => (cells) => element("tr",
