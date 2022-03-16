@@ -50,20 +50,18 @@
         </script>
 
         <script>
-             // insufferable expression to give me a better API for elements
+            function element(tag, content = [], attributes = {}) {
+                const element = document.createElement(tag);
 
-            function element(tag, kids, attrs = {}) {
-                const children = Array.isArray(kids)
-                    ? kids
-                    : kids == null ? [] : [ kids ];
+                for ( const child of [ content ].flat(1) ) {
+                    element.appendChild(child);
+                }
 
-                return children.reduce((parent, child) => {
-                    parent.appendChild(child);
-                    return parent;
-                }, Object.entries(attrs).reduce((node, [ name, value ]) => {
-                    node.setAttribute(name, value);
-                    return node;
-                }, document.createElement(tag)));
+                for ( const [ name, value ] of Object.entries(attributes) ) {
+                    element.setAttribute(name, value);
+                }
+
+                return element;
             }
         </script>
 
