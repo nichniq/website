@@ -12,71 +12,45 @@
              * This might look like a strange function; I was trying to
              * accomplish a few things:
              *
-             * 1. Single source of truth: one place for header names + order [1]
-             * 2. Labels for column indexing
-             * 3. Clear connection between input and output / source of output
-             * 4. Sequential expressions that make sense with minimal state
+             * 1. Single source of truth for header + column ordering
+             * 2. Direct way of mapping values of input to output
+             * 3. Centralized encoding of defaults
+             * 4. Minimize helper code; keep it short, clear, simple
              * 5. Provide metadata that sits alongside the results for later use
-             *
-             * `mapping` aims to serve as the source of truth for this
-             * transformation. Each definition maps the column header to a value
-             * derived from the `book` input. There are a few helpers along the
-             * way.
-             *
-             * Ultimately, the return value gives you the data you want, and as
-             * bonus, you get its label alongside it (as an easily
-             * destructurable tuple). You can choose to use or discard either
-             * the headers or the column data. We provide the empty values for
-             * missing data, which makes this also serve as a way to get the
-             * header and/or default empty value for the output type.
              */
 
             function flattenBook(book = {}) {
-                const id = (t) => (
-                    book.ids?.find(([ type, data ]) => type === t) || []
-                )[1];
-
-                const [ txn ] = book.txns || []; // get the first txn
-                const [ purchase, { date, location, city } = {} ] = txn || [];
-
-                const mapping = {
-                    "Title": book.title || "",
-                    "Subtitle": book.subtitle || "",
-                    "Series": book.series || "",
-                    "ISBN": id("isbn10") || "",
-                    "ISBN-13": id("isbn13") || "",
-                    "LCCN": id("lccn") || "",
-                    "External link": book.external || "",
-                    "Date acquired": date || "",
-                    "Location acquired": location || "",
-                    "City acquired": city || "",
-                    "Method acquired": purchase || "",
-                    "Notes": book.notes || "",
-                };
-
-                return [
-                    Object.keys(mapping),
-                    Object.values(mapping),
+                const unzip = (rows) => [
+                    rows.map(([ header, data ]) => header),
+                    rows.map(([ header, data ]) => data),
                 ];
-            }
 
-            function anotherWayOfWritingItWithAFlatShape(book) {
-                const split = (x) => [ Object.keys(x), Object.values(x) ];
-
-                return split(
-                    [ "Title",             book.title    || "" ],
-                    [ "Subtitle",          book.subtitle || "" ],
-                    [ "Series",            book.series   || "" ],
-                    [ "ISBN",              book.isbn10   || "" ],
-                    [ "ISBN-13",           book.isbn13   || "" ],
-                    [ "LCCN",              book.lccn     || "" ],
-                    [ "External link",     book.external || "" ],
-                    [ "Date acquired",     book.date     || "" ],
-                    [ "Location acquired", book.location || "" ],
-                    [ "City acquired",     book.city     || "" ],
-                    [ "Method acquired",   book.purchase || "" ],
-                    [ "Notes",             book.notes    || "" ],
+                const id = (ids = [], search) => ids.reduce(
+                    (id, [ type, data ]) => type === search ? data : id,
+                    undefined
                 );
+
+                const firstTxn = ([ [ type, data ] = [] ] = []) => ({
+                    date: data?.date,
+                    location: data?.location,
+                    city: data?.city,
+                    method: type,
+                });
+
+                return unzip([
+                    [ "Title",             book.title                   || "" ],
+                    [ "Subtitle",          book.subtitle                || "" ],
+                    [ "Series",            book.series                  || "" ],
+                    [ "ISBN",              id(book.ids, "isbn10")       || "" ],
+                    [ "ISBN-13",           id(book.ids, "isbn13")       || "" ],
+                    [ "LCCN",              id(book.ids, "lccn")         || "" ],
+                    [ "External link",     book.external                || "" ],
+                    [ "Date acquired",     firstTxn(book.txns).date     || "" ],
+                    [ "Location acquired", firstTxn(book.txns).location || "" ],
+                    [ "City acquired",     firstTxn(book.txns).city     || "" ],
+                    [ "Method acquired",   firstTxn(book.txns).method   || "" ],
+                    [ "Notes",             book.books                   || "" ],
+                ]);
             }
         </script>
 
