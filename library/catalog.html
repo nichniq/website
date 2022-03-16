@@ -79,23 +79,21 @@
             /**
              * I've also written this way, which is probably clearer + more
              * efficient (but not a single expression)
-             *
-             * ```
-             * function element(tag, content = [], attributes = {}) {
-             *    const element = document.createElement(tag);
-             *
-             *    for (const child of [ content ].flat()) {
-             *        element.appendChild(child);
-             *    }
-             *
-             *    for (const [ name, value ] of Object.entries(attributes)) {
-             *        element.setAttribute(name, value);
-             *    }
-             *
-             *    return element;
-             * }
-             * ```
              */
+
+            // function element(tag, content = [], attributes = {}) {
+            //     const element = document.createElement(tag);
+
+            //     for (const child of [ content ].flat()) {
+            //         element.appendChild(child);
+            //     }
+
+            //     for (const [ name, value ] of Object.entries(attributes)) {
+            //         element.setAttribute(name, value);
+            //     }
+
+            //     return element;
+            // }
         </script>
 
         <script>
