@@ -20,11 +20,6 @@
              */
 
             function flattenBook(book = {}) {
-                const unzip = (rows) => [
-                    rows.map(([ header, data ]) => header),
-                    rows.map(([ header, data ]) => data),
-                ];
-
                 const id = (ids = [], search) => ids.reduce(
                     (id, [ type, data ]) => type === search ? data : id,
                     undefined
@@ -37,20 +32,20 @@
                     method: type,
                 });
 
-                return unzip([
-                    [ "Title",             book.title                   || "" ],
-                    [ "Subtitle",          book.subtitle                || "" ],
-                    [ "Series",            book.series                  || "" ],
-                    [ "ISBN",              id(book.ids, "isbn10")       || "" ],
-                    [ "ISBN-13",           id(book.ids, "isbn13")       || "" ],
-                    [ "LCCN",              id(book.ids, "lccn")         || "" ],
-                    [ "External link",     book.external                || "" ],
-                    [ "Date acquired",     firstTxn(book.txns).date     || "" ],
-                    [ "Location acquired", firstTxn(book.txns).location || "" ],
-                    [ "City acquired",     firstTxn(book.txns).city     || "" ],
-                    [ "Method acquired",   firstTxn(book.txns).method   || "" ],
-                    [ "Notes",             book.notes                   || "" ],
-                ]);
+                return {
+                    "Title":             book.title                   || "",
+                    "Subtitle":          book.subtitle                || "",
+                    "Series":            book.series                  || "",
+                    "ISBN":              id(book.ids, "isbn10")       || "",
+                    "ISBN-13":           id(book.ids, "isbn13")       || "",
+                    "LCCN":              id(book.ids, "lccn")         || "",
+                    "External link":     book.external                || "",
+                    "Date acquired":     firstTxn(book.txns).date     || "",
+                    "Location acquired": firstTxn(book.txns).location || "",
+                    "City acquired":     firstTxn(book.txns).city     || "",
+                    "Method acquired":   firstTxn(book.txns).method   || "",
+                    "Notes":             book.notes                   || "",
+                };
             }
         </script>
 
@@ -76,8 +71,8 @@
              */
 
             function tableFromBooks(books) {
-                const headings = flattenBook()[0];
-                const rows = books.map(flattenBook);
+                const headings = Object.keys(flattenBook());
+                const rows = books.map((x) => Object.values(flattenBook(x)));
 
                 const text = (content) => document.createTextNode(content);
                 const row = (cellType, cellColumns) => element("tr",
@@ -92,7 +87,7 @@
                             [ row("th", headings) ],
                         ),
                         element("tbody",
-                            rows.map(([ headers, cols ]) => row("td", cols))
+                            rows.map((cols) => row("td", cols))
                         ),
                     ]
                 );
