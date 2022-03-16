@@ -1,0 +1,120 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <title>Nick Cassleman - Library catalog</title>
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <script>
+            /**
+             * This might look like a strange function; I was trying to
+             * accomplish a few things:
+             *
+             * 1. Single source of truth for header + column ordering
+             * 2. Direct way of mapping values of input to output
+             * 3. Centralized encoding of defaults
+             * 4. Minimize helper code; keep it short, clear, simple
+             * 5. Provide metadata that sits alongside the results for later use
+             */
+
+            function flattenBook(book = {}) {
+                const unzip = (rows) => [
+                    rows.map(([ header, data ]) => header),
+                    rows.map(([ header, data ]) => data),
+                ];
+
+                const id = (ids = [], search) => ids.reduce(
+                    (id, [ type, data ]) => type === search ? data : id,
+                    undefined
+                );
+
+                const firstTxn = ([ [ type, data ] = [] ] = []) => ({
+                    date: data?.date,
+                    location: data?.location,
+                    city: data?.city,
+                    method: type,
+                });
+
+                return unzip([
+                    [ "Title",             book.title                   || "" ],
+                    [ "Subtitle",          book.subtitle                || "" ],
+                    [ "Series",            book.series                  || "" ],
+                    [ "ISBN",              id(book.ids, "isbn10")       || "" ],
+                    [ "ISBN-13",           id(book.ids, "isbn13")       || "" ],
+                    [ "LCCN",              id(book.ids, "lccn")         || "" ],
+                    [ "External link",     book.external                || "" ],
+                    [ "Date acquired",     firstTxn(book.txns).date     || "" ],
+                    [ "Location acquired", firstTxn(book.txns).location || "" ],
+                    [ "City acquired",     firstTxn(book.txns).city     || "" ],
+                    [ "Method acquired",   firstTxn(book.txns).method   || "" ],
+                    [ "Notes",             book.notes                   || "" ],
+                ]);
+            }
+        </script>
+
+        <script>
+             // insufferable expression to give me a better API for elements
+
+            function element(tag, children = [], attrs = {}) {
+                return children.reduce((parent, child) => {
+                    parent.appendChild(child);
+                    return parent;
+                }, Object.entries(attrs).reduce((node, [ name, value ]) => {
+                    node.setAttribute(name, value);
+                    return node;
+                }, document.createElement(tag)));
+          }
+        </script>
+
+        <script>
+            /**
+             * There are a lot of ways I could slice this one. I wasn't sure
+             * what I should compose, what I should repeat, what I should pass
+             * in. The new introduction is the `element` shorthand.
+             */
+
+            function tableFromBooks(books) {
+                const rows = books.map(flattenBook);
+                const headings = flattenBook()[0];
+
+                const text = (x) => document.createTextNode(x);
+                const tr = (xs) => element("tr", xs);
+                const th = (x) => element("th", [ text(x) ]);
+                const td = (x) => element("td", [ text(x) ]);
+
+                const head = element(
+                    "thead",
+                    [
+                        tr(headings.map(th))
+                    ],
+                );
+
+                const body = element(
+                    "tbody",
+                    rows.map(
+                        ([ headers, cols ]) => tr(cols.map(td))
+                    ),
+                );
+
+                return element(
+                    "table",
+                    [ head, body ],
+                );
+            }
+        </script>
+    </head>
+
+    <body>
+        <template id="table-placeholder"></template>
+
+        <script type="module">
+            import catalog from "./catalog.js";
+
+            document.getElementById("table-placeholder").replaceWith(
+                tableFromBooks(catalog)
+            );
+        </script>
+    </body>
+</html>
