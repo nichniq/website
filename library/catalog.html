@@ -75,6 +75,31 @@
                     document.createElement(tag)
                 )
             );
+
+            /**
+             * I've also written this way, which is probably clearer + more
+             * efficient (but not a single expression)
+             *
+             * ```
+             * function element(tag, content = [], attributes = {}) {
+             *    const element = document.createElement(tag);
+             *
+             *    const children = Array.isArray(content)
+             *        ? content // if it's already an array, set it to children
+             *        : [ content ]; // if it's alone, stick it in an array
+             *    // never `[ undefined ]` due to the default `content = []`
+             *
+             *    element.append(...children);
+             *
+             *    // split the attribute map and destructure its entry parts
+             *    for (const [ name, value ] of Object.entries(attributes)) {
+             *        element.setAttribute(name, value);
+             *    }
+             *
+             *    return element;
+             * }
+             * ```
+             */
         </script>
 
         <script>
