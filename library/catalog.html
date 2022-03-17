@@ -26,10 +26,12 @@
                 };
             }
 
-            Book.idType = (search, model = {}) => {
-                const { ids = [] } = model;
+            Book.idType = (search, { ids = [] } = {}) => {
+                const [ type, data ] = ids.find(
+                    ([ type, data ]) => search === type
+                ) || [];
 
-                return ids.find(([ type, data ]) => search === type)?.data;
+                return data;
             };
 
             Book.firstTxn = (model = {}) => {
