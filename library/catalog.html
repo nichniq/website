@@ -60,12 +60,17 @@
                 ]);
             };
 
+            const link = ({ external }) => maybe(external,
+                element("a", text(external), { href: external })
+            );
+
             const book = (book) => element("tr", [
                 ...element("td", title(book)),
                 ...element("td", id(book)),
+                ...element("td", link(book)),
             ]);
 
-            const headings = [ "Title", "ID" ].flatMap(
+            const headings = [ "Title", "ID", "Link" ].flatMap(
                 (x) => element("th", text(x))
             );
 
