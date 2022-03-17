@@ -39,6 +39,12 @@
             Library catalog
         </h1>
 
+        <noscript id="noscript">
+            <p>
+                This page dynamically renders the catalog data with JavaScript. Instead, you may view the <a href="/library/catalog.js">catalog data</a> directly.
+            </p>
+        </noscript>
+
         <script type="module" id="catalog-generator">
             import books from "./catalog.js";
 
@@ -128,6 +134,7 @@
                 ),
             ]);
 
+            document.getElementById("noscript").remove();
             document.getElementById("catalog-generator").replaceWith(catalog);
         </script>
     </body>
