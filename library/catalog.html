@@ -14,7 +14,12 @@
 
             import catalog from "./catalog.js";
 
+            const ISBN13 = "International Standard Book Number, 13-digit";
+            const ISBN10 = "International Standard Book Number, 10-digit";
+            const LCCN = "Library of Congress Control Number";
+
             const maybe = (truthy, array) => truthy ? array : [];
+            const first = (arrays) => arrays.find((x) => x.length > 0) || [];
 
             const title = ({ title, subtitle, series }) => element("cite", [
                     ...element("cite", text(title)),
@@ -24,12 +29,6 @@
                     "data-medium": "book"
                 }
             );
-
-            const ISBN13 = "International Standard Book Number, 13-digit";
-            const ISBN10 = "International Standard Book Number, 10-digit";
-            const LCCN = "Library of Congress Control Number";
-
-            const first = (arrays) => arrays.find((x) => x.length > 0) || [];
 
             const id = ({ ids = [] }) => {
                 const { isbn13, isbn10, lccn } = Object.fromEntries(ids);
