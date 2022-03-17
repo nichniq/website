@@ -39,8 +39,8 @@
             Library catalog
         </h1>
 
-        <script type="module">
-            import catalog from "./catalog.js";
+        <script type="module" id="catalog-generator">
+            import books from "./catalog.js";
 
             import { text, element, tags } from "/scripts/html.js";
             const { cite, abbr, a, tr, table, th, td, thead, tbody } = tags;
@@ -113,14 +113,14 @@
                 [ "City", city ],
             ]);
 
-            const [ books ] = table([
+            const [ catalog ] = table([
                 ...thead(
                     tr(
                         titles.flatMap((title) => th(text(title)))
                     )
                 ),
                 ...tbody(
-                    catalog.flatMap(
+                    books.flatMap(
                         (book) => tr(
                             columns.flatMap((col) => td(col(book)))
                         )
@@ -128,7 +128,7 @@
                 ),
             ]);
 
-            document.body.append(books);
+            document.getElementById("catalog-generator").replaceWith(catalog);
         </script>
     </body>
 </html>
