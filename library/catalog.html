@@ -10,23 +10,9 @@
 
     <body>
         <script type="module">
+            import { text, element } from "/scripts/html.js";
+
             import catalog from "./catalog.js";
-
-            const text = (content) => [ document.createTextNode(content) ];
-
-            const element = (tag, content = [], attributes = {}) => {
-                const element = document.createElement(tag);
-
-                for ( const child of content ) {
-                    element.appendChild(child);
-                }
-
-                for ( const [ name, value ] of Object.entries(attributes) ) {
-                    element.setAttribute(name, value);
-                }
-
-                return [ element ];
-            };
 
             const maybe = (truthy, array) => truthy ? array : [];
 
