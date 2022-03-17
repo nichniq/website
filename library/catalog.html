@@ -49,21 +49,28 @@
                 element("a", text(external), { href: external })
             );
 
-            const book = (book) => element("tr", [
-                ...element("td", title(book)),
-                ...element("td", id(book)),
-                ...element("td", link(book)),
+            const unzip = (entries) => {
+                const map = Object.fromEntries(entries);
+                return [ Object.keys(map), Object.values(map) ];
+            };
+
+            const [ titles, columns ] = unzip([
+                [ "Title", title ],
+                [ "ID", id ],
+                [ "Link", link ],
             ]);
 
-            const headings = [ "Title", "ID", "Link" ].flatMap(
-                (x) => element("th", text(x))
-            );
-
-            const books = catalog.flatMap(book);
+            const row = (type, columns) => element("tr", columns.flatMap(
+                (col) => element(type, col)
+            ));
 
             const [ table ] = element("table", [
-                ...element("thead", element("tr", headings)),
-                ...element("tbody", books),
+                ...element("thead",
+                    row("th", titles.map((title) => text(title)))
+                ),
+                ...element("tbody", catalog.flatMap(
+                    (book) => row("td", columns.map((col) => col(book)))
+                )),
             ]);
 
             document.body.replaceWith(table);
