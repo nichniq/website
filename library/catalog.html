@@ -74,8 +74,13 @@
                 ]);
             };
 
-            const link = ({ external }) => maybe(external,
-                a(text(external), { href: external })
+            const link = ({ title, external }) => maybe(external,
+                a(text("link"), {
+                    title,
+                    href: external,
+                    referrerpolicy: "no-referrer",
+                    rel: "noopener",
+                })
             );
 
             const city = ({ txns = [] }) => {
