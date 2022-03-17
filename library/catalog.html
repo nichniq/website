@@ -6,143 +6,79 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        <script>
-            function Row(mapping = {}) {
-                return {
-                    mapping: () => mapping,
-                    headings: () => Object.keys(mapping),
-                    columns: () => Object.values(mapping),
-                };
-            }
-        </script>
-
-
-        <script>
-            function Book(model = {}) {
-                return {
-                    model: () => model,
-                    row: (mapping) => Row(mapping(model)),
-                };
-            }
-
-            Book.idType = (search, { ids = [] } = {}) => {
-                const [ type, data ] = ids.find(
-                    ([ type, data ]) => search === type
-                ) || [];
-
-                return data;
-            };
-
-            Book.firstTxn = (model = {}) => {
-                const { txns = [] } = model;
-                const [ first = [] ] = txns;
-                const [ type, data ] = first;
-
-                return {
-                    date: data?.date,
-                    location: data?.location,
-                    city: data?.city,
-                    method: type,
-                };
-            };
-
-            Book.originalMapping = function (model = {}) {
-                return {
-                    "Title":             model.title                   || "",
-                    "Subtitle":          model.subtitle                || "",
-                    "Series":            model.series                  || "",
-                    "ISBN":              Book.idType("isbn10", model)  || "",
-                    "ISBN-13":           Book.idType("isbn13", model)  || "",
-                    "LCCN":              Book.idType("lccn", model)    || "",
-                    "External link":     model.external                || "",
-                    "Date acquired":     Book.firstTxn(model).date     || "",
-                    "Location acquired": Book.firstTxn(model).location || "",
-                    "City acquired":     Book.firstTxn(model).city     || "",
-                    "Method acquired":   Book.firstTxn(model).method   || "",
-                    "Notes":             model.notes                   || "",
-                };
-            };
-        </script>
-
-        <script>
-            function text(content) {
-                return document.createTextNode(content);
-            }
-
-            function element(tag, content = [], attributes = {}) {
-                const element = document.createElement(tag);
-
-                for ( const child of [ content ].flat(1) ) {
-                    element.appendChild(child);
-                }
-
-                for ( const [ name, value ] of Object.entries(attributes) ) {
-                    element.setAttribute(name, value);
-                }
-
-                return element;
-            }
-        </script>
-
-        <script>
-            function assumption(statement, value) {
-                if (value !== true) {
-                    throw new Error(statement);
-                }
-            }
-        </script>
-
-        <script>
-            function Table(rows = []) {
-                const row = (type, cells) => element("tr", cells.map(
-                    (col) => element(type, text(col))
-                ));
-
-                return element("table", [
-                    element("thead",
-                        row("th", Table.headingsForRows(rows))
-                    ),
-                    element("tbody",
-                        rows.map(
-                            (r) => row("td", r.columns())
-                        )
-                    )
-                ]);
-            }
-
-            Table.rowsAreConsistent = function (rows = []) {
-                const headings = rows[0]?.headings() || [];
-                const match = (a, b) => a.every((x, index) => x === b[index]);
-
-                return rows.reduce(
-                    (matches, row) => matches && match(headings, row.headings()),
-                    true
-                )
-            };
-
-            Table.headingsForRows = function (rows = []) {
-                assumption(
-                    "Tables rows have consistent headings",
-                    Table.rowsAreConsistent(rows)
-                );
-
-                return rows[0]?.headings() || [];
-            };
-        </script>
     </head>
 
     <body>
-        <template id="table-placeholder"></template>
-
         <script type="module">
             import catalog from "./catalog.js";
 
-            document.getElementById("table-placeholder").replaceWith(
-                Table(catalog.map(
-                    (book) => Book(book).row(Book.originalMapping)
-                ))
+            import { text, element, tags } from "/scripts/html.js";
+            const { cite, abbr, a, tr, table, th, td, thead, tbody } = tags;
+
+            const ISBN13 = "International Standard Book Number, 13-digit";
+            const ISBN10 = "International Standard Book Number, 10-digit";
+            const LCCN = "Library of Congress Control Number";
+
+            const maybe = (truthy, array) => truthy ? array : [];
+            const first = (arrays) => arrays.find((x) => x.length > 0) || [];
+            const unzip = (entries) => {
+                const map = Object.fromEntries(entries);
+                return [ Object.keys(map), Object.values(map) ];
+            };
+
+            const title = ({ title, subtitle, series }) => [
+                ...cite(
+                    [
+                        ...text(title),
+                        ...maybe(subtitle, text(`: ${subtitle}`)),
+                    ],
+                    { "data-medium": "book" }
+                ),
+                ...maybe(series, text(` (${series})`)),
+            ];
+
+            const id = ({ ids = [] }) => {
+                const { isbn13, isbn10, lccn } = Object.fromEntries(ids);
+
+                const option = (short, title, content) => maybe(content, [
+                    ...abbr(text(short), { title }),
+                    ...text(`: ${content}`),
+                ]);
+
+                return first([
+                    option("ISBN13", ISBN13, isbn13),
+                    option("LCCN", LCCN, lccn),
+                    option("ISBN10", ISBN10, isbn10),
+                ]);
+            };
+
+            const link = ({ external }) => maybe(external,
+                a(text(external), { href: external })
             );
+
+            const [ titles, columns ] = unzip([
+                [ "Title", title ],
+                [ "ID", id ],
+                [ "Link", link ],
+            ]);
+
+
+            const [ books ] = table([
+                ...thead(
+                    tr(
+                        titles.flatMap((title) => th(text(title)))
+                    )
+                ),
+                ...tbody(
+                    catalog.flatMap(
+                        (book) => tr(
+                            columns.flatMap((col) => td(col(book)))
+                        )
+                    )
+                ),
+            ]);
+
+            document.body.replaceWith(books);
         </script>
     </body>
 </html>
