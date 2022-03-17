@@ -90,13 +90,20 @@
                 return maybe(city, text(city));
             };
 
+            const date = ({ txns = [] }) => {
+                const [ first ] = txns;
+                const [ method, { date } = {} ] = first || [];
+
+                return maybe(date, text(date));
+            };
+
             const [ titles, columns ] = unzip([
                 [ "Title", title ],
                 [ "ID", id ],
                 [ "Link", link ],
+                [ "Date", date ],
                 [ "City", city ],
             ]);
-
 
             const [ books ] = table([
                 ...thead(
