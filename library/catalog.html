@@ -66,11 +66,18 @@
                 ...cite(
                     [
                         ...text(title),
-                        ...maybe(subtitle, text(`: ${subtitle}`)),
+                        ...maybe(subtitle, [
+                            ...text(": "),
+                            ...text(subtitle),
+                        ]),
                     ],
                     { "data-medium": "book" }
                 ),
-                ...maybe(series, text(` (${series})`)),
+                ...maybe(series, [
+                    ...text(" ("),
+                    ...text(series),
+                    ...text(")"),
+                ]),
             ];
 
             const id = ({ ids = [] }) => {
@@ -78,7 +85,8 @@
 
                 const option = (short, title, content) => maybe(content, [
                     ...abbr(text(short), { title }),
-                    ...text(`: ${content}`),
+                    ...text(": "),
+                    ...text(content),
                 ]);
 
                 return first([
