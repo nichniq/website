@@ -11,8 +11,9 @@
 
         <style>
             table {
-                text-align: left;
                 background-color: white;
+                border-collapse: collapse;
+                text-align: left;
             }
 
             thead {
@@ -21,8 +22,18 @@
                 top: 0;
             }
 
-            thead > tr:last-child > th {
-                border-bottom: 1px solid black;
+            thead::after {
+                display: block;
+                content: "";
+                background-color: black;
+                height: 1px;
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+
+            thead > tr > th {
                 padding: 0.5em;
             }
 
