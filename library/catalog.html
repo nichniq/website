@@ -10,9 +10,10 @@
 
     <body>
         <script type="module">
-            import { text, element } from "/scripts/html.js";
-
             import catalog from "./catalog.js";
+
+            import { text, element, tags } from "/scripts/html.js";
+            const { cite, abbr, a, tr, table, th, td, thead, tbody } = tags;
 
             const ISBN13 = "International Standard Book Number, 13-digit";
             const ISBN10 = "International Standard Book Number, 10-digit";
@@ -26,7 +27,7 @@
             };
 
             const title = ({ title, subtitle, series }) => [
-                ...element("cite",
+                ...cite(
                     [
                         ...text(title),
                         ...maybe(subtitle, text(`: ${subtitle}`)),
@@ -39,8 +40,8 @@
             const id = ({ ids = [] }) => {
                 const { isbn13, isbn10, lccn } = Object.fromEntries(ids);
 
-                const option = (abbr, title, content) => maybe(content, [
-                    ...element("abbr", text(abbr), { title }),
+                const option = (short, title, content) => maybe(content, [
+                    ...abbr(text(short), { title }),
                     ...text(`: ${content}`),
                 ]);
 
@@ -52,7 +53,7 @@
             };
 
             const link = ({ external }) => maybe(external,
-                element("a", text(external), { href: external })
+                a(text(external), { href: external })
             );
 
             const [ titles, columns ] = unzip([
@@ -61,20 +62,20 @@
                 [ "Link", link ],
             ]);
 
-            const row = (type, columns) => element("tr", columns.flatMap(
+            const row = (type, columns) => tr(columns.flatMap(
                 (col) => element(type, col)
             ));
 
-            const [ table ] = element("table", [
-                ...element("thead",
+            const [ books ] = table([
+                ...thead(
                     row("th", titles.map((title) => text(title)))
                 ),
-                ...element("tbody", catalog.flatMap(
+                ...tbody(catalog.flatMap(
                     (book) => row("td", columns.map((col) => col(book)))
                 )),
             ]);
 
-            document.body.replaceWith(table);
+            document.body.replaceWith(books);
         </script>
     </body>
 </html>
