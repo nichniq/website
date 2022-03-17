@@ -59,7 +59,7 @@
         <script type="module" id="catalog-generator">
             import books from "./catalog.js";
 
-            import { text, element, tags } from "/scripts/html.js";
+            import { element, tags } from "/scripts/html.js";
             const { cite, abbr, a, tr, table, th, td, thead, tbody } = tags;
 
             const ISBN13 = "International Standard Book Number, 13-digit";
@@ -75,29 +75,20 @@
 
             const title = ({ title, subtitle, series }) => [
                 cite([
-                        text(title),
-                        maybe(subtitle, [
-                            text(": "),
-                            text(subtitle),
-                        ]),
+                        title,
+                        maybe(subtitle, `: ${subtitle}`),
                     ],
                     { "data-medium": "book" }
                 ),
-                maybe(series, [
-                    text(" ("),
-                    text(series),
-                    text(")"),
-                ]),
+                maybe(series, ` (${series})`),
             ];
 
             const id = ({ ids = [] }) => {
                 const { isbn13, isbn10, lccn } = Object.fromEntries(ids);
 
-                const option = (short, title, content) => maybe(content, [
-                    abbr(text(short), { title }),
-                    text(": "),
-                    text(content),
-                ]);
+                const option = (short, title, content) => maybe(content,
+                    [ abbr(short, { title }), `: ${content}` ]
+                );
 
                 return first([
                     option("ISBN13", ISBN13, isbn13),
@@ -107,7 +98,7 @@
             };
 
             const link = ({ title, external }) => maybe(external,
-                a(text("link"), {
+                a("link", {
                     title,
                     href: external,
                     referrerpolicy: "no-referrer",
@@ -119,14 +110,14 @@
                 const txn = first(txns);
                 const [ method, { city } = {} ] = txn;
 
-                return maybe(city, text(city));
+                return maybe(city, city);
             };
 
             const date = ({ txns = [] }) => {
                 const txn = first(txns);
                 const [ method, { date } = {} ] = txn;
 
-                return maybe(date, text(date));
+                return maybe(date, date);
             };
 
             const [ titles, columns ] = unzip([
@@ -140,7 +131,7 @@
             const [ catalog ] = table([
                 thead(
                     tr(
-                        titles.map((title) => th(text(title)))
+                        titles.map((title) => th(title))
                     )
                 ),
                 tbody(
