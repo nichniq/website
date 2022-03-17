@@ -78,10 +78,18 @@
                 a(text(external), { href: external })
             );
 
+            const city = ({ txns = [] }) => {
+                const [ first ] = txns;
+                const [ method, { city } = {} ] = first || [];
+
+                return maybe(city, text(city));
+            };
+
             const [ titles, columns ] = unzip([
                 [ "Title", title ],
                 [ "ID", id ],
                 [ "Link", link ],
+                [ "City", city ],
             ]);
 
 
