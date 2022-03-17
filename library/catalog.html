@@ -59,6 +59,30 @@
         <script type="module" id="catalog-generator">
             import books from "./catalog.js";
 
+            /**
+             * The data in catalog.js is an array of these
+             * All fields are optional/empty except title
+             *
+             * {
+             *     title: "300 Art Nouveau Designs and Motifs in Full Color",
+             *     subtitle: undefined, // string otherwise
+             *     series: undefined, // string otherwise
+             *     ids: [
+             *         [ "isbn10", "0486243540" ],
+             *         [ "isbn13", "9780486243542" ],
+             *     ],
+             *     external: "https://www.goodreads.com/...",
+             *     txns: [
+             *         [ "purchase", {
+             *             date: "January 18, 2020",
+             *             location: "Dog Eared Books (Valencia)",
+             *             city: "San Francisco" }
+             *         ],
+             *     ],
+             *     notes: undefined, // string otherwise
+             * }
+             */
+
             import { element, tags } from "/scripts/html.js";
             const { cite, abbr, a, tr, table, th, td, thead, tbody } = tags;
 
