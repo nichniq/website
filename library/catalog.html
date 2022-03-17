@@ -7,6 +7,8 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+        <link rel="stylesheet" type="text/css" href="/globals.css" />
+
         <style>
             table {
                 text-align: left;
@@ -31,6 +33,8 @@
     </head>
 
     <body>
+        <h1><a href="/">Nick Cassleman</a> - Library catalog</h1>
+
         <script type="module">
             import catalog from "./catalog.js";
 
@@ -120,7 +124,7 @@
                 ),
             ]);
 
-            document.body.replaceWith(books);
+            document.body.append(books);
         </script>
     </body>
 </html>
