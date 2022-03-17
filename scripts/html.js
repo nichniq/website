@@ -3,7 +3,7 @@ export const text = (content) => [ document.createTextNode(content) ];
 export const element = (tag, content = [], attributes = {}) => {
     const element = document.createElement(tag);
 
-    for ( const child of content ) {
+    for ( const child of content.flat(Infinity) ) {
         element.appendChild(child);
     }
 

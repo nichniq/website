@@ -74,20 +74,19 @@
             };
 
             const title = ({ title, subtitle, series }) => [
-                ...cite(
-                    [
-                        ...text(title),
-                        ...maybe(subtitle, [
-                            ...text(": "),
-                            ...text(subtitle),
+                cite([
+                        text(title),
+                        maybe(subtitle, [
+                            text(": "),
+                            text(subtitle),
                         ]),
                     ],
                     { "data-medium": "book" }
                 ),
-                ...maybe(series, [
-                    ...text(" ("),
-                    ...text(series),
-                    ...text(")"),
+                maybe(series, [
+                    text(" ("),
+                    text(series),
+                    text(")"),
                 ]),
             ];
 
@@ -95,9 +94,9 @@
                 const { isbn13, isbn10, lccn } = Object.fromEntries(ids);
 
                 const option = (short, title, content) => maybe(content, [
-                    ...abbr(text(short), { title }),
-                    ...text(": "),
-                    ...text(content),
+                    abbr(text(short), { title }),
+                    text(": "),
+                    text(content),
                 ]);
 
                 return first([
@@ -139,15 +138,15 @@
             ]);
 
             const [ catalog ] = table([
-                ...thead(
+                thead(
                     tr(
-                        titles.flatMap((title) => th(text(title)))
+                        titles.map((title) => th(text(title)))
                     )
                 ),
-                ...tbody(
-                    books.flatMap(
+                tbody(
+                    books.map(
                         (book) => tr(
-                            columns.flatMap((col) => td(col(book)))
+                            columns.map((col) => td(col(book)))
                         )
                     )
                 ),
