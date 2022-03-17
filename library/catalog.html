@@ -20,15 +20,21 @@
 
             const maybe = (truthy, array) => truthy ? array : [];
             const first = (arrays) => arrays.find((x) => x.length > 0) || [];
+            const unzip = (entries) => {
+                const map = Object.fromEntries(entries);
+                return [ Object.keys(map), Object.values(map) ];
+            };
 
-            const title = ({ title, subtitle, series }) => element("cite", [
-                    ...element("cite", text(title)),
-                    ...maybe(subtitle, text(`: ${subtitle}`)),
-                    ...maybe(series, text(` (${series})`)),
-                ], {
-                    "data-medium": "book"
-                }
-            );
+            const title = ({ title, subtitle, series }) => [
+                ...element("cite",
+                    [
+                        ...text(title),
+                        ...maybe(subtitle, text(`: ${subtitle}`)),
+                    ],
+                    { "data-medium": "book" }
+                ),
+                ...maybe(series, text(` (${series})`)),
+            ];
 
             const id = ({ ids = [] }) => {
                 const { isbn13, isbn10, lccn } = Object.fromEntries(ids);
@@ -48,11 +54,6 @@
             const link = ({ external }) => maybe(external,
                 element("a", text(external), { href: external })
             );
-
-            const unzip = (entries) => {
-                const map = Object.fromEntries(entries);
-                return [ Object.keys(map), Object.values(map) ];
-            };
 
             const [ titles, columns ] = unzip([
                 [ "Title", title ],
