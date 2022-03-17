@@ -62,17 +62,20 @@
                 [ "Link", link ],
             ]);
 
-            const row = (type, columns) => tr(columns.flatMap(
-                (content) => element(type, content)
-            ));
 
             const [ books ] = table([
                 ...thead(
-                    row("th", titles.map((title) => text(title)))
+                    tr(
+                        titles.flatMap((title) => th(text(title)))
+                    )
                 ),
-                ...tbody(catalog.flatMap(
-                    (book) => row("td", columns.map((col) => col(book)))
-                )),
+                ...tbody(
+                    catalog.flatMap(
+                        (book) => tr(
+                            columns.flatMap((col) => td(col(book)))
+                        )
+                    )
+                ),
             ]);
 
             document.body.replaceWith(books);
