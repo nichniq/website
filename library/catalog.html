@@ -63,7 +63,7 @@
             ]);
 
             const row = (type, columns) => tr(columns.flatMap(
-                (col) => element(type, col)
+                (content) => element(type, content)
             ));
 
             const [ books ] = table([
