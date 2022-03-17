@@ -98,15 +98,15 @@
             );
 
             const city = ({ txns = [] }) => {
-                const [ first ] = txns;
-                const [ method, { city } = {} ] = first || [];
+                const txn = first(txns);
+                const [ method, { city } = {} ] = txn;
 
                 return maybe(city, text(city));
             };
 
             const date = ({ txns = [] }) => {
-                const [ first ] = txns;
-                const [ method, { date } = {} ] = first || [];
+                const txn = first(txns);
+                const [ method, { date } = {} ] = txn;
 
                 return maybe(date, text(date));
             };
