@@ -83,6 +83,7 @@
              * }
              */
 
+            import { maybe, first, unzip } from "/modules/lisp.js";
             import { element } from "/modules/element.js";
             import { tags } from "/modules/tags.js";
 
@@ -91,13 +92,6 @@
             const ISBN13 = "International Standard Book Number, 13-digit";
             const ISBN10 = "International Standard Book Number, 10-digit";
             const LCCN = "Library of Congress Control Number";
-
-            const maybe = (truthy, array) => truthy ? array : [];
-            const first = (arrays) => arrays.find((x) => x.length > 0) || [];
-            const unzip = (entries) => {
-                const map = Object.fromEntries(entries);
-                return [ Object.keys(map), Object.values(map) ];
-            };
 
             const title = ({ title, subtitle, series }) => [
                 cite([
