@@ -84,25 +84,49 @@
         </script>
 
         <script>
-            function tableFromBooks(books, mapping) {
-                const headings = Book().row(mapping).headings();
-                const rows = books.map(
-                    (book) => Book(book).row(mapping).columns()
-                );
-
-                const row = (type) => (cells) => element("tr",
-                    cells.map(
-                        (col) => element(type, text(col))
-                    )
-                );
-
-                return element("table",
-                    [
-                        element("thead", row("th")(headings)),
-                        element("tbody", rows.map(row("td"))),
-                    ]
-                );
+            function assumption(statement, value) {
+                if (value !== true) {
+                    throw new Error(statement);
+                }
             }
+        </script>
+
+        <script>
+            function Table(rows = []) {
+                const row = (type, cells) => element("tr", cells.map(
+                    (col) => element(type, text(col))
+                ));
+
+                return element("table", [
+                    element("thead",
+                        row("th", Table.headingsForRows(rows))
+                    ),
+                    element("tbody",
+                        rows.map(
+                            (r) => row("td", r.columns())
+                        )
+                    )
+                ]);
+            }
+
+            Table.rowsAreConsistent = function (rows = []) {
+                const headings = rows[0]?.headings() || [];
+                const match = (a, b) => a.every((x, index) => x === b[index]);
+
+                return rows.reduce(
+                    (matches, row) => matches && match(headings, row.headings()),
+                    true
+                )
+            };
+
+            Table.headingsForRows = function (rows = []) {
+                assumption(
+                    "Tables rows have consistent headings",
+                    Table.rowsAreConsistent(rows)
+                );
+
+                return rows[0]?.headings() || [];
+            };
         </script>
     </head>
 
@@ -113,7 +137,9 @@
             import catalog from "./catalog.js";
 
             document.getElementById("table-placeholder").replaceWith(
-                tableFromBooks(catalog, Book.originalMapping)
+                Table(catalog.map(
+                    (book) => Book(book).row(Book.originalMapping)
+                ))
             );
         </script>
     </body>
