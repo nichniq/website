@@ -325,10 +325,10 @@
                  * This media query applies the styles inside of it if the
                  * device has something that can "hover" (a mouse, usually). The
                  * style inside it hides any element that has the class
-                 * `.if-no-pointer`
+                 * `.pointer-only`
                  */
 
-                @media (hover: hover) {
+                @media (hover: none) {
                     .pointer-only {
                       display: none;
                     }
@@ -338,11 +338,11 @@
             <p>I am a webpage! You can look in my insides! I left comments explaining what the code does and might even have a few secrets hidden here and there ;)</p>
 
             <ul style="padding-left: 1em">
-                <li class="if-no-pointer">
+                <li class="pointer-only">
                     <!--
                         Since this element refers to clicking, I only want to
                         display it if there is something that can click so I
-                        add the `.if-no-pointer` class
+                        add the `.pointer-only` class
                     -->
 
                     <code>Right click</code> / <code>option click</code> around the page until the menu says "<code>View Page Source</code>" and then select that
