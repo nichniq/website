@@ -10,30 +10,64 @@
         <link rel="stylesheet" type="text/css" href="/globals.css" />
 
         <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
             main {
                 display: flex;
                 flex-wrap: wrap;
                 gap: 1rem 4rem;
             }
+
+            aside {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            summary > * {
+                display: inline-block;
+                font-size: 1.2em;
+                font-weight: bold;
+                margin: 0;
+            }
         </style>
     </head>
 
     <body>
-        <h1><a href="/">Nick Cassleman</a> - Amateur poetry</h1>
+        <h1 style="margin-bottom: 0">
+            <a href="/">Nick Cassleman</a> - Amateur poetry
+        </h1>
 
         <header>
             <p>Wowie! Never thought these would see the light of day!</p>
 
             <p>When I say that I am a poet, I don't mean these poems. I am a poetic see-er of the world, a poetic thinker. I started writing poetry for myself as a practice in expression, not for the production of poems. These were drawn like doodles: personal, imperfect, destined for the compost heap. By accident, I've written a few that I like enough to share.</p>
-
-            <p>My journey toward writing and appreciating poetry is long and ongoing. I graduated with a degree in the liberal arts hating it! Poetry always felt pretentious to me, inaccessible. After college, I invited an old professor, <a href="https://www.poetryfoundation.org/poets/peter-oleary">Peter O'Leary</a>, out to lunch and asked him why I should care about poetry. In an afternoon, I was convinced. Not to like poetry, but to work at developing my own relationship with it. I don't have to like every kind of poetry, just like I don't have to like every kind of painting. We talked about the root of amateur being <i>amare</i>, <q>to love</q>, and how that differs from being a professional. I can write poetry for the love of the process rather than because I'm trying to make something of value for someone else.</p>
-
-            <p>Poems don't have to be a big deal! They can be written in the moment, reworked, and thrown away in as long as it takes to eat a wet sandwich. You don't have to share them if you don't want. You can give them as gifts on birthdays and celebrations. They sometimes live on beats and in tune. They can be found by mistake talking of things without any stake.</p>
         </header>
 
+        <aside>
+            <details>
+                <summary><h2>Journey into poetry</h2></summary>
+
+                <p>My journey toward writing and appreciating poetry is long and ongoing. I graduated with a degree in the liberal arts hating it! Poetry always felt pretentious to me, inaccessible. After college, I invited an old professor, <a href="https://www.poetryfoundation.org/poets/peter-oleary">Peter O'Leary</a>, out to lunch and asked him why I should care about poetry. In an afternoon, I was convinced. Not to like poetry, but to work at developing my own relationship with it. I don't have to like every kind of poetry, just like I don't have to like every kind of painting. We talked about the root of amateur being <i>amare</i>, <q>to love</q>, and how that differs from being a professional. I can write poetry for the love of the process rather than because I'm trying to make something of value for someone else.</p>
+            </details>
+
+
+            <details>
+                <summary><h2>Poems for many occasions</h2></summary>
+
+                <p>Poems don't have to be a big deal! They can be written in the moment, reworked, and thrown away in as long as it takes to eat a wet sandwich. You don't have to share them if you don't want. You can give them as gifts on birthdays and celebrations. They sometimes live on beats and in tune. They can be found by mistake talking of things without any stake.</p>
+            </details>
+        </aside>
+
         <main>
+            <h1 style="flex-basis: 100%">A selection of poems, ~2016–2021</h1>
+
             <article data-medium="poem">
-                <h1>Cascade</h1>
+                <h2>Cascade</h2>
 
                 <p>
                     When the universe<br />
@@ -44,7 +78,7 @@
             </article>
 
             <article data-medium="poem">
-                <h1>Flex and reflex</h1>
+                <h2>Flex and reflex</h2>
 
                 <p>
                     How deep must the flame have scorched<br />
@@ -60,7 +94,7 @@
             </article>
 
             <article data-medium="poem">
-                <h1>Between</h1>
+                <h2>Between</h2>
 
                 <p>
                     Love is not a point
@@ -82,7 +116,7 @@
             </article>
 
             <article data-medium="poem">
-                <h1>glass bells</h1>
+                <h2>glass bells</h2>
 
                 <p>
                     walking under<br />
@@ -96,7 +130,7 @@
             </article>
 
             <article data-medium="poem">
-                <h1>My heart slows underwater</h1>
+                <h2>My heart slows underwater</h2>
 
                 <p>
                     I did not ask to wake today,<br />
@@ -124,7 +158,7 @@
             </article>
 
             <article data-medium="poem">
-                <h1>impulse</h1>
+                <h2>impulse</h2>
 
                 <p>
                     when you hear a flie<br />
@@ -134,7 +168,7 @@
             </article>
 
             <article data-medium="poem">
-                <h1>Leavened</h1>
+                <h2>Leavened</h2>
 
                 <p>
                     I saw you first<br />
@@ -152,7 +186,7 @@
             </article>
 
             <article data-medium="poem">
-                <h1>Live wire</h1>
+                <h2>Live wire</h2>
 
                 <p>
                     Night never stills in my city.<br />
@@ -164,7 +198,7 @@
             </article>
 
             <article data-medium="poem">
-                <h1>Lye-slick star</h1>
+                <h2>Lye-slick star</h2>
 
                 <p>
                     We flee the breath<br />
@@ -189,7 +223,7 @@
             </article>
 
             <article data-medium="poem">
-                <h1>Shade in the window</h1>
+                <h2>Shade in the window</h2>
 
                 <p>
                     My shadow, a fly<br />
@@ -200,7 +234,7 @@
             </article>
 
             <article data-medium="poem">
-                <h1>Submission</h1>
+                <h2>Submission</h2>
 
                 <p>
                     The hue of today<br />
@@ -213,7 +247,7 @@
             </article>
 
             <article data-medium="poem">
-                <h1>The well</h1>
+                <h2>The well</h2>
 
                 <p>
                     Can I call it a gift<br />
@@ -229,7 +263,7 @@
             </article>
 
             <article data-medium="poem">
-                <h1>The way our threads wove</h1>
+                <h2>The way our threads wove</h2>
 
                 <p>
                     It was the night,<br />
@@ -245,7 +279,7 @@
             </article>
 
             <article data-medium="poem">
-                <h1>tomorrow</h1>
+                <h2>tomorrow</h2>
 
                 <p>
                     to wake up<br />
@@ -254,7 +288,7 @@
             </article>
 
             <article data-medium="poem">
-                <h1>translation</h1>
+                <h2>translation</h2>
 
 
                 <p>
@@ -280,7 +314,7 @@
             </article>
 
             <article data-medium="poem">
-                <h1>Two sides of me</h1>
+                <h2>Two sides of me</h2>
 
                 <p>
                     Hope is a desert hot<br />
@@ -294,7 +328,7 @@
             </article>
 
             <article data-medium="poem">
-                <h1>Zero sum</h1>
+                <h2>Zero sum</h2>
 
                 <p>
                     I am<br />
