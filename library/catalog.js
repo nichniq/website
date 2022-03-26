@@ -3245,6 +3245,19 @@ export default [
         ],
     },
     {
+        title: "My Gaza",
+        subtitle: "A City in Photographs",
+        ids: [
+            [ "isbn10", "1944211977" ],
+            [ "isbn13", "9781944211974" ],
+        ],
+        external: "https://www.goodreads.com/book/show/51135136-my-gaza",
+        txns: [
+            [ "purchase", { date: "March 25, 2022", location: "Refugee Eye Gallery", city: "San Francisco" } ],
+        ],
+        notes: "Passed by a new gallery on Valencia with Josh and he suggested we stop by. The artist is a Palestinian photographer from Gaza and printed this book, he now lives in the Bay"
+    },
+    {
         title: "Na Lei Makamae",
         subtitle: "The Treasured Lei",
         ids: [
