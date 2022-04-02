@@ -5405,6 +5405,19 @@ export default [
         ],
     },
     {
+        title: "The Lavender Palette",
+        subtitle: "Gay Culture and the Art of Washington State",
+        ids: [
+            [ "isbn10", "0998911224" ],
+            [ "isbn13", "9780998911229" ],
+        ],
+        external: "https://www.goodreads.com/book/show/54319922-the-lavender-palette",
+        txns: [
+            [ "purchase", { date: "March 31, 2022", location: "Third Place Books", city: "Seattle" } ],
+        ],
+        notes: "Visiting Jessica for her birthday! We stopped in for bagels and I left with this book",
+    },
+    {
         title: "The Law's Guide to Nature Drawing and Journaling",
         ids: [
             [ "isbn10", "1597143154" ],
