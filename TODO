@@ -1,3 +1,11 @@
+# Current task
+
+Redo index: everything is flat, but you can optionally group/sort them
+
+- Use data attributes on elements
+- Style so that things are tiled
+- Transformations done via JavaScript
+
 # Technical writing
 
 - Create technical writing page
