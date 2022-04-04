@@ -1,0 +1,41 @@
+A lot of stuff is just text. That's defined in blocks like this. Blocks are
+separated by empty lines.
+
+- Lists are common
+- Lists also get a simple notation
+- For anything more complex, we need blocks
+
+{{ text
+    Block notation allows you to define what kind of block you're creating. The
+    block type describes how its content is parsed. This is just a text block,
+    like the one above, but explicitly names itself. Content is indented.
+}}
+
+{{ list | ordered
+    - Blocks may also receive attributes
+    - Attributes describe more about the block type
+    - They are a space separated list of adjectives
+}}
+
+We can define local shorthands for common operations in the file. They are
+local so that we don't have to go hunting for definitions. You can decide what's
+most clear in your file without making choices for someone else's.
+
+{{ shorthands
+    list      -> :
+    comment   -> !
+    bold      -> *
+    underline -> _
+    italic    -> /
+    heading   -> #
+    link      -> @
+}}
+
+{{ # Shorthand use }}
+
+{{ :
+    - As block type, like this list block
+    - As a single-line block definition, like the heading
+    - As inline-block notation, such as for {* bolding}
+    - With attributes, like for {@ links | www.example.com}
+}}
