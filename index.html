@@ -108,6 +108,23 @@
         -->
 
         <link rel="stylesheet" type="text/css" href="/globals.css" />
+
+        <!--
+            We have some styles that are only relevant to this page, so rather
+            than putting them in the globals stylesheet, I put them in a <style>
+            tag that lives in the header
+        -->
+
+        <style>
+            main > nav {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2rem;
+            }
+            main > nav > section {
+                flex: 1 0 400px;
+            }
+        </style>
     </head>
 
     <body>
@@ -235,7 +252,7 @@
                      * element. With its origin along the left, it will shrink the
                      * content but align it to the left
                      */
-                    transform-origin: left;
+                    transform-origin: left top;
                 ">
                     <h2>*oh it's nothing really*</h2>
 
