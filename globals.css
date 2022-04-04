@@ -20,12 +20,18 @@ body {
 }
 
 /**
- * The first heading (or the first element's heading) shouldn't have any margin
+ * The first heading (or the first element's heading) shouldn't have any margin,
+ * nor should the last paragraph. Margin is added by default by the browser, but
+ * it adds frustrating spacing to the beginning and end of containers.
  */
 
 body > h1:first-child,
 body > *:first-child > h1:first-child {
   margin-top: 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
 }
 
 /**
