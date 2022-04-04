@@ -15,6 +15,17 @@
 
 body {
   font-family: monospace;
+  margin: 0;
+  padding: 1rem;
+}
+
+/**
+ * The first heading (or the first element's heading) shouldn't have any margin
+ */
+
+body > h1:first-child,
+body > *:first-child > h1:first-child {
+  margin-top: 0;
 }
 
 /**
