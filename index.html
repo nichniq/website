@@ -130,16 +130,19 @@
                 margin-bottom: 0;
             }
 
-            main > nav {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
+            @media (min-width: calc(400px + 2rem)) {
+                main > nav {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 1rem;
+                }
 
-            main > nav > section {
-                flex: 1 0 400px;
-                padding: 1rem;
-                border: 1px solid black;
+                main > nav > section {
+                    box-sizing: border-box;
+                    flex: 1 0 400px;
+                    padding: 1rem;
+                    border: 1px solid black;
+                }
             }
         </style>
     </head>
