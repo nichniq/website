@@ -69,6 +69,97 @@ export default [
         ],
     },
     {
+        title: "A Swarm, a Flock, a Host",
+        subtitle: "A Compendium of Creatures",
+        ids: [
+            [ "isbn10", "3791347578" ],
+            [ "isbn13", "9783791347578" ],
+        ],
+        external: "https://www.goodreads.com/book/show/16266380-a-swarm-a-flock-a-host",
+        txns: [
+            [ "purchase", { date: "April 9, 2022", location: "Medicine for Nightmares", city: "San Francisco" } ],
+        ],
+        notes: "There's a faded receipt in the book from its original purchase from Green Arcade in SF, July 21, 2013",
+    },
+    {
+        title: "A Bestiary",
+        ids: [
+            [ "isbn10", "0996316744" ],
+            [ "isbn13", "9780996316743" ],
+        ],
+        external: "https://www.goodreads.com/book/show/29425278-a-bestiary",
+        txns: [
+            [ "purchase", { date: "April 9, 2022", location: "Medicine for Nightmares", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "Italic Calligraphy and Handwriting",
+        subtitle: "Exercises and Text",
+        external: "https://www.goodreads.com/book/show/4056461-italic-calligraphy-and-handwriting",
+        txns: [
+            [ "purchase", { date: "April 9, 2022", location: "Medicine for Nightmares", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "Godless Utopia",
+        subtitle: "Soviet Anti-Religious Propaganda",
+        ids: [
+            [ "isbn10", "0995745579" ],
+            [ "isbn13", "9780995745575" ],
+        ],
+        external: "https://www.goodreads.com/book/show/44910114-godless-utopia",
+        txns: [
+            [ "purchase", { date: "April 9, 2022", location: "Medicine for Nightmares", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "500 Handmade Books",
+        subtitle: "Inspiring Interpretations of a Timeless Form",
+        ids: [
+            [ "isbn10", "1579908772" ],
+            [ "isbn13", "9781579908775" ],
+        ],
+        external: "https://www.goodreads.com/book/show/684230.500_Handmade_Books",
+        txns: [
+            [ "purchase", { date: "April 9, 2022", location: "Medicine for Nightmares", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "The Androgyne",
+        subtitle: "Reconciliation of Male and Female",
+        series: "Illustrated Library of Sacred Imagination",
+        ids: [
+            [ "isbn10", "0824500652" ],
+            [ "isbn13", "9780824500658" ],
+        ],
+        external: "https://www.goodreads.com/book/show/2185965.The_Androgyne_Reconciliation_of_Male_and_Female",
+        txns: [
+            [ "purchase", { date: "April 9, 2022", location: "Medicine for Nightmares", city: "San Francisco" } ],
+        ],
+        notes: "This series looks to be the same as 'Art and Imagination' but has a different name",
+    },
+    {
+        title: "Silent Witnesses",
+        subtitle: "Early Cycladic Art of the Third Millennium BC",
+        external: "https://www.goodreads.com/book/show/5951970-silent-witnesses",
+        txns: [
+            [ "purchase", { date: "April 9, 2022", location: "Medicine for Nightmares", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "Emmet Gowin",
+        subtitle: "Changing the Earth",
+        ids: [
+            [ "isbn10", "0300093616" ],
+            [ "isbn13", "9780300093612" ],
+        ],
+        external: "https://www.goodreads.com/book/show/841812.Emmet_Gowin",
+        txns: [
+            [ "purchase", { date: "April 9, 2022", location: "Medicine for Nightmares", city: "San Francisco" } ],
+        ],
+        notes: "There's an inscription from the author on the first page, written to Rebecca Solnit and dated 8/25/03",
+    },
+    {
         title: "300 Art Nouveau Designs and Motifs in Full Color",
         ids: [
             [ "isbn10", "0486243540" ],
