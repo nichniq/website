@@ -15,6 +15,59 @@ const template = {
 
 export default [
     {
+        title: "The Oblivion Seekers",
+        ids: [
+            [ "isbn10", "0872860825" ],
+            [ "isbn13", "9780872860827" ],
+        ],
+        external: "https://www.goodreads.com/book/show/7740697-the-oblivion-seekers-and-other-writings",
+        txns: [
+            [ "purchase", { date: "April 9, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "Rice's Language of Buildings",
+        ids: [
+            [ "isbn10", "1408893789" ],
+            [ "isbn13", "9781408893784" ],
+        ],
+        external: "https://www.goodreads.com/book/show/37509539-rice-s-language-of-buildings",
+        txns: [
+            [ "purchase", { date: "April 9, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "Adornment",
+        subtitle: "The Art of Barbara Natoli Witt",
+        ids: [
+            [ "isbn10", "1555953344" ],
+            [ "isbn13", "9781555953348" ],
+        ],
+        external: "https://www.goodreads.com/book/show/8282282-adornment",
+        txns: [
+            [ "purchase", { date: "April 9, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "Strange Fruit",
+        subtitle: "New Paintings",
+        external: "https://openlibrary.org/books/OL22376513M/Hung_Liu",
+        txns: [
+            [ "purchase", { date: "April 9, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "Gustav Stickley and the American Arts Crafts Movement",
+        ids: [
+            [ "isbn10", "0300118023" ],
+            [ "isbn13", "9780300118025" ],
+        ],
+        external: "https://www.goodreads.com/book/show/8669927-gustav-stickley-and-the-american-arts-crafts-movement",
+        txns: [
+            [ "purchase", { date: "April 9, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+        ],
+    },
+    {
         title: "300 Art Nouveau Designs and Motifs in Full Color",
         ids: [
             [ "isbn10", "0486243540" ],
