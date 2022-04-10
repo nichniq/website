@@ -1,6 +1,7 @@
 const template = {
     title: "",
     subtitle: "",
+    series: "",
     ids: [
         [ "isbn10", "" ],
         [ "isbn13", "" ],
