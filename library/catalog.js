@@ -1,3 +1,18 @@
+const template = {
+    title: "",
+    subtitle: "",
+    ids: [
+        [ "isbn10", "" ],
+        [ "isbn13", "" ],
+        [ "lccn", "" ],
+    ],
+    external: "",
+    txns: [
+        [ "purchase", { date: "", location: "", city: "" } ],
+    ],
+    notes: "",
+};
+
 export default [
     {
         title: "300 Art Nouveau Designs and Motifs in Full Color",
