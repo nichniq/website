@@ -1,0 +1,98 @@
+% % % MEDIUM % % %
+% * select one * %
+
+\include{print}
+%\include{digital}
+
+% % % PACKAGES % % %
+
+% \usepackage[lining]{ebgaramond}
+
+\usepackage{amsmath} % http://www.ctan.org/pkg/amsmath
+\usepackage{array} % http://www.ctan.org/pkg/array *
+\usepackage{chngpage} % http://www.ctan.org/pkg/chngpage
+\usepackage{enumerate} % http://www.ctan.org/pkg/enumerate *
+\usepackage{enumitem} % http://www.ctan.org/pkg/enumitem
+\usepackage{fmtcount} % http://ctan.org/pkg/fmtcount
+\usepackage{multirow} % http://www.ctan.org/pkg/multirow *
+\usepackage{pdfpages} % http://www.ctan.org/pkg/pdfpages
+\usepackage{titlesec} % http://ctan.org/pkg/titlesec
+%\usepackage[titletoc]{appendix} % http://ctan.org/pkg/appendix
+\usepackage{tocloft} % http://ctan.org/pkg/tocloft
+% *included in default tools
+
+% % % FORMATTING % % %
+
+% page number on bottom of page; no page header
+\pagestyle{plain}
+
+% change style of chapter titles
+\titleformat{\chapter}[display]
+	{}
+	{\uppercase{Chapter }\NUMBERstring{chapter}}
+	{.5em}
+	{\Large\bfseries\filcenter}{}
+	
+% resize chapter titles and sections
+\titleformat{\section}[hang]
+	{\large\bfseries}{}{}{}{}
+\titleformat{\subsection}[hang]
+		{\large\itshape}{}{}{}{}
+		
+% bold chapter number and page number only
+\renewcommand\cftchapfont{\normalsize}
+\renewcommand{\cftchappresnum}{\bfseries}
+\renewcommand\cftchapaftersnum{\large}
+
+% increase space between margins
+\setlength{\footnotesep}{1.1em}
+
+% centers text and increases vertical spacing in table cells
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash}m{#1}}
+\renewcommand{\arraystretch}{1.5}
+
+% adds vertical space below figure captions
+\setlength{\belowcaptionskip}{1em}
+
+% prevents single lines and hypenations at beginning/end of page
+\widowpenalty=10000
+\clubpenalty=10000
+\brokenpenalty=500\relax
+
+% changes ellipsis character to periods and non-breaking spaces
+\renewcommand{\ldots}{.~.~.}
+
+% formats reference section text
+\newcommand{\refstyle}{\leftmargin=1.1em \itemindent=-1em \setlength{\itemsep}{1pt} \setlength{\parskip}{0pt} \setlength{\parsep}{0pt}}
+
+% % % BOOK INFO % % % 
+
+\title{Aiki Waza Michi Shirube}
+\author{Donald N.~Levine}
+\date{August 2014}
+
+% % % CONTENT % % %
+
+\begin{document}
+	\frontmatter
+		\includepdf[pages={1}]{cover.pdf}
+		\tableofcontents
+		\include{preface}
+	\mainmatter
+		\include{ch1}
+		\include{ch2}
+		\include{ch3}
+		\include{ch4}
+		\include{ch5}
+		\include{ch6}
+		\include{ch7}
+		\include{ch8}
+		\include{ch9}
+		\include{ch10}
+		\include{ch11}
+		\include{ch12}
+	\appendix
+		\setcounter{secnumdepth}{0}
+		\include{append-a}
+		\include{append-b}
+\end{document}
