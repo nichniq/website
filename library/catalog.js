@@ -16,6 +16,19 @@ const template = {
 
 export default [
     {
+        title: "I Sing with a New Voice",
+        subtitle: "A Journey Shaped by Dreams and Poems",
+        ids: [
+            [ "isbn10", "1483916677" ],
+            [ "isbn13", "9781483916675" ],
+        ],
+        external: "https://www.goodreads.com/book/show/25254136-i-sing-with-a-new-voice",
+        txns: [
+            [ "found", { date: "April 8, 2022", location: "Little Free Library", city: "San Francisco" } ],
+        ],
+        notes: "This was one of two copies in the free book bin on the way to Dolores and is inscribed by the author. I read the whole thing in one sitting and was quite moved",
+    },
+    {
         title: "The Oblivion Seekers",
         ids: [
             [ "isbn10", "0872860825" ],
