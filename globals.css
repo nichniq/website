@@ -60,6 +60,7 @@ cite[data-medium="blog-post"]::after {
 }
 
 cite[data-medium="book"],
+cite[data-medium="anthology"],
 cite[data-medium="magazine"],
 cite[data-medium="album"],
 cite[data-medium="podcast-series"] {
