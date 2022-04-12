@@ -16,6 +16,31 @@ const template = {
 
 export default [
     {
+        title: "Čáw Pawá Láakni, 'They Are Not Forgotten'",
+        subtitle: "Sahaptian Place Names Atlas of the Cayuse, Umatilla, and Walla Walla",
+        ids: [
+            [ "isbn10", "0295990260" ],
+            [ "isbn13", "9780295990262" ],
+        ],
+        external: "https://www.goodreads.com/book/show/7694897-c-w-paw-l-akni-they-are-not-forgotten",
+        txns: [
+            [ "purchase", { date: "April 11, 2022", location: "City Lights", city: "San Francisco" } ],
+        ],
+        notes: "Randomly saw this book about the indigenous tradition of my birthplace",
+    },
+    {
+        title: "Frederick Law Olmsted",
+        subtitle: "Plans and Views of Communities and Private Estates",
+        ids: [
+            [ "isbn10", "1421438674" ],
+            [ "isbn13", "9781421438672" ],
+        ],
+        external: "https://www.goodreads.com/book/show/49766833-frederick-law-olmsted",
+        txns: [
+            [ "purchase", { date: "April 11, 2022", location: "City Lights", city: "San Francisco" } ],
+        ],
+    },
+    {
         title: "I Sing with a New Voice",
         subtitle: "A Journey Shaped by Dreams and Poems",
         ids: [
