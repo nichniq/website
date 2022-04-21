@@ -10,20 +10,47 @@
         <link rel="stylesheet" type="text/css" href="/globals.css" />
 
         <style>
+            /* Remove browser style: padding around body */
+
             body {
-                padding: 0;
+                padding: unset;
             }
 
-            main {
-                display: flex;
+            /* Make the main body content as big as the viewport */
+
+            body {
+                width:  100vw;
                 height: 100vh;
             }
 
-            textarea {
-                flex: 1 1 50%;
+            body > main {
                 height: 100%;
+                width: 100%;
+            }
+
+            /* Make the main a flex container with two equally-sized children */
+
+            body > main {
+                display: flex;
+            }
+
+            body > main > #input,
+            body > main > #output {
+                flex: 1 1 50%;
+            }
+
+            /* Remove browser styles: extra space around input textarea */
+
+            body > main > #input > textarea {
                 box-sizing: border-box;
-                margin: 0;
+                margin: unset;
+            }
+
+            /* Make the textarea fill it's whole container */
+
+            body > main > #input > textarea {
+                height: 100%;
+                width: 100%;
             }
         </style>
     </head>
@@ -32,8 +59,10 @@
         <script type="module" src="/dsl/parser.js"></script>
 
         <main>
-            <textarea id="input"></textarea>
-            <textarea id="output"></textarea>
+            <form id="input">
+                <textarea name="text"></textarea>
+            </form>
+            <output id="output" form="input"></output>
         </main>
     </body>
 </html>
