@@ -1,8 +1,6 @@
-import tags from "/modules/tags.js";
 import sample from "/dsl/sample.js";
 
-const { textarea } = tags;
+const input = document.getElementById("input");
+const output = document.getElementById("output");
 
-const [ input ] = textarea(sample, { type: "text", readonly: "readonly" });
-
-document.body.append(input);
+input.textContent = sample;

@@ -8,9 +8,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <link rel="stylesheet" type="text/css" href="/globals.css" />
+
+        <style>
+            body {
+                padding: 0;
+            }
+
+            main {
+                display: flex;
+                height: 100vh;
+            }
+
+            textarea {
+                flex: 1 1 50%;
+                height: 100%;
+                box-sizing: border-box;
+                margin: 0;
+            }
+        </style>
     </head>
 
     <body>
         <script type="module" src="/dsl/parser.js"></script>
+
+        <main>
+            <textarea id="input"></textarea>
+            <textarea id="output"></textarea>
+        </main>
     </body>
 </html>
