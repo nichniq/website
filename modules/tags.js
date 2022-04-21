@@ -133,7 +133,7 @@ const groupings = {
   ],
 };
 
-export const tags = Object.fromEntries(
+export default Object.fromEntries(
     Object.values(groupings).flat().map(
         (tag) => [ tag, (content, attrs) => element(tag, content, attrs) ]
     )
