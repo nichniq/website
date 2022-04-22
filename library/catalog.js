@@ -16,6 +16,20 @@ const template = {
 
 export default [
     {
+        title: "Home Sweet Houseplant",
+        subtitle: "A Room-by-Room Guide to Plant Decor",
+        series: "Living with Plants",
+        ids: [
+            [ "isbn10", "1648290345" ],
+            [ "isbn13", "9781648290343" ],
+        ],
+        external: "https://www.goodreads.com/book/show/54110449-a-little-bit-of-green",
+        txns: [
+            [ "purchase", { date: "April 17, 2022", location: "Stable Cafe", city: "San Francisco" } ],
+        ],
+        notes: "Breakfast with Shaun after boat party",
+    },
+    {
         title: "Čáw Pawá Láakni, 'They Are Not Forgotten'",
         subtitle: "Sahaptian Place Names Atlas of the Cayuse, Umatilla, and Walla Walla",
         ids: [
@@ -1388,7 +1402,7 @@ export default [
             [ "isbn10", "1579657761" ],
             [ "isbn13", "9781579657765" ],
         ],
-        external: "https://www.goodreads.com/book/show/40591765-decorating-with-plants?from_search=true&qid=q4fppuvPm1&rank=3",
+        external: "https://www.goodreads.com/book/show/40591765-decorating-with-plants",
         txns: [
             [ "purchase", { date: "January 29, 2020", location: "Stable Cafe", city: "San Francisco" } ],
         ],

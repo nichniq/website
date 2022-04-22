@@ -1,0 +1,71 @@
+This browser extension opens + closes a sidebar with a list of your tasks and their break downs. It helps you define tasks + objectives clearly and helps you break them down. It gives you timers and lenses and links.
+
+Steps:
+
+1. Create button in the extension area
+2. When it's clicked, it opens the sidebar
+3. When it's clicked again, it closes the sidebar
+4. The sidebar can also be closed via a close button
+5. The sidebar loads and saves content
+6. Create an abstraction layer for storage
+7. Use local storage at first, can do something else later
+8. Have a view mode and an edit mode
+9. The raw edit mode is a textarea for code
+10. The view made parses the code and renders HTML
+11. The view mode also has visual edit helpers
+12. The helpers modify the data structure which can be encoded as code
+
+Questions:
+
+- What is the text data format for the tasks?
+- What features am I allowing and how are they represented?
+
+Intentions:
+
+- Embrace ephemeral: don't track stuff, meant to have high turnover (at first)
+
+Data format:
+
+{{ task
+  desc:
+    Core browser extension
+
+  broad-strokes:
+    1. Toggle sidebar with button
+    2. Create data structure (JS + text)
+    3. View as HTML and edit
+
+  1:
+    1. Create package.json file and load into browser
+    2. Create toolbar button
+    3. Clicking button toggles container
+
+  2:
+    1. Create an object with most basic features
+    2. View the object as text in the sidebar
+    3. Edit the object as text and toggle back
+
+  2.3:
+    1. Write parser
+    2. Make text editable
+    2. After editing text, submit button replaces object with parsed input
+
+  2.3.1:
+    1. Find a parser library
+    2. Write small parser in it and import
+
+  3:
+    1. View the object as HTML
+    2. Create HTML controls to edit object
+  ...
+}}
+
+- Possible rule: you can only have 3 things, otherwise break it downs
+
+- For task: Create full outline
+- Estimate time requirements where possible
+- Prepping is separate from executing
+- Executing is focused, constrained, limited, scoped
+
+- Build up a list, assign timers, prep everything
+- Create units of work and execute (e.g. I've got 2 hours to complete 2)
