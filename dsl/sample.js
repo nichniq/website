@@ -8,6 +8,7 @@ plaintext. As soon as you encounter an empty line, you move onto the next block.
 - Plaintext and lists are primitives
 - Everything else is blocks
 
+
 {{ list
     - Block content starts with {{ and a noun
     - The noun describes what kind of block it is
@@ -20,6 +21,8 @@ plaintext. As soon as you encounter an empty line, you move onto the next block.
     content without the full block syntax. However, it illustrates that lists
     and text are parsed the same as their primitive versions. There's another
     common redundancy that helps with brevity.
+
+    An empty line within a block.
 }}
 
 {{ : -> list }}

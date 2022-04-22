@@ -19,8 +19,8 @@
             /* Make the main body content as big as the viewport */
 
             body {
-                width:  100vw;
                 height: 100vh;
+                width:  100vw;
             }
 
             body > main {
@@ -34,23 +34,21 @@
                 display: flex;
             }
 
-            body > main > #input,
-            body > main > #output {
+            body > main > form,
+            body > main > output {
                 flex: 1 1 50%;
             }
 
-            /* Remove browser styles: extra space around input textarea */
+            /* Make form and output textareas exactly fill their container */
 
-            body > main > #input > textarea {
-                box-sizing: border-box;
-                margin: unset;
-            }
-
-            /* Make the textarea fill it's whole container */
-
-            body > main > #input > textarea {
-                height: 100%;
-                width: 100%;
+            body > main > form > textarea,
+            body > main > output > textarea {
+                box-sizing: border-box; /* border included in sizing */
+                height: 100%; /* fill container height */
+                margin: unset; /* unset browser default margin */
+                resize: none; /* prevent manual resizing */
+                white-space: pre; /* don't wrap lines */
+                width: 100%; /* fill container width */
             }
         </style>
     </head>
@@ -59,10 +57,13 @@
         <script type="module" src="/dsl/parser.js"></script>
 
         <main>
-            <form id="input">
-                <textarea name="text"></textarea>
+            <form id="form">
+                <textarea id="input" readonly></textarea>
             </form>
-            <output id="output" form="input"></output>
+
+            <output form="form" for="input">
+                <textarea id="output" readonly></textarea>
+            </output>
         </main>
     </body>
 </html>
