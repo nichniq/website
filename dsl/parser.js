@@ -52,12 +52,9 @@ const output = document.getElementById("output");
 input.value = sample;
 output.value = `[ ${parse(sample).map(([ type, content ]) => `[ "${type}": "${content}" ]`).join("\n, ")} ]`;
 
-const scroll = (other) => ({ target }) => {
-  if (other.scrollTop !== target.scrollTop) {
-    console.log(target)
-    other.scroll({ top: target.scrollTop, });
-    other.style["background-position-y"] = `${target.scrollTop}px`;
-    target.style["background-position-y"] = `${target.scrollTop}px`;
+const scroll = (mirror) => ({ target: source }) => {
+  if (mirror.scrollTop !== source.scrollTop) {
+    mirror.scroll({ top: source.scrollTop });
   }
 }
 
