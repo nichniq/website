@@ -16,6 +16,286 @@ const template = {
 
 export default [
     {
+        title: "The Weather of the Pacific Northwest",
+        ids: [
+            [ "isbn10", "0295748443" ],
+            [ "isbn13", "9780295748443" ],
+        ],
+        external: "https://www.goodreads.com/book/show/57558546-the-weather-of-the-pacific-northwest",
+        txns: [
+            [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
+        ],
+    },
+    {
+        title: "Microworlds",
+        ids: [
+            [ "isbn10", "1856697878" ],
+            [ "isbn13", "9781856697873" ],
+        ],
+        external: "https://www.goodreads.com/book/show/12388122-microworlds",
+        txns: [
+            [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
+        ],
+    },
+    {
+        title: "Prelude Lake",
+        ids: [
+            [ "isbn10", "0982014902" ],
+            [ "isbn13", "9780982014905" ],
+        ],
+        external: "https://www.goodreads.com/book/show/9595500-prelude-lake",
+        txns: [
+            [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
+        ],
+        notes: "Includes little stereoscopic glasses to view 3D images of the Northern Lights",
+    },
+    {
+        title: "Balls and Bulldust",
+        ids: [
+            [ "isbn10", "3869307072" ],
+            [ "isbn13", "9783869307077" ],
+        ],
+        external: "https://www.goodreads.com/book/show/18175796-balls-and-bulldust",
+        txns: [
+            [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
+        ],
+    },
+    {
+        title: "Mosses of the Northern Forest",
+        subtitle: "A Photographic Guide",
+        ids: [
+            [ "isbn10", "1501748610" ],
+            [ "isbn13", "9781501748615" ],
+        ],
+        external: "https://www.goodreads.com/book/show/50612080-mosses-of-the-northern-forest",
+        txns: [
+            [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
+        ],
+    },
+    {
+        title: "Pharmako/Gnosis, Revised and Updated",
+        subtitle: "Plant Teachers and the Poison Path",
+        series: "Pharmako",
+        ids: [
+            [ "isbn10", "1556438044" ],
+            [ "isbn13", "9781556438042" ],
+        ],
+        external: "https://www.goodreads.com/book/show/7291289-pharmako-gnosis-revised-and-updated",
+        txns: [
+            [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
+        ],
+    },
+    {
+        title: "The Private Life of Spiders",
+        ids: [
+            [ "isbn10", "0691150036" ],
+            [ "isbn13", "9780691150031" ],
+        ],
+        external: "https://www.goodreads.com/book/show/9580362-the-private-life-of-spiders",
+        txns: [
+            [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
+        ],
+    },
+    {
+        title: "Whither the Waters",
+        subtitle: "Mapping the Great Basin from Bernardo de Miera to John C. Frémont",
+        ids: [
+            [ "isbn10", "0826358233" ],
+            [ "isbn13", "9780826358233" ],
+        ],
+        external: "https://www.goodreads.com/book/show/32767743-whither-the-waters",
+        txns: [
+            [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
+        ],
+    },
+    {
+        title: "Louis Comfort Tiffany",
+        subtitle: "Masterworks",
+        ids: [
+            [ "isbn10", "1787552330" ],
+            [ "isbn13", "9781787552333" ],
+        ],
+        external: "https://www.goodreads.com/book/show/39993341-louis-comfort-tiffany",
+        txns: [
+            [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
+        ],
+    },
+    {
+        title: "Antique and Collectible Thimbles and Accessories",
+        ids: [
+            [ "isbn10", "0891453229" ],
+            [ "isbn13", "9780891453222" ],
+        ],
+        external: "https://www.goodreads.com/book/show/1615173.Antique_and_Collectible_Thimbles_and_Accessories",
+        txns: [
+            [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
+        ],
+    },
+    {
+        title: "Flora",
+        subtitle: "The Definitive Visual Guide to the Plant Kingdom",
+        series: "Smithsonian",
+        ids: [
+            [ "isbn10", "1465474501" ],
+            [ "isbn13", "9781465474506" ],
+        ],
+        external: "https://www.goodreads.com/book/show/38395950-smithsonian",
+        txns: [
+            [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
+        ],
+    },
+    {
+        title: "Man-Made Wonders of the World",
+        ids: [
+            [ "isbn10", "1465482520" ],
+            [ "isbn13", "9781465482525" ],
+        ],
+        external: "https://www.goodreads.com/book/show/43997322-man-made-wonders-of-the-world",
+        txns: [
+            [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
+        ],
+    },
+    {
+        title: "In Pursuit of Clouds",
+        subtitle: "Images and Metaphors",
+        ids: [
+            [ "isbn10", "0961513209" ],
+            [ "isbn13", "9780961513207" ],
+        ],
+        external: "https://www.goodreads.com/book/show/3148111-in-pursuit-of-clouds",
+        txns: [
+            [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
+        ],
+    },
+    {
+        title: "Musical Instruments",
+        subtitle: "Craftsmanship and Traditions from Prehistory to the Present",
+        ids: [
+            [ "isbn10", "0810943840" ],
+            [ "isbn13", "9780810943841" ],
+        ],
+        external: "https://www.goodreads.com/book/show/2964193-musical-instruments",
+        txns: [
+            [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
+        ],
+    },
+    {
+        title: "Manor Houses in Normandy",
+        ids: [
+            [ "isbn10", "3895087033" ],
+            [ "isbn13", "9783895087035" ],
+        ],
+        external: "https://www.goodreads.com/book/show/2731980-manor-houses-in-normandy",
+        txns: [
+            [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
+        ],
+    },
+    {
+        title: "Montessori Method",
+        ids: [
+            [ "isbn13", "2221112521539" ],
+        ],
+        external: "https://www.powells.com/book/montessori-method-2221112521539",
+        txns: [
+            [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
+        ],
+    },
+    {
+        title: "Wingbearer",
+        ids: [
+            [ "isbn10", "0062741152" ],
+            [ "isbn13", "9780062741158" ],
+        ],
+        external: "",
+        txns: [
+            [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
+        ],
+        notes: "I'm probably gunna give this to Aster"
+    },
+    {
+        title: "Spectrum 19",
+        subtitle: "The Best in Contemporary Fantastic Art",
+        series: "Spectrum",
+        ids: [
+            [ "isbn10", "1599290634" ],
+            [ "isbn13", "9781599290638" ],
+        ],
+        external: "https://www.goodreads.com/book/show/13595015-spectrum-19",
+        txns: [
+            [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
+        ],
+    },
+    {
+        title: "Inside American Gods",
+        ids: [
+            [ "isbn10", "1452156050" ],
+            [ "isbn13", "9781452156057" ],
+        ],
+        external: "https://www.goodreads.com/book/show/37826499-inside-american-gods",
+        txns: [
+            [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
+        ],
+    },
+    {
+        title: "Dante's Divine Comedy",
+        ids: [
+            [ "isbn10", "0785821201" ],
+            [ "isbn13", "9780785821205" ],
+        ],
+        external: "https://www.goodreads.com/book/show/101306.Dante_s_Divine_Comedy",
+        txns: [
+            [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
+        ],
+    },
+    {
+        title: "Jim Henson",
+        subtitle: "The Works: The Art, the Magic, the Imagination",
+        ids: [
+            [ "isbn10", "0679412034" ],
+            [ "isbn13", "9780679412038" ],
+        ],
+        external: "https://www.goodreads.com/book/show/357435.Jim_Henson",
+        txns: [
+            [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
+        ],
+    },
+    {
+        title: "Nightmares in the Sky",
+        subtitle: "Gargoyles and Grotesques",
+        ids: [
+            [ "isbn10", "0670823074" ],
+            [ "isbn13", "9780670823079" ],
+        ],
+        external: "https://www.goodreads.com/book/show/116334.Nightmares_in_the_Sky",
+        txns: [
+            [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
+        ],
+    },
+    {
+        title: "The Sounds of Star Wars",
+        ids: [
+            [ "isbn10", "0811875466" ],
+            [ "isbn13", "9780811875462" ],
+        ],
+        external: "https://www.goodreads.com/book/show/8375572-the-sounds-of-star-wars",
+        txns: [
+            [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
+        ],
+        notes: "This book has a built-in speaker that you can use to play the sounds described in the book",
+    },
+    {
+        title: "Mystical Stitches",
+        subtitle: "Embroidery for Personal Empowerment and Magical Embellishment",
+        ids: [
+            [ "isbn10", "1635863341" ],
+            [ "isbn13", "9781635863345" ],
+        ],
+        external: "https://www.goodreads.com/book/show/54110495-mystical-stitches",
+        txns: [
+            [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
+        ],
+    },
+    {
         title: "Home Sweet Houseplant",
         subtitle: "A Room-by-Room Guide to Plant Decor",
         series: "Living with Plants",
