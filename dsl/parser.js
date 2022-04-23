@@ -53,12 +53,12 @@ input.value = sample;
 output.value = `[ ${parse(sample).map(([ type, content ]) => `[ "${type}": "${content}" ]`).join("\n, ")} ]`;
 
 const scroll = (other) => ({ target }) => {
-  other.scroll({
-    top: target.scrollTop,
-    behavior: "smooth",
-  });
-  other.style["background-position-y"] = `${target.scrollTop}px`;
-  target.style["background-position-y"] = `${target.scrollTop}px`;
+  if (other.scrollTop !== target.scrollTop) {
+    console.log(target)
+    other.scroll({ top: target.scrollTop, });
+    other.style["background-position-y"] = `${target.scrollTop}px`;
+    target.style["background-position-y"] = `${target.scrollTop}px`;
+  }
 }
 
 input.addEventListener("scroll", scroll(output));
