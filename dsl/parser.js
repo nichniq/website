@@ -50,4 +50,16 @@ const input = document.getElementById("input");
 const output = document.getElementById("output");
 
 input.value = sample;
-output.value = JSON.stringify(parse(sample), null, 4);
+output.value = `[ ${parse(sample).map(([ type, content ]) => `[ "${type}": "${content}" ]`).join("\n, ")} ]`;
+
+const scroll = (other) => ({ target }) => {
+  other.scroll({
+    top: target.scrollTop,
+    behavior: "smooth",
+  });
+  other.style["background-position-y"] = `${target.scrollTop}px`;
+  target.style["background-position-y"] = `${target.scrollTop}px`;
+}
+
+input.addEventListener("scroll", scroll(output));
+output.addEventListener("scroll", scroll(input));
