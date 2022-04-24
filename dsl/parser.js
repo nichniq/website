@@ -1,12 +1,15 @@
-import * as functions from "/modules/functions.js";
+const breakpoint = value => { debugger; return value; };
+const extract_from_ = pattern => string => pattern.exec(string);
+const map_with_ = array => fn => array.map((x) => fn(x));
+const place_between_ = character => array => array.join(character);
+const search_for_else_ = array => match => value => array.find(match) ?? value;
+const split_on_ = string => character => string.split(character);
+const test_for_ = string => regex => regex.test(string);
+const pass_through_ = x => steps => steps.reduce((y, step) => step(y), x);
+const trimend = string => string.trimEnd();
+const wrap_around_ = ([ start, end ]) => string => `${start}${string}${end}`;
 
-const {
-  string: { extract, split, test, trim_end },
-  array: { first_in_or, for_all, join, transform }
-} = functions;
-
-const line_type = (line) => first_in_or(
-  ([ type, pattern ]) => test(line, pattern),
+const type_ = line => search_for_else_(
   [
     [ "line_item",   /^- (.+)$/ ],          // "- Item"          -> "Item"
     [ "full_block",  /^{{ (.+) }}$/ ],      // "{{ text Text }}" -> "text Text"
@@ -15,28 +18,43 @@ const line_type = (line) => first_in_or(
     [ "indented",    /^ {4}(.+)$/ ],        // "    indented"    -> "indented"
     [ "empty_line",  /^()$/ ],              // ""                -> ""
     [ "raw_text",    /^(.+)$/ ],            // "remaining"       -> "remaining"
-  ],
-  [ "no_match", /^(.*)$/ ],
+  ]
+)(
+  ([ type, pattern ]) => test_for_(line)(pattern)
+)(
+  [ "no_match", /^(.*)$/ ]
 );
 
-const label_line = (line) => transform(line, [
-  (line) => [ line, line_type(line) ],
-  ([ line, [ type, pattern ] ]) => [ type, extract(line, pattern) ],
-  ([ type, [ full_match, capture ] ]) => [ type, capture ],
-]);
+const label_ = (line) => pass_through_(
+  line
+)(
+  [
+    (line)                         => [ line, type_(line) ],
+    ([ line, [ type, pattern ] ])  => [ type, extract_from_(pattern)(line) ],
+    ([ type, [ match, capture ] ]) => [ type, capture ],
+  ]
+);
 
-const format_labeled_lines = (lines) => `[ ${join(
-  for_all(lines,
-    ([ type, content ]) => `[ "${type}", "${content}" ]`
-  ), "\n",
-)} ]`;
+const format_ = (lines) => wrap_around_(
+  [ "[", "]" ]
+)(
+  place_between_(
+    "\n"
+  )(
+    map_with_(lines)(([ type, content ]) => `[ "${type}", "${content}" ],`)
+  )
+);
 
-const parse = (raw) => transform(raw, [
-  (raw) => split(raw, "\n"),
-  (raw_lines) => for_all(raw_lines, trim_end),
-  (trimmed_lines) => for_all(trimmed_lines, label_line),
-  (labeled_lines) => format_labeled_lines(labeled_lines),
-]);
+const parse = (raw) => pass_through_(
+  raw
+)(
+  [
+    raw             => split_on_(raw)("\n"),
+    (lines)     => map_with_(lines)(trimend),
+    (lines) => map_with_(lines)(label_),
+    (lines) => format_(lines),
+  ]
+);
 
 const scroll = (mirror) => ({ target: source }) => {
   if (mirror.scrollTop !== source.scrollTop) {
