@@ -54,8 +54,6 @@
     </head>
 
     <body>
-        <script type="module" src="/dsl/parser.js"></script>
-
         <main>
             <form id="form">
                 <textarea id="input"></textarea>
@@ -65,5 +63,40 @@
                 <textarea id="output" readonly></textarea>
             </output>
         </main>
+
+        <script type="module">
+            import parse from "/dsl/parser.js";
+            import raw from "/dsl/sample/00-raw.js";
+
+            // grab the input and output
+
+            const input = document.getElementById("input");
+            const output = document.getElementById("output");
+
+            // populate input and output
+
+            const populate = (textarea, value) => { textarea.value = value; };
+
+            populate(input, raw);
+            populate(output, parse(raw));
+
+            // add responsive output
+
+            input.addEventListener(
+              "input",
+              ({ target }) => populate(output, parse(target.value))
+            );
+
+            // add scrolling sync
+
+            const scroll = (mirror) => ({ target: source }) => {
+              if (mirror.scrollTop !== source.scrollTop) {
+                mirror.scroll({ top: source.scrollTop });
+              }
+            }
+
+            input.addEventListener("scroll", scroll(output));
+            output.addEventListener("scroll", scroll(input));
+        </script>
     </body>
 </html>

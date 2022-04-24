@@ -42,37 +42,11 @@ const format_ = (lines) => pass_through_(lines,
   ]
 );
 
-const parse = raw => pass_through_(raw,
+export default (input) => pass_through_(input,
   [
-    (raw)   => split_on_(raw, "\n"),
+    (input)   => split_on_(input, "\n"),
     (lines) => apply_to_(trimend_, lines),
     (lines) => apply_to_(label_, lines),
     (lines) => format_(lines),
   ]
 );
-
-// MAIN
-
-import raw from "/dsl/sample/00-raw.js";
-
-const input = document.getElementById("input");
-const output = document.getElementById("output");
-
-const populate = (textarea, value) => { textarea.value = value; };
-
-input.addEventListener(
-  "input",
-  ({ target }) => { output.value = parse(target.value); }
-);
-
-const scroll = (mirror) => ({ target: source }) => {
-  if (mirror.scrollTop !== source.scrollTop) {
-    mirror.scroll({ top: source.scrollTop });
-  }
-}
-
-input.addEventListener("scroll", scroll(output));
-output.addEventListener("scroll", scroll(input));
-
-populate(input, raw);
-populate(output, parse(raw));
