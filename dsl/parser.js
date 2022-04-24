@@ -5,6 +5,7 @@ const for_all = (array, transform) => array.map((x) => transform(x));
 const trim_end = (string) => string.trimEnd();
 const join = (array, character) => array.join(character);
 const transform = (steps, input) => steps.reduce((x, step) => step(x), input);
+const first = (array, provided, test) => array.find(test) || provided;
 
 const line_types = [
   [ "line_item",   /^- (.+)$/ ],          // "- List item"      -> "List item"
@@ -17,13 +18,13 @@ const line_types = [
 ];
 
 function label_line(line) {
-  for (const [ type, pattern ] of line_types) {
-    if (test(pattern,line)) {
-      const [ full_match, capture ] = match(pattern, line);
-      return [ type, capture ];
-    }
-  }
-  return [ "raw_text", line ];
+  const [ type, pattern ] = first(
+    line_types,
+    [ "no_match", /^(.*)$/ ],
+    ([ type, regex ]) => test(regex, line)
+  );
+  const [ full_match, capture ] = match(pattern, line);
+  return [ type, capture ];
 }
 
 const format_labeled_lines = (lines) => `[ ${join(
