@@ -39,18 +39,16 @@ function parseLine(line) {
 }
 
 function parse(raw) {
-  const lines = raw.split("\n").map((line) => parseLine(line.trimEnd()));
-
-  return lines;
+  return raw.split("\n").map((line) => parseLine(line.trimEnd()));
 }
 
-import sample from "/dsl/sample.js";
+import sample from "/dsl/sample/00-raw.js";
 
 const input = document.getElementById("input");
 const output = document.getElementById("output");
 
 input.value = sample;
-output.value = `[ ${parse(sample).map(([ type, content ]) => `[ "${type}": "${content}" ]`).join("\n, ")} ]`;
+output.value = `[ ${parse(sample).map(([ type, content ]) => `[ "${type}", "${content}" ]`).join("\n, ")} ]`;
 
 const scroll = (mirror) => ({ target: source }) => {
   if (mirror.scrollTop !== source.scrollTop) {
