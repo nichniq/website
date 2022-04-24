@@ -70,8 +70,12 @@ import raw from "/dsl/sample/00-raw.js";
 const input = document.getElementById("input");
 const output = document.getElementById("output");
 
-input.value = parse(raw);
-output.value = input.value;
+input.addEventListener(
+  "change",
+  ({ target }) => { output.value = parse(target.value) }
+);
 
 input.addEventListener("scroll", scroll(output));
 output.addEventListener("scroll", scroll(input));
+
+input.value = parse(raw);
