@@ -1,53 +1,52 @@
-const line_types = [
-  // example: "- List items start with a dash and space"
-  // capture: "List items start with a dash and space"
-  [ "line_item", /^- (.+)$/ ],
+const apply_to_ = (fn, array) => array.map((x) => fn(x));
+const breakpoint = (value) => { debugger; return value; };
+const extract_from_ = (pattern, string) => pattern.exec(string);
+const join_with_ = (array, character) => array.join(character);
+const pass_through_ = (x, steps) => steps.reduce((y, step) => step(y), x);
+const search_for_else_ = (array, match, value) => array.find(match) ?? value;
+const split_on_ = (string, character) => string.split(character);
+const test_for_ = (string, regex) => regex.test(string);
+const trimend_ = (string) => string.trimEnd();
+const wrap_around_ = ([ start, end ], string) => `${start}${string}${end}`;
 
-  // example: "{{ text A full block opens and closes in one line }}"
-  // capture: "text A full block opens and closes in one line"
-  [ "full_block", /^{{ (.+) }}$/ ],
+const type_ = (line) => search_for_else_(
+  [
+    [ "line_item",   /^- (.+)$/ ],          // "- Item"          -> "Item"
+    [ "full_block",  /^{{ (.+) }}$/ ],      // "{{ text Text }}" -> "text Text"
+    [ "open_block",  /^{{ (.+)(?<! }})$/ ], // "{{ text"         -> "text"
+    [ "close_block", /^()}}$/ ],            // "}}"              -> ""
+    [ "indented",    /^ {4}(.+)$/ ],        // "    indented"    -> "indented"
+    [ "empty_line",  /^()$/ ],              // ""                -> ""
+    [ "raw_text",    /^(.+)$/ ],            // "remaining"       -> "remaining"
+  ],
+  ([ type, pattern ]) => test_for_(line, pattern),
+  [ "no_match", /^(.*)$/ ],
+);
 
-  // example: "{{ block"
-  // capture: "block"
-  [ "open_block", /^{{ (.+)(?<! }})$/ ],
+const label_ = (line) => pass_through_(line,
+  [
+    (line)                         => [ line, type_(line) ],
+    ([ line, [ type, pattern ] ])  => [ type, extract_from_(pattern, line) ],
+    ([ type, [ match, capture ] ]) => [ type, capture ],
+  ]
+);
 
-  // example: "}}"
-  // capture: ""
-  [ "close_block", /^()}}$/ ],
+const format_ = (lines) => pass_through_(lines,
+  [
+    (lines) => apply_to_(
+      ([ type, content ]) => `[ "${type}", "${content}" ],`,
+      lines
+    ),
+    (lines) => join_with_(lines, "\n"),
+    (output) => wrap_around_([ "[", "]" ], output),
+  ]
+);
 
-  // example: "    indented content starts with four spaces"
-  // capture: "indented content starts with four spaces"
-  [ "indented", /^ {4}(.+)$/ ],
-
-  // example: ""
-  // capture: ""
-  [ "empty_line", /^()$/ ],
-
-  // example: "everything else is simple text"
-  // capture: "everything else is simple text"
-  [ "raw_text", /^(.+)$/ ],
-];
-
-function parseLine(line) {
-  for (const [ type, pattern ] of line_types) {
-    if (pattern.test(line)) {
-      const [ full_match, capture ] = pattern.exec(line);
-      return [ type, capture ];
-    }
-  }
-  return [ "raw_text", line ];
-}
-
-function parse(raw) {
-  const lines = raw.split("\n").map((line) => parseLine(line.trimEnd()));
-
-  return lines;
-}
-
-import sample from "/dsl/sample.js";
-
-const input = document.getElementById("input");
-const output = document.getElementById("output");
-
-input.value = sample;
-output.value = JSON.stringify(parse(sample), null, 4);
+export default (input) => pass_through_(input,
+  [
+    (input) => split_on_(input, "\n"),
+    (lines) => apply_to_(trimend_, lines),
+    (lines) => apply_to_(label_, lines),
+    (lines) => format_(lines),
+  ]
+);
