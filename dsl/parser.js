@@ -51,11 +51,7 @@ const parse = raw => pass_through_(raw,
   ]
 );
 
-const scroll = (mirror) => ({ target: source }) => {
-  if (mirror.scrollTop !== source.scrollTop) {
-    mirror.scroll({ top: source.scrollTop });
-  }
-}
+// MAIN
 
 import raw from "/dsl/sample/00-raw.js";
 
@@ -68,6 +64,12 @@ input.addEventListener(
   "input",
   ({ target }) => { output.value = parse(target.value); }
 );
+
+const scroll = (mirror) => ({ target: source }) => {
+  if (mirror.scrollTop !== source.scrollTop) {
+    mirror.scroll({ top: source.scrollTop });
+  }
+}
 
 input.addEventListener("scroll", scroll(output));
 output.addEventListener("scroll", scroll(input));
