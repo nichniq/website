@@ -44,7 +44,7 @@ const format_ = (lines) => pass_through_(lines,
 
 export default (input) => pass_through_(input,
   [
-    (input)   => split_on_(input, "\n"),
+    (input) => split_on_(input, "\n"),
     (lines) => apply_to_(trimend_, lines),
     (lines) => apply_to_(label_, lines),
     (lines) => format_(lines),
