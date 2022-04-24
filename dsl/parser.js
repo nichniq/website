@@ -27,12 +27,12 @@ const format_labeled_lines = (lines) => `[ ${join(
   ), "\n",
 )} ]`;
 
-const parse = (raw) => transform([
+const parse = (raw) => transform(raw, [
   (raw) => split(raw, "\n"),
   (raw_lines) => for_all(raw_lines, trim_end),
   (trimmed_lines) => for_all(trimmed_lines, label_line),
   (labeled_lines) => format_labeled_lines(labeled_lines),
- ], raw);
+ ]);
 
 const scroll = (mirror) => ({ target: source }) => {
   if (mirror.scrollTop !== source.scrollTop) {
