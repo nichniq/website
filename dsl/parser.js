@@ -28,7 +28,7 @@ const line_types = [
   [ "raw_text", /^(.+)$/ ],
 ];
 
-function parseLine(line) {
+function label_line(line) {
   for (const [ type, pattern ] of line_types) {
     if (pattern.test(line)) {
       const [ full_match, capture ] = pattern.exec(line);
@@ -39,7 +39,9 @@ function parseLine(line) {
 }
 
 function parse(raw) {
-  return raw.split("\n").map((line) => parseLine(line.trimEnd()));
+  const lines = raw.split("\n").map((line) => line.trimEnd());
+  const labeled_lines  = lines.map((line) => label_line(line));
+  return labeled_lines;
 }
 
 import raw from "/dsl/sample/00-raw.js";
