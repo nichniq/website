@@ -1,4 +1,4 @@
-import { match, split, test, trim_end } from "/modules/string.js";
+import { extract, split, test, trim_end } from "/modules/string.js";
 import { first_or, for_all, join, transform } from "/modules/array.js";
 
 const line_types = [
@@ -17,7 +17,7 @@ function label_line(line) {
     [ "no_match", /^(.*)$/ ],
     ([ type, pattern ]) => test(line, pattern)
   );
-  const [ full_match, capture ] = match(line, pattern);
+  const [ full_match, capture ] = extract(line, pattern);
   return [ type, capture ];
 }
 
