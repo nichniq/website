@@ -1,5 +1,9 @@
-import { extract, split, test, trim_end } from "/modules/string.js";
-import { first_in_or, for_all, join, transform } from "/modules/array.js";
+import * as functions from "/modules/functions.js";
+
+const {
+  string: { extract, split, test, trim_end },
+  array: { first_in_or, for_all, join, transform }
+} = functions;
 
 const line_type = (line) => first_in_or(
   ([ type, pattern ]) => test(line, pattern),
