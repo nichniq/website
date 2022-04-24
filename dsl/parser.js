@@ -1,11 +1,11 @@
+const apply_to_ = (fn, array) => array.map((x) => fn(x));
 const breakpoint = (value) => { debugger; return value; };
 const extract_from_ = (pattern, string) => pattern.exec(string);
-const apply_to_ = (fn, array) => array.map((x) => fn(x));
 const join_with_ = (array, character) => array.join(character);
+const pass_through_ = (x, steps) => steps.reduce((y, step) => step(y), x);
 const search_for_else_ = (array, match, value) => array.find(match) ?? value;
 const split_on_ = (string, character) => string.split(character);
 const test_for_ = (string, regex) => regex.test(string);
-const pass_through_ = (x, steps) => steps.reduce((y, step) => step(y), x);
 const trimend_ = (string) => string.trimEnd();
 const wrap_around_ = ([ start, end ], string) => `${start}${string}${end}`;
 
