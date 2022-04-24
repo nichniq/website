@@ -1,11 +1,5 @@
-const split = (string, character) => string.split(character);
-const test = (regex, string) => regex.test(string);
-const match = (regex, string) => regex.exec(string);
-const for_all = (array, transform) => array.map((x) => transform(x));
-const trim_end = (string) => string.trimEnd();
-const join = (array, character) => array.join(character);
-const transform = (steps, input) => steps.reduce((x, step) => step(x), input);
-const first_or = (array, value, test) => array.find(test) ?? value;
+import { match, split, test, trim_end } from "/modules/string.js";
+import { first_or, for_all, join, transform } from "/modules/array.js";
 
 const line_types = [
   [ "line_item",   /^- (.+)$/ ],          // "- List item"      -> "List item"
@@ -21,9 +15,9 @@ function label_line(line) {
   const [ type, pattern ] = first_or(
     line_types,
     [ "no_match", /^(.*)$/ ],
-    ([ type, regex ]) => test(regex, line)
+    ([ type, pattern ]) => test(line, pattern)
   );
-  const [ full_match, capture ] = match(pattern, line);
+  const [ full_match, capture ] = match(line, pattern);
   return [ type, capture ];
 }
 
