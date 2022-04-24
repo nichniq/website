@@ -42,13 +42,14 @@ function parse(raw) {
   return raw.split("\n").map((line) => parseLine(line.trimEnd()));
 }
 
-import sample from "/dsl/sample/00-raw.js";
+import raw from "/dsl/sample/00-raw.js";
+import lines from "/dsl/sample/01-lines.js";
 
 const input = document.getElementById("input");
 const output = document.getElementById("output");
 
-input.value = sample;
-output.value = `[ ${parse(sample).map(([ type, content ]) => `[ "${type}", "${content}" ]`).join("\n, ")} ]`;
+input.value = `[ ${lines.map(([ type, content ]) => `[ "${type}", "${content}" ]`).join("\n, ")} ]`;
+output.value = input.value;
 
 const scroll = (mirror) => ({ target: source }) => {
   if (mirror.scrollTop !== source.scrollTop) {
