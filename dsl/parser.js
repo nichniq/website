@@ -1,3 +1,10 @@
+const split = (string, character) => string.split(character);
+const test = (regex, string) => regex.test(string);
+const match = (regex, string) => regex.exec(string);
+const for_all = (array, transform) => array.map((x) => transform(x));
+const trim_end = (string) => string.trimEnd();
+const join = (array, character) => array.join(character);
+
 const line_types = [
   // example: "- List items start with a dash and space"
   // capture: "List items start with a dash and space"
@@ -30,8 +37,8 @@ const line_types = [
 
 function label_line(line) {
   for (const [ type, pattern ] of line_types) {
-    if (pattern.test(line)) {
-      const [ full_match, capture ] = pattern.exec(line);
+    if (test(pattern,line)) {
+      const [ full_match, capture ] = match(pattern, line);
       return [ type, capture ];
     }
   }
@@ -39,18 +46,27 @@ function label_line(line) {
 }
 
 function parse(raw) {
-  const lines = raw.split("\n").map((line) => line.trimEnd());
-  const labeled_lines  = lines.map((line) => label_line(line));
+  const raw_lines = split(raw, "\n");
+  const trimmed_lines = for_all(raw_lines, trim_end);
+  const labeled_lines  = for_all(trimmed_lines, label_line);
+
   return labeled_lines;
 }
 
 import raw from "/dsl/sample/00-raw.js";
-const lines = parse(raw);
 
 const input = document.getElementById("input");
 const output = document.getElementById("output");
 
-input.value = `[ ${lines.map(([ type, content ]) => `[ "${type}", "${content}" ]`).join("\n, ")} ]`;
+const labeled_lines = parse(raw);
+
+const format_labeled_lines = (lines) => `[ ${join(
+  for_all(lines,
+    ([ type, content ]) => `[ "${type}", "${content}" ]`
+  ), "\n",
+)} ]`;
+
+input.value = format_labeled_lines(parse(raw));
 output.value = input.value;
 
 const scroll = (mirror) => ({ target: source }) => {
