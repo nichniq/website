@@ -1,7 +1,8 @@
 import { extract, split, test, trim_end } from "/modules/string.js";
-import { first_or, for_all, join, transform } from "/modules/array.js";
+import { first_in_or, for_all, join, transform } from "/modules/array.js";
 
-const line_type = (line) => first_or(
+const line_type = (line) => first_in_or(
+  ([ type, pattern ]) => test(line, pattern),
   [
     [ "line_item",   /^- (.+)$/ ],          // "- Item"          -> "Item"
     [ "full_block",  /^{{ (.+) }}$/ ],      // "{{ text Text }}" -> "text Text"
@@ -12,7 +13,6 @@ const line_type = (line) => first_or(
     [ "raw_text",    /^(.+)$/ ],            // "remaining"       -> "remaining"
   ],
   [ "no_match", /^(.*)$/ ],
-  ([ type, pattern ]) => test(line, pattern),
 );
 
 const label_line = (line) => transform(line, [
