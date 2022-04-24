@@ -43,7 +43,7 @@ function parse(raw) {
 }
 
 import raw from "/dsl/sample/00-raw.js";
-import lines from "/dsl/sample/01-lines.js";
+const lines = parse(raw);
 
 const input = document.getElementById("input");
 const output = document.getElementById("output");
