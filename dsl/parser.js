@@ -5,7 +5,7 @@ const for_all = (array, transform) => array.map((x) => transform(x));
 const trim_end = (string) => string.trimEnd();
 const join = (array, character) => array.join(character);
 const transform = (steps, input) => steps.reduce((x, step) => step(x), input);
-const first = (array, provided, test) => array.find(test) || provided;
+const first_or = (array, value, test) => array.find(test) ?? value;
 
 const line_types = [
   [ "line_item",   /^- (.+)$/ ],          // "- List item"      -> "List item"
@@ -18,7 +18,7 @@ const line_types = [
 ];
 
 function label_line(line) {
-  const [ type, pattern ] = first(
+  const [ type, pattern ] = first_or(
     line_types,
     [ "no_match", /^(.*)$/ ],
     ([ type, regex ]) => test(regex, line)
