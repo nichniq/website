@@ -7,33 +7,13 @@ const join = (array, character) => array.join(character);
 const transform = (steps, input) => steps.reduce((x, step) => step(x), input);
 
 const line_types = [
-  // example: "- List items start with a dash and space"
-  // capture: "List items start with a dash and space"
-  [ "line_item", /^- (.+)$/ ],
-
-  // example: "{{ text A full block opens and closes in one line }}"
-  // capture: "text A full block opens and closes in one line"
-  [ "full_block", /^{{ (.+) }}$/ ],
-
-  // example: "{{ block"
-  // capture: "block"
-  [ "open_block", /^{{ (.+)(?<! }})$/ ],
-
-  // example: "}}"
-  // capture: ""
-  [ "close_block", /^()}}$/ ],
-
-  // example: "    indented content starts with four spaces"
-  // capture: "indented content starts with four spaces"
-  [ "indented", /^ {4}(.+)$/ ],
-
-  // example: ""
-  // capture: ""
-  [ "empty_line", /^()$/ ],
-
-  // example: "everything else is simple text"
-  // capture: "everything else is simple text"
-  [ "raw_text", /^(.+)$/ ],
+  [ "line_item",   /^- (.+)$/ ],          // "- List item"      -> "List item"
+  [ "full_block",  /^{{ (.+) }}$/ ],      // "{{ text Block }}" -> "text Block"
+  [ "open_block",  /^{{ (.+)(?<! }})$/ ], // "{{ text"          -> "text"
+  [ "close_block", /^()}}$/ ],            // "}}"               -> ""
+  [ "indented",    /^ {4}(.+)$/ ],        // "    indented"     -> "indented"
+  [ "empty_line",  /^()$/ ],              // ""                 -> ""
+  [ "raw_text",    /^(.+)$/ ],            // "remaining"        -> "remaining"
 ];
 
 function label_line(line) {
