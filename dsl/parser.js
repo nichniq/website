@@ -38,7 +38,7 @@ const format_ = (lines) => pass_through_(lines,
       lines
     ),
     (lines) => join_with_(lines, "\n"),
-    (output) => wrap_around_([ "[", "]" ], output),
+    (output) => wrap_around_([ "[ ", " ]" ], output),
   ]
 );
 
