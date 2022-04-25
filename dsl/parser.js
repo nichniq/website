@@ -1,15 +1,15 @@
-const apply_to_ = (fn, array) => array.map((x) => fn(x));
-const breakpoint = (value) => { debugger; return value; };
-const extract_from_ = (pattern, string) => pattern.exec(string);
-const join_with_ = (array, character) => array.join(character);
-const pass_through_ = (x, steps) => steps.reduce((y, step) => step(y), x);
-const search_for_else_ = (array, match, value) => array.find(match) ?? value;
-const split_on_ = (string, character) => string.split(character);
-const test_for_ = (string, regex) => regex.test(string);
-const trimend_ = (string) => string.trimEnd();
-const wrap_around_ = ([ start, end ], string) => `${start}${string}${end}`;
+const apply = fn => ({ to: array => array.map(x => fn(x)) });
+const breakpoint = value => { debugger; return value; };
+const extract = pattern => ({ from: (string) => pattern.exec(string) });
+const join = array => ({ with: character => array.join(character) });
+const pass = x => ({ through: steps => steps.reduce((y, step) => step(y), x) });
+const search = array => ({ for: match => ({ else: value => array.find(match) ?? value }) });
+const split = string => ({ on: character => string.split(character) });
+const test = string => ({ for: regex => regex.test(string) });
+const trimend = string => string.trimEnd();
+const wrap = ([ start, end ]) => ({ around: string => `${start}${string}${end}` });
 
-const type_ = (line) => search_for_else_(
+const identify = (line) => search(
   [
     [ "line_item",   /^- (.+)$/ ],          // "- Item"          -> "Item"
     [ "full_block",  /^{{ (.+) }}$/ ],      // "{{ text Text }}" -> "text Text"
@@ -18,35 +18,35 @@ const type_ = (line) => search_for_else_(
     [ "indented",    /^ {4}(.+)$/ ],        // "    indented"    -> "indented"
     [ "empty_line",  /^()$/ ],              // ""                -> ""
     [ "raw_text",    /^(.+)$/ ],            // "remaining"       -> "remaining"
-  ],
-  ([ type, pattern ]) => test_for_(line, pattern),
-  [ "no_match", /^(.*)$/ ],
+  ]
+).for(
+  ([ type, pattern ]) => test(line).for(pattern)
+).else(
+  [ "no_match", /^(.*)$/ ]
 );
 
-const label_ = (line) => pass_through_(line,
+const label = (line) => pass(line).through(
   [
-    (line)                         => [ line, type_(line) ],
-    ([ line, [ type, pattern ] ])  => [ type, extract_from_(pattern, line) ],
+    (line)                         => [ line, identify(line) ],
+    ([ line, [ type, pattern ] ])  => [ type, extract(pattern).from(line) ],
     ([ type, [ match, capture ] ]) => [ type, capture ],
   ]
 );
 
-const format_ = (lines) => pass_through_(lines,
+const format_line = ([ type, content ]) => `[ "${type}", "${content}" ],`;
+const format_lines = (lines) => pass(lines).through(
   [
-    (lines) => apply_to_(
-      ([ type, content ]) => `[ "${type}", "${content}" ],`,
-      lines
-    ),
-    (lines) => join_with_(lines, "\n"),
-    (output) => wrap_around_([ "[ ", " ]" ], output),
+    (lines) => apply(format_line).to(lines),
+    (lines) => join(lines).with("\n"),
+    (output) => wrap([ "[ ", " ]"]).around(output)
   ]
 );
 
-export default (input) => pass_through_(input,
+export default (input) => pass(input).through(
   [
-    (input) => split_on_(input, "\n"),
-    (lines) => apply_to_(trimend_, lines),
-    (lines) => apply_to_(label_, lines),
-    (lines) => format_(lines),
+    (input) => split(input).on("\n"),
+    (lines) => apply(trimend).to(lines),
+    (lines) => apply(label).to(lines),
+    (lines) => format_lines(lines),
   ]
 );
