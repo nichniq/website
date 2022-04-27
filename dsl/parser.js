@@ -42,7 +42,7 @@ const format_lines = (lines) => pass(lines).through(
   ]
 );
 
-export default (input) => pass(input).through(
+const parse = (input) => pass(input).through(
   [
     (input) => split(input).on("\n"),
     (lines) => apply(trimend).to(lines),
@@ -50,3 +50,5 @@ export default (input) => pass(input).through(
     (lines) => format_lines(lines),
   ]
 );
+
+export default parse;
