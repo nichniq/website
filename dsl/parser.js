@@ -76,7 +76,7 @@ const format_lines = lines => transform(lines).via(
 
 const format_partition = partition => transform(partition).via(
   [
-    partition => apply(line => `\t${JSON.stringify(line)}`).to(partition),
+    partition => apply(line => `  ${JSON.stringify(line)}`).to(partition),
     partition => join(partition).with(",\n"),
     partition => wrap([ "[\n", "\n]" ]).around(partition),
   ]
