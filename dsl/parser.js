@@ -70,7 +70,7 @@ function partition(lines) {
 const format_lines = lines => transform(lines).via(
   [
     lines => apply(line => JSON.stringify(line)).to(lines),
-    lines => join(lines).with(",\n"),
+    lines => join(lines).with("\n, "),
   ]
 );
 
