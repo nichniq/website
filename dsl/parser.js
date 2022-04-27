@@ -27,8 +27,8 @@ const identify = (line) => search(
 
 const label = (line) => pass(line).through(
   [
-    (line)                         => [ line, identify(line) ],
-    ([ line, [ type, pattern ] ])  => [ type, extract(pattern).from(line) ],
+    (line) => [ line, identify(line) ],
+    ([ line, [ type, pattern ] ]) => [ type, extract(pattern).from(line) ],
     ([ type, [ match, capture ] ]) => [ type, capture ],
   ]
 );
