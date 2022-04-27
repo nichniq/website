@@ -9,7 +9,7 @@ const transform = seed => ({ via: steps => steps.reduce((x, step) => step(x), se
 const trimend = string => string.trimEnd();
 const wrap = ([ start, end ]) => ({ around: string => `${start}${string}${end}` });
 
-const identify = (line) => search(
+const identify = line => search(
   [
     [ "line_item",   /^- (.+)$/ ],          // "- Item"          -> "Item"
     [ "full_block",  /^{{ (.+) }}$/ ],      // "{{ text Text }}" -> "text Text"
@@ -25,7 +25,7 @@ const identify = (line) => search(
   [ "no_match", /^(.*)$/ ]
 );
 
-const label = (line) => transform(line).via(
+const label = line => transform(line).via(
   [
     (line) => [ line, identify(line) ],
     ([ line, [ type, pattern ] ]) => [ type, extract(pattern).from(line) ],
@@ -74,14 +74,14 @@ const format_partition = partition => wrap([ "[\n", "\n]" ]).around(
   ).with(",\n")
 );
 
-const parse = (input) => transform(input).via(
+const parse = input => transform(input).via(
   [
-    (input) => split(input).on("\n"),
-    (lines) => apply(trimend).to(lines),
-    (trimmed_lines) => apply(label).to(trimmed_lines),
-    (labeled_lines) => partition(labeled_lines),
-    (partitions) => apply(format_partition).to(partitions),
-    (text) => wrap([ "[ ", " ]" ]).around(text),
+    input => split(input).on("\n"),
+    lines => apply(trimend).to(lines),
+    trimmed_lines => apply(label).to(trimmed_lines),
+    labeled_lines => partition(labeled_lines),
+    partitions => apply(format_partition).to(partitions),
+    text => wrap([ "[ ", " ]" ]).around(text),
   ]
 );
 
