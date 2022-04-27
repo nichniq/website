@@ -86,17 +86,6 @@
               "input",
               ({ target }) => populate(output, parse(target.value))
             );
-
-            // add scrolling sync
-
-            const scroll = (mirror) => ({ target: source }) => {
-              if (mirror.scrollTop !== source.scrollTop) {
-                mirror.scroll({ top: source.scrollTop });
-              }
-            }
-
-            input.addEventListener("scroll", scroll(output));
-            output.addEventListener("scroll", scroll(input));
         </script>
     </body>
 </html>
