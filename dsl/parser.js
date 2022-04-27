@@ -67,6 +67,13 @@ function partition(lines) {
   return partitions;
 }
 
+const format_lines = lines => transform(lines).via(
+  [
+    lines => apply(line => JSON.stringify(line)).to(lines),
+    lines => join(lines).with(",\n"),
+  ]
+);
+
 const format_partition = partition => transform(partition).via(
   [
     partition => apply(line => `\t${JSON.stringify(line)}`).to(partition),
