@@ -1,4 +1,5 @@
-export default `[ [
+export default
+`[ [
   ["raw_text","This file describes how to read files of my special note-taking syntax. You read"],
   ["raw_text","them top to bottom. If you encounter a block of text like this, it's just"],
   ["raw_text","plaintext. As soon as you encounter an empty line, you move onto the next block."]
