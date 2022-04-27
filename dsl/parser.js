@@ -33,21 +33,55 @@ const label = (line) => transform(line).via(
   ]
 );
 
-const format_line = ([ type, content ]) => `[ "${type}", "${content}" ],`;
-const format_lines = (lines) => pass(lines).through(
-  [
-    (lines) => apply(format_line).to(lines),
-    (lines) => join(lines).with("\n"),
-    (output) => wrap([ "[ ", " ]"]).around(output)
-  ]
+function partition(lines) {
+  let in_block = false;
+  let queue = [];
+  const partitions = [];
+
+  for (const line of lines) {
+    const [ type, content ] = line;
+
+    if (type === "empty_line" && in_block === false) {
+      if (queue.length > 0) {
+        partitions.push(queue);
+        queue = [];
+      }
+    } else if (type === "full_block") {
+      partitions.push([ line ]);
+    } else {
+      if (type === "open_block") {
+        in_block = true;
+      }
+
+      if (type === "close_block") {
+        in_block = false;
+      }
+
+      queue.push(line);
+    }
+  }
+
+  if (queue.length > 0) {
+    partitions.push(queue);
+  }
+
+  return partitions;
+}
+
+const format_partition = partition => wrap([ "[\n", "\n]" ]).around(
+  join(
+    apply(line => `\t${JSON.stringify(line)}`).to(partition)
+  ).with(",\n")
 );
 
 const parse = (input) => transform(input).via(
   [
     (input) => split(input).on("\n"),
     (lines) => apply(trimend).to(lines),
-    (lines) => apply(label).to(lines),
-    (lines) => format_lines(lines),
+    (trimmed_lines) => apply(label).to(trimmed_lines),
+    (labeled_lines) => partition(labeled_lines),
+    (partitions) => apply(format_partition).to(partitions),
+    (text) => wrap([ "[ ", " ]" ]).around(text),
   ]
 );
 
