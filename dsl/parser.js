@@ -2,10 +2,10 @@ const apply = fn => ({ to: array => array.map(x => fn(x)) });
 const breakpoint = value => { debugger; return value; };
 const extract = pattern => ({ from: (string) => pattern.exec(string) });
 const join = array => ({ with: character => array.join(character) });
-const transform = seed => ({ via: steps => steps.reduce((x, step) => step(x), seed) });
 const search = array => ({ for: match => ({ else: value => array.find(match) ?? value }) });
 const split = string => ({ on: character => string.split(character) });
 const test = string => ({ for: regex => regex.test(string) });
+const transform = seed => ({ via: steps => steps.reduce((x, step) => step(x), seed) });
 const trimend = string => string.trimEnd();
 const wrap = ([ start, end ]) => ({ around: string => `${start}${string}${end}` });
 
