@@ -2,7 +2,7 @@ const apply = fn => ({ to: array => array.map(x => fn(x)) });
 const breakpoint = value => { debugger; return value; };
 const extract = pattern => ({ from: (string) => pattern.exec(string) });
 const join = array => ({ with: character => array.join(character) });
-const pass = x => ({ through: steps => steps.reduce((y, step) => step(y), x) });
+const transform = seed => ({ via: steps => steps.reduce((x, step) => step(x), seed) });
 const search = array => ({ for: match => ({ else: value => array.find(match) ?? value }) });
 const split = string => ({ on: character => string.split(character) });
 const test = string => ({ for: regex => regex.test(string) });
@@ -25,7 +25,7 @@ const identify = (line) => search(
   [ "no_match", /^(.*)$/ ]
 );
 
-const label = (line) => pass(line).through(
+const label = (line) => transform(line).via(
   [
     (line) => [ line, identify(line) ],
     ([ line, [ type, pattern ] ]) => [ type, extract(pattern).from(line) ],
@@ -42,7 +42,7 @@ const format_lines = (lines) => pass(lines).through(
   ]
 );
 
-const parse = (input) => pass(input).through(
+const parse = (input) => transform(input).via(
   [
     (input) => split(input).on("\n"),
     (lines) => apply(trimend).to(lines),
