@@ -67,12 +67,18 @@ const format_lines = lines => transform(lines).via(
   ]
 );
 
-const format_partition = partition => transform(partition).via(
-  [
-    partition => apply(([ [ type ], line ]) => `  ["${type}","${line}"]`).to(partition),
-    partition => join(partition).with(",\n"),
-    partition => wrap([ "[\n", "\n]" ]).around(partition),
-  ]
+const format_partitions = partitions => wrap([ "[ ", " ]" ]).around(
+  apply(
+    partition => transform(partition).via(
+      [
+        partition => apply(
+          ([ [ type ], line ]) => `  ["${type}","${line}"]`
+        ).to(partition),
+        partition => join(partition).with(",\n"),
+        partition => wrap([ "[\n", "\n]" ]).around(partition),
+      ]
+    )
+  ).to(partitions)
 );
 
 const parse = input => transform(input).via(
@@ -81,8 +87,7 @@ const parse = input => transform(input).via(
     lines => apply(trimend).to(lines),
     trimmed_lines => apply(line => [ identify(line), line ]).to(trimmed_lines),
     labeled_lines => partition(labeled_lines),
-    partitions => apply(format_partition).to(partitions),
-    text => wrap([ "[ ", " ]" ]).around(text),
+    partitions => format_partitions(partitions),
   ]
 );
 
