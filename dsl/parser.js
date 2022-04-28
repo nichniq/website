@@ -25,20 +25,13 @@ const identify = line => search(
   [ "no_match", /^(.*)$/ ]
 );
 
-const label = line => transform(line).via(
-  [
-    line => [ line, identify(line) ],
-    ([ line, [ type, pattern ] ]) => [ type, line ],
-  ]
-);
-
 function partition(lines) {
   let in_block = false;
   let queue = [];
   const partitions = [];
 
   for (const line of lines) {
-    const [ type, content ] = line;
+    const [ [ type ], content ] = line;
 
     if (type === "empty_line" && in_block === false) {
       if (queue.length > 0) {
@@ -76,7 +69,7 @@ const format_lines = lines => transform(lines).via(
 
 const format_partition = partition => transform(partition).via(
   [
-    partition => apply(line => `  ${JSON.stringify(line)}`).to(partition),
+    partition => apply(([ [ type ], line ]) => `  ["${type}","${line}"]`).to(partition),
     partition => join(partition).with(",\n"),
     partition => wrap([ "[\n", "\n]" ]).around(partition),
   ]
@@ -86,7 +79,7 @@ const parse = input => transform(input).via(
   [
     input => split(input).on("\n"),
     lines => apply(trimend).to(lines),
-    trimmed_lines => apply(label).to(trimmed_lines),
+    trimmed_lines => apply(line => [ identify(line), line ]).to(trimmed_lines),
     labeled_lines => partition(labeled_lines),
     partitions => apply(format_partition).to(partitions),
     text => wrap([ "[ ", " ]" ]).around(text),
