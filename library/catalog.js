@@ -16,6 +16,483 @@ const template = {
 
 export default [
     {
+        title: "Animal Architecture",
+        ids: [
+            [ "isbn10", "1419711652" ],
+            [ "isbn13", "9781419711657" ],
+        ],
+        external: "https://www.goodreads.com/book/show/18492196-animal-architecture",
+        txns: [
+            [ "purchase", { date: "June 5, 2022", location: "Paxton Gate", city: "San Francisco" } ],
+        ],
+        notes: "Brendan Book Tour Shopping Spree 2022 #5",
+    },
+    {
+        title: "The Look of Men",
+        ids: [
+            [ "isbn10", "0906558425" ],
+            [ "isbn13", "9780906558423" ],
+        ],
+        external: "https://www.goodreads.com/book/show/34999287-the-look-of-men",
+        txns: [
+            [ "purchase", { date: "June 5, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+        ],
+        notes: "Brendan Book Tour Shopping Spree 2022 #4",
+    },
+    {
+        title: "Predicting the Past",
+        subtitle: "Zohar Studios: The Lost Years",
+        ids: [
+            [ "isbn10", "1732056129" ],
+            [ "isbn13", "9781732056121" ],
+        ],
+        external: "https://www.goodreads.com/book/show/55446086-predicting-the-past",
+        txns: [
+            [ "purchase", { date: "June 5, 2022", location: "Green Arcade", city: "San Francisco" } ],
+        ],
+        notes: "Brendan Book Tour Shopping Spree 2022 #3. Left it at Dog Eared by accident and was worried I'd lost it",
+    },
+    {
+        title: "Humanature",
+        ids: [
+            [ "isbn10", "0292727860" ],
+            [ "isbn13", "9780292727861" ],
+        ],
+        external: "https://www.goodreads.com/book/show/413829.Humanature",
+        txns: [
+            [ "purchase", { date: "June 5, 2022", location: "Fabulosa Books", city: "San Francisco" } ],
+        ],
+        notes: "Brendan Book Tour Shopping Spree 2022 #2.5, found in a free book bin",
+    },
+    {
+        title: "The People of Vietnam will triumph! The U.S. aggressors will be defeated!",
+        subtitle: "Collection of Chinese art works in support of the Vietnamese people's struggle",
+        ids: [
+            [ "openlibrary", "OL21919304M" ],
+        ],
+        external: "https://openlibrary.org/books/OL21919304M/The_People_of_Vietnam_will_triumph%21",
+        txns: [
+            [ "purchase", { date: "June 5, 2022", location: "Fabulosa Books", city: "San Francisco" } ],
+        ],
+        notes: "Brendan Book Tour Shopping Spree 2022 #2",
+    },
+    {
+        title: "The Black Book",
+        ids: [
+            [ "isbn10", "1400068487" ],
+            [ "isbn13", "9781400068487" ],
+        ],
+        external: "https://www.goodreads.com/book/show/60639252-the-black-book",
+        txns: [
+            [ "purchase", { date: "June 4, 2022", location: "Booksmith", city: "San Francisco" } ],
+        ],
+        notes: "Brendan Book Tour Shopping Spree 2022 #1",
+    },
+    {
+        title: "The End of the Game",
+        subtitle: "The Last Word from Paradise - A Pictoral Documentation of the origins, History and Prospects of the Big Game Africa",
+        series: "",
+        ids: [
+            [ "isbn10", "0811828816" ],
+            [ "isbn13", "9780811828819" ],
+        ],
+        external: "https://www.goodreads.com/book/show/222137.The_End_of_the_Game",
+        txns: [
+            [ "purchase", { date: "May 22, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "Repentant Monk",
+        subtitle: "Illusion and Disillusion in the Art of Chen Hongshou",
+        ids: [
+            [ "isbn10", "0520294335" ],
+            [ "isbn13", "9780520294332" ],
+        ],
+        external: "https://www.goodreads.com/book/show/34669619-repentant-monk",
+        txns: [
+            [ "purchase", { date: "May 22, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "Composition",
+        subtitle: "A Series of Exercises in Art Structure for the Use of Students and Teachers",
+        ids: [
+            [ "isbn10", "0520207491" ],
+            [ "isbn13", "9780520207493" ],
+        ],
+        external: "https://www.goodreads.com/book/show/1117296.Composition",
+        txns: [
+            [ "purchase", { date: "May 22, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "Mexico",
+        subtitle: "The Land of Charm",
+        ids: [
+            [ "isbn10", "8417975519" ],
+            [ "isbn13", "9788417975517" ],
+        ],
+        external: "https://www.goodreads.com/book/show/59923336-mexico",
+        txns: [
+            [ "purchase", { date: "May 22, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "The Encyclopaedia Of World Costume",
+        ids: [
+            [ "isbn10", "0713413395" ],
+            [ "isbn13", "9780713413397" ],
+        ],
+        external: "https://www.goodreads.com/book/show/3988760-the-encyclopaedia-of-world-costume",
+        txns: [
+            [ "purchase", { date: "May 21, 2022", location: "Fabulosa Books", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "The World of Tattoo",
+        subtitle: "An Illustrated History",
+        ids: [
+            [ "isbn10", "9068321927" ],
+            [ "isbn13", "9789068321920" ],
+        ],
+        external: "https://www.goodreads.com/book/show/676917.The_World_of_Tattoo",
+        txns: [
+            [ "purchase", { date: "May 21, 2022", location: "Fabulosa Books", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "Nude Men",
+        subtitle: "From 1800 to the Present Day",
+        ids: [
+            [ "isbn10", "3777458511" ],
+            [ "isbn13", "9783777458519" ],
+        ],
+        external: "https://www.goodreads.com/book/show/15999719-nude-men",
+        txns: [
+            [ "purchase", { date: "May 21, 2022", location: "Fabulosa Books", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "BUTCH",
+        ids: [
+            [ "isbn10", "0692904204" ],
+            [ "isbn13", "9780692904206" ],
+        ],
+        external: "https://www.goodreads.com/book/show/38924504-butch",
+        txns: [
+            [ "purchase", { date: "May 21, 2022", location: "Fabulosa Books", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "New Queer Photography",
+        subtitle: "Focus on the Margins",
+        ids: [
+            [ "isbn10", "1584237562" ],
+            [ "isbn13", "9781584237563" ],
+        ],
+        external: "https://www.goodreads.com/book/show/55183329-new-queer-photography",
+        txns: [
+            [ "purchase", { date: "May 21, 2022", location: "Fabulosa Books", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "Friends of Dorothy",
+        ids: [
+            [ "isbn10", "0732908825" ],
+            [ "isbn13", "9780732908829" ],
+        ],
+        external: "https://biblio.co.uk/9780732908829",
+        txns: [
+            [ "purchase", { date: "May 21, 2022", location: "Fabulosa Books", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "Witchcraft",
+        series: "Library of Esoterica",
+        ids: [
+            [ "isbn10", "383658560X" ],
+            [ "isbn13", "9783836585606" ],
+        ],
+        external: "https://www.goodreads.com/book/show/58616598-witchcraft",
+        txns: [
+            [ "purchase", { date: "May 21, 2022", location: "Fabulosa Books", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "The Geometry of Hand-Sewing",
+        subtitle: "A Romance in Stitches and Embroidery from Alabama Chanin and The School of Making",
+        ids: [
+            [ "isbn10", "1419726633" ],
+            [ "isbn13", "9781419726637" ],
+        ],
+        external: "https://www.goodreads.com/book/show/34227598-the-geometry-of-hand-sewing",
+        txns: [
+            [ "purchase", { date: "May 14, 2022", location: "Booksmith", city: "San Francisco" } ],
+        ],
+        notes: "Saw this in Booksmith a week ago. Kept thinking about it so I came back to buy it",
+    },
+    {
+        title: "The Dictionary of Obscure Sorrows",
+        ids: [
+            [ "isbn10", "1501153641" ],
+            [ "isbn13", "9781501153648" ],
+        ],
+        external: "https://www.goodreads.com/book/show/56897474-the-dictionary-of-obscure-sorrows",
+        txns: [
+            [ "purchase", { date: "May 14, 2022", location: "Booksmith", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "The City of the Divine King",
+        subtitle: "Urban Systems and Urban Architecture in Egypt, Mesopotamia, Indus, India, Nepal and China",
+        series: "An Outline of the History of Urban Development",
+        ids: [
+            [ "isbn13", "9788787136990" ],
+        ],
+        external: "https://stoutbooks.com/products/an-outline-of-the-history-of-urban-development-90951",
+        txns: [
+            [ "purchase", { date: "May 13, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+        ],
+        notes: "Volume 4 of boxed set 'An Outline of the History of Urban Development', ISBN 9788787136990"
+    },
+    {
+        title: "The City of the Landowner",
+        subtitle: "Urban Systems and Urban Architecture in the Antique Greek World and the Roman Empire",
+        series: "An Outline of the History of Urban Development",
+        ids: [
+            [ "isbn13", "9788787136990" ],
+        ],
+        external: "https://stoutbooks.com/products/an-outline-of-the-history-of-urban-development-90951",
+        txns: [
+            [ "purchase", { date: "May 13, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+        ],
+        notes: "Volume 2 of boxed set 'An Outline of the History of Urban Development', ISBN 9788787136990"
+    },
+    {
+        title: "The City of the Merchant",
+        subtitle: "Urban Systems and Urban Architecture in Post-Antique and Pre-Industrial Europe",
+        series: "An Outline of the History of Urban Development",
+        ids: [
+            [ "isbn13", "9788787136990" ],
+        ],
+        external: "https://stoutbooks.com/products/an-outline-of-the-history-of-urban-development-90951",
+        txns: [
+            [ "purchase", { date: "May 13, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+        ],
+        notes: "Volume 3 of boxed set 'An Outline of the History of Urban Development', ISBN 9788787136990"
+    },
+    {
+        title: "The City of the Hunter",
+        subtitle: "Urban Systems and Urban Architecture in Indigenous Societies",
+        series: "An Outline of the History of Urban Development",
+        ids: [
+            [ "isbn13", "9788787136990" ],
+        ],
+        external: "https://stoutbooks.com/products/an-outline-of-the-history-of-urban-development-90951",
+        txns: [
+            [ "purchase", { date: "May 13, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+        ],
+        notes: "Volume 4 of boxed set 'An Outline of the History of Urban Development', ISBN 9788787136990"
+    },
+    {
+        title: "Colonnes",
+        ids: [
+            [ "isbn10", "2850470058" ],
+            [ "isbn13", "9782850470059" ],
+        ],
+        external: "https://www.goodreads.com/book/show/3498647-colonnes",
+        txns: [
+            [ "purchase", { date: "May 13, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "Compositions in Architecture",
+        ids: [
+            [ "isbn10", "047005364X" ],
+            [ "isbn13", "9780470053645" ],
+        ],
+        external: "https://www.goodreads.com/book/show/7349706-compositions-in-architecture",
+        txns: [
+            [ "purchase", { date: "May 13, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "Natural Surfaces",
+        subtitle: "Visual Research for Artists, Architects, and Designers",
+        ids: [
+            [ "isbn10", "0393730816" ],
+            [ "isbn13", "9780393730814" ],
+        ],
+        external: "https://www.goodreads.com/book/show/2522543.Natural_Surfaces",
+        txns: [
+            [ "purchase", { date: "May 13, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "Steps & Stairways",
+        ids: [
+            [ "isbn10", "0847810755" ],
+            [ "isbn13", "9780847810758" ],
+        ],
+        external: "https://www.goodreads.com/book/show/2932019-steps-stairways",
+        txns: [
+            [ "purchase", { date: "May 13, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "Amy Bennett",
+        external: "https://www.milesmcenery.com/publications/amy-bennett",
+        txns: [
+            [ "gift", { from: "Fayes", date: "May 10, 2022", city: "San Francisco" } ],
+        ],
+        notes: "I'd seen this book at Fayes a while back and asked if it was for sale. Chris didn't know, and then Mike said to ask Justin. I rarely see Justin, so the next time I did, I asked if I could buy it. Justin said someone had left it at one point and that I could just take it"
+    },
+    {
+        title: "Liz Larner",
+        ids: [
+            [ "isbn10", "1942607245" ],
+            [ "isbn13", "9781942607243" ],
+        ],
+        external: "https://www.goodreads.com/book/show/29465570-liz-larner",
+        txns: [
+            [ "gift", { from: "Fayes", date: "May 10, 2022", city: "San Francisco" } ],
+        ],
+        notes: "I'd seen this book at Fayes a while back and asked if it was for sale. Chris didn't know, and then Mike said to ask Justin. I rarely see Justin, so the next time I did, I asked if I could buy it. Justin said someone had left it at one point and that I could just take it"
+    },
+    {
+        title: "The Annotated Arabian Nights",
+        subtitle: "Tales from 1001 Nights",
+        ids: [
+            [ "isbn10", "1631493639" ],
+            [ "isbn13", "9781631493638" ],
+        ],
+        external: "https://www.goodreads.com/book/show/56769521-the-annotated-arabian-nights",
+        txns: [
+            [ "purchase", { date: "May 7, 2022", location: "Booksmith", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "Watercolor Workbook",
+        subtitle: "30-Minute Beginner Botanical Projects on Premium Watercolor Paper",
+        ids: [
+            [ "isbn10", "195096826X" ],
+            [ "isbn13", "9781950968268" ],
+        ],
+        external: "https://www.goodreads.com/book/show/56818082-watercolor-workbook",
+        txns: [
+            [ "purchase", { date: "May 7, 2022", location: "Booksmith", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "Tom of Finland",
+        subtitle: "The Official Life and Work of a Gay Hero",
+        ids: [
+            [ "isbn10", "2374951332" ],
+            [ "isbn13", "9782374951331" ],
+        ],
+        external: "https://www.goodreads.com/book/show/44025270-tom-of-finland",
+        txns: [
+            [ "purchase", { date: "May 7, 2022", location: "Booksmith", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "Plants That Never Ever Bloom",
+        series: "Sandcastle",
+        ids: [
+            [ "isbn10", "0448410923" ],
+            [ "isbn13", "9780448410920" ],
+        ],
+        external: "https://www.goodreads.com/book/show/10439116-plants-that-never-ever-bloom",
+        txns: [
+            [ "purchase", { date: "May 7, 2022", location: "Street Sale", city: "San Francisco" } ],
+        ],
+        notes: "Bought at street sale at the corner of Page and ; walked with Jess and crew from Lower to Upper Haight for Fiona's wedding",
+    },
+    {
+        title: "The Original Bambi",
+        subtitle: "The Story of a Life in the Forest",
+        ids: [
+            [ "isbn10", "0691197741" ],
+            [ "isbn13", "9780691197746" ],
+        ],
+        external: "https://www.goodreads.com/book/show/57866221-the-original-bambi",
+        txns: [
+            [ "purchase", { date: "May 5, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+        ],
+        notes: "Saw this in the bookstore last week. Then, I read an article about it in the New Yorker today. This is the newer translation; I had remembered seeing the older one in the rare book section but it's not so",
+    },
+    {
+        title: "The Art of Rube Goldberg",
+        subtitle: "(A) Inventive (B) Cartoon (C) Genius",
+        ids: [
+            [ "isbn10", "141970852X" ],
+            [ "isbn13", "9781419708527" ],
+        ],
+        external: "https://www.goodreads.com/book/show/17290221-the-art-of-rube-goldberg",
+        txns: [
+            [ "purchase", { date: "May 5, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "Nightcrawlers",
+        ids: [
+            [ "lccn", "57012399" ],
+        ],
+        external: "https://lccn.loc.gov/57012399",
+        txns: [
+            [ "purchase", { date: "May 5, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+        ],
+        notes: "1st edition",
+    },
+    {
+        title: "The Open Road",
+        subtitle: "Photography and the American Roadtrip",
+        ids: [
+            [ "isbn10", "1597112402" ],
+            [ "isbn13", "9781597112406" ],
+        ],
+        external: "https://www.goodreads.com/book/show/22271827-the-open-road",
+        txns: [
+            [ "purchase", { date: "May 5, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "Grail",
+        subtitle: "Quest for the Eternal",
+        series: "The Illustrated Library of Sacred Imagination",
+        ids: [
+            [ "isbn10", "0824500350" ],
+            [ "isbn13", "9780824500351" ],
+        ],
+        external: "https://www.goodreads.com/book/show/1793778.Grail",
+        txns: [
+            [ "purchase", { date: "April 27, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "Our Boots",
+        subtitle: "An Inuit Women's Art",
+        ids: [
+            [ "isbn10", "0500278601" ],
+            [ "isbn13", "9780500278604" ],
+        ],
+        external: "https://www.goodreads.com/book/show/972276.Our_Boots",
+        txns: [
+            [ "purchase", { date: "April 27, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+        ],
+    },
+    {
+        title: "The Lives of Fungi",
+        subtitle: "A Natural History of Our Planet's Decomposers",
+        ids: [
+            [ "isbn10", "0691229848" ],
+            [ "isbn13", "9780691229843" ],
+        ],
+        external: "https://www.goodreads.com/book/show/58885972-the-lives-of-fungi",
+        txns: [
+            [ "purchase", { date: "April 27, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+    },
+    {
         title: "The Weather of the Pacific Northwest",
         ids: [
             [ "isbn10", "0295748443" ],
@@ -1406,7 +1883,7 @@ export default [
         ids: [
             [ "lccn", "51003918" ],
         ],
-        external: "https://lccn.loc.gov/51003918",
+        external: "https://lccn.loc.gov/5712399",
         txns: [
             [ "purchase", { date: "November 14, 2021", location: "Green Arcade", city: "San Francisco" } ],
         ],
