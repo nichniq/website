@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "websocket": "node websocket-server.js"
+  },
+  "devDependencies": {
+    "ws": "^8.8.0"
+  },
+  "type": "module"
+}

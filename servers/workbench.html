@@ -1,0 +1,22 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <title>Nick Cassleman - Promises Workbench</title>
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="stylesheet" type="text/css" href="/globals.css" />
+    </head>
+
+    <body>
+        <main id="main"></main>
+
+        <script type="module">
+            import websocket from "/modules/websocket.js";
+
+            window.websocket = websocket({ url: "ws://localhost:8080" })
+        </script>
+    </body>
+</html>
