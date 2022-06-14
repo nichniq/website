@@ -1,17 +1,25 @@
-import { createServer } from "http";
+import http from "http";
+import fs from "fs";
+
 import { WebSocketServer } from "ws";
 
-const server = createServer();
+const read_outgoing = () => fs.readFileSync("./outgoing.txt", 'utf8');
+const watch_outgoing = cb => fs.watchFile("./outgoing.txt", cb);
+const write_incoming = content => fs.writeFileSync("./incoming.txt", content);
+
+const server = http.createServer();
 const wss = new WebSocketServer({ server });
 
 wss.on("listening", () => console.log("bound to server"));
+
 wss.on("connection", ws => {
-  console.log("connected to websocket");
+  ws.send(read_outgoing());
+  watch_outgoing(() => ws.send(read_outgoing()));
 
   ws.on("message", buffer => {
-    const data = JSON.parse(buffer);
-    console.log("received message", data);
+    write_incoming(JSON.parse(buffer));
   });
 });
 
 server.listen(8080);
+

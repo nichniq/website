@@ -19,16 +19,39 @@
     </head>
 
     <body>
-        <main>
-            <textarea id="textarea"></textarea>
-        </main>
+        <h1>Websocket workbench</h1>
+
+        <section>
+            <h2>Incoming</h2>
+            <textarea id="incoming" readonly style="width: 100%"></textarea>
+        </section>
+
+        <section>
+            <h2>Outgoing</h2>
+            <textarea id="outgoing" style="width: 100%"></textarea>
+        </section>
 
         <script type="module">
             import websocket from "/modules/websocket.js";
+            import { throttle } from "/modules/timing.js";
 
-            const ws = websocket({ url: "ws://localhost:8080" });
-            const textarea = document.getElementById("textarea");
+            const incoming = document.getElementById("incoming");
+            const outgoing = document.getElementById("outgoing");
 
+            const ws = websocket({
+                url: "ws://localhost:8080",
+                description: "Websocket connection to the workspace's server",
+                handlers: {
+                    message: ({ data }) => {
+                        incoming.value = data;
+                    },
+                },
+            });
+
+            const send_outgoing = throttle(ws.send, 1000);
+            outgoing.addEventListener("change", e => {
+                send_outgoing(e.target.value);
+            });
         </script>
     </body>
 </html>
