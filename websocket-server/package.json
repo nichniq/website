@@ -1,9 +1,6 @@
 {
-  "scripts": {
-    "server": "node server.js"
-  },
+  "type": "module",
   "devDependencies": {
     "ws": "^8.8.0"
-  },
-  "type": "module"
+  }
 }
