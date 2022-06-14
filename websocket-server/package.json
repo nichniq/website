@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "websocket": "node websocket-server.js"
+    "server": "node server.js"
   },
   "devDependencies": {
     "ws": "^8.8.0"

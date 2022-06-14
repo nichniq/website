@@ -1,4 +1,4 @@
-import { createServer } from 'http';
+import { createServer } from "http";
 import { WebSocketServer } from "ws";
 
 const server = createServer();
@@ -10,7 +10,7 @@ wss.on("connection", ws => {
 
   ws.on("message", buffer => {
     const data = JSON.parse(buffer);
-    console.log('received message', data);
+    console.log("received message", data);
   });
 });
 
