@@ -1,5 +1,4 @@
 export const entries_from_map = map => map.entries();
-export const entries_from_set = set => set.entries();
 export const entries_from_object = object => Object.entries(object);
 
 function assert (predicate, message) {
