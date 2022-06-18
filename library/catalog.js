@@ -16,6 +16,18 @@ const template = {
 
 export default [
     {
+        title: "The Lost History of the Incas",
+        ids: [
+            [ "isbn10", "1846810353" ],
+            [ "isbn13", "9781846810350" ],
+        ],
+        external: "https://www.goodreads.com/book/show/11782005-the-lost-history-of-the-incas",
+        txns: [
+            [ "gift", { from: "Fayes", date: "June 17, 2022", city: "San Francisco" } ],
+        ],
+        notes: 'Another book that I asked about. "Someone left it. You can take it if you want it"'
+    },
+    {
         title: "Animal Architecture",
         ids: [
             [ "isbn10", "1419711652" ],
@@ -491,6 +503,7 @@ export default [
         external: "https://www.goodreads.com/book/show/58885972-the-lives-of-fungi",
         txns: [
             [ "purchase", { date: "April 27, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+        ],
     },
     {
         title: "The Weather of the Pacific Northwest",
