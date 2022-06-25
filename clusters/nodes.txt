@@ -1,0 +1,48 @@
+{{{ Nodes
+
+Here are some clusters of words related to the abstract node and ways of describing and interacting with it.
+
+}}}
+
+{{{ Organization
+
+- Organize
+- Structure
+- Destructure
+
+}}}
+
+{{{ Creation
+
+- Create
+- Clone
+- Duplicate
+- Repeat
+- Mirror
+- Copy
+
+}}}
+
+{{{ Curate
+
+- Replace
+- Refactor
+- Remove
+- Prune
+
+}}}
+
+{{{ Acquisition
+
+- Gifted
+- Received
+- Awarded
+- Inherited
+- Granted
+- Earned
+- Forced
+- Learned
+- Stolen
+- Taken
+
+}}}
