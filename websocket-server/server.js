@@ -57,3 +57,24 @@ wss.on("connection", ws => {
 });
 
 server.listen(8080);
+
+/**
+ * Eventually, I'd like to make a websocket server a module like this:
+ *
+ * ```javascript
+ * export default function websocket_server({
+ *   port,
+ *   listeners = [],
+ * }) {
+ *   const server = http.createServer();
+ *   const wss = new WebSocketServer({ server });
+ *
+ *   server.listen(port);
+ *
+ *   return {
+ *     connections: [],
+ *     state: null,
+ *   };
+ * }
+ * ```
+ */
