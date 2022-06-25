@@ -1,4 +1,6 @@
 export const entries_from_map = map => map.entries();
+export const entries_from_set = set => set.entries();
+export const entries_from_array = array => array.map(x => [ x, x ]);
 export const entries_from_object = object => Object.entries(object);
 
 function assert (predicate, message) {
@@ -49,12 +51,14 @@ export default function bijection(entries) {
   }
 
   return {
-    keys: () => map.keys(),
+    keys: () => [ ...map.keys() ],
     has_key: key => map.has(key),
     value_for: key => map.get(key),
 
-    values: () => reverse_map.keys(),
+    values: () => [ ...reverse_map.keys() ],
     has_value: value => reverse_map.has(value),
     key_for: value => reverse_map.get(value),
-  }
+
+    entries: () => [ ...map.entries() ],
+  };
 }

@@ -7,19 +7,53 @@ const read_outgoing = () => fs.readFileSync("./outgoing.txt", 'utf8');
 const watch_outgoing = cb => fs.watchFile("./outgoing.txt", cb);
 const write_incoming = content => fs.writeFileSync("./incoming.txt", content);
 
+const server_event_types = [
+  "listening", // fires when the underlying server has been bound
+  "headers", // fires before response headers are written for the handshake
+  "connection", // fires after the handshake with the server websocket
+  "close", // fires when the underlying server closes
+  "error", // fires when the underlying server encounters and error
+  "wsClientError",
+];
+
+export const socket_event_types = [
+  "close", // fired when the connection is closed
+  "error", // fired when an error has occured
+  "message", // fired when a message is received
+  "open", // fired when the connection is established
+  "ping", // fired when a ping is received
+  "pong", // fired when a pong is received
+  "redirect", // fired before a redirect is fired
+  "unexpected-response",
+  "upgrade", // fired when headers are received as part of handshake
+];
+
 const server = http.createServer();
 const wss = new WebSocketServer({ server });
 
-wss.on("listening", () => console.log("bound to server"));
+wss.on("listening", () => {
+  console.log("bound to server");
+});
 
 wss.on("connection", ws => {
-  ws.send(read_outgoing());
-  watch_outgoing(() => ws.send(read_outgoing()));
+  console.log("established connection", ws);
 
+  // send the outgoing file to the client
+  ws.send(
+    read_outgoing()
+  );
+
+  // watch the outgoing file, send its content if it changes
+  watch_outgoing(
+    () => ws.send(read_outgoing())
+  );
+
+  // when a message is received from the client, write to the the incoming file
   ws.on("message", buffer => {
-    write_incoming(JSON.parse(buffer));
+    write_incoming(
+      JSON.parse(buffer)
+    );
   });
 });
 
 server.listen(8080);
-

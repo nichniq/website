@@ -1,70 +1,51 @@
-import bijection from "/modules/bijection.js";
+import bijection, { entries_from_array } from "/modules/bijection.js";
+import * as events from "/modules/events.js";
 
-const { now } = Date;
-
-export const states = bijection([
-  [ "CONNECTING", 0 ],
-  [ "OPEN", 1 ],
-  [ "CLOSING", 2 ],
-  [ "CLOSED", 3 ],
+const states = bijection([
+  [ "CONNECTING", 0 ], // the websocket is establishing connection to the server
+  [ "OPEN", 1 ], // the websocket is connected to the server
+  [ "CLOSING", 2 ], // the websocket is disconnecting from the server
+  [ "CLOSED", 3 ], // the websocket has disconnected from the server
 ]);
 
-const log_websocket_event = event => () => console.log(`websocket: ${event}`);
+export const event_types = bijection([
+  [ "connected", "open" ], // the websocket has connected to the server
+  [ "sent", "sent" ], // the websocket has sent a message to the server
+  [ "received", "message" ], // websocket has received a message from the server
+  [ "disconnected", "close" ], // the websocket has lost connection to server
+]);
 
 function websocket ({
   url,
-  description = now(),
-  handlers = {
-    open: log_websocket_event("open"),
-    error: log_websocket_event("error"),
-    message: log_websocket_event("message"),
-    close: log_websocket_event("close"),
-    send: log_websocket_event("send")
-  },
+  listeners = [],
 }) {
   const websocket = new WebSocket(url);
-  const symbol = Symbol(description);
 
-  for (const [ event, handler ] of Object.entries(handlers)) {
-    websocket.addEventListener(event, handler)
-  }
+  const bytes_enqueued = () => websocket.bufferedAmount;
+  const state = () => states.key_for(websocket.readyState);
 
-  const api = {
-    symbol,
-    description: symbol.description,
+  events.listen({ target: websocket, listeners });
+
+  return Object.freeze({
     url: websocket.url,
-
-    state: () => states.key_for(websocket.readyState),
-    bytes_enqueued: () => websocket.bufferedAmount,
+    state,
+    bytes_enqueued,
 
     send(data) {
       const json = JSON.stringify(data);
-
       websocket.send(json);
-
-      websocket.dispatchEvent(
-        new CustomEvent("send", {
-          details: { data, json, bytes_enqueued: api.bytes_enqueued() }
-        })
-      );
+      events.dispatch({
+        target: websocket,
+        type: "sent",
+        details: { data, json, bytes_enqueued: bytes_enqueued() }
+      });
     },
 
     close(code, reason) {
-      const bytes_enqueued = api.bytes_enqueued();
-
-      if (bytes_enqueued > 0) {
-        console.warn(`closed with ${bytes_enqueued} bytes un-transferred`);
-      }
-
-      for (const [ event, handler ] of Object.entries(handlers)) {
-        websocket.removeEventListener(event, handler)
-      }
-
+      events.forget({ target: websocket, listeners });
       websocket.close(code, reason);
     },
-  };
-
-  return Object.freeze(api);
+  });
 };
 
 export default websocket;

@@ -32,22 +32,29 @@
         </section>
 
         <script type="module">
-            import websocket from "/modules/websocket.js";
+            import websocket, { event_types } from "/modules/websocket.js";
             import { throttle } from "/modules/timing.js";
+            import { maybe } from "/modules/lisp.js";
 
             const incoming = document.getElementById("incoming");
             const outgoing = document.getElementById("outgoing");
 
+            const debug = true;
+
             const ws = websocket({
                 url: "ws://localhost:8080",
                 description: "Websocket connection to the workspace's server",
-                handlers: {
-                    message: ({ data }) => {
-                        incoming.value = data;
-                    },
-                },
+                listeners: [
+                    ...maybe(debug,
+                        event_types.values().map(
+                            type => [ type, e => console.log(type, e) ]
+                        )
+                    ),
+                    [ "message", ({ data }) => { incoming.value = data } ],
+                ],
             });
 
+            // this current sends when the textarea loses focus, not on input
             const send_outgoing = throttle(ws.send, 1000);
             outgoing.addEventListener("change", e => {
                 send_outgoing(e.target.value);
