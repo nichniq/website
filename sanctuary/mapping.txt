@@ -1,0 +1,20 @@
+{{{ Thoughts on mapping the Palouse
+
+- Remove state borders
+- Orient map based on geology, not north
+- Waterways
+- Oregon Country and historical maps
+- First nations
+- Weather and seasons
+- "Maps" as snapshots of the landscape
+- Should show something specific
+  - Maps that attempt to represent a static account of everything are lies
+
+}}}
+
+{{{ Online sources
+
+ArcGIS Open Data
+-> https://hub.arcgis.com/search
+
+}}}
