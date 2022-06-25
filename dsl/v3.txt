@@ -1,0 +1,69 @@
+A lot of stuff is just text. That's defined in blocks like this. Blocks are
+separated by empty lines.
+
+- Lists are common
+- Lists also get a simple notation
+- For anything more complex, we need blocks
+
+===
+    Blocks are surrounded with an opener/closer and can contain more than one node. Their content is indented
+
+    If the type is not specified, it will interpret content as it would outside
+    of a block. (That is, we have text and lists.)
+===
+
+=== text
+    Blocks may add additional information to help describe them.
+--- list
+    - Blocks are labeled with their type (text, list)
+    - Blocks are contained with outer delimiters (===)
+    - Blocks may be subdivided (---)
+    - Blocks may received metadata (^^^)
+--- text
+    This lets us group complex nodes together into a single block.
+^^^
+    title: Example block
+===
+
+There are some special, built-in structures: lists, maps, and sets.
+
+=== []
+    - Pack books
+    - Go through clothes, pack or discard
+    - Organize trinkets
+---
+    - Lists can use the "list" type
+    - The shorthand for "list" is "[]"
+^^^
+    title: Moving to-do list
+    ordering: sequential
+===
+
+=== {}
+    1 -> 2
+    2 -> 4
+    3 -> 8
+    4 -> 16
+    5 -> 32
+---
+    - Maps use "->" to provide a mapping from the left side to the right
+    - The ordering doesn't matter
+    - They use the "{}" shorthand
+^^^
+    title: Powers of two
+===
+
+=== <>
+    - Labyrinth
+    - Fates
+    - One way through
+    - Intestines
+    - Twists and turns
+    - Eventuality
+    - Process
+---
+    - Sets use the "<>" shorthand
+    - Sets are underordered and should not have repeated elements
+^^^
+    title: Labyrinth cluster
+===

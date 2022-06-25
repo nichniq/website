@@ -1,0 +1,18 @@
+{{{ DSL, fourth iteration
+
+This version of the DSL is simpler.
+
+- Everything is wrapped in a block
+  - Blocks start with "{{{" and end with "}}}"
+  - Blocks are titled by the text that follows their opening
+- Spacing is flexible
+  - One or more lines between content separates them
+  - Spacing is trimmed within a block
+- Manual block types aren't needed / supported yet
+  - Text looks like normal
+  - Lists use "-" and support hierarchies
+  - Mappings use "->" for now
+    - The only mappings currently in use are links
+- Attributes or metadata aren't supported either
+
+}}}

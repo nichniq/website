@@ -1,0 +1,78 @@
+```
+# Title
+^ Subtitle
+
+## Section
+
+### Subsection
+
+Text block
+
+1. Simple
+2. Ordered
+3. List
+
+- Simple
+- Unordered
+- List
+
+1
+  Complex ordered list
+2
+  -
+    Complex unordered list
+
+>
+  Quotation
+^ Citation
+
+Inline ~abbr~abbriviation~s
+
+\~* Escaped block *~\
+
+Inline technical content (e.g. `cheatsheet.txt`, `<code>`)
+
+Inline ``const inferredCode = () => console.log("Inline inferred code")``
+
+```
+Technical content block
+
+Preformatted text (without attached language)
+
+  ```javascript
+  // Nested technical content
+
+  (function() {
+    console.log("Code block (with attached language)");
+  })();
+  ```
+```
+^ Caption
+
+Attached content[*]. Scoped to block.[**]
+[*]
+  Content
+[**]
+  Content
+
+[Wrapped footnote|1]. Unwrapped footnote.[2]
+
+{External content|3}
+
+- {{www.inferred-external-link.com}}
+- {{./inferred-project-file.txt}}
+- {{Inferred Title}}
+
+~abbr~s often defined at ~EOF~
+
+[1]
+  Wrapped footnote
+
+[2]
+  Unwrapped footnote
+
+{3}
+  www.external-link.com
+
+~EOF~End of file~
+```
