@@ -50,9 +50,10 @@ wss.on("connection", ws => {
 
   // when a message is received from the client, write to the the incoming file
   ws.on("message", buffer => {
-    write_incoming(
-      JSON.parse(buffer)
-    );
+    const json = JSON.parse(buffer);
+
+    write_incoming(json);
+    console.log("message", json);
   });
 });
 

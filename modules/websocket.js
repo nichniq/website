@@ -24,7 +24,7 @@ function websocket ({
   const bytes_enqueued = () => websocket.bufferedAmount;
   const state = () => states.key_for(websocket.readyState);
 
-  events.listen({ target: websocket, listeners });
+  events.update(websocket).handle(...listeners);
 
   return Object.freeze({
     url: websocket.url,
@@ -34,15 +34,13 @@ function websocket ({
     send(data) {
       const json = JSON.stringify(data);
       websocket.send(json);
-      events.dispatch({
-        target: websocket,
-        type: "sent",
-        details: { data, json, bytes_enqueued: bytes_enqueued() }
-      });
+      events.dispatch("sent").from(websocket).with(
+        { data, json, bytes_enqueued: bytes_enqueued() }
+      );
     },
 
     close(code, reason) {
-      events.forget({ target: websocket, listeners });
+      events.update(websocket).ignore(...listeners);
       websocket.close(code, reason);
     },
   });
