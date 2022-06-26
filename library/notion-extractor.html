@@ -1,171 +1,170 @@
 <!doctype html>
 
 <html lang="en">
-    <head>
-        <title>Notion CSV Workspace</title>
 
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Notion CSV Workspace</title>
 
-        <style>
-            .block { display: block }
-            .full-width { width: 100% }
-            .preformatted { white-space: pre }
-            .bold { font-weight: bold }
-        </style>
-    </head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <body>
-        <form action="/parse-csv">
-            <label class="bold">
-                CSV data
+<style>
+  .block { display: block }
+  .full-width { width: 100% }
+  .preformatted { white-space: pre }
+  .bold { font-weight: bold }
+</style>
 
-                <textarea
-                    id="csv-input"
-                    name="csv"
-                    rows="10"
-                    class="full-width preformatted block"
-                ></textarea>
-            </label>
+<form action="/parse-csv">
+  <label class="bold">
+    CSV data
 
-            <button>Parse</button>
-        </form>
+    <textarea
+      id="csv-input"
+      name="csv"
+      rows="10"
+      class="full-width preformatted block"
+    ></textarea>
+  </label>
 
-        <form style="padding-top: 3rem">
-            <output>
-                <label class="bold">
-                    Result
+  <button>Parse</button>
+</form>
 
-                    <textarea
-                        id="csv-output"
-                        readonly
-                        rows="10"
-                        class="full-width preformatted block"
-                    ></textarea>
-                </label>
-            </output>
+<form style="padding-top: 3rem">
+  <output>
+    <label class="bold">
+      Result
 
-            <button type="button" id="copy-output">Copy</button>
-            <button type="button" id="clear-output">Clear</button>
-        </form>
+      <textarea
+        id="csv-output"
+        readonly
+        rows="10"
+        class="full-width preformatted block"
+      ></textarea>
+    </label>
+  </output>
 
-        <script>
-            /**
-             * This is a special generator that helps split a simple CSV row. I
-             * hope it encapsulates the low-level parsing algorithm so that each
-             * row can be parsed in a more functional way at a higher level.
-             *
-             * The basic idea is we go character by character, adding the
-             * aggregated characters to a queue. When we hit a comma, we return
-             * the value we've been accumulating. The exception is when we're in
-             * a quotation where we keep adding characters until the end of the
-             * quoted text.
-             */
+  <button type="button" id="copy-output">Copy</button>
+  <button type="button" id="clear-output">Clear</button>
+</form>
 
-            function* splitRow(row) {
-                let queue = []; // the queue is filled until a comma is found
-                let insideQuote = false; // we need to know if we're in a quote
+<script>
 
-                for (const char of row) {
-                    if (char === ",") {
-                        if (insideQuote) {
-                            // if we're inside a quotation, enqueue the comma
-                            queue.push(char);
-                        } else {
-                            // otherwise, return the queue and pause computation
-                            yield queue.join("");
+/**
+ * This is a special generator that helps split a simple CSV row. I
+ * hope it encapsulates the low-level parsing algorithm so that each
+ * row can be parsed in a more functional way at a higher level.
+ *
+ * The basic idea is we go character by character, adding the
+ * aggregated characters to a queue. When we hit a comma, we return
+ * the value we've been accumulating. The exception is when we're in
+ * a quotation where we keep adding characters until the end of the
+ * quoted text.
+ */
 
-                            // after resuming, clear the queue for the next one
-                            queue = [];
-                        }
-                    }
+function* splitRow(row) {
+  let queue = []; // the queue is filled until a comma is found
+  let insideQuote = false; // we need to know if we're in a quote
 
-                    else if (char === '"') {
-                        // toggle the quotation state: we're entering or exiting
-                        insideQuote = !insideQuote;
-                    }
+  for (const char of row) {
+    if (char === ",") {
+      if (insideQuote) {
+        // if we're inside a quotation, enqueue the comma
+        queue.push(char);
+      } else {
+        // otherwise, return the queue and pause computation
+        yield queue.join("");
 
-                    else {
-                        queue.push(char);
-                    }
-                }
+        // after resuming, clear the queue for the next one
+        queue = [];
+      }
+    }
 
-                // return the last column (no trailing comma so outside loop)
-                yield queue.join("");
-            }
-        </script>
+    else if (char === '"') {
+      // toggle the quotation state: we're entering or exiting
+      insideQuote = !insideQuote;
+    }
 
-        <script>
-            /**
-             * Since we want this output as a string, we take in the fields
-             * and then return a string that is formatted in the way we want.
-             *
-             * This has some funny formatting. We define a template string but
-             * don't want to include the extra indentation caused by the nested
-             * `<script>` tag. Thus, we add new lines before and after our
-             * string so that we can write the template flush-left. Before
-             * returning, we remove this extra whitespace with
-             * `String.prototype.trim`.
-             *
-             * A more flexible solution would be to create an object and then
-             * output it as JSON or another formatting.
-             */
+    else {
+      queue.push(char);
+    }
+  }
 
-            const bookFromFields = (fields) => `
-{
-    title: "${fields[0]}",
-    subtitle: "${fields[1]}",
-    series: "${fields[2]}",
-    ids: [
-        [ "isbn10", "${fields[3]}" ],
-        [ "isbn13", "${fields[4]}" ],
-        [ "lccn", "${fields[5]}" ],
-    ],
-    external: "${fields[6]}",
-    tnxs: [
-        [ "${fields[10].toLowerCase()}", { date: "${fields[7]}", location: "${fields[8]}", city: "${fields[9]}" } ],
-    ],
-    notes: "${fields[11]}",
-},
-            `.trim();
-        </script>
+  // return the last column (no trailing comma so outside loop)
+  yield queue.join("");
+}
 
-        <script>
-            function parseCsv(data) {
-                const [ header, ...rows ] = data.csv.split("\n");
+</script>
 
-                return rows.map(
-                    (row) => bookFromFields([ ...splitRow(row) ])
-                ).join("\n");
-            }
-        </script>
+<script>
+  /**
+   * Since we want this output as a string, we take in the fields
+   * and then return a string that is formatted in the way we want.
+   *
+   * This has some funny formatting. We define a template string but
+   * don't want to include the extra indentation caused by the nested
+   * `<script>` tag. Thus, we add new lines before and after our
+   * string so that we can write the template flush-left. Before
+   * returning, we remove this extra whitespace with
+   * `String.prototype.trim`.
+   *
+   * A more flexible solution would be to create an object and then
+   * output it as JSON or another formatting.
+   */
 
-        <script>
-            const output = document.getElementById("csv-output");
-            const reset = document.getElementById("clear-output");
-            const copy = document.getElementById("copy-output");
+const bookFromFields = (fields) => `{
+  title: "${fields[0]}",
+  subtitle: "${fields[1]}",
+  series: "${fields[2]}",
+  ids: [
+  [ "isbn10", "${fields[3]}" ],
+  [ "isbn13", "${fields[4]}" ],
+  [ "lccn", "${fields[5]}" ],
+  ],
+  external: "${fields[6]}",
+  tnxs: [
+  [ "${fields[10].toLowerCase()}", { date: "${fields[7]}", location: "${fields[8]}", city: "${fields[9]}" } ],
+  ],
+  notes: "${fields[11]}",
+}`;
 
-            const registry = {
-                "/parse-csv": parseCsv,
-            };
+</script>
 
-            document.onsubmit = function captureSubmission(submission) {
-                submission.preventDefault();
+<script>
 
-                const form = submission.target;
-                const action = new URL(form.action).pathname;
-                const data = Object.fromEntries(new FormData(form).entries());
+function parseCsv(data) {
+  const [ header, ...rows ] = data.csv.split("\n");
 
-                output.value = registry[action](data);
-            }
+  return rows.map(
+    (row) => bookFromFields([ ...splitRow(row) ])
+  ).join("\n");
+}
+</script>
 
-            reset.addEventListener("click", () => {
-                output.value = "";
-            });
+<script>
+const output = document.getElementById("csv-output");
+const reset = document.getElementById("clear-output");
+const copy = document.getElementById("copy-output");
 
-            copy.addEventListener("click", () => {
-                navigator.clipboard.writeText(output.value);
-            });
-        </script>
-    </body>
-</html>
+const registry = {
+  "/parse-csv": parseCsv,
+};
+
+document.onsubmit = function captureSubmission(submission) {
+  submission.preventDefault();
+
+  const form = submission.target;
+  const action = new URL(form.action).pathname;
+  const data = Object.fromEntries(new FormData(form).entries());
+
+  output.value = registry[action](data);
+}
+
+reset.addEventListener("click", () => {
+  output.value = "";
+});
+
+copy.addEventListener("click", () => {
+  navigator.clipboard.writeText(output.value);
+});
+
+</script>

@@ -1,122 +1,122 @@
 <!doctype html>
 
 <html lang="en">
-    <head>
-        <title>Nick Cassleman - Seasonal playlists</title>
 
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nick Cassleman - Seasonal playlists</title>
 
-        <link rel="stylesheet" type="text/css" href="/globals.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <style>
-            /**
-             * While the widget is loading, the iframe appears empty. I define
-             * this style to add an animated background that fills the space and
-             * indicate that something is in progress.
-             */
+<link rel="stylesheet" type="text/css" href="/globals.css" />
 
-            .spotify-playlist-widget {
-                animation: 2s ease-in-out 0s infinite alternate loading;
-                border: unset;
-            }
+<style>
 
-            @keyframes loading {
-                from {
-                    background-color: lightgray;
-                }
+/**
+ * While the widget is loading, the iframe appears empty. I define
+ * this style to add an animated background that fills the space and
+ * indicate that something is in progress.
+ */
 
-                to {
-                    background-color: gray;
-                }
-            }
+.spotify-playlist-widget {
+  animation: 2s ease-in-out 0s infinite alternate loading;
+  border: unset;
+}
 
-            summary > * {
-                display: inline-block;
-                margin:  0;
-            }
+@keyframes loading {
+  from {
+    background-color: lightgray;
+  }
 
-            details > :last-child {
-                margin-bottom: 0.7rem;
-            }
-        </style>
-    </head>
+  to {
+    background-color: gray;
+  }
+}
 
-    <body>
-        <h1><a href="/">Nick Cassleman</a> - Seasonal playlists</h1>
+summary > * {
+  display: inline-block;
+  margin:  0;
+}
 
-        <header>
-            <p>
-                I started using Spotify in 2015. They have a feature called Discover Weekly that gives you a playlist every week with songs they think you'll like. I started saving my favorites and found that each season collected about 20 songs. I broke them up into seasonal playlists and have been keeping it up since I started.
-            </p>
+details > :last-child {
+  margin-bottom: 0.7rem;
+}
 
-            <!-- temporarily not true -->
-            <!--p>
-                For each playlist, I've provided its track list and link to Spotify. If JavaScript is enabled, you can use the button to load the playlist widget served by Spotify. Doing so requires DRM and agreeing to the <a href="https://developer.spotify.com/documentation/widgets/terms/">Spotify Widget Terms of Use</a>.
-            </p-->
-        </header>
+</style>
 
-        <main id="playlists">
-            <h2>Lil' mixtapes</h2>
-        </main>
+<h1><a href="/">Nick Cassleman</a> - Seasonal playlists</h1>
 
-        <script type="module">
-            import tags from "/modules/tags.js";
+<header>
+  <p>
+    I started using Spotify in 2015. They have a feature called Discover Weekly that gives you a playlist every week with songs they think you'll like. I started saving my favorites and found that each season collected about 20 songs. I broke them up into seasonal playlists and have been keeping it up since I started.
+  </p>
 
-            import playlists from "./playlists.js";
+  <!-- temporarily not true -->
+  <!--p>
+    For each playlist, I've provided its track list and link to Spotify. If JavaScript is enabled, you can use the button to load the playlist widget served by Spotify. Doing so requires DRM and agreeing to the <a href="https://developer.spotify.com/documentation/widgets/terms/">Spotify Widget Terms of Use</a>.
+  </p-->
+</header>
 
-            const {
-                button, details, summary, h3, p, a, iframe, ol, li, cite
-            } = tags;
+<h2>Lil' mixtapes</h2>
 
-            function find_key (match, entries) {
-                for (const entry of entries) {
-                    const [ key, value ] = entry;
-                    if (key === match) { return value }
-                }
-            }
+<template id="playlists-placeholder"></template>
 
-            const spotify_widget = id => iframe([], {
-                class: "spotify-playlist-widget",
-                src: `https://open.spotify.com/embed/playlist/${id}`,
-                alt: "On devices that support iframes, Spotify can serve you a playlist widget",
-                height: "380",
-                width: "100%",
-            });
+<script type="module">
 
-            const spotify_link = id => `https://open.spotify.com/playlist/${id}`;
+import tags from "/modules/tags.js";
 
-            const playlist = ([ title, { ids, tracks } ]) => (
-                details([
-                    summary(h3(title)),
+import playlists from "./playlists.js";
 
-                    ol(tracks.map(
-                        ({ title, artist }) => li([
-                            cite(title, { "data-medium": "song" }),
-                            ` - ${artist}`
-                        ])
-                    )),
+const {
+  button, details, summary, h3, p, a, iframe, ol, li, cite
+} = tags;
 
-                    p( a(`${title} playlist on Spotify`, {
-                        href: spotify_link(find_key("spotify", ids)),
-                    }) ),
+function find_key (match, entries) {
+  for (const entry of entries) {
+    const [ key, value ] = entry;
+    if (key === match) { return value }
+  }
+}
 
-                    // this should work, but the handler isn't firing
-                    // it's weird: it looks like it's bound in my dev tools
-                    // it might have something to do with binding too early
-                    // other tests failed when I tried binding before appending
+const spotify_widget = id => iframe([], {
+  class: "spotify-playlist-widget",
+  src: `https://open.spotify.com/embed/playlist/${id}`,
+  alt: "On devices that support iframes, you can embed Spotify widgets",
+  height: "380",
+  width: "100%",
+});
 
-                    // button(
-                    //     `Embed ${title} (Spotify)`,
-                    //     { type: "button" },
-                    //     [ [ "click ", () => console.log("test") ] ],
-                    // ),
-                ])
-            );
+const spotify_link = id => `https://open.spotify.com/playlist/${id}`;
 
-            document.querySelector("main").append(
-                ...playlists.flatMap(playlist),
-            );
-        </script>
-    </body>
-</html>
+const playlist = ([ title, { ids, tracks } ]) => (
+  details([
+    summary(h3(title)),
+
+    ol(tracks.map(
+      ({ title, artist }) => li([
+        cite(title, { "data-medium": "song" }),
+        ` - ${artist}`
+      ])
+    )),
+
+    p( a(`${title} playlist on Spotify`, {
+      href: spotify_link(find_key("spotify", ids)),
+    }) ),
+
+    // this should work, but the handler isn't firing
+    // it's weird: it looks like it's bound in my dev tools
+    // it might have something to do with binding too early
+    // other tests failed when I tried binding before appending
+
+    // button(
+    //     `Embed ${title} (Spotify)`,
+    //     { type: "button" },
+    //     [ [ "click ", () => console.log("test") ] ],
+    // ),
+  ])
+);
+
+document.getElementById("playlists-placeholder").replaceWith(
+  ...playlists.flatMap(playlist),
+);
+
+</script>

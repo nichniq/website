@@ -15,7 +15,7 @@ const identify = line => search(
     [ "full_block",  /^{{ (.+) }}$/ ],      // "{{ text Text }}" -> "text Text"
     [ "open_block",  /^{{ (.+)(?<! }})$/ ], // "{{ text"         -> "text"
     [ "close_block", /^()}}$/ ],            // "}}"              -> ""
-    [ "indented",    /^ {4}(.+)$/ ],        // "    indented"    -> "indented"
+    [ "indented",    /^ {4}(.+)$/ ],        // "  indented"      -> "indented"
     [ "empty_line",  /^()$/ ],              // ""                -> ""
     [ "raw_text",    /^(.+)$/ ],            // "remaining"       -> "remaining"
   ]

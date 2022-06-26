@@ -1,91 +1,89 @@
 <!doctype html>
 
 <html lang="en">
-    <head>
-        <title>Nick Cassleman - DSL Workbench</title>
 
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nick Cassleman - DSL Workbench</title>
 
-        <link rel="stylesheet" type="text/css" href="/globals.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <style>
-            /* Remove browser style: padding around body */
+<link rel="stylesheet" type="text/css" href="/globals.css" />
 
-            body {
-                padding: unset;
-            }
+<style>
 
-            /* Make the main body content as big as the viewport */
+/* Remove browser style: padding around body */
 
-            body {
-                height: 100vh;
-                width:  100vw;
-            }
+body {
+  padding: unset;
+}
 
-            body > main {
-                height: 100%;
-                width: 100%;
-            }
+/* Make the main body content as big as the viewport */
 
-            /* Make the main a flex container with two equally-sized children */
+body {
+  height: 100vh;
+  width:  100vw;
+}
 
-            body > main {
-                display: flex;
-            }
+body > main {
+  height: 100%;
+  width: 100%;
+}
 
-            body > main > form,
-            body > main > output {
-                flex: 1 1 50%;
-            }
+/* Make the main a flex container with two equally-sized children */
 
-            /* Make form and output textareas exactly fill their container */
+body > main {
+  display: flex;
+}
 
-            body > main > form > textarea,
-            body > main > output > textarea {
-                box-sizing: border-box; /* border included in sizing */
-                height: 100%; /* fill container height */
-                margin: unset; /* unset browser default margin */
-                resize: none; /* prevent manual resizing */
-                white-space: pre; /* don't wrap lines */
-                width: 100%; /* fill container width */
-            }
-        </style>
-    </head>
+body > main > form,
+body > main > output {
+  flex: 1 1 50%;
+}
 
-    <body>
-        <main>
-            <form id="form">
-                <textarea id="input"></textarea>
-            </form>
+/* Make form and output textareas exactly fill their container */
 
-            <output form="form" for="input">
-                <textarea id="output" readonly></textarea>
-            </output>
-        </main>
+body > main > form > textarea,
+body > main > output > textarea {
+  box-sizing: border-box; /* border included in sizing */
+  height: 100%; /* fill container height */
+  margin: unset; /* unset browser default margin */
+  resize: none; /* prevent manual resizing */
+  white-space: pre; /* don't wrap lines */
+  width: 100%; /* fill container width */
+}
 
-        <script type="module">
-            import parse from "/dsl/parse.js";
-            import raw from "/dsl/sample/00-raw.js";
+</style>
 
-            // grab the input and output
+<form id="form">
+  <textarea id="input"></textarea>
+</form>
 
-            const input = document.getElementById("input");
-            const output = document.getElementById("output");
+<output form="form" for="input">
+  <textarea id="output" readonly></textarea>
+</output>
 
-            // populate input and output
+<script type="module">
 
-            const populate = (textarea, value) => { textarea.value = value; };
+import parse from "/dsl/parse.js";
+import raw from "/dsl/sample/00-raw.js";
 
-            populate(input, raw);
-            populate(output, parse(raw));
+// grab the input and output
 
-            // add responsive output
+const input = document.getElementById("input");
+const output = document.getElementById("output");
 
-            input.addEventListener(
-              "input",
-              ({ target }) => populate(output, parse(target.value))
-            );
-        </script>
-    </body>
-</html>
+// populate input and output
+
+const populate = (textarea, value) => { textarea.value = value; };
+
+populate(input, raw);
+populate(output, parse(raw));
+
+// add responsive output
+
+input.addEventListener(
+  "input",
+  ({ target }) => populate(output, parse(target.value))
+);
+
+</script>

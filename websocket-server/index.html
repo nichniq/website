@@ -1,64 +1,62 @@
+<!--
+  I'm still trying to frame what I'm building. I'm calling it
+  `websocket-server` for now. I hope to pull some helpful abstractions
+  but for now I just need a workspace.
+
+  To get it running, you have to start the server: `node server.js`
+-->
+
 <!doctype html>
 
 <html lang="en">
-    <head>
-        <!--
-            I'm still trying to frame what I'm building. I'm calling it
-            `websocket-server` for now. I hope to pull some helpful abstractions
-            but for now I just need a workspace.
 
-            To get it running, you have to start the server: `node server.js`
-        -->
+<title>Websocket Server</title>
 
-        <title>Websocket Server</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" type="text/css" href="/globals.css" />
 
-        <link rel="stylesheet" type="text/css" href="/globals.css" />
-    </head>
+<h1>Websocket workbench</h1>
 
-    <body>
-        <h1>Websocket workbench</h1>
+<section>
+  <h2>Incoming</h2>
+  <textarea id="incoming" readonly style="width: 100%"></textarea>
+</section>
 
-        <section>
-            <h2>Incoming</h2>
-            <textarea id="incoming" readonly style="width: 100%"></textarea>
-        </section>
+<section>
+  <h2>Outgoing</h2>
+  <textarea id="outgoing" style="width: 100%"></textarea>
+</section>
 
-        <section>
-            <h2>Outgoing</h2>
-            <textarea id="outgoing" style="width: 100%"></textarea>
-        </section>
+<script type="module">
 
-        <script type="module">
-            import websocket, { event_types } from "/modules/websocket.js";
-            import { throttle } from "/modules/timing.js";
-            import { maybe } from "/modules/lisp.js";
+import websocket, { event_types } from "/modules/websocket.js";
+import { throttle } from "/modules/timing.js";
+import { maybe } from "/modules/lisp.js";
 
-            const incoming = document.getElementById("incoming");
-            const outgoing = document.getElementById("outgoing");
+const incoming = document.getElementById("incoming");
+const outgoing = document.getElementById("outgoing");
 
-            const debug = true;
+const debug = true;
 
-            const ws = websocket({
-                url: "ws://localhost:8080",
-                description: "Websocket connection to the workspace's server",
-                listeners: [
-                    ...maybe(debug,
-                        event_types.values().map(
-                            type => [ type, e => console.log(type, e) ]
-                        )
-                    ),
-                    [ "message", ({ data }) => { incoming.value = data } ],
-                ],
-            });
+const ws = websocket({
+  url: "ws://localhost:8080",
+  description: "Websocket connection to the workspace's server",
+  listeners: [
+    ...maybe(debug,
+      event_types.values().map(
+        type => [ type, e => console.log(type, e) ]
+      )
+    ),
+    [ "message", ({ data }) => { incoming.value = data } ],
+  ],
+});
 
-            // this current sends when the textarea loses focus, not on input
-            const send_outgoing = throttle(ws.send, 1000);
-            outgoing.addEventListener("change", e => {
-                send_outgoing(e.target.value);
-            });
-        </script>
-    </body>
-</html>
+// this current sends when the textarea loses focus, not on input
+const send_outgoing = throttle(ws.send, 1000);
+outgoing.addEventListener("change", e => {
+  send_outgoing(e.target.value);
+});
+
+</script>
