@@ -1,0 +1,91 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <title>Nick Cassleman - DSL Workbench</title>
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="stylesheet" type="text/css" href="/globals.css" />
+
+        <style>
+            /* Remove browser style: padding around body */
+
+            body {
+                padding: unset;
+            }
+
+            /* Make the main body content as big as the viewport */
+
+            body {
+                height: 100vh;
+                width:  100vw;
+            }
+
+            body > main {
+                height: 100%;
+                width: 100%;
+            }
+
+            /* Make the main a flex container with two equally-sized children */
+
+            body > main {
+                display: flex;
+            }
+
+            body > main > form,
+            body > main > output {
+                flex: 1 1 50%;
+            }
+
+            /* Make form and output textareas exactly fill their container */
+
+            body > main > form > textarea,
+            body > main > output > textarea {
+                box-sizing: border-box; /* border included in sizing */
+                height: 100%; /* fill container height */
+                margin: unset; /* unset browser default margin */
+                resize: none; /* prevent manual resizing */
+                white-space: pre; /* don't wrap lines */
+                width: 100%; /* fill container width */
+            }
+        </style>
+    </head>
+
+    <body>
+        <main>
+            <form id="form">
+                <textarea id="input"></textarea>
+            </form>
+
+            <output form="form" for="input">
+                <textarea id="output" readonly></textarea>
+            </output>
+        </main>
+
+        <script type="module">
+            import parse from "/dsl/parse.js";
+            import raw from "/dsl/sample/00-raw.js";
+
+            // grab the input and output
+
+            const input = document.getElementById("input");
+            const output = document.getElementById("output");
+
+            // populate input and output
+
+            const populate = (textarea, value) => { textarea.value = value; };
+
+            populate(input, raw);
+            populate(output, parse(raw));
+
+            // add responsive output
+
+            input.addEventListener(
+              "input",
+              ({ target }) => populate(output, parse(target.value))
+            );
+        </script>
+    </body>
+</html>
