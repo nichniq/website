@@ -135,6 +135,6 @@ const groupings = {
 
 export default Object.fromEntries(
     Object.values(groupings).flat().map(
-        (tag) => [ tag, (content, attrs) => element(tag, content, attrs) ]
+        (tag) => [ tag, (...rest) => element(tag, ...rest) ]
     )
 );

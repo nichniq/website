@@ -1,4 +1,4 @@
-export const element = (tag, content = [], attributes = {}) => {
+export const element = (tag, content = [], attributes = {}, listeners = []) => {
     const element = document.createElement(tag);
 
     for ( const child of [ content ].flat(Infinity) ) {
@@ -13,6 +13,10 @@ export const element = (tag, content = [], attributes = {}) => {
 
     for ( const [ name, value ] of Object.entries(attributes) ) {
         element.setAttribute(name, value);
+    }
+
+    for ( const [ event, handler ] of listeners ) {
+        element.addEventListener(event, handler);
     }
 
     return [ element ];
