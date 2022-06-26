@@ -64,7 +64,9 @@
 
             import playlists from "./playlists.js";
 
-            const { button, details, summary, h3, p, a, iframe, ol, li, } = tags;
+            const {
+                button, details, summary, h3, p, a, iframe, ol, li, cite
+            } = tags;
 
             function find_key (match, entries) {
                 for (const entry of entries) {
@@ -88,8 +90,11 @@
                     summary(h3(title)),
 
                     ol(tracks.map(
-                        ({ title, artist }) => li(a(`${title} - ${artist}`)))
-                    ),
+                        ({ title, artist }) => li([
+                            cite(title, { "data-medium": "song" }),
+                            ` - ${artist}`
+                        ])
+                    )),
 
                     p( a(`${title} playlist on Spotify`, {
                         href: spotify_link(find_key("spotify", ids)),
