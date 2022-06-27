@@ -16,6 +16,54 @@ const template = {
 
 export default [
   {
+    title: "Outback Bushmen",
+    ids: [
+      [ "isbn10", "0980667534" ],
+      [ "isbn13", "9780980667530" ],
+    ],
+    external: "https://www.goodreads.com/book/show/16183702-outback-bushmen",
+    txns: [
+      [ "purchase", { date: "June 25, 2022", location: "Fabulosa Books", city: "San Francisco" } ],
+    ],
+    notes: "Saw this when I was last here with Bren and made a note to come back and get it. The sticker said $200, but it was kind of hand written, and the guy only changed me $20 for it. I only noticed after getting home",
+  },
+  {
+    title: "Gay by the Bay",
+    subtitle: "A History of Queer Culture in the San Francisco Bay Area",
+    ids: [
+      [ "isbn10", "0811811875" ],
+      [ "isbn13", "9780811811873" ],
+    ],
+    external: "https://www.goodreads.com/book/show/710934.Gay_by_the_Bay",
+    txns: [
+      [ "purchase", { date: "June 25, 2022", location: "Fabulosa Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Riding the Skies",
+    subtitle: "Classic Posters from the Golden Age of Flying",
+    ids: [
+      [ "isbn10", "0747503370" ],
+      [ "isbn13", "9780747503378" ],
+    ],
+    external: "https://www.goodreads.com/book/show/21113302-riding-the-skies",
+    txns: [
+      [ "purchase", { date: "June 25, 2022", location: "Fabulosa Books", city: "San Francisco" } ],
+    ],
+    notes: "Saw this when I was last here with Bren and made a note to come back and get it",
+  },
+  {
+    title: "American Boys",
+    ids: [
+      [ "isbn10", "1942084684" ],
+      [ "isbn13", "9781942084686" ],
+    ],
+    external: "https://www.goodreads.com/book/show/44996111-american-boys",
+    txns: [
+      [ "purchase", { date: "June 25, 2022", location: "Fabulosa Books", city: "San Francisco" } ],
+    ],
+  },
+  {
     title: "The Lost History of the Incas",
     ids: [
       [ "isbn10", "1846810353" ],
