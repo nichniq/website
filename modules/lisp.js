@@ -7,3 +7,33 @@ export const unzip = (entries) => {
 
   return [ Object.keys(map), Object.values(map) ];
 };
+
+export const partition = (xs, predicates) => {
+  const groups = predicates.map(x => []);
+
+  for ( const x of xs ) {
+    predicates.forEach((predicate, index) => {
+      if ( predicate(x) ) {
+        groups[index].push(x);
+      }
+    });
+  }
+
+  return groups;
+};
+
+export const group = (xs, transform) => {
+  const groupings = {};
+
+  for ( const x of xs ) {
+    const transformation = transform(x);
+
+    if ( transformation in groupings ) {
+      groupings[transformation].push(x);
+    } else {
+      groupings[transformation] = [x];
+    }
+  }
+
+  return groupings;
+}
