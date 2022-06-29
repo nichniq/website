@@ -158,7 +158,7 @@ const primitive = {
  * We can create a number of type predicates derived from our definitions
  */
 
-const predicates = {
+export default {
   // for each type, match the input's type against the pattern
   ...map(types).each_value(({ pattern }) => x => pattern.match(type(x))),
 
