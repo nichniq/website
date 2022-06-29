@@ -1,4 +1,4 @@
-import is from "/modules/type.js";
+import is from "../modules/type.js";
 
 export const strict = (x, y) => x === y;
 export const ish = (x, y) => x == y;

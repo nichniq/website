@@ -47,12 +47,12 @@ const types = {
   atomics: {
     // honestly not sure what this is, maybe it's a singleton too?
     pattern: "Atomics",
-    examples: [ Atomic ],
+    examples: [ Atomics ],
   },
   bigint: {
     // haven't actually used one yet
     pattern: "BigInt",
-    examples: [ BigInt(69), BigInt(Math.MAX_SAFE_INTEGER) ],
+    examples: [ BigInt(69), BigInt(Number.MAX_SAFE_INTEGER) ],
   } ,
   boolean: {
     pattern: "Boolean",
@@ -102,6 +102,10 @@ const types = {
     pattern: "Math",
     examples: [ Math ],
   },
+  null: {
+    pattern: "Null",
+    examples: [ null ],
+  },
   number: {
     pattern: "Number",
     examples: [ 666, 0x666, 0o666, 0b00110, NaN, Infinity, -0, Math.PI ],
@@ -113,7 +117,7 @@ const types = {
   },
   promise: {
     pattern:"Promise",
-    examples: [ new Promise() ],
+    examples: [ new Promise((res) => res()), Promise.resolve() ],
   },
   regexp: {
     pattern: "RegExp",
@@ -131,6 +135,10 @@ const types = {
   symbol: {
     pattern: "Symbol",
     examples: [ Symbol("🍄"), Symbol.iterator ],
+  },
+  undefined: {
+    pattern: "Undefined",
+    examples: [ undefined ],
   },
 }
 
@@ -150,8 +158,8 @@ const primitives = [
 ];
 
 const primitive = {
-  pattern: primitives.flatMap(({ pattern }) => pattern),
-  examples: primitives.flatMap(({ examples }) => examples),
+  pattern: primitives.map(({ pattern }) => pattern),
+  examples: primitives.map(({ examples }) => examples).flat(),
 };
 
 /**
@@ -160,7 +168,7 @@ const primitive = {
 
 export default {
   // for each type, match the input's type against the pattern
-  ...map(types).each_value(({ pattern }) => x => pattern.match(type(x))),
+  ...map(types).each_value(({ pattern }) => x => type(x).match(pattern)),
 
   // for primitive, we have a more direct method with a typeof comb
   primitive: x => x === null || typeof x !== "object" && typeof x !== "function",

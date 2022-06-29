@@ -1,5 +1,5 @@
-import bijection, { entries_from_array } from "/modules/bijection.js";
-import * as events from "/modules/events.js";
+import bijection, { entries_from_array } from "../modules/bijection.js";
+import * as events from "../modules/events.js";
 
 const states = bijection([
   [ "CONNECTING", 0 ], // the websocket is establishing connection to the server
