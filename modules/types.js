@@ -1,29 +1,64 @@
-export const is = {
+const primitives = {
   string: x => typeof x === "string",
+  boolean: x => typeof x === "boolean",
   number: x => typeof x === "number",
-  function: x => typeof x === "function",
-  undefined: x => x === undefined,
-  array: x => Array.isArray(x),
-  null: x => x === null,
-  object: x => typeof x === "object" && x !== null && !Array.isArray(x),
+  bigint: x => typeof x === "bigint",
   symbol: x => typeof x === "symbol",
-  primitive: x => x === null || typeof x !== "object",
+  undefined: x => x === undefined,
+  null: x => x === null,
 };
 
-export const match = (x, y) => {
-  if ( is.primitive(x) && is.primitive(y) ) {
-    return x === y;
-  }
-
-  if ( is.array(x) && is.array(y) ) {
-    return x.legnth === y.length
-      && x.every( (v, i) => match( y[i], v ) );
-  }
-
-  if ( is.object(x) && is.object(y) ) {
-    return Object.keys(x).length === Object.keys(y).length
-      && Object.keys(x).every( key => match( x[key], y[key] ) );
-  }
-
-  return false;
+const objects = {
+  object: x => x != null && x.constructor === Object,
+  function: x => typeof x === "function",
+  array: x => Array.isArray(x),
+  regex: x => x != null && x.constructor === RegExp,
 };
+
+const groups = {
+  primitive: x => x === null || typeof x !== "object" && typeof x !== "function",
+  objecty: x => x !== null && typeof x === "object" || typeof x === "function",
+  truthy: x => Boolean(x),
+  falsy: x => !Boolean(x),
+  nullish: x => x == null,
+};
+
+export const is = {
+  ...primitives,
+  ...objects,
+  ...groups,
+};
+
+export const not = Object.fromEntries(
+  Object.entries(is).map(
+    ([ method, fn ]) => [ method, x => !fn(x) ]
+  )
+);
+
+// TESTS AND ASSURACES
+
+const values = {
+  string: [ "", "a" ],
+  boolean: [ true, false ],
+  number: [ 0, 1, NaN, Infinity, -0 ],
+  bigint: [ BigInt(1) ],
+  symbol: Symbol(""),
+  undefined: undefined,
+  null: null,
+};
+
+for (const [ type, examples ] of Object.entries(values)) {
+  for (const example of [ examples ].flat()) {
+    for (const check of Object.keys(is)) {
+      if (check === "primitive") {
+        continue;
+      }
+
+      if (check === type) {
+        if (is[check](example) === false) {
+          throw new Error(`is.${check}(${JSON.stringify(example)}) ≠ false`);
+        }
+      }
+    }
+  }
+}
