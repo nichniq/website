@@ -16,6 +16,18 @@ const template = {
 
 export default [
   {
+    title: "The Sea Journal",
+    subtitle: "Seafarers' Sketchbooks",
+    ids: [
+      [ "isbn10", "1452181152" ],
+      [ "isbn13", "9781452181158" ],
+    ],
+    external: "https://www.goodreads.com/book/show/46208009-the-sea-journal",
+    txns: [
+      [ "purchase", { date: "July 2, 2022", location: "Cove", city: "San Francisco" } ],
+    ],
+  },
+  {
     title: "Outback Bushmen",
     ids: [
       [ "isbn10", "0980667534" ],
