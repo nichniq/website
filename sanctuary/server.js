@@ -25,29 +25,7 @@ const mapping_file_promise = node_fs.readFile(
   { encoding: "utf8" },
 );
 
-const expected = {
-  files: {
-    ".txt": [
-      "mapping.txt", "native-species.txt", "pullman.txt", "thoughts.txt"
-    ],
-    ".png": [ "1894-colfax-lynch.png", "1894-nyt-cover.png" ],
-    ".jpg": [ "waiilatpu.jpg" ],
-    ".js": [ "server.js" ],
-    ".json": [ "package.json" ],
-  },
-  directories: [
-    [ "server", { directories: [], files: { ".js": [ "request.js" ] } } ],
-  ],
-};
-
-const directory_content_promise = get_files(cwd)
-.then(received => {
-  log(received);
-  log(expected);
-  log(compare.deep(received, expected));
-
-  return received;
-})
+const directory_content_promise = get_files(cwd).then(log);
 
 // import http from "http";
 
