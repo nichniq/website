@@ -1,0 +1,288 @@
+<!doctype html>
+
+<html lang="en">
+
+<title>Nick Cassleman - Cartomancy</title>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link rel="stylesheet" type="text/css" href="/globals.css" />
+
+<style>
+  summary h2,
+  summary h3 {
+    display: inline-block;
+    margin: 0;
+  }
+
+  details + details {
+    margin-top: 1rem;
+  }
+
+  .lenormand thead th {
+    border-bottom: 1px solid gray;
+    font-weight: bold;
+  }
+
+  .lenormand tr:nth-of-type(2n) {
+    background-color: wheat;
+  }
+
+  dt {
+    font-weight: bold;
+  }
+</style>
+
+<h1><a href="/">Nick Cassleman</a> - Cartomancy</h1>
+
+<header style="margin-bottom: 1rem">
+  <button type="button" onclick="setDetailsOpen(true)">
+    Open all
+  </button>
+
+  <button type="button" onclick="setDetailsOpen(false)">
+    Close all
+  </button>
+</header>
+
+<details>
+  <summary>
+    <h2>The history of cards</h2>
+  </summary>
+
+  <p>The research I've done claims that cards were invented in China around the 9th century before spreading to the Middle East. From there, they entered Europe where they moved toward the standard set cards we use today. The symbols used in modern esoteric Tarot (capital T) descend from tarot (lowercase t) developed in Italy and France.</p>
+
+  <figure>
+    <img src="/cartomancy/egyptian-cards.png" alt="Cards made their way to Egypt by the 12th century. They are intricately patterned with generous use of gold ink." />
+
+    <figcaption>
+      A deck of Egyptian playing cards from the 1400s had ten pip cards and three court cards: king, lieutenant, and second lieutenant. Cards were decorated with calligraphy and patterned ornament, possibly connected to Islamic prohibition of idolatry. The suits were myriad (cups), dirham (coin), polo stick (club), and scimitar (swords). Some cards were inscribed with rhyming aphorisms, such as <q>With the sword of happiness I shall redeem a beloved who will afterwards take my life</q>.
+    </figcaption>
+  </figure>
+</details>
+
+<details>
+  <summary>
+    <h2>Prohibition</h2>
+  </summary>
+
+  <p>There are several records of card prohibitions in Europe during the 14th century onward, often related to their use in gambling.</p>
+
+  <p>One of the earliest mentions of tarot is by a 15th century Dominican preacher who described it as the devil's picture book. Additional references to the social plaguing of tarot cards continued through the 17th century. However, fortune-telling with regular playing cards only began in the 1780s.</p>
+
+  <p>Hanafuda cards developed in Japan by the Portuguese in the 16th century. They were banned during the Edo period, but card gambling remained popular and led to disguised card designs. When one deck was outlawed, a new design would emerge.</p>
+</details>
+
+<details>
+  <summary>
+    <h2>Encoded knowledge</h2>
+  </summary>
+
+  <p>Every deck of card is encoded with information about its time, place, and makers. The material, methods of construction, ornament, text, and symbolism give us details about the culture that produced them.</p>
+
+  <p>Beyond the implicit things we can learn from cards, some cards were explicit about the information they were encoding. Various decks were used as mnemonics to teach botany, heraldry, cosmology, and geography. For example, the Mantegna Tarocchi outlines hierarchy of persons, the muses, liberal arts, seven virtues, and celestial bodies. These cards are theorized to be educational tools rather than playing cards, but decks often multiple functions.</p>
+
+  <p>Mass production, such as block printing, allows for wide distribution of ideas and aesthetics. In my lifetime, I've seen cards used for corporate and political advertisement, as artwork, and as commemorative and souvenir decks. They could be easily adapted to all kinds of education, propaganda, and indoctrination.</p>
+
+  <p>I can only imagine the encoding of secret meanings into regular playing cards.</p>
+
+  <details>
+    <summary>
+      <h3>Mantegna Tarocchi</h3>
+    </summary>
+
+    <p>This deck of cards shares the name with other tarot decks and Italian tarocchi, but they probably weren't used for divination or card playing. There isn't a record of their original purpose, but the categories they encode make some believe they were educational tools for the upper class. The major arcana of many modern Tarot decks share many of its symbols.</p>
+
+    <dl style="columns: 2">
+      <dt>Conditions of man</dt>
+        <dd>01 Beggar</dd>
+        <dd>02 Servant</dd>
+        <dd>03 Craftsman</dd>
+        <dd>04 Merchant</dd>
+        <dd>05 Gentleman</dd>
+        <dd>06 Knight</dd>
+        <dd>07 Doge</dd>
+        <dd>08 King</dd>
+        <dd>09 Emperor</dd>
+        <dd>10 Pope</dd>
+
+      <dt>Muses</dt>
+        <dd>11 Calliope ("Beautiful voiced")</dd>
+        <dd>12 Urania ("Heavenly")</dd>
+        <dd>13 Terpsichore ("She who loves dancing")</dd>
+        <dd>14 Erato ("Arouser of desire")</dd>
+        <dd>15 Polyhymnia ("Many hymns")</dd>
+        <dd>16 Thalia ("The festive")</dd>
+        <dd>17 Melpomene ("The singer")</dd>
+        <dd>18 Euterpe ("Giver of joy")</dd>
+        <dd>19 Clio ("Giver of Fame")</dd>
+        <dd>20 Apollo (Leader of the Muses)</dd>
+
+      <dt>Liberal arts and other subjects</dt>
+        <dd>21 Grammar</dd>
+        <dd>22 Logic</dd>
+        <dd>23 Rhetoric</dd>
+        <dd>24 Geometry</dd>
+        <dd>25 Arithmetic</dd>
+        <dd>26 Music</dd>
+        <dd>27 Poetry</dd>
+        <dd>28 Philosophy</dd>
+        <dd>29 Astrology</dd>
+        <dd>30 Theology</dd>
+
+      <dt>Geniuses and the virtues</dt>
+        <dd>31 Iliaco (Sun)</dd>
+        <dd>32 Chronico (Time)</dd>
+        <dd>33 Cosmico (World)</dd>
+        <dd>34 Temperance</dd>
+        <dd>35 Prudence</dd>
+        <dd>36 Strength</dd>
+        <dd>37 Justice</dd>
+        <dd>38 Charity</dd>
+        <dd>39 Hope</dd>
+        <dd>40 Faith</dd>
+
+      <dt>Heavenly spheres</dt>
+        <dd>41 Moon</dd>
+        <dd>42 Mercury</dd>
+        <dd>43 Venus</dd>
+        <dd>44 Sun</dd>
+        <dd>45 Mars</dd>
+        <dd>46 Jupiter</dd>
+        <dd>47 Saturn</dd>
+        <dd>48 Eighth Sphere</dd>
+        <dd>49 Prime Mover</dd>
+        <dd>50 First Cause</dd>
+      </dl>
+  </details>
+</details>
+
+<details class="lenormand">
+  <summary>
+    <h2>Lenormand</h2>
+  </summary>
+
+  <p>A deck of cards named after a famous French cartomancer during the Napoleonic era. This deck is modeled after a German card game which used the German suits: Heart (♥︎), Leaves (♠︎), Bells (♦︎), and Acorns (♣︎). It has cards numbered 6 through 9; "banner" for card 10; deuce (2) replacing ace; and Jack, Queen, and King.</p>
+
+  <script type="module" id="lenormand-table">
+    import { tags } from "/modules/element.js";
+    import lenormand_cards from "/cartomancy/lenormand.js";
+
+    const { table, thead, tbody, tr, th, td } = tags;
+
+    const [ lenormand_table ] = table([
+      thead(
+        tr([
+          th("Number"),
+          th("Name"),
+          th("Suit"),
+          th("Meaning", { style: "width: 75%" }),
+        ], { style: "position: sticky; top: 0; background-color : white" })
+      ),
+      tbody(
+        lenormand_cards.map(
+          ({ name, number, suit, meanings }) => tr([
+            td(number), td(name), td(suit), td(meanings.join(", "))
+          ])
+        )
+      ),
+    ], { style: "position: relative" });
+
+    document.getElementById("lenormand-table").replaceWith(lenormand_table);
+  </script>
+</details>
+
+<details>
+  <summary>
+    <h2>Romani tradition?</h2>
+  </summary>
+
+  <p>A friend of mine read a Facebook post from some European witches who said that Tarot (as a tradition of divination) is Romani. They claim that is a closed practice that has been appropriated by non-Roma. I couldn't find the post my friend referred to, and nothing else credible showed up with a quick online search.</p>
+
+ <p>I've never talked to a Roma person about Tarot before. I don't know if it's a niche belief or a widespread one. I haven't found any trusted sources yet, but part of the argument is that the Romani rely on oral tradition and so there is less written and able to be cited.</p>
+</details>
+
+<details>
+  <summary>
+    <h2>Queering the Tarot</h2>
+  </summary>
+
+  <h3>Hierarchy</h3>
+
+  <p>Hierarchies aren't bad, but there exist a lot of other structures out there that describe how people and things arrange themselves. Furthermore, much of hierarchical imagery relies on power imbalance: the <b>Page</b> who works for the <b>Knight</b> who works for the <b>King</b> who is supported by the <b>Queen</b>.</p>
+
+  <p>Ordered cards naturally fall into a hierarchy, but some systems like the Mantegna Tarocchi contain sub-categorizations that fall outside strict hierarchy: the Trivium (grammar, logic, and rhetoric), the Quadrivium (arithmetic, geometry, music, and astronomy), the Virtues (prudence, justice, temperance, fortitude, faith, hope, and charity), the Muses (epic poetry, history, love poetry, lyric poetry, tragedy, hymns, dance, comedy, astronomy).</p>
+
+  <ul>
+    <li><b>Page</b> works for the Knight</li>
+    <li><b>Knight</b> works for the King</li>
+    <li><b>Queen</b> is the wife of the King</li>
+    <li><b>King</b> commands the kingdom</li>
+  </ul>
+
+  <h3>Gender</h3>
+
+  <p>I'm down with binary cosmic forces, but I think trying to personify them as "masculine" and "feminine" is limiting. I love opposites, but not when complex humans are forced inside their limits.</p>
+
+  <ul>
+    <li><b>Queen</b> and <b>King</b></li>
+    <li><b>Magician</b> and <b>High Priestess</b></li>
+    <li><b>Emperor</b> and <b>Empress</b></li>
+  </ul>
+
+  <p>My card system would avoid perpetuating gender norms while respecting opposites, binaries, and queerness.</p>
+
+  <h3>Positive and negative</h3>
+
+  <p>Cards in the Tarot are all neutral or have reverse meanings, but many of the cards are interpreted as "good" and "bad".</p>
+
+  <dl style="columns: 2">
+    <dt>Baddies</dt>
+      <dd>3 of Swords</dd>
+      <dd>5 of Pentacles</dd>
+      <dd>10 of Swords</dd>
+      <dd>Death</dd>
+      <dd>Devil</dd>
+    <dt>Goodies</dt>
+      <dd>Ace of Cups</dd>
+      <dd>4 of Wands</dd>
+      <dd>9 of Cups</dd>
+      <dd>World</dd>
+      <dd>Sun</dd>
+  </dl>
+
+  <p>I've always wanted a set of cards where each card explicitly shows two sides / the extremes of an underlying archetype. It can be easy to get a lot of happy cards and interpret that as good news, but I'd rather my deck highlight tensions rather than definitive outcomes. Instead of <b>Chariot</b>, I might have <i>Movement / Stillness</i>.</p>
+</details>
+
+<details>
+  <summary>
+    <h2>Sources and collections</h2>
+  </summary>
+
+  <ul>
+    <li>
+      <a href="https://dlc.library.columbia.edu/catalog?f%5Blib_project_short_ssim%5D%5B%5D=Albert+Field+Collection+of+Playing+Cards">Albert Field Collection of Playing Cards</a> by Columbia University Libraries
+    </li>
+
+    <li>
+      The <a href="https://en.wikipedia.org/wiki/Playing_card">Wikipedia entry on <i>Playing cards</i></a> among others, and their sources
+    </li>
+
+    <li><a href="http://a_pollett.tripod.com/" data-href-archive-org="https://web.archive.org/web/20220410105232/http://a_pollett.tripod.com/">Playing Cards</a>, an olde schoole personal webbe-site with a ton of info (but lacking citation)</li>
+
+    <li>The <a href="https://www.wopc.co.uk/history-the-history-of-playing-cards/">History of Playing Cards</a> by the World of Playing Cards</li>
+  </ul>
+
+  <p>I've saved a large collection of images of cards from around the Internet. I saved the websites for some of them, and I almost certainly do not have the right to distribute any of them.</p>
+</details>
+
+<script>
+  function setDetailsOpen(isOpen) {
+    for ( const detail of document.getElementsByTagName("details") ) {
+      detail.open = isOpen;
+    }
+  }
+
+  setDetailsOpen(true);
+</script>
