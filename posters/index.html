@@ -1,0 +1,64 @@
+<!doctype html>
+
+<html lang="en">
+
+<title>Nick Cassleman - Posters</title>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link rel="stylesheet" type="text/css" href="/globals.css" />
+
+<h1><a href="/">Nick Cassleman</a> - Posters</h1>
+
+<div style="display: flex; flex-wrap: wrap; gap: 1rem">
+  <section>
+    <h2>
+      <a href="/posters/college">College posters</a>
+    </h2>
+
+    <p>Posters from college clubs, classes, and employment.</p>
+
+    <img height="400" src="/posters/college/everyday-circuses.png" alt="" />
+  </section>
+
+  <section>
+    <h2>
+      <a href="/posters/z-and-h">Z&H posters</a>
+    </h2>
+
+    <p>Posters for my favorite neighborhood deli.</p>
+
+    <img height="400" src="/posters/z-and-h/eggnog.jpg" alt="" />
+  </section>
+</div>
+
+<h2>Books from my library</h2>
+
+<script type="module" id="personal-books">
+  import catalog from "/library/catalog.js";
+  import { tags } from "/modules/element.js";
+
+  const { ul, li, a } = tags;
+
+  const books = [
+    [ "title", "The Art of the National Parks" ],
+    [ "title", "Film Posters of the Russian Avant-Garde" ],
+    [ "title", "French Posters" ],
+    [ "title", "Godless Utopia" ],
+    [ "title", "Riding the Skies" ],
+    [ "title", "The Poster Art of David Lance Goines" ],
+    [ "title", "The Poster in History" ],
+    [ "title", "Printed in North Korea" ],
+  ].map(
+    ([ property, value ]) => catalog.find(x => x[property] === value)
+  );
+
+  const [ list ] = ul(
+    books.map(({ title, external }) => li(
+      external ? a(title, { href: external }) : title
+    ))
+  );
+
+  document.getElementById("personal-books").replaceWith(list);
+</script>
