@@ -10,89 +10,159 @@
 <link rel="stylesheet" type="text/css" href="/globals.css" />
 
 <style>
-  /**
-   * I got this from the MDN article on `<hr>`. It's kind of hacky and
-   * inconsistent between browsers so I might try something else.
-   *
-   * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr
-   */
-
-  hr {
-    border: none;
-    border-top: 3px double currentColor;
-    color: gray;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 2rem 25%;
-  }
-
-  hr:after {
-    background: white;
-    border-radius: 50%;
-    content: '§';
-    padding: 0 4px;
-    position: absolute;
-  }
-
   img {
     max-height: 300px;
     max-width: 100%;
+  }
+
+  table {
+    background-color: white;
+    border-collapse: collapse;
+    text-align: left;
+  }
+
+  thead {
+    background-color: inherit;
+    position: sticky;
+    top: 0;
+  }
+
+  thead::after {
+    display: block;
+    content: "";
+    background-color: black;
+    height: 1px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  thead > tr > th {
+    padding: 0.5em;
+  }
+
+  tbody > tr > td {
+    padding: 0.25em 0.5em;
   }
 </style>
 
 <h1><a href="/">Nick Cassleman</a> - Home library</h1>
 
-<p>
-  <a href="/library/catalog.html" style="font-size: 1.1em; font-weight: bold;">Library catalog</a>. Along with the title, I record the ISBN and a record of when and where I got it.
-</p>
+<details>
+  <summary>
+    <h2>Introduction</h2>
+  </summary>
 
-<hr />
+  <p>My love of books, as it often does, starts with my parents. As kids, they read to me and my brothers and regularly took us to the library. Our house was full of books. We kids books about mythology, ecology, adventure, nonsense. We had a full set of encyclopedias and a continuous set of National Geographic magazines. We had atlases and oversized photo books about the world.</p>
 
-<p>
-  My love of books, as it often does, starts with my parents. As kids, they read to me and my brothers and regularly took us to the library. Our house was full of books. We kids books about mythology, ecology, adventure, nonsense. We had a full set of encyclopedias and a continuous set of National Geographic magazines. We had atlases and oversized photo books about the world.
-</p>
+  <p>In elementary school, I had Ms. Rennebohm-Franz for first and second grade. In her classroom, she had an enormous library filled with all kinds of books. It was housed at kid level, along the floor. I remember the abundance of picture books on ecology the most. My favorite genre at the time was cookbooks. I would slink off to the back of the school library and just read recipes that I would never make. If it wasn't recipes, it was the magical and the spooky: ghosts, snakes, witches, fairies, Halloween, the unexplained, fantasy creatures.</p>
 
-<p>
-  In elementary school, I had Ms. Rennebohm-Franz for first and second grade. In her classroom, she had an enormous library filled with all kinds of books. It was housed at kid level, along the floor. I remember the abundance of picture books on ecology the most. My favorite genre at the time was cookbooks. I would slink off to the back of the school library and just read recipes that I would never make. If it wasn't recipes, it was the magical and the spooky: ghosts, snakes, witches, fairies, Halloween, the unexplained, fantasy creatures.
-</p>
+  <p>In middle school and high school, I regularly visited the local used bookstore, Br<u>used</u> Books. Incredible selection, incredible prices. To this day it's my favorite bookstore. During that time, I mostly bought books on Wicca, cooking, Latin, creative self-help. They lived on a small shelf at my parents' house.</p>
 
-<p>
-  In middle school and high school, I regularly visited the local used bookstore, Br<span style="text-decoration: underline">used</span> Books. Incredible selection, incredible prices. To this day it's my favorite bookstore. During that time, I mostly bought books on Wicca, cooking, Latin, creative self-help. They lived on a small shelf at my parents' house.
-</p>
+  <p>In high school and a few summers in college, I worked shelving books at the same library I had grown up visiting: Neill Public Library. I wrote a piece for the local paper about how the real stories in a library aren't the books, tHeY'rE tHe PeOpLe. A lot of books crossed my hands from a wide range of readers.</p>
 
-<p>
-  In high school and a few summers in college, I worked shelving books at the same library I had grown up visiting: Neill Public Library. I wrote a piece for the local paper about how the real stories in a library aren't the books, tHeY'rE tHe PeOpLe. A lot of books crossed my hands from a wide range of readers.
-</p>
+  <p>In college, I got a weird job helping a professor organize his library. I can't say I was much help: my skill was in ordering books with Dewey decimal stickers on their spine, not categorizing books I knew nothing about.</p>
 
-<p>
-  In college, I got a weird job helping a professor organize his library. I can't say I was much help: my skill was in ordering books with Dewey decimal stickers on their spine, not categorizing books I knew nothing about.
-</p>
+  <p>Okay, that's all to say: I love books. I love buying books. If I'm trying to sound fancy, I'll tell people I'm a collector. At this point, I've got over 550. They're almost all in my bedroom and they're almost all reference books filled with pictures. I'm building a library to help me build my game. The wealth of knowledge I've amassed doesn't come without a price. I've filled my bookshelves and stacks sit on the floor. It took two dozen boxes to move them all when I moved apartments.</p>
+</details>
 
-<p>
-  Okay, that's all to say: I love books. I love buying books. If I'm trying to sound fancy, I'll tell people I'm a collector. At this point, I've got over 550. They're almost all in my bedroom and they're almost all reference books filled with pictures. I'm building a library to help me build my game. The wealth of knowledge I've amassed doesn't come without a price. I've filled my bookshelves and stacks sit on the floor. It took two dozen boxes to move them all when I moved apartments.
-</p>
+<details>
+  <summary>
+    <h2>Photos</h2>
+  </summary>
 
-<p>
-  <img src="/library/moving.jpg" alt="" />
-  <img src="/library/thick-stack.jpg" alt="" />
-  <img src="/library/bookshelves.jpg" alt="" />
-</p>
+  <p>
+    <img src="/library/moving.jpg" alt="" />
+    <img src="/library/thick-stack.jpg" alt="" />
+    <img src="/library/bookshelves.jpg" alt="" />
+  </p>
+</details>
 
-<!--
-  Started as a spreadsheet on Google. Moved it to Notion while I was
-  trying to get off Google. I think there are a lot of problems with
-  having this on Notion that might be better solved by me keeping it
-  as a text document in this repo.
+<h2>Catalog</h2>
 
-  - Notion pros
-    - Easy to access / edit from anywhere
-    - Looks nice
-  - Notion cons
-    - No widget
-    - No concept of selective privacy
-    - Poor performance (table loading depends on scroll position)
-    - Can't customize visualization
-    - Lots of clicking to edit
-    - Could be deleted, modified, or access without my knowing
--->
+<script type="module" id="catalog">
+
+import books from "/library/catalog.js";
+import { maybe, first, unzip } from "/modules/lisp.js";
+import { tags } from "/modules/element.js";
+
+const { cite, abbr, a, tr, table, th, td, thead, tbody } = tags;
+
+const ISBN13 = "International Standard Book Number, 13-digit";
+const ISBN10 = "International Standard Book Number, 10-digit";
+const LCCN = "Library of Congress Control Number";
+
+const title = ({ title, subtitle, series }) => [
+  cite([
+      title,
+      maybe(subtitle, `: ${subtitle}`),
+    ],
+    { "data-medium": "book" }
+  ),
+  maybe(series, ` (${series})`),
+];
+
+const id = ({ ids = [] }) => {
+  const { isbn13, isbn10, lccn } = Object.fromEntries(ids);
+
+  const option = (short, title, content) => maybe(content,
+    [ abbr(short, { title }), `: ${content}` ]
+  );
+
+  return first([
+    option("ISBN13", ISBN13, isbn13),
+    option("LCCN", LCCN, lccn),
+    option("ISBN10", ISBN10, isbn10),
+  ]);
+};
+
+const link = ({ title, external }) => maybe(external,
+  a("link", {
+    title,
+    href: external,
+    referrerpolicy: "no-referrer",
+    rel: "noopener",
+  })
+);
+
+const city = ({ txns = [] }) => {
+  const txn = first(txns);
+  const [ method, { city } = {} ] = txn;
+
+  return maybe(city, city);
+};
+
+const date = ({ txns = [] }) => {
+  const txn = first(txns);
+  const [ method, { date } = {} ] = txn;
+
+  return maybe(date, date);
+};
+
+const [ titles, columns ] = unzip([
+  [ "Title", title ],
+  [ "ID", id ],
+  [ "Link", link ],
+  [ "Date", date ],
+  [ "City", city ],
+]);
+
+const [ catalog ] = table([
+  thead(
+    tr(
+      titles.map((title) => th(title))
+    )
+  ),
+  tbody(
+    books.map(
+      (book) => tr(
+        columns.map((col) => td(col(book)))
+      )
+    )
+  ),
+]);
+
+document.getElementById("catalog").replaceWith(catalog);
+
+</script>
