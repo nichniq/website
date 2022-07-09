@@ -67,3 +67,17 @@ cite[data-medium="game"],
 cite[data-medium="podcast-series"] {
   font-style: italic;
 }
+
+/**
+ * I use `details` to hide content and have a few adjustments
+ */
+
+* + details {
+  margin-top: 1rem;
+}
+
+summary h2,
+summary h3 {
+  display: inline-block;
+  margin: 0;
+}
