@@ -16,6 +16,67 @@ const template = {
 
 export default [
   {
+    title: "Men, A Pictorial Archive from Nineteenth-Century Sources",
+    subtitle: "412 Copyright-free Illustrations for Artists and Designers",
+    series: "Dover Pictorial Archive",
+    ids: [
+      [ "isbn10", "0486239527" ],
+      [ "isbn13", "9780486239521" ],
+    ],
+    external: "https://www.goodreads.com/book/show/921934.Men",
+    txns: [
+      [ "purchase", { date: "July 13, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Fatal Harvest",
+    subtitle: "The Tragedy of Industrial Agriculture",
+    ids: [
+      [ "isbn10", "1559639415" ],
+      [ "isbn13", "9781559639415" ],
+    ],
+    external: "https://www.goodreads.com/book/show/349684.Fatal_Harvest",
+    txns: [
+      [ "purchase", { date: "July 13, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "The Bells and Other Poems",
+    ids: [
+      [ "isbn10", "1606600168" ],
+      [ "isbn13", "9781606600160" ],
+    ],
+    external: "https://www.goodreads.com/book/show/17980789-the-bells-and-other-poems",
+    txns: [
+      [ "purchase", { date: "July 13, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Edward's Crochet Doll Emporium",
+    subtitle: "Flip the mix-and-match patterns to make and dress your favourite people",
+    series: "Edward's Emporium",
+    ids: [
+      [ "isbn10", "1911595059" ],
+      [ "isbn13", "9781911595052" ],
+    ],
+    external: "https://www.goodreads.com/book/show/34850755-edward-s-crochet-doll-emporium",
+    txns: [
+      [ "purchase", { date: "July 13, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Teaching Tessellating Art",
+    subtitle: "Activities & Transparency Masters",
+    ids: [
+      [ "isbn10", "0866515968" ],
+      [ "isbn13", "9780866515962" ],
+    ],
+    external: "https://www.goodreads.com/book/show/4869093-teaching-tessellating-art",
+    txns: [
+      [ "purchase", { date: "July 13, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+    ],
+  },
+  {
     title: "The Sea Journal",
     subtitle: "Seafarers' Sketchbooks",
     ids: [
