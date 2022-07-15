@@ -1,0 +1,28 @@
+<main id="periods">
+  <section class="highlight">
+    {{# highlight }}
+    <a href="{{{ link }}}">
+      <h2>{{ title }}</h2>
+      <img src="{{{ image }}}" alt="" />
+    </a>
+    {{/ highlight }}
+  </section>
+
+  <section class="past">
+    {{# periods }}
+    <a href="{{{ link }}}">
+      <h2>{{ title }}</h2>
+      <img src="{{{ image }}}" alt="" />
+    </a>
+    {{/ periods }}
+  </section>
+
+  <section class="second-highlight">
+    {{# second_highlight }}
+    <a href="{{{ link }}}">
+      <h2>{{ title }}</h2>
+      <img src="{{{ image }}}" alt="" />
+    </a>
+    {{/ second_highlight }}
+  </section>
+</main>

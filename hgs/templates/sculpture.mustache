@@ -1,0 +1,38 @@
+<main id="sculpture">
+  <header>
+    <p class="titular">{{ period }}</p>
+    <h2>{{ title }}</h2>
+    <section class="info">
+      {{# info }}
+      <p>{{ . }}</p>
+      {{/ info}}
+    </section>
+    {{# captioning }}
+    <p>{{ . }}</p>
+    {{/ captioning }}
+  </header>
+
+  <nav>
+    <ul class="thumbnails undecorated">
+      {{# videos }}
+      <li>
+        <img src="{{{ thumbnail }}}" alt="" />
+      </li>
+      {{/ videos }}
+      {{# images }}
+      <li>
+        <img src="{{{ source }}}" alt="" />
+      </li>
+      {{/ images }}
+    </ul>
+  </nav>
+
+  <section class="full-images">
+    {{# videos }}
+    <video src="{{{ source }}}" controls></video>
+    {{/ videos }}
+    {{# images }}
+    <img src="{{{ source }}}" alt="" />
+    {{/ images }}
+  </section>
+</main>

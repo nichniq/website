@@ -1,0 +1,76 @@
+<style>
+  .book-content {
+    display: grid;
+    gap: 2rem;
+    grid:
+      "img1 img2 img3" 300px
+      "text1 text2 text3" auto
+      / 33% 33% 33%;
+  }
+
+  .book-content img {
+    max-width: 300px;
+    max-height: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .img1 { grid-area: img1; align-self: center; }
+  .img2 { grid-area: img2; align-self: center; }
+  .img3 { grid-area: img3; align-self: center; }
+  .text1 { grid-area: text1; }
+  .text2 { grid-area: text2; }
+  .text3 { grid-area: text3; }
+
+  @media (max-width: 900px) {
+    .book-content {
+      grid:
+        "img1" auto
+        "text1" auto
+        "img2" auto
+        "text2" auto
+        "img3" auto
+        "text3" auto
+        / auto;
+    }
+
+  .img1 { justify-self: center; }
+  .img2 { justify-self: center; }
+  .img3 { justify-self: center; }
+  }
+</style>
+
+<main class="book-content">
+  <img class="img1" src="/images/general/book_white.png" alt="" />
+
+  <div class="text1">
+    <h2>The Elements of Sculpture</h2>
+
+    <p style="font-style: italic;">Published by Phaidon Press, 2014</p>
+
+    <p style="margin-top: 1rem; text-indent: 2em;">My book is meant to be an introduction to the visual language of sculpture. The Elements number fourteen, and range from the obvious: <i>Material, Surface, and Space</i>, to the less so: <i>Memory and Place</i>. Each Element is illustrated by a large color photo from the history of sculpture ranging from the stone age to the present. All are accompanied by a brief text. The book seeks to encourage the reader to experience the visual pleasures that the art of sculpture offers the informed viewer.</p>
+  </div>
+
+  <img class="img2" src="/images/new/notes-cover.jpg" alt="" />
+
+  <div class="text2">
+    <h2>Notes on Making a Sculpture</h2>
+
+    <p style="font-style: italic;">Self-Published, 2016</p>
+
+    <p style="margin-top: 1rem; text-indent: 2em">Using the form of a diary, I’m attempting to trace the process of making a sculpture from conception to finished object.</p>
+
+    <p style="text-indent: 2em">At the close of every workday, I photographed the stone, or stones, I was working on. Then I briefly traced my days progress and the reasons why I made the changes I did. What I was primarily interested in was how ideas evolve, and the place of improvisation in my working methods. What I’m also creating is a record of the past evolutionary process that is usually left behind.</p>
+  </div>
+
+  <img class="img3" src="/images/jazz-carving.jpg" alt="" />
+
+  <div class="text3">
+    <h3>Improvisation and Direct Carving</h3>
+
+    <p style="margin-top: 1rem; text-indent: 2em">Most sculpture materials and techniques allow some degree of revision but not the direct carving of stone. My starting point for a stone sculpture is usually a photograph, but soon it’s put aside, and other images and possibilities come to mind. Sculptural improvisation begins here, but because I have a general feeling for where the sculpture is going, I resist using the term at this point. It is at the next level—the unknown—where the word improvisation seems most appropriate. Here I’m free to draw upon all that I know and have experienced; this is where the phrase improvisational carving fairly describes my process. Here the question of where and what to carve I filled with both possibility and doubt. And here the risk of doing irretrievable harm is greatest because what is cut off a stone cannot be returned. Yet in these periods of relative freedom the process seems to carry me along; I have no alternative but to follow. In these moments of bliss, apart from any predetermined methodology, the sculpture seems to make itself.</p>
+
+    <!--p>Improvisation is one of the key elements of jazz. As a static object in space, sculpture resists analogies between it and music, but it is in their creation that the two may draw near. Most of the materials and techniques of sculpture allow for some degree of revision. This is not true when the direct carving when stone. The jazz musician may improvise within an already composed theme, or freely and spontaneously react to the moment. In those instants, unconstrained by a score, there is the opportunity to create music that belongs only to the musician and to a moment in time. With that freedom comes the possibility of failure.</p>
+
+    <p>My starting point for a sculpture is usually a photograph, but soon it’s put aside, and other images and possibilities come to mind. It is fair to say that improvisation may begin here. But because I have a general feeling for where the sculpture is going, I resist using the word at this point. I do so because it’s the next level—the unknown—where the word seems most appropriate. This is where clarity of form is beyond my reach. Here I’m free to draw upon all that I know and have experienced; this is where the phrase improvisational carving fairly describes my process. It’s here the question of where and what to carve are filled with both possibility and doubt. And it’s here that the risk of doing irretrievable harm—because what is cut off the stone cannot be returned. Yet in these periods of relative freedom the process seems to carry me along: I have no alternative but to follow. In these moments of bliss, apart from any predetermined methodology, the sculpture seems to make itself.</p-->
+  </div>
+ </main>

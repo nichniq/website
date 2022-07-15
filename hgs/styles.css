@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Open+Sans:ital,wght@0,300;1,300&display=swap');
+
+/*@font-face {
+  font-family: "Open Sans";
+  src: url("/fonts/open-sans/OpenSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("/fonts/open-sans/OpenSans-Italic.ttf") format("truetype");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("/fonts/open-sans/OpenSans-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Cinzel";
+  src: url("/fonts/Cinzel/static/Cinzel-Regular.ttf") format("truetype");
+}*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+html {
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  flex: 0 1 1200px;
+}
+
+body {
+  background-color:#3d3d3d;
+  color: #ccc;
+  text-shadow: 1px 1px #111;
+  font-family: "Open Sans", sans-serif;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (max-width: 700px) {
+  body {
+    padding: 1rem;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6,
+.titular {
+  font-family: "Cinzel", sans-serif;
+  color: #fff;
+  font-weight: 300;
+}
+
+#periods {
+  display: grid;
+  grid-template-columns: 300px 1fr 300px;
+  gap: 1rem;
+}
+
+@media (max-width: 1000px) {
+  #periods {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #periods .highlight,
+  #periods .second-highlight {
+    flex: 0 0 300px;
+    margin: 0 auto;
+  }
+}
+
+#periods > .past {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+#periods > .past > * {
+  flex: 0 0 135px;
+}
+
+#periods img {
+  object-position: center;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+}
+
+#periods a {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#periods a > h2 {
+  order: 1;
+  font-size: 13px;
+}
+
+#periods a > img {
+  order: 0;
+}
+
+/**
+ * PERIOD
+ */
+
+#period {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap-reverse;
+}
+
+#period #text {
+  flex: 0 0 350px;
+}
+
+@media (max-width: 800px) {
+  #period #text {
+    flex-grow: 1;
+  }
+}
+
+#period #sculptures {
+  flex: 1 1 350px;
+}
+
+/*#period .sticky {
+  position: sticky;
+  top: 2rem;
+}*/
+
+#period #text .spaced {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#period #statement p {
+  text-indent: 2em;
+}
+
+#period #statement h3 {
+  margin: 1rem 0 0.5rem;
+}
+
+#period #sculptures ul {
+  list-style: none;
+}
+
+#period #sculptures img {
+  width: 100%;
+}
+
+@media (max-width: 700px) {
+  #period #info {
+    text-align: center;
+  }
+}
+
+#period .sculpture {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  text-align: center;
+}
+
+#period #sculptures .list {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#period #sculptures .list > * {
+  flex: 0 0 200px;
+}
+
+#period img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: top;
+}
+
+/**
+ * SCULPTURE
+ */
+
+#sculpture {
+  display: grid;
+  grid-template:
+    ". header" min-content
+    "images nav" 1fr
+    / 2fr 1fr;
+  gap: 1rem;
+}
+
+#sculpture video,
+#sculpture img {
+  max-width: 100%;
+  object-fit: contain;
+  object-position: top;
+}
+
+#sculpture header {
+  grid-area: header;
+}
+
+#sculpture nav {
+  grid-area: nav;
+}
+
+#sculpture .thumbnails {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
+}
+
+#sculpture .thumbnails li {
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+#sculpture .thumbnails img {
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  width: 100%;
+  cursor: pointer;
+}
+
+#sculpture .full-images {
+  grid-area: images;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+#sculpture .full-images::before,
+#sculpture .full-images::after {
+  content: "";
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  background-size: contain;
+  filter: invert(100%);
+  opacity: 0.8;
+  cursor: pointer;
+
+}
+
+#sculpture .full-images::before {
+  background-image: url("/images/sculpture/arrow-left.png");
+  left: 3rem;
+}
+
+#sculpture .full-images::after {
+  background-image: url("/images/sculpture/arrow-right.png");
+  right: 3rem;
+}
+
+#sculpture .full-images > * {
+  display: none;
+  max-height: calc(100vh - 1rem * 2);
+}
+
+ul.undecorated {
+  list-style-type: none;
+}
+
+/*@media (min-width: 700px) {
+  #sculpture .full-images {
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+  }
+
+  #sculpture .full-images::before,
+  #sculpture .full-images::after {
+    content: "";
+    flex: 0 0 30px;
+    aspect-ratio: 1;
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: invert(100%);
+  }
+
+  #sculpture .full-images::before {
+    background-image: url('/images/sculpture/arrow-left.png');
+  }
+
+  #sculpture .full-images::after {
+    background-image: url('/images/sculpture/arrow-right.png');
+  }
+}*/
+
+@media (max-width: 700px) {
+  #sculpture {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  #sculpture .full-images > * {
+    object-fit: contain;
+    display: block !important;
+  }
+
+  #sculpture .full-images::before,
+  #sculpture .full-images::after {
+    display: none;
+  }
+
+  #sculpture nav {
+    display: none;
+  }
+
+  #sculpture .full-images {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.sculpture .title {
+  font-size: 1rem;
+}
+
+#sculptures {
+  transform: translateY(7px); /* better align top */
+}

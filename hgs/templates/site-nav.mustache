@@ -1,0 +1,57 @@
+<style>
+  ul#top-nav-list {
+    /** reset default list styling */
+    list-style: none;
+  }
+
+  #top-nav-list {
+    align-items: baseline;
+    display: flex;
+    font-size: 1.3rem;
+    column-gap: 2em;
+  }
+
+  #top-nav-list .home {
+    flex-grow: 1;
+    font-size: 1.2em;
+  }
+
+  @media (max-width: 700px) {
+    #top-nav-list {
+      font-size: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+    }
+
+    #top-nav-list .home {
+      flex-basis: 100%;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  .current {
+    text-decoration: underline;
+  }
+</style>
+
+<nav>
+  <ul id="top-nav-list" class="titular">
+    <li class="home"><a href="/">Herbert George</a></li>
+    <li><a id="sculptures-link" href="/">Sculptures</a></li>
+    <li><a id="writings-link" href="/writings.html">Writings</a></li>
+    <li><a id="resume-link" href="/resume.html">Résumé</a></li>
+  </ul>
+</nav>
+
+<script>
+  const path = window.location.pathname;
+
+  if (path.startsWith("/writings")) {
+    document.getElementById("writings-link").classList.add("current");
+  } else if (path.startsWith("/resume")) {
+    document.getElementById("resume-link").classList.add("current");
+  } else {
+    document.getElementById("sculptures-link").classList.add("current");
+  }
+</script>

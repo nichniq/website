@@ -1,0 +1,26 @@
+<main id="period">
+  <section id="sculptures">
+    <ul class="sticky list">
+      {{# sculptures }}
+      <li>
+        <a class="sculpture" href="{{{ link }}}">
+          <img class="image" src="{{{ image }}}" />
+          <h3 class="title">{{ title }}</h3>
+        </a>
+      </li>
+      {{/ sculptures }}
+    </ul>
+  </section>
+
+  <section id="text">
+    <div class="sticky spaced">
+      <div id="info">
+        <h2>{{ period }}</h2>
+        <p>{{ years }}</p>
+      </div>
+      <div id="statement">
+        {{> statement }}
+      </div>
+    </div>
+  </section>
+</main>

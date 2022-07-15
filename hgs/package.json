@@ -1,0 +1,12 @@
+{
+  "name": "hgs",
+  "version": "1.0.0",
+  "description": "Portfolio website for Herbert George sculpture",
+  "author": "Nicholas Cassleman",
+  "license": "ISC",
+  "devDependencies": {
+    "mustache": "^4.0.1",
+    "markdown-it": "^12.0.2"
+  },
+  "type": "module"
+}
