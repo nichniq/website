@@ -9,51 +9,130 @@
 
 <link rel="stylesheet" type="text/css" href="/globals.css" />
 
+<style>
+  nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    gap: 2rem 1rem;
+  }
+
+  section {
+    display: grid;
+    grid-auto-flow: row;
+    align-content: start;
+    gap: 1rem;
+
+  }
+
+  section > * {
+    margin: 0;
+  }
+
+  section.full-width {
+    grid-column: 1 / -1;
+  }
+</style>
+
 <h1>Nick Cassleman</h1>
 
 <nav>
 
-<h2>Images</h2>
+<section>
+  <h2>Drawings</h2>
 
-<ul>
-  <li><a href="/ws-illustrations">UChicago Web Services illustrations</a></li>
-  <li><a href="/drink-n-draw">Figures from Drink n' Draw</a></li>
-  <li><a href="/pitchurs">Pitchurs</a></li>
-  <li><a href="/paintings">Paintings</a></li>
-  <li><a href="/graphics">Graphics</a></li>
-  <li>
-    <a href="/posters">Posters</a>
-    <ul>
-      <li><a href="/posters/college">College posters</a></li>
-      <li><a href="/posters/z-and-h">Z&H posters</a></li>
-    </ul>
-  </li>
-  <li><a href="/bk-posies">Brooklyn posies</a></li>
+  <ul>
+    <li><a href="/ws-illustrations">The Stick Persons period</a></li>
+    <li><a href="/drink-n-draw">Nudey figures</a></li>
+    <li><a href="/pitchurs">Ugly pitchurs</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Paintings</h2>
+
+  <ul>
+    <li><a href="/paintings">College painting</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Graphics</h2>
+
+  <ul>
+    <li><a href="/graphics">Digital doodles</a></li>
+    <li>
+      <a href="/posters">Posters</a>
+      <ul>
+        <li><a href="/posters/college">Posters from college</a></li>
+        <li><a href="/posters/z-and-h">Paper and pencil café posters</a></li>
+      </ul>
+    </li>
 </ul>
+</section>
 
+<section>
+  <h2>Poetry</h2>
 
-<h2>Text</h2>
+  <ul>
+    <li><a href="/poems/">Amateur poetry pre 2022</a></li>
+  </ul>
+</section>
 
-<ul>
-  <li><a href="/poems/">Amateur poetry</a></li>
-  <li><a href="/library/">Home library</a></li>
-  <li><a href="/aiki-waza/">Typesetting <cite data-medium="anthology">Aiki Waza</cite></a></li>
-  <li><a href="/about/this-website.html">About this website</a></li>
-  <li><a href="/about/personality-quizzes.html">Personality quizzes</a></li>
-</ul>
+<section>
+  <h2>Music</h2>
 
-<h2>Sounds</h2>
+  <ul>
+    <li><a href="/nick-tunes">Nick-tunes</a></li>
+  </ul>
+</section>
 
-<ul>
-  <li><a href="/nick-tunes">Nick-tunes</a></li>
-  <li><a href="/seasonal-playlists/">Seasonal playlists</a></li>
-  <li><a href="/gerbiltees.biz/">gerbiltees.biz</a></li>
-</ul>
+<section>
+  <h2>Websites</h2>
 
-<h2>Research</h2>
+  <ul>
+    <li><a href="http://www.herbertgeorgesculpture.com">Portfolio I made for my sculptor friend, Herbert</a></li>
+    <li><a href="/gerbiltees.biz/">gerbiltees.biz</a></li>
+  </ul>
+</section>
 
-<ul>
-  <li><a href="/cartomancy/">Cartomancy research</a></li>
-</ul>
+<section>
+  <h2>Collections</h2>
+
+  <ul>
+    <li><a href="/library/">Home library</a></li>
+    <li><a href="/bk-posies">Flower arrangement</a></li>
+    <li><a href="/seasonal-playlists/">Seasonal playlists</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Code</h2>
+
+  <ul>
+    <li><a href="/aiki-waza/">Typesetting <cite data-medium="anthology">Aiki Waza</cite></a></li>
+    <li><a href="https://github.com/nichniq/website/">This website's source code</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Research</h2>
+
+  <ul>
+    <li><a href="/cartomancy/">Cartomancy</a></li>
+  </ul>
+</section>
+
+<section class="full-width">
+  <h2>Me, Nicholas</h2>
+
+  <ul>
+    <li><q>Your Neighborly Poet, Sorcerer, and Namer Extraordinaire</q></li>
+    <li>Having a baby soon</li>
+    <li>I ride my bike and follow traffic laws</li>
+    <li>Hydration is the most important meal of the day</li>
+    <li><a href="/about/personality-quizzes.html">I put myself into boxes so you wouldn't have to</a></li>
+    <li><a href="/about/this-website.html">About this website</a></li>
+  </ul>
+</section>
 
 </nav>
