@@ -69,7 +69,7 @@ cite[data-medium="podcast-series"] {
 }
 
 /**
- * I use `details` to hide content and have a few adjustments
+ * Adjustments for a few element / patterns I use a lot
  */
 
 * + details {
@@ -79,5 +79,9 @@ cite[data-medium="podcast-series"] {
 summary h2,
 summary h3 {
   display: inline-block;
+  margin: 0;
+}
+
+figure {
   margin: 0;
 }
