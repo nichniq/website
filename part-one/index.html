@@ -13,25 +13,103 @@
   <a href="/">Nick Cassleman</a> - <cite data-medium="game">Part One</cite>
 </h1>
 
-<p>
-  I'm making a videogame!
-  Right now, it's called <cite data-medium="game">Part One</cite>.
-  It's an ambitious project with many layers, so I'll start with the big ones:
-</p>
+<header style="margin-bottom: 1rem">
+  <button type="button" onclick="setDetailsOpen(true)">
+    Open all
+  </button>
 
-<ul>
-  <li>Queer heroism, non-violent adventure</li>
-  <li>Life and nature; miracle and wonder</li>
-  <li>Questions, knowledge, perception</li>
-  <li>Dreams and wyrd time magick</li>
-  <li>Trauma and healing</li>
-  <li>Origins and their growth</li>
-</ul>
+  <button type="button" onclick="setDetailsOpen(false)">
+    Close all
+  </button>
+</header>
 
-<p>
-  My notes are spread far and wide,
-  but I keep an
-  <b><a href="https://gingkoapp.com/k6r672">online workspace</a></b>
-  to collect ideas and inspiration.
-  You're welcome to take a peek!
-</p>
+<details>
+  <summary>
+    <h2>Quick summary</h2>
+  </summary>
+
+  <p>
+    I'm making a videogame!
+    Right now, it's called <cite data-medium="game">Part One</cite>.
+    It's approximately about:
+  </p>
+
+  <ul>
+    <li>Queer heroism and non-violent adventure</li>
+    <li>Nature and humanity</li>
+    <li>Creation and wonder</li>
+    <li>Perception and knowledge</li>
+    <li>Questioning and playing</li>
+    <li>Dreams and wyrd time magick</li>
+    <li>Trauma and healing</li>
+    <li>Origins and growth</li>
+  </ul>
+</details>
+
+<details>
+  <summary>
+    <h2>Workspaces on other websites</h2>
+  </summary>
+
+  <p>
+    My notes are spread far and wide.
+    Some are in notebooks, other are on various computer files.
+    These are on accounts I have with other websites
+    and benefit from their tooling,
+  </p>
+
+  <ul>
+    <li>Ideas organizer: <strong><a href="https://gingkoapp.com/k6r672">Gingko tree</a></strong></li>
+    <li>Visual inspiration: <strong><a href="https://www.pinterest.com/part_one/">Pinterest board</a></strong></li>
+  </ul>
+  </summary>
+</details>
+
+<details>
+  <summary>
+    <h2>Part ones – and other beginnings</h2>
+  </summary>
+
+  <p>
+    Early on in the project's conception,
+    I wanted to explore how our childhoods shape us.
+    Before we can ever shape the world, we are helplessly shaped by it.
+    Not just us: all growing things have them.
+    Seeds, preludes, introductions, initial conditions, origins, starting points.
+    Part ones.
+  </p>
+
+  <p>
+    In programming, there are concepts that deal with this too.
+    Procedural generation and recursion
+    both deal with the iteration, repetition, and the growing of data.
+    This should make for interesting gameplay and worldbuilding.
+  </p>
+
+  <p>
+    The also games asks whether the future can influence the past.
+    Time magic and alternate pathways make appearances.
+    Do our destinies reach backward, adjusting the world around us just so?
+    Instead of playing as the protagonists,
+    could we play as their fickle fates?
+  </p>
+
+  <p>
+    The name also begs the question:
+    "Part one of what?"
+    In my mind, this project is so much better than just a game.
+    It reflects my world view, my experiences, and my influences.
+    This game is just the first part of my quest to help the world.
+    Don't worry: you'll never see a <cite data-medium="game">Part Seven</cite>
+    (but I have thought about multiple games and stories for each character).
+</details>
+
+<script>
+  function setDetailsOpen(isOpen) {
+    for ( const detail of document.getElementsByTagName("details") ) {
+      detail.open = isOpen;
+    }
+  }
+
+  setDetailsOpen(true);
+</script>
