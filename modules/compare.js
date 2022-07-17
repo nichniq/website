@@ -8,8 +8,11 @@ export const gte = (x, y) => x >= y;
 export const lt = (x, y) => x < y;
 export const lte = (x, y) => x <= y;
 
-export const atoz = (x, y) => x.compareLocale(y) < 0;
-export const ztoa = (x, y) => x.compareLocale(y) >= 0;
+export const incr = (x, y) => x - y >= 0;
+export const decr = (x, y) => x - y < 0;
+
+export const atoz = (x, y) => x.localeCompare(y) >= 0;
+export const ztoa = (x, y) => x.localeCompare(y) < 0;
 
 export const deep = (x, y) => {
   if ( is.primitive(x) && is.primitive(y) ) {
