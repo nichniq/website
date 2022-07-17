@@ -92,11 +92,77 @@
   <h3>Top bookstores</h3>
 
   <script id="top_bookstores" type="module">
+    import books from "/library/catalog.js";
+    import { tags } from "/modules/element.js";
+    import { decr } from "/modules/compare.js"
+
+    const { ol, li } = tags;
+
+    const bookstore_counts = books.reduce(
+      (store_counts, book) => {
+        const { txns: [ [ type, txn ] = [] ] = [] } = book; // get pieces
+
+        if (type === "purchase" && txn?.location && txn?.city) { // if match
+          if (store_counts[txn.location] == null) { // do we have this store?
+            store_counts[txn.location] = 0; // if not, initialize it to zero
+          }
+          store_counts[txn.location] += 1; // add one to the store accumulator
+        }
+
+        return store_counts; // return bookstore counts
+      },
+      {}
+    )
+
+    const tops = Object.entries(bookstore_counts)
+      .sort((a, b) => decr(a[1], b[1])) // decrease by bookstore count
+      .slice(0, 5) // take top five
+      .map(([ location, count ]) => `${location} (${count})`); // format entry
+
+    const [ list ] = ol(tops.map(store => li(store)));
+    document.getElementById("top_bookstores").replaceWith(list);
   </script>
 
   <h3>All bookstores</h3>
 
   <script id="all_bookstores" type="module">
+    import books from "/library/catalog.js";
+    import { tags } from "/modules/element.js";
+    import { strict, atoz, decr } from "/modules/compare.js"
+
+    const { dl, dt, dd } = tags;
+
+    const bookstores = books.reduce(
+      (cities_to_stores, book) => {
+        const { txns: [ [ type, txn ] = [] ] = [] } = book; // get pieces
+
+        if (type === "purchase" && txn?.location && txn?.city) { // if match
+          if (cities_to_stores[txn.city] == null) { // do we have this city?
+            cities_to_stores[txn.city] = new Set(); // if not, add a new set
+          }
+          cities_to_stores[txn.city].add(txn.location); // add location to city
+        }
+
+        return cities_to_stores; // return map of cities
+      },
+      {}
+    );
+
+    const bookstore_entires = Object.entries(bookstores).sort((a, b) =>
+      strict(a[1].size, b[1].size) // check number of stores in city
+        ? atoz(a[0], b[0]) // if same, alphabetize by city name
+        : decr(a[1].size, b[1].size) // else, order city by decreasing count
+    );
+
+    const [ list ] = dl(
+      bookstore_entires.flatMap(([ city, locations ]) => [
+        dt(city),
+        [ ...locations ].sort(atoz).map(location => dd(location)),
+      ]),
+      { style: "columns: 2" }
+    );
+
+    document.getElementById("all_bookstores").replaceWith(list);
   </script>
 </details>
 
