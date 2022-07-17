@@ -16,6 +16,117 @@ const template = {
 
 export default [
   {
+    title: "African Faces, African Figures",
+    subtitle: "The Arman Collection",
+    ids: [
+      [ "isbn10", "094580220X" ],
+      [ "isbn13", "9780945802204" ],
+    ],
+    external: "https://www.goodreads.com/book/show/11420892-african-faces-african-figures",
+    txns: [
+      [ "purchase", { date: "July 16, 2022", location: "Stuff", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "American Photographs",
+    subtitle: "The First Century",
+    ids: [
+      [ "isbn10", "1560987197" ],
+      [ "isbn13", "9781560987192" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1552176.AMERN_PHOTOGS",
+    txns: [
+      [ "purchase", { date: "July 16, 2022", location: "Stuff", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "I Dream a World",
+    subtitle: "Portraits of Black Women Who Changed America",
+    ids: [
+      [ "isbn10", "155670092X" ],
+      [ "isbn13", "9781556700927" ],
+    ],
+    external: "https://www.goodreads.com/book/show/4539734-i-dream-a-world",
+    txns: [
+      [ "purchase", { date: "July 16, 2022", location: "Stuff", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "How to Paint Successful Seascapes",
+    ids: [
+      [ "isbn10", "0823024679" ],
+      [ "isbn13", "9780823024674" ],
+    ],
+    external: "https://www.goodreads.com/book/show/2825253-how-to-paint-successful-seascapes",
+    txns: [
+      [ "purchase", { date: "July 16, 2022", location: "Stuff", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Lost San Francisco",
+    ids: [
+      [ "isbn10", "1862059349" ],
+      [ "isbn13", "9781862059344" ],
+    ],
+    external: "https://www.goodreads.com/book/show/13198957-lost-san-francisco",
+    txns: [
+      [ "purchase", { date: "July 16, 2022", location: "Stuff", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Gustave Doré",
+    subtitle: "Illustrations to Don Quixote",
+    ids: [
+      [ "lccn", "74080991" ],
+    ],
+    external: "https://lccn.loc.gov/74080991",
+    txns: [
+      [ "purchase", { date: "July 16, 2022", location: "Stuff", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Swish, the Sorrowful Sea Serpent",
+    external: "https://openlibrary.org/books/OL6484864M/Swish_the_sorrowful_sea_serpent",
+    txns: [
+      [ "purchase", { date: "July 16, 2022", location: "Stuff", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: ""
+    subtitle: "Beardsley's Illustrations for Le Morte D'Arthur",
+    ids: [
+      [ "isbn10", "0486223485" ],
+      [ "isbn13", "9780486223483" ],
+    ],
+    external: "https://www.goodreads.com/book/show/480459.Illustrations_for_Le_Morte_D_Arthur",
+    txns: [
+      [ "purchase", { date: "July 16, 2022", location: "Stuff", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Sea Shells",
+    series: "How and Why Wonder",
+    ids: [
+      [ "isbn10", "0448040174" ],
+      [ "isbn13", "9780448040172" ],
+    ],
+    external: "https://www.goodreads.com/book/show/7460911-the-how-and-why-wonder-book-of-sea-shells",
+    txns: [
+      [ "purchase", { date: "July 16, 2022", location: "Stuff", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Maxfield Parrish",
+    ids: [
+      [ "isbn10", "0823038971" ],
+      [ "isbn13", "9780823038978" ],
+    ],
+    external: "https://www.goodreads.com/book/show/2691240-maxfield-parrish",
+    txns: [
+      [ "purchase", { date: "July 16, 2022", location: "Stuff", city: "San Francisco" } ],
+    ],
+  },
+  {
     title: "Men, A Pictorial Archive from Nineteenth-Century Sources",
     subtitle: "412 Copyright-free Illustrations for Artists and Designers",
     series: "Dover Pictorial Archive",
@@ -3452,7 +3563,8 @@ export default [
     ],
   },
   {
-    title: "How and Why Wonder Book of Insects",
+    title: "Insects",
+    series: "How and Why Wonder"
     ids: [
       [ "isbn10", "0448050072" ],
       [ "isbn13", "9780448050072" ],
