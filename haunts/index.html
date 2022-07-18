@@ -135,6 +135,85 @@
   </dl>
 </details>
 
+<details class="theaters">
+  <summary>
+    <h2>Theaters</h2>
+  </summary>
+
+  <h3>Movies I've seen at the Roxie</h3>
+
+  <p>In my last year in San Francisco, I bought a membership to <a href="https://www.roxie.com/">Roxie Theater</a> after a crush mentioned seeing something good there. I didn't expect I'd come to love the theater so much!</p>
+
+  <p>Every week or so, I'd look at the schedule of films. Some films I'd plan around, or I'd invite a friend to (membership comes with a few free passes). Others I would see spontaneously when I found myself with a free night. PLUS, membership comes with a free bag of popcorn which they'd offer real butter, salt, and nutritional yeast. Support independent theaters!</p>
+
+  <p>I looked back and noticed most of the films I had seen weren't in English. I can't say I'd recommend all of them to most folks, but I'm  and certain I would have never come across them without the amazing folks at the Roxie.</p>
+
+  <script id="theaters" type="module">
+    import { maybe } from "/modules/lisp.js";
+    import { tags } from "/modules/element.js";
+
+    const { a, cite, ul, li } = tags;
+
+    const films = [
+      { title: "Stalker"
+      , link: "https://www.roxie.com/ai1ec_event/stalker/"
+      , languages: [ "Russian" ]
+      },
+      { title: "Bad Luck Banging, or Loony Porn"
+      , link: "https://www.roxie.com/ai1ec_event/bad-luck-banging-or-loony-porn"
+      , languages: [ "Romanian" ]
+      },
+      { title: "The French Dispatch"
+      , link: "https://www.roxie.com/ai1ec_event/the-french-dispatch"
+      , languages: [ "English" ]
+      },
+      { title: "Happy Together"
+      , link: "https://www.roxie.com/ai1ec_event/happy-together"
+      , languages: [ "Cantonese" ]
+      },
+      { title: "Memoria"
+      , link: "https://www.roxie.com/ai1ec_event/memoria"
+      , languages: [ "English", "Spanish" ]
+      },
+      { title: "Everything, Everywhere, All At Once"
+      , link: "https://www.roxie.com/ai1ec_event/everything-everywhere-all-at-once"
+      , languages: [ "English" ]
+      },
+      { title: "The Feast"
+      , link: "https://www.roxie.com/ai1ec_event/sf-indiefest-presents-green-film-festival-of-san-francisco"
+      , languages: [ "Welsh" ]
+      },
+      { title: "The Innocents"
+      , link: "https://www.roxie.com/ai1ec_event/the-innocents"
+      , languages: [ "Norwegian" ]
+      },
+      { title: "Mad God"
+      , link: "https://www.roxie.com/ai1ec_event/mad-god"
+      },
+      { title: "Neptune Frost"
+      , link: "https://www.roxie.com/ai1ec_event/neptune-frost"
+      , languages: [ "Rwanda-Rundi", "Swahili" ]
+      },
+      { title: "Apples"
+      , link: "https://www.roxie.com/ai1ec_event/apples"
+      , languages: [ "Greek" ]
+      },
+    ];
+
+    const [ list ] = ul(films.map(
+      ({ title, link, languages }) => li([
+        a(
+          cite(title, { "data-medium": "film" }),
+          { href: link }
+        ),
+        maybe(languages, ` (${languages?.join(", ")})`),
+      ])
+    ));
+
+    document.getElementById("theaters").replaceWith(list);
+  </script>
+</details>
+
 <details class="bookstores">
   <summary>
     <h2>Bookstores</h2>
@@ -216,85 +295,6 @@
     );
 
     document.getElementById("all_bookstores").replaceWith(list);
-  </script>
-</details>
-
-<details class="theaters">
-  <summary>
-    <h2>Theaters</h2>
-  </summary>
-
-  <h3>Movies I've seen at the Roxie</h3>
-
-  <p>In my last year in San Francisco, I bought a membership to <a href="https://www.roxie.com/">Roxie Theater</a> after a crush mentioned seeing something good there. I didn't expect I'd come to love the theater so much!</p>
-
-  <p>Every week or so, I'd look at the schedule of films. Some films I'd plan around, or I'd invite a friend to (membership comes with a few free passes). Others I would see spontaneously when I found myself with a free night. PLUS, membership comes with a free bag of popcorn which they'd offer real butter, salt, and nutritional yeast. Support independent theaters!</p>
-
-  <p>I looked back and noticed most of the films I had seen weren't in English. I can't say I'd recommend all of them to most folks, but I'm  and certain I would have never come across them without the amazing folks at the Roxie.</p>
-
-  <script id="theaters" type="module">
-    import { maybe } from "/modules/lisp.js";
-    import { tags } from "/modules/element.js";
-
-    const { a, cite, ul, li } = tags;
-
-    const films = [
-      { title: "Stalker"
-      , link: "https://www.roxie.com/ai1ec_event/stalker/"
-      , languages: [ "Russian" ]
-      },
-      { title: "Bad Luck Banging, or Loony Porn"
-      , link: "https://www.roxie.com/ai1ec_event/bad-luck-banging-or-loony-porn"
-      , languages: [ "Romanian" ]
-      },
-      { title: "The French Dispatch"
-      , link: "https://www.roxie.com/ai1ec_event/the-french-dispatch"
-      , languages: [ "English" ]
-      },
-      { title: "Happy Together"
-      , link: "https://www.roxie.com/ai1ec_event/happy-together"
-      , languages: [ "Cantonese" ]
-      },
-      { title: "Memoria"
-      , link: "https://www.roxie.com/ai1ec_event/memoria"
-      , languages: [ "English", "Spanish" ]
-      },
-      { title: "Everything, Everywhere, All At Once"
-      , link: "https://www.roxie.com/ai1ec_event/everything-everywhere-all-at-once"
-      , languages: [ "English" ]
-      },
-      { title: "The Feast"
-      , link: "https://www.roxie.com/ai1ec_event/sf-indiefest-presents-green-film-festival-of-san-francisco"
-      , languages: [ "Welsh" ]
-      },
-      { title: "The Innocents"
-      , link: "https://www.roxie.com/ai1ec_event/the-innocents"
-      , languages: [ "Norwegian" ]
-      },
-      { title: "Mad God"
-      , link: "https://www.roxie.com/ai1ec_event/mad-god"
-      },
-      { title: "Neptune Frost"
-      , link: "https://www.roxie.com/ai1ec_event/neptune-frost"
-      , languages: [ "Rwanda-Rundi", "Swahili" ]
-      },
-      { title: "Apples"
-      , link: "https://www.roxie.com/ai1ec_event/apples"
-      , languages: [ "Greek" ]
-      },
-    ];
-
-    const [ list ] = ul(films.map(
-      ({ title, link, languages }) => li([
-        a(
-          cite(title, { "data-medium": "film" }),
-          { href: link }
-        ),
-        maybe(languages, ` (${languages?.join(", ")})`),
-      ])
-    ));
-
-    document.getElementById("theaters").replaceWith(list);
   </script>
 </details>
 
