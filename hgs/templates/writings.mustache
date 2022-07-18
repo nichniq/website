@@ -5,13 +5,12 @@
     grid:
       "img1 img2 img3" 300px
       "text1 text2 text3" auto
-      / 33% 33% 33%;
+      / 1fr 1fr 1fr;
   }
 
   .book-content img {
-    max-width: 300px;
-    max-height: 100%;
-    margin-bottom: 1rem;
+    max-width: 100%;
+    max-height: 300px;
   }
 
   .img1 { grid-area: img1; align-self: center; }
@@ -23,19 +22,16 @@
 
   @media (max-width: 900px) {
     .book-content {
-      grid:
-        "img1" auto
-        "text1" auto
-        "img2" auto
-        "text2" auto
-        "img3" auto
-        "text3" auto
-        / auto;
+      grid: auto-flow / 1fr;
     }
 
-  .img1 { justify-self: center; }
-  .img2 { justify-self: center; }
-  .img3 { justify-self: center; }
+    .book-content > * {
+      grid-area: unset;
+    }
+
+    .img1 { justify-self: center; }
+    .img2 { justify-self: center; }
+    .img3 { justify-self: center; }
   }
 </style>
 
