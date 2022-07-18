@@ -92,8 +92,7 @@ export default [
     ],
   },
   {
-    title: ""
-    subtitle: "Beardsley's Illustrations for Le Morte D'Arthur",
+    title: "Beardsley's Illustrations for Le Morte D'Arthur",
     ids: [
       [ "isbn10", "0486223485" ],
       [ "isbn13", "9780486223483" ],
@@ -3564,7 +3563,7 @@ export default [
   },
   {
     title: "Insects",
-    series: "How and Why Wonder"
+    series: "How and Why Wonder",
     ids: [
       [ "isbn10", "0448050072" ],
       [ "isbn13", "9780448050072" ],

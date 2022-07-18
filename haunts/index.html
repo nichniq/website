@@ -1,0 +1,329 @@
+<!doctype html>
+
+<html lang="en">
+
+<title>Nick Cassleman - Haunts</title>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link rel="stylesheet" type="text/css" href="/globals.css" />
+
+<style>
+  dt {
+    font-variant: small-caps;
+    text-decoration: underline;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
+
+  * + dt {
+    margin-top: 0.5rem;
+  }
+
+  dd {
+    text-indent: -1em;
+    padding-left: 1em;
+    margin: 0;
+  }
+
+  body {
+    display: grid;
+    grid:
+      "header      header" auto
+      "coffeeshops bookstores" auto
+      "bars        bookstores" auto
+      "florists    bookstores" auto
+      "theaters    bookstores" auto
+      / 1fr 1fr;
+    column-gap: 3rem;
+    justify-items: start;
+
+  }
+
+  .header { grid-area: header }
+  .coffeeshops { grid-area: coffeeshops }
+  .bars { grid-area: bars }
+  .florists { grid-area: florists }
+  .bookstores { grid-area: bookstores }
+  .theaters { grid-area: theaters }
+
+  @media (max-width: 1000px) {
+    body {
+      grid: auto-flow / 1fr;
+    }
+
+    body > * {
+      grid-area: unset !important;
+    }
+  }
+</style>
+
+<header class="header" style="margin-bottom: 1rem">
+  <h1><a href="/">Nick Cassleman</a> - Haunts</h1>
+
+  <p>I love being a regular! In the places I've lived, I've made an effort to find the spots that I really like and befriend the staff and fellow regulars. The connections are fleeting: I've moved a lot, and conversation is often light, but I'm grateful for all the different folks I've met.</p>
+
+  <button type="button" onclick="setDetailsOpen(true)">
+    Open all
+  </button>
+
+  <button type="button" onclick="setDetailsOpen(false)">
+    Close all
+  </button>
+
+  <script>
+    function setDetailsOpen(isOpen) {
+      for ( const detail of document.getElementsByTagName("details") ) {
+        detail.open = isOpen;
+      }
+    }
+  </script>
+</header>
+
+<details class="coffeeshops">
+  <summary>
+    <h2>Coffeeshops</h2>
+  </summary>
+
+  <dl>
+    <dt>San Francisco</dt>
+      <dd>
+        <a href="https://www.sfgate.com/restaurants/article/People-Meter-Cafe-International-S-F-3224246.php#taboola-2">Café International</a>
+      </dd>
+      <dd>
+        <a href="https://hoodline.com/2022/01/beloved-lower-haight-spot-cafe-du-soleil-makes-late-pandemic-comeback-across-the-street/">Café du Soleil</a>
+      </dd>
+      <dd>
+        <a href="https://www.sfgate.com/sf-culture/article/Fayes-Video-coffee-SF-last-video-rental-store-16092816.php">Fayes</a>
+      </dd>
+
+    <dt>Brooklyn</dt>
+        <dd>
+          <a href="https://www.nytimes.com/2009/11/23/nyregion/23coffee.html">Breukelen</a>
+        </dd>
+        <dd>
+          <a href="https://www.google.com/maps/@40.6763727,-73.9626726,3a,31.7y,34.05h,90.64t/data=!3m6!1e1!3m4!1s53xLzexwYiYaibCs8ZOOZg!2e0!7i16384!8i8192">Cafe Eloise</a>
+        </dd>
+
+    <dt>Chicago</dt>
+        <dd><a href="https://southsideweekly.com/zh-dead-long-live-zh/">Z&H MarketCafe</a></dd>
+  </dl>
+</details>
+
+<details class="bars">
+  <summary>
+    <h2>Bars</h2>
+  </summary>
+
+  <dl>
+    <dt>San Francisco</dt>
+      <dd>
+        <a href="https://hoodline.com/2021/02/castro-neighborhood-bar-pilsner-inn-reopens-after-nearly-one-year-hiatus/">Pilsner Inn</a>
+      </dd>
+      <dd>
+        <a href="https://www.sfgate.com/places/article/the-page-SF-dive-bar-hosts-80-year-olds-wednesday-15056764.php">The Page</a>
+      </dd>
+
+    <dt>Brooklyn</dt>
+      <dd>
+        <a href="https://www.brownstoner.com/brooklyn-life/covenhoven-beer-bar-opens-in-crown-heights/">Covenhoven</a>
+      </dd>
+      <dd>
+        <a href="https://www.wsj.com/articles/bergn-brings-smorgasburg-offerings-to-crown-heights-1411612295">Berg'n</a>
+      </dd>
+
+    <dt>Chicago</dt>
+      <dd>
+        <a href="https://www.chicagotribune.com/redeye/redeye-chicago-cove-lounge-bar-20150211-story.html">The Cove</a>
+      </dd>
+      <dd>
+        <a href="https://www.chicagonow.com/chicago-hearts-trivia/2010/01/review-tuesday-night-trivia-at-university-of-chicago-pub/">The Pub</a>
+      </dd>
+  </dl>
+</details>
+
+<details class="florists">
+  <summary>
+    <h2>Florists</h2>
+  </summary>
+
+  <dl>
+    <dt>San Francisco</dt>
+        <dd>
+          <a href="https://www.herurbanherbs.com/">Her Urban Herbs</a>
+        </dd>
+
+    <dt>Brooklyn</dt>
+        <dd>
+          <a href="https://www.highsnobiety.com/p/park-delicatessen-brooklyn-skateshop/">Park Deli</a>
+        </dd>
+  </dl>
+</details>
+
+<details class="theaters">
+  <summary>
+    <h2>Theaters</h2>
+  </summary>
+
+  <h3>Movies I've seen at the Roxie</h3>
+
+  <p>In my last year in San Francisco, I bought a membership to <a href="https://www.roxie.com/">Roxie Theater</a> after a crush mentioned seeing something good there. I didn't expect I'd come to love the theater so much!</p>
+
+  <p>Every week or so, I'd look at the schedule of films. Some films I'd plan around, or I'd invite a friend to (membership comes with a few free passes). Others I would see spontaneously when I found myself with a free night. PLUS, membership comes with a free bag of popcorn which they'd offer real butter, salt, and nutritional yeast. Support independent theaters!</p>
+
+  <p>I looked back and noticed most of the films I had seen weren't in English. I can't say I'd recommend all of them to most folks, but I'm  and certain I would have never come across them without the amazing folks at the Roxie.</p>
+
+  <script id="theaters" type="module">
+    import { maybe } from "/modules/lisp.js";
+    import { tags } from "/modules/element.js";
+
+    const { a, cite, ul, li } = tags;
+
+    const films = [
+      { title: "Stalker"
+      , link: "https://www.roxie.com/ai1ec_event/stalker/"
+      , languages: [ "Russian" ]
+      },
+      { title: "Bad Luck Banging, or Loony Porn"
+      , link: "https://www.roxie.com/ai1ec_event/bad-luck-banging-or-loony-porn"
+      , languages: [ "Romanian" ]
+      },
+      { title: "The French Dispatch"
+      , link: "https://www.roxie.com/ai1ec_event/the-french-dispatch"
+      , languages: [ "English" ]
+      },
+      { title: "Happy Together"
+      , link: "https://www.roxie.com/ai1ec_event/happy-together"
+      , languages: [ "Cantonese" ]
+      },
+      { title: "Memoria"
+      , link: "https://www.roxie.com/ai1ec_event/memoria"
+      , languages: [ "English", "Spanish" ]
+      },
+      { title: "Everything, Everywhere, All At Once"
+      , link: "https://www.roxie.com/ai1ec_event/everything-everywhere-all-at-once"
+      , languages: [ "English" ]
+      },
+      { title: "The Feast"
+      , link: "https://www.roxie.com/ai1ec_event/sf-indiefest-presents-green-film-festival-of-san-francisco"
+      , languages: [ "Welsh" ]
+      },
+      { title: "The Innocents"
+      , link: "https://www.roxie.com/ai1ec_event/the-innocents"
+      , languages: [ "Norwegian" ]
+      },
+      { title: "Mad God"
+      , link: "https://www.roxie.com/ai1ec_event/mad-god"
+      },
+      { title: "Neptune Frost"
+      , link: "https://www.roxie.com/ai1ec_event/neptune-frost"
+      , languages: [ "Rwanda-Rundi", "Swahili" ]
+      },
+      { title: "Apples"
+      , link: "https://www.roxie.com/ai1ec_event/apples"
+      , languages: [ "Greek" ]
+      },
+    ];
+
+    const [ list ] = ul(films.map(
+      ({ title, link, languages }) => li([
+        a(
+          cite(title, { "data-medium": "film" }),
+          { href: link }
+        ),
+        maybe(languages, ` (${languages?.join(", ")})`),
+      ])
+    ));
+
+    document.getElementById("theaters").replaceWith(list);
+  </script>
+</details>
+
+<details class="bookstores">
+  <summary>
+    <h2>Bookstores</h2>
+  </summary>
+
+  <p>I've been to a lot of bookstores! Here's some of the data I've recorded about where I've purchased books.</p>
+
+  <h3>Top bookstores</h3>
+
+  <script id="top_bookstores" type="module">
+    import books from "/library/catalog.js";
+    import { tags } from "/modules/element.js";
+    import { decr } from "/modules/compare.js"
+
+    const { ol, li } = tags;
+
+    const bookstore_counts = books.reduce(
+      (store_counts, book) => {
+        const { txns: [ [ type, txn ] = [] ] = [] } = book; // get pieces
+
+        if (type === "purchase" && txn?.location && txn?.city) { // if match
+          if (store_counts[txn.location] == null) { // do we have this store?
+            store_counts[txn.location] = 0; // if not, initialize it to zero
+          }
+          store_counts[txn.location] += 1; // add one to the store accumulator
+        }
+
+        return store_counts; // return bookstore counts
+      },
+      {}
+    )
+
+    const tops = Object.entries(bookstore_counts)
+      .sort((a, b) => decr(a[1], b[1])) // decrease by bookstore count
+      .slice(0, 5) // take top five
+      .map(([ location, count ]) => `${location} (${count})`); // format entry
+
+    const [ list ] = ol(tops.map(store => li(store)));
+    document.getElementById("top_bookstores").replaceWith(list);
+  </script>
+
+  <h3>All bookstores</h3>
+
+  <script id="all_bookstores" type="module">
+    import books from "/library/catalog.js";
+    import { tags } from "/modules/element.js";
+    import { strict, atoz, decr } from "/modules/compare.js"
+
+    const { dl, dt, dd } = tags;
+
+    const bookstores = books.reduce(
+      (cities_to_stores, book) => {
+        const { txns: [ [ type, txn ] = [] ] = [] } = book; // get pieces
+
+        if (type === "purchase" && txn?.location && txn?.city) { // if match
+          if (cities_to_stores[txn.city] == null) { // do we have this city?
+            cities_to_stores[txn.city] = new Set(); // if not, add a new set
+          }
+          cities_to_stores[txn.city].add(txn.location); // add location to city
+        }
+
+        return cities_to_stores; // return map of cities
+      },
+      {}
+    );
+
+    const bookstore_entires = Object.entries(bookstores).sort((a, b) =>
+      strict(a[1].size, b[1].size) // check number of stores in city
+        ? atoz(a[0], b[0]) // if same, alphabetize by city name
+        : decr(a[1].size, b[1].size) // else, order city by decreasing count
+    );
+
+    const [ list ] = dl(
+      bookstore_entires.flatMap(([ city, locations ]) => [
+        dt(city),
+        [ ...locations ].sort(atoz).map(location => dd(location)),
+      ]),
+      { style: "columns: 2" }
+    );
+
+    document.getElementById("all_bookstores").replaceWith(list);
+  </script>
+</details>
+
+<script>
+  setDetailsOpen(true);
+</script>

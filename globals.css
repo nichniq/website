@@ -64,6 +64,7 @@ cite[data-medium="anthology"],
 cite[data-medium="magazine"],
 cite[data-medium="album"],
 cite[data-medium="game"],
+cite[data-medium="film"],
 cite[data-medium="podcast-series"] {
   font-style: italic;
 }
