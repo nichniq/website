@@ -1,13 +1,13 @@
-// TODO: Pick a better name than "server"
 // ideas: membrane, medium, connector, cnxn, post office, magic mirror
 
 import { promises as node_fs } from "fs";
 import node_path from "path";
 import node_util from "util";
 
-import * as compare from "../modules/compare.js";
-import { partition, group } from "../modules/lisp.js";
-import { get_files } from "../modules/filesystem.js";
+// have to be relative because I'm running this with Node
+import * as compare from "../../modules/compare.js";
+import { partition, group } from "../../modules/lisp.js";
+import { get_files } from "../../modules/filesystem.js";
 
 const log = x => {
   console.log(
