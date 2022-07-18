@@ -24,13 +24,36 @@
   dd {
     margin: 0;
   }
+
+  body {
+    display: grid;
+    grid:
+      "header      header" auto
+      "coffeeshops bookstores" auto
+      "bars        bookstores" auto
+      "florists    bookstores" auto
+      "theaters    bookstores" auto
+      / 1fr 1fr;
+    column-gap: 3rem;
+    justify-items: start;
+
+  }
+
+  .header { grid-area: header }
+  .coffeeshops { grid-area: coffeeshops }
+  .bars { grid-area: bars }
+  .florists { grid-area: florists }
+  .bookstores { grid-area: bookstores }
+  .theaters { grid-area: theaters }
 </style>
 
-<h1><a href="/">Nick Cassleman</a> - Haunts</h1>
+<header class="header" style="margin-bottom: 1rem">
+  <h1><a href="/">Nick Cassleman</a> - Haunts</h1>
 
-<p>I love being a regular! In the places I've lived, I've made an effort to find the spots that I really like and befriend the staff and fellow regulars. The connections are fleeting: I've moved a lot, and conversation is often light, but I'm grateful for all the different folks I've met.</p>
+  <p>I love being a regular! In the places I've lived, I've made an effort to find the spots that I really like and befriend the staff and fellow regulars. The connections are fleeting: I've moved a lot, and conversation is often light, but I'm grateful for all the different folks I've met.</p>
+</header>
 
-<details>
+<details class="coffeeshops">
   <summary>
     <h2>Coffeeshops</h2>
   </summary>
@@ -50,7 +73,7 @@
   </dl>
 </details>
 
-<details>
+<details class="bars">
   <summary>
     <h2>Bars</h2>
   </summary>
@@ -70,7 +93,7 @@
   </dl>
 </details>
 
-<details>
+<details class="florists">
   <summary>
     <h2>Florists</h2>
   </summary>
@@ -84,7 +107,7 @@
   </dl>
 </details>
 
-<details>
+<details class="bookstores">
   <summary>
     <h2>Bookstores</h2>
   </summary>
@@ -168,7 +191,7 @@
   </script>
 </details>
 
-<details>
+<details class="theaters">
   <summary>
     <h2>Theaters</h2>
   </summary>
