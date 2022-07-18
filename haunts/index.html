@@ -47,6 +47,16 @@
   .florists { grid-area: florists }
   .bookstores { grid-area: bookstores }
   .theaters { grid-area: theaters }
+
+  @media (max-width: 1000px) {
+    body {
+      grid: auto-flow / 1fr;
+    }
+
+    body > * {
+      grid-area: unset !important;
+    }
+  }
 </style>
 
 <header class="header" style="margin-bottom: 1rem">
