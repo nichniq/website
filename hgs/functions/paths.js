@@ -1,7 +1,7 @@
 import { file, directory } from "../functions/filesystem.js";
 
 // const pwd = process.cwd().split("/");
-const pwd = [ "Users", "nichniq", "hgs" ];
+const pwd = [ "Users", "nichniq", "website", "hgs" ];
 
 export const path = {
   relative: (...segments) => segments.join("/").replace(/\/+/, "/"),

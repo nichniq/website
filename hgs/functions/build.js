@@ -145,8 +145,8 @@ function create_resume() {
 // refresh_output();
 // copy_images();
 copy_static();
-// create_home();
-// create_sculptures();
+create_home();
+create_sculptures();
 create_sited_works();
 create_writings();
-// create_resume();
+create_resume();
