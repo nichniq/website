@@ -16,6 +16,53 @@ const template = {
 
 export default [
   {
+    title: "Ireland",
+    subtitle: "Aerial Photographs",
+    ids: [
+      [ "isbn10", "189923537X" ],
+      [ "isbn13", "9781899235377" ],
+    ],
+    external: "https://www.goodreads.com/book/show/931908.Ireland",
+    txns: [
+      [ "purchase", { date: "July 19, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Making the Scene",
+    subtitle: "A History of Stage Design and Technology in Europe and the United States",
+    ids: [
+      [ "isbn10", "0292722737" ],
+      [ "isbn13", "9780292722736" ],
+    ],
+    external: "https://www.goodreads.com/book/show/7129091-making-the-scene",
+    txns: [
+      [ "purchase", { date: "July 19, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Italian Hilltowns",
+    ids: [
+      [ "isbn10", "0932076009" ],
+      [ "isbn13", "9780932076007" ],
+    ],
+    external: "https://www.goodreads.com/book/show/9014705-italian-hilltowns",
+    txns: [
+      [ "purchase", { date: "July 19, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Architecture and Model Building",
+    subtitle: "Concepts, Methods, Materials",
+    ids: [
+      [ "isbn10", "3035614792" ],
+      [ "isbn13", "9783035614794" ],
+    ],
+    external: "https://www.goodreads.com/book/show/39659797-architecture-and-modelbuilding",
+    txns: [
+      [ "purchase", { date: "July 19, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+    ],
+  },
+  {
     title: "African Faces, African Figures",
     subtitle: "The Arman Collection",
     ids: [
