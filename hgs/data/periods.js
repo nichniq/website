@@ -144,28 +144,6 @@ expand the narrative of their figurative compositions. It remains a primary conc
 well. This is especially true in Stone Veil where I use white silk and white marble to show the
 visual similarities of different material forms of drapery. At times, it’s difficult to tell where one
 material ends and the other begins.
-
-### Improvisation and Direct Carving
-
-Improvisation is one of the key elements of jazz. As a static object in space, sculpture
-resists analogies between it and music, but it is in their creation that the two may draw near.
-Most of the materials and techniques of sculpture allow for some degree of revision. This is not
-true when the direct carving when stone. The jazz musician may improvise within an already
-composed theme, or freely and spontaneously react to the moment. In those instants,
-unconstrained by a score, there is the opportunity to create music that belongs only to the
-musician and to a moment in time. With that freedom comes the possibility of failure.
-
-My starting point for a sculpture is usually a photograph, but soon it’s put aside, and other
-images and possibilities come to mind. It is fair to say that improvisation may begin here. But
-because I have a general feeling for where the sculpture is going, I resist using the word at this
-point. I do so because it’s the next level—the unknown—where the word seems most
-appropriate. This is where clarity of form is beyond my reach. Here I’m free to draw upon all
-that I know and have experienced; this is where the phrase improvisational carving fairly
-describes my process. It’s here the question of where and what to carve are filled with both
-possibility and doubt. And it’s here that the risk of doing irretrievable harm—because what is
-cut off the stone cannot be returned. Yet in these periods of relative freedom the process
-seems to carry me along: I have no alternative but to follow. In these moments of bliss, apart
-from any predetermined methodology, the sculpture seems to make itself.
   `.trim()
 };
 

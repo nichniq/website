@@ -60,7 +60,7 @@ function create_sculptures() {
     ...(info.notes || []),
   ].filter(x => x);
 
-  for (const period of [ recent_work, ...past_work ]) {
+  for (const period of [ recent_work, ...past_work, sited_works ]) {
 
     // render a page for each period
 
@@ -94,6 +94,7 @@ function create_sculptures() {
         templates.sculpture({
           title: sculpture.title,
           period: period.title,
+          period_url: `/periods/${period.id}.html`,
           info: info_lines(sculpture.info),
           captioning: sculpture.captioning,
           videos: (sculpture.videos || []).map(video => ({

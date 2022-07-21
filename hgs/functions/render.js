@@ -40,10 +40,10 @@ export const templates = {
     )
   ),
 
-  sculpture: ({ title, period, info, captioning, videos, images }) => (
+  sculpture: ({ title, period, period_url, info, captioning, videos, images }) => (
     mustache.render(
       template("sculpture.mustache"),
-      { title, period, info, captioning, videos, images }
+      { title, period, period_url, info, captioning, videos, images }
     )
   ),
 
