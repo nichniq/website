@@ -16,6 +16,101 @@ const template = {
 
 export default [
   {
+    title: "Tools for Food",
+    subtitle: "The Stories Behind the Objects that Influence How and What We Eat",
+    ids: [
+      [ "isbn10", "1784884049" ],
+      [ "isbn13", "9781784884048" ],
+    ],
+    external: "https://www.goodreads.com/book/show/57190886-tools-for-food",
+    txns: [
+      [ "purchase", { date: "July 24, 2022", location: "Bernal Cutlery", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "The Curious World of Seaweed",
+    ids: [
+      [ "isbn10", "1597144827" ],
+      [ "isbn13", "9781597144827" ],
+    ],
+    external: "https://www.goodreads.com/book/show/43508763-the-curious-world-of-seaweed",
+    txns: [
+      [ "purchase", { date: "July 24, 2022", location: "Bernal Cutlery", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "With the Grain",
+    ids: [
+      [ "isbn10", "0985077743" ],
+      [ "isbn13", "9780985077747" ],
+      [ "lccn", "" ],
+    ],
+    external: "https://www.goodreads.com/book/show/17876476-with-the-grain",
+    txns: [
+      [ "purchase", { date: "July 24, 2022", location: "Bernal Cutlery", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "The Seaside Naturalist",
+    subtitle: "A Guide to Nature Study at the Seashore",
+    ids: [
+      [ "isbn10", "0137972423" ],
+      [ "isbn13", "9780137972425" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1693256.The_Seaside_Naturalist",
+    txns: [
+      [ "purchase", { date: "July 24, 2022", location: "Community Thrift", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Discovery Of Luray Caverns, Virginia",
+    ids: [
+      [ "isbn10", "0931402018" ],
+      [ "isbn13", "9780931402012" ],
+      [ "lccn", "" ],
+    ],
+    external: "https://www.goodreads.com/book/show/5919345-discovery-of-luray-caverns-virginia",
+    txns: [
+      [ "purchase", { date: "July 24, 2022", location: "Community Thrift", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Knights of the Brush",
+    subtitle: "The Hudson River School and the Moral Landscape",
+    ids: [
+      [ "isbn10", "1555951805" ],
+      [ "isbn13", "9781555951801" ],
+    ],
+    external: "https://www.goodreads.com/book/show/619545.Knights_of_the_Brush",
+    txns: [
+      [ "purchase", { date: "July 24, 2022", location: "Community Thrift", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "City Surf",
+    ids: [
+      [ "isbn10", "1733406506" ],
+      [ "isbn13", "9781733406505" ],
+    ],
+    external: "https://www.biblio.com/9781733406505",
+    txns: [
+      [ "purchase", { date: "July 23, 2022", location: "Café International", city: "San Francisco" } ],
+    ],
+    notes: "Zahra was selling these. She said that one of her customers is the father of one of the authors. When I bought it, some youths in front of me said they'd recently come across the City Surf Project.",
+  },
+  {
+    title: "The Year of Knots",
+    subtitle: "Modern Projects, Inspiration, and Creative Reinvention",
+    ids: [
+      [ "isbn10", "1419732803" ],
+      [ "isbn13", "9781419732805" ],
+    ],
+    external: "https://www.goodreads.com/book/show/43908972-year-of-knots",
+    txns: [
+      [ "purchase", { date: "July 20, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+    ],
+  },
+  {
     title: "Ireland",
     subtitle: "Aerial Photographs",
     ids: [
