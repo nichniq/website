@@ -16,6 +16,45 @@ const template = {
 
 export default [
   {
+    title: "The Flavor Equation",
+    subtitle: "The Science of Great Cooking Explained + More Than 100 Essential Recipes",
+    ids: [
+      [ "isbn10", "1452182698" ],
+      [ "isbn13", "9781452182698" ],
+    ],
+    external: "https://www.goodreads.com/book/show/50998820-the-flavor-equation",
+    txns: [
+      [ "purchase", { date: "July 26, 2022", location: "Chronicle Books", city: "San Francisco" } ],
+    ],
+    notes: "The guy said I was lucky; the receptionist has been out sick and he happened to be there for packages",
+  },
+  {
+    title: "Forest School for Grown-ups",
+    subtitle: "Explore the Wisdom of the Woods",
+    ids: [
+      [ "isbn10", "1797215280" ],
+      [ "isbn13", "9781797215280" ],
+    ],
+    external: "https://www.goodreads.com/book/show/58739629-forest-school-for-grown-ups",
+    txns: [
+      [ "purchase", { date: "July 26, 2022", location: "Chronicle Books", city: "San Francisco" } ],
+    ],
+    notes: "The guy said I was lucky; the receptionist has been out sick and he happened to be there for packages",
+  },
+  {
+    title: "The Elements of a Home",
+    subtitle: "Curious Histories Behind Everyday Household Objects, from Pillows to Forks",
+    ids: [
+      [ "isbn10", "1452178720" ],
+      [ "isbn13", "9781452178721" ],
+    ],
+    external: "https://www.goodreads.com/book/show/45307245-the-elements-of-a-home",
+    txns: [
+      [ "purchase", { date: "July 26, 2022", location: "Chronicle Books", city: "San Francisco" } ],
+    ],
+    notes: "The guy said I was lucky; the receptionist has been out sick and he happened to be there for packages",
+  },
+  {
     title: "Tools for Food",
     subtitle: "The Stories Behind the Objects that Influence How and What We Eat",
     ids: [
