@@ -1,43 +1,21 @@
 <style>
-  ul#top-nav-list {
-    /** reset default list styling */
-    list-style: none;
-  }
+  ul { list-style: none }
+  p { margin: 0 }
 
-  #top-nav-list {
-    align-items: baseline;
-    display: flex;
-    font-size: 1.3rem;
-    column-gap: 2em;
-  }
+  .grid { display: grid }
+  .grid.row { grid-auto-flow: column }
+  .grid.row.baseline { align-items: baseline }
+  .grid.row.apart { justify-content: space-between }
+  .grid.row.gap_2rem { column-gap: 2rem }
 
-  #top-nav-list .home {
-    flex-grow: 1;
-    font-size: 1.2em;
-  }
-
-  @media (max-width: 700px) {
-    #top-nav-list {
-      font-size: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      text-align: center;
-    }
-
-    #top-nav-list .home {
-      flex-basis: 100%;
-      margin-bottom: 0.5em;
-    }
-  }
-
-  .current {
-    text-decoration: underline;
-  }
+  .nowrap { white-space: nowrap }
+  .underline { text-decoration: underline }
 </style>
 
-<nav>
-  <ul id="top-nav-list" class="titular">
-    <li class="home"><a href="/">Herbert George</a></li>
+<nav id="site-nav" class="grid row baseline apart gap_2rem">
+  <h1 class="nowrap"><a href="/">Herbert George</a></h1>
+
+  <ul class="titular grid row gap_2rem">
     <li><a id="sculptures-link" href="/">Sculptures</a></li>
     <li><a id="writings-link" href="/writings.html">Writings</a></li>
     <li><a id="resume-link" href="/resume.html">Résumé</a></li>
@@ -48,10 +26,10 @@
   const path = window.location.pathname;
 
   if (path.startsWith("/writings")) {
-    document.getElementById("writings-link").classList.add("current");
+    document.getElementById("writings-link").classList.add("underline");
   } else if (path.startsWith("/resume")) {
-    document.getElementById("resume-link").classList.add("current");
+    document.getElementById("resume-link").classList.add("underline");
   } else {
-    document.getElementById("sculptures-link").classList.add("current");
+    document.getElementById("sculptures-link").classList.add("underline");
   }
 </script>

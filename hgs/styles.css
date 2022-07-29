@@ -59,10 +59,8 @@ body {
   }
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+a { color: inherit; text-decoration: none }
+a:hover { text-decoration: underline #ccc }
 
 h1, h2, h3, h4, h5, h6,
 .titular {
@@ -71,7 +69,7 @@ h1, h2, h3, h4, h5, h6,
   font-weight: 300;
 }
 
-#periods {
+/*#periods {
   display: grid;
   grid-template-columns: 300px 1fr 300px;
   gap: 1rem;
@@ -114,13 +112,14 @@ h1, h2, h3, h4, h5, h6,
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-}
+}*/
 
-#periods a:hover,
+/*#periods a:hover,
 #periods a:focus {
   text-decoration: underline rgba(255, 255, 255, 0.75);
-}
+}*/
 
+/*
 #periods a > h2 {
   order: 1;
   font-size: 13px;
@@ -128,7 +127,7 @@ h1, h2, h3, h4, h5, h6,
 
 #periods a > img {
   order: 0;
-}
+}*/
 
 /**
  * PERIOD
@@ -140,10 +139,10 @@ h1, h2, h3, h4, h5, h6,
   flex-wrap: wrap-reverse;
 }
 
-#period a:hover,
+/*#period a:hover,
 #period a:focus {
   text-decoration: underline rgba(255, 255, 255, 0.75);
-}
+}*/
 
 #period #text {
   flex: 0 0 350px;

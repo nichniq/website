@@ -1,28 +1,52 @@
-<main id="periods">
-  <section class="highlight">
-    {{# highlight }}
-    <a href="{{{ link }}}">
-      <h2>{{ title }}</h2>
-      <img src="{{{ image }}}" alt="" />
-    </a>
-    {{/ highlight }}
-  </section>
+<style>
+  .grid { display: grid }
+  .grid.periods {
+    grid-template-areas:
+      "recent recent past past past sited"
+      "recent recent past past past sited"
+      ".      .      past past past .    ";
+    gap: 1rem;
+    font-size: 0.6rem;
+  }
 
-  <section class="past">
-    {{# periods }}
-    <a href="{{{ link }}}">
-      <h2>{{ title }}</h2>
-      <img src="{{{ image }}}" alt="" />
-    </a>
-    {{/ periods }}
-  </section>
+  .grid.periods > *:first-child { grid-area: recent }
+  .grid.periods > *:first-child { grid-template-rows: 1fr min-content }
+  .grid.periods > *:last-child { grid-area: sited }
+  .grid.periods > *:last-child { grid-template-rows: 1fr min-content }
 
-  <section class="second-highlight">
-    {{# second_highlight }}
-    <a href="{{{ link }}}">
-      <h2>{{ title }}</h2>
-      <img src="{{{ image }}}" alt="" />
-    </a>
-    {{/ second_highlight }}
-  </section>
+  img {
+    aspect-ratio: 1;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .grid.column { grid-auto-flow: row }
+  .grid.column.gap_05rem { row-gap: 0.5rem }
+  .grid.column.center { justify-items: center }
+  .grid.column.top { align-content: start; }
+  .center { text-align: center; }
+</style>
+
+<main id="periods" class="grid periods">
+  {{# highlight }}
+  <a class="grid column gap_05rem top center" href="{{{ link }}}">
+    <img src="{{{ image }}}" alt="" />
+    <h2>{{ title }}</h2>
+  </a>
+  {{/ highlight }}
+
+  {{# periods }}
+  <a class="grid column gap_05rem top center" href="{{{ link }}}">
+    <img src="{{{ image }}}" alt="" />
+    <h2>{{ title }}</h2>
+  </a>
+  {{/ periods }}
+
+  {{# second_highlight }}
+  <a class="grid column gap_05rem top center" href="{{{ link }}}">
+    <img src="{{{ image }}}" alt="" />
+    <h2>{{ title }}</h2>
+  </a>
+  {{/ second_highlight }}
 </main>
