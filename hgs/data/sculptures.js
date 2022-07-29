@@ -1107,16 +1107,16 @@ export const stone_veil = {
   ],
   images: [
     { source: "sculpture/stone-veil_01.jpg" },
+    { source: "sculpture/stone-veil_03.jpg" },
     {
       source: "sculpture/stone-veil_02.jpg",
       captioning: [ "Detail." ]
     },
-    { source: "sculpture/stone-veil_03.jpg" },
+    { source: "sculpture/stone-veil_05.jpg" },
     {
       source: "sculpture/stone-veil_04.jpg",
       captioning: [ "Detail." ]
     },
-    { source: "sculpture/stone-veil_05.jpg" },
     { source: "sculpture/stone-veil_06.jpg" },
     { source: "sculpture/stone-veil_07.jpg" },
     { source: "sculpture/stone-veil_08.jpg" },
