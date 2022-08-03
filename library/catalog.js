@@ -16,6 +16,78 @@ const template = {
 
 export default [
   {
+    title: "Tangible Visions",
+    subtitle: "Northwest Coast Indian Shamanism and Its Art",
+    ids: [
+      [ "isbn10", "1885254164" ],
+      [ "isbn13", "9781885254160" ],
+    ],
+    external: "https://www.goodreads.com/book/show/5054918-tangible-visions",
+    txns: [
+      [ "purchase", { date: "August 2, 2022", location: "Raven Books", city: "Boston" } ],
+    ],
+  },
+  {
+    title: "Islamic Arms and Armor",
+    subtitle: "In The Metropolitan Museum of Art",
+    ids: [
+      [ "isbn10", "1588395707" ],
+      [ "isbn13", "9781588395702" ],
+    ],
+    external: "https://www.goodreads.com/book/show/25246809-islamic-arms-and-armor",
+    txns: [
+      [ "purchase", { date: "August 2, 2022", location: "Raven Books", city: "Boston" } ],
+    ],
+  },
+  {
+    title: "Landscape Body Dwelling",
+    subtitle: "Charles Simonds at Dumbarton Oaks",
+    ids: [
+      [ "isbn10", "0884023710" ],
+      [ "isbn13", "9780884023715" ],
+    ],
+    external: "https://www.goodreads.com/book/show/13814048-landscape-body-dwelling",
+    txns: [
+      [ "purchase", { date: "August 2, 2022", location: "Raven Books", city: "Boston" } ],
+    ],
+  },
+  {
+    title: "Water Towers",
+    ids: [
+      [ "isbn10", "026202277X" ],
+      [ "isbn13", "9780262022774" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1322520.Water_Towers",
+    txns: [
+      [ "purchase", { date: "August 2, 2022", location: "Raven Books", city: "Boston" } ],
+    ],
+  },
+  {
+    title: "Kanban",
+    subtitle: "Traditional Shop Signs of Japan",
+    ids: [
+      [ "isbn10", "0691176477" ],
+      [ "isbn13", "9780691176475" ],
+    ],
+    external: "https://www.goodreads.com/book/show/32025462-kanban",
+    txns: [
+      [ "purchase", { date: "August 2, 2022", location: "Raven Books", city: "Boston" } ],
+    ],
+  },
+  {
+    title: "A Lakota War Book from the Little Bighorn",
+    subtitle: "The Pictographic Autobiography of Half Moon",
+    ids: [
+      [ "isbn10", "0981885861" ],
+      [ "isbn13", "9780981885865" ],
+    ],
+    external: "https://www.goodreads.com/book/show/15865980-a-lakota-war-book-from-the-little-bighorn",
+    txns: [
+      [ "purchase", { date: "August 1, 2022", location: "Peabody Museum", city: "Boston" } ],
+    ],
+    notes: "Rachel, Nick, and I went to the Peabody Museum at Harvard. I especially loved one exhibit and said to my friends, 'I wanna buy that' (knowing it would make a good exhibit book). There were no books displayed at the front desk, but I asked the lady and she pulled a few out. Luckily for me, one of the books was about the exhibit hoped for: this one",
+  },
+  {
     title: "The Flavor Equation",
     subtitle: "The Science of Great Cooking Explained + More Than 100 Essential Recipes",
     ids: [
