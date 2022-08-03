@@ -45,7 +45,11 @@ function create_home() {
     templates.periods({
       highlight: summary(recent_work),
       periods: past_work.map((period => summary(period))),
-      second_highlight: summary(sited_works),
+      second_highlight: {
+        ...summary(sited_works),
+        long: links.images("sited-forest-long.jpg"),
+        wide: links.images("sited-forest-wide.jpg"),
+      },
     })
   );
 }

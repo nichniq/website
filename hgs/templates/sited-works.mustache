@@ -3,7 +3,7 @@
     display: grid;
     column-gap: 4rem;
     row-gap: 1rem;
-    grid: "img1 img2" auto "text1 text2" auto / 1fr 1fr;
+    grid: "heading heading" auto "img1 img2" auto "text1 text2" auto / 1fr 1fr;
   }
 
   .img1, .img2 {
@@ -35,12 +35,27 @@
   .text1, .text2, .text3 {
     display: grid;
     grid-auto-flow: row;
-    gap: 0.5rem;
     align-content: start;
+  }
+
+  .paragraph {
+    text-indent: 2rem;
+  }
+
+  .dates {
+    margin-bottom: 1rem;
+  }
+
+  .heading {
+    grid-area: heading;
+    justify-self: center;
+    margin-bottom: 1rem;
   }
 </style>
 
 <main class="sited-works">
+  <h2 class="heading">Sited Works</h2>
+
   <div class="img1">
     <a href="/sculptures/clearing-space-hold-forest.html">
       <img src="/images/images2/spaceholds_forest-clearing_thumb.jpg" />
@@ -51,9 +66,9 @@
   </div>
 
   <div class="text1">
-    <h2>Clearing, Space-hold, Forest</h2>
-    <p><i>1977</i></p>
-    <p>
+    <h3>Clearing, Space-hold, Forest</h3>
+    <p class="dates"><i>1977</i></p>
+    <p class="paragraph">
       A wedge-like construction half in a forest of trees, and half in the adjacent clearing. As you can see from the photos the wedge or V-like form was defined by a series of poles. At the point where the wedge intersects the forest/clearing, the poles support a curved wooden encloser. These boards have been cut so they conform to a forced illusory one-point perspective that either appears to compress or lengthen the interior volume of space within. The tops of all the poles are cut to define a flat plane relative to the sloping ground of the clearing. Of all the Space-holds I feel this was the most successful, in part because of the scale of the work. Here the viewer can walk within the sculpture and thus interact with it.
     </p>
   </div>
@@ -69,12 +84,12 @@
   </div>
 
   <div class="text2">
-    <h2>A Proposed Memorial to The Innocent Victims of War</h2>
-    <p><i>2004–2008</i></p>
-    <p>
+    <h3>Proposed Memorial to Innocent Victims of War</h3>
+    <p class="dates"><i>2004–2008</i></p>
+    <p class="paragraph">
       Of all the pieces I’ve made, this one is most important to me. The work is entitled: Memorial to The Innocent Victims of War (A Proposal) It’s a hexagonal building. Inside is a central water garden defined by a circular bench, centered below an oculus open to the sky. At each of the six corners will be one of my stone sculptures from the series: This Child (2004-2008) While these stone portrait heads endeavor to convey aspects of the devastating birth defects and death that Agent Orange exacted on innocent Vietnamese children and their families, the central garden personifies the healing power and beauty of nature. The essence of the Memorial is the opposition between these two forces. In total here is a place where the visitor may meditate on the profound and lasting consequences of each.
     </p>
-    <p>
+    <p class="paragraph">
       I hope to have the opportunity to build the Memorial as its need has become ever more necessary.
     </p>
   </div>

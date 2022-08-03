@@ -224,7 +224,7 @@ h1, h2, h3, h4, h5, h6,
 #sculpture {
   display: grid;
   grid-template:
-    ". header" min-content
+    "images header" min-content
     "images nav" 1fr
     / 2fr 1fr;
   gap: 1rem;

@@ -10,6 +10,14 @@
 
   .nowrap { white-space: nowrap }
   .underline { text-decoration: underline }
+
+  @media (max-width: 560px) {
+    #site-nav {
+      justify-items: center;
+      justify-content: center;
+      grid-auto-flow: row
+    }
+  }
 </style>
 
 <nav id="site-nav" class="grid row baseline apart gap_2rem">

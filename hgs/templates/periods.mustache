@@ -1,23 +1,23 @@
 <style>
   .grid { display: grid }
   .grid.periods {
-    grid-template-areas:
-      "recent recent past past past sited"
-      "recent recent past past past sited"
-      ".      .      past past past .    ";
+    grid-template-columns: repeat(3, min-content);
     gap: 1rem;
+    justify-content: space-between;
     font-size: 0.6rem;
   }
+  .grid.past {
+    grid-template-columns: repeat(3, min-content);
+    gap: 1rem;
+  }
 
-  .grid.periods > *:first-child { grid-area: recent }
-  .grid.periods > *:first-child { grid-template-rows: 1fr min-content }
-  .grid.periods > *:last-child { grid-area: sited }
-  .grid.periods > *:last-child { grid-template-rows: 1fr min-content }
+  .highlight2 { align-self: end; }
 
-  img {
-    aspect-ratio: 1;
-    height: 100%;
-    width: 100%;
+  .highlight img { width: calc(150px * 2.3) }
+  .past img { width: 150px }
+  .highlight2 img {
+    width: 150px;
+    height: 150px;
     object-fit: cover;
   }
 
@@ -26,26 +26,51 @@
   .grid.column.center { justify-items: center }
   .grid.column.top { align-content: start; }
   .center { text-align: center; }
+
+  .wide { display: none }
+
+  @media (max-width: 1100px) {
+    .grid.periods {
+      grid-auto-flow: row;
+      grid-template-columns: 1fr;
+      justify-content: center;
+      justify-items: center;
+    }
+
+    .grid.past {
+      grid-template-columns: repeat(3, minmax(100px, 1fr));
+    }
+
+    .long { display: none }
+    .wide { display: block }
+
+    .highlight img { width: calc(150px * 3.2); max-width: 100% }
+    .past img { max-width: 100% } /* get width from .grid.past */
+    .highlight2 img { width: calc(150px * 3.2); max-width: 100% }
+  }
 </style>
 
 <main id="periods" class="grid periods">
   {{# highlight }}
-  <a class="grid column gap_05rem top center" href="{{{ link }}}">
+  <a class="grid column gap_05rem top center highlight" href="{{{ link }}}">
     <img src="{{{ image }}}" alt="" />
     <h2>{{ title }}</h2>
   </a>
   {{/ highlight }}
 
-  {{# periods }}
-  <a class="grid column gap_05rem top center" href="{{{ link }}}">
-    <img src="{{{ image }}}" alt="" />
-    <h2>{{ title }}</h2>
-  </a>
-  {{/ periods }}
+  <div class="grid past">
+    {{# periods }}
+    <a class="grid column gap_05rem top center" href="{{{ link }}}">
+      <img src="{{{ image }}}" alt="" />
+      <h2>{{ title }}</h2>
+    </a>
+    {{/ periods }}
+  </div>
 
   {{# second_highlight }}
-  <a class="grid column gap_05rem top center" href="{{{ link }}}">
-    <img src="{{{ image }}}" alt="" />
+  <a class="grid column gap_05rem top center highlight2" href="{{{ link }}}">
+    <img class="long" src="{{{ long }}}" alt="" />
+    <img class="wide" src="{{{ wide }}}" alt="" />
     <h2>{{ title }}</h2>
   </a>
   {{/ second_highlight }}
