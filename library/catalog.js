@@ -16,6 +16,184 @@ const template = {
 
 export default [
   {
+    title: "Duke Riley",
+    subtitle: "Tides and Transgressions",
+    ids: [
+      [ "isbn10", "0847872416" ],
+      [ "isbn13", "9780847872411" ],
+    ],
+    external: "https://www.goodreads.com/book/show/61023210-duke-riley",
+    txns: [
+      [ "purchase", { date: "August 7, 2022", location: "Brooklyn Museum", city: "New York" } ],
+    ],
+    notes: "The exhibit related to this book (Death to the Living: Long Live Trash) was one of the best I've seen. I went with Sam!"
+  },
+  {
+    title: "Picturing Resistance",
+    subtitle: "Moments and Movements of Social Change from the 1950s to Today",
+    ids: [
+      [ "isbn10", "1984857584" ],
+      [ "isbn13", "9781984857583" ],
+    ],
+    external: "https://www.goodreads.com/book/show/50977606-picturing-resistance",
+    txns: [
+      [ "purchase", { date: "August 7, 2022", location: "Brooklyn Museum", city: "New York" } ],
+    ],
+  },
+  {
+    title: "Churches in Rock",
+    subtitle: "Early Christian Art in Ethiopia",
+    ids: [
+      [ "isbn10", "0714813818" ],
+      [ "isbn13", "9780714813813" ],
+    ],
+    external: "https://www.goodreads.com/book/show/2206376.Churches_in_rock",
+    txns: [
+      [ "purchase", { date: "August 6, 2022", location: "Westsider Books", city: "New York" } ],
+    ],
+  },
+  {
+    title: "Cistercian Abbeys",
+    subtitle: "History and Architecture",
+    ids: [
+      [ "isbn10", "0841600619" ],
+      [ "isbn13", "9780841600614" ],
+    ],
+    external: "https://www.goodreads.com/book/show/4352680-cistercian-abbeys",
+    txns: [
+      [ "purchase", { date: "August 6, 2022", location: "Westsider Books", city: "New York" } ],
+    ],
+  },
+  {
+    title: "Remington & Russell and the Art of the American West",
+    ids: [
+      [ "isbn10", "0831751614" ],
+      [ "isbn13", "9780831751616" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1609811.Remington_Russell_and_the_Art_of_the_American_West",
+    txns: [
+      [ "purchase", { date: "August 6, 2022", location: "Westsider Books", city: "New York" } ],
+    ],
+  },
+  {
+    title: "Nicobobinus",
+    ids: [
+      [ "isbn10", "0872260658" ],
+      [ "isbn13", "9780872260658" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1121812.Nicobobinus",
+    txns: [
+      [ "purchase", { date: "August 6, 2022", location: "Westsider Books", city: "New York" } ],
+    ],
+  },
+  {
+    title: "The Wanderer",
+    ids: [
+      [ "isbn10", "1646140176" ],
+      [ "isbn13", "9781646140176" ],
+    ],
+    external: "https://www.goodreads.com/book/show/50999306-the-wanderer",
+    txns: [
+      [ "purchase", { date: "August 6, 2022", location: "Neue Galerie Book Store", city: "New York" } ],
+    ],
+  },
+  {
+    title: "The World Around 1900",
+    ids: [
+      [ "isbn10", "3741919810" ],
+      [ "isbn13", "9783741919817" ],
+    ],
+    external: "https://www.goodreads.com/book/show/37826425-the-world-around-1900",
+    txns: [
+      [ "purchase", { date: "August 6, 2022", location: "Neue Galerie Book Store", city: "New York" } ],
+    ],
+  },
+  {
+    title: "Shadow Hunters",
+    subtitle: "The Nest Gatherers of Tiger Cave",
+    ids: [
+      [ "isbn10", "0934738734" ],
+      [ "isbn13", "9780934738736" ],
+    ],
+    external: "https://www.goodreads.com/book/show/919294.Shadow_Hunters",
+    txns: [
+      [ "purchase", { date: "August 6, 2022", location: "The Strand", city: "New York" } ],
+    ],
+  },
+  {
+    title: "Stone Age",
+    subtitle: "Ancient Castles of Europe",
+    ids: [
+      [ "isbn10", "3836585014" ],
+      [ "isbn13", "9783836585019" ],
+    ],
+    external: "https://www.goodreads.com/book/show/58214936-stone-age",
+    txns: [
+      [ "purchase", { date: "August 6, 2022", location: "The Strand", city: "New York" } ],
+    ],
+  },
+  {
+    title: "Afghanistan",
+    subtitle: "Paradise Lost",
+    ids: [
+      [ "isbn10", "0865650098" ],
+      [ "isbn13", "9780865650091" ],
+    ],
+    external: "https://www.goodreads.com/book/show/2269477.Afghanistan",
+    txns: [
+      [ "purchase", { date: "August 6, 2022", location: "The Strand", city: "New York" } ],
+    ],
+  },
+  {
+    title: "Männer sehen Männer",
+    subtitle: "Die Männer – Aktfotografie und ihre zeitgenössischen Vertreter",
+    ids: [
+      [ "ean", "9783723162002" ],
+    ],
+    external: "https://www.buchfreund.de/de/d/e/9783723162002/maenner-sehen-d-aktfotografie-und-ihre",
+    txns: [
+      [ "purchase", { date: "August 6, 2022", location: "The Strand", city: "New York" } ],
+    ],
+    notes: "German translation: 'Men See Men: The Men - Nude Photography and Its Contemporary Representatives'"
+  },
+  {
+    title: "Astrology",
+    subtitle: "The Celestial Mirror",
+    series: "Art and Imagination",
+    ids: [
+      [ "isbn10", "0500810044" ],
+      [ "isbn13", "9780500810040" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1204358.Astrology",
+    txns: [
+      [ "purchase", { date: "August 6, 2022", location: "The Strand", city: "New York" } ],
+    ],
+  },
+  {
+    title: "Magical Symbols and Alphabets",
+    subtitle: "A Practitioner's Guide to Spells, Rites, and History",
+    ids: [
+      [ "isbn10", "0738761923" ],
+      [ "isbn13", "9780738761923" ],
+    ],
+    external: "https://www.goodreads.com/book/show/45901744-magical-symbols-and-alphabets",
+    txns: [
+      [ "purchase", { date: "August 6, 2022", location: "The Strand", city: "New York" } ],
+    ],
+  },
+  {
+    title: "Plant Families",
+    subtitle: "A Guide for Gardeners and Botanists",
+    ids: [
+      [ "isbn10", "022652308X" ],
+      [ "isbn13", "9780226523088" ],
+    ],
+    external: "https://www.goodreads.com/book/show/34524363-plant-families",
+    txns: [
+      [ "purchase", { date: "August 6, 2022", location: "The Strand", city: "New York" } ],
+    ],
+  },
+  {
     title: "Tangible Visions",
     subtitle: "Northwest Coast Indian Shamanism and Its Art",
     ids: [

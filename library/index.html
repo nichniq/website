@@ -92,6 +92,7 @@ const { cite, abbr, a, tr, table, th, td, thead, tbody } = tags;
 const ISBN13 = "International Standard Book Number, 13-digit";
 const ISBN10 = "International Standard Book Number, 10-digit";
 const LCCN = "Library of Congress Control Number";
+const EAN = "European Article Number";
 
 const title = ({ title, subtitle, series }) => [
   cite([
@@ -104,7 +105,7 @@ const title = ({ title, subtitle, series }) => [
 ];
 
 const id = ({ ids = [] }) => {
-  const { isbn13, isbn10, lccn } = Object.fromEntries(ids);
+  const { isbn13, isbn10, lccn, ean } = Object.fromEntries(ids);
 
   const option = (short, title, content) => maybe(content,
     [ abbr(short, { title }), `: ${content}` ]
@@ -114,6 +115,7 @@ const id = ({ ids = [] }) => {
     option("ISBN13", ISBN13, isbn13),
     option("LCCN", LCCN, lccn),
     option("ISBN10", ISBN10, isbn10),
+    option("EAN", EAN, ean),
   ]);
 };
 
