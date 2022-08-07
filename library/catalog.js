@@ -1133,7 +1133,7 @@ export default [
   {
     title: "Grail",
     subtitle: "Quest for the Eternal",
-    series: "The Illustrated Library of Sacred Imagination",
+    series: "Art and Imagination",
     ids: [
       [ "isbn10", "0824500350" ],
       [ "isbn13", "9780824500351" ],
@@ -1142,6 +1142,7 @@ export default [
     txns: [
       [ "purchase", { date: "April 27, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
     ],
+    notes: "This book lists itself as part of the 'Illustrated Library of Sacred Imagination' series, but it also lists itself next to books in the 'Art and Imagination' series"
   },
   {
     title: "Our Boots",
@@ -1611,7 +1612,7 @@ export default [
   {
     title: "The Androgyne",
     subtitle: "Reconciliation of Male and Female",
-    series: "Illustrated Library of Sacred Imagination",
+    series: "Arts and Imagination",
     ids: [
       [ "isbn10", "0824500652" ],
       [ "isbn13", "9780824500658" ],
@@ -1620,7 +1621,7 @@ export default [
     txns: [
       [ "purchase", { date: "April 9, 2022", location: "Medicine for Nightmares", city: "San Francisco" } ],
     ],
-    notes: "This series looks to be the same as 'Art and Imagination' but has a different name",
+    notes: "This book lists itself as part of the 'Illustrated Library of Sacred Imagination' series, but it also lists itself next to books in the 'Art and Imagination' series"
   },
   {
     title: "Silent Witnesses",
@@ -6758,7 +6759,7 @@ export default [
   {
     title: "The Eye",
     subtitle: "The Seer and the Seen",
-    series: "Art and Imagination Series",
+    series: "Art and Imagination",
     ids: [
       [ "isbn10", "0500810346" ],
       [ "isbn13", "9780500810347" ],
