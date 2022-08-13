@@ -16,6 +16,17 @@ const template = {
 
 export default [
   {
+    title: "The Handbook of Yoruba Religious Concepts",
+    ids: [
+      [ "isbn10", "1578636671" ],
+      [ "isbn13", "9781578636679" ],
+    ],
+    external: "https://www.goodreads.com/book/show/50915718-the-handbook-of-yoruba-religious-concepts",
+    txns: [
+      [ "purchase", { date: "August 12, 2022", location: "Scarlet Sage", city: "San Francisco" } ],
+    ],
+  },
+  {
     title: "The Good Enough Parent",
     subtitle: "How to Raise Contented, Interesting and Resilient Children",
     ids: [
