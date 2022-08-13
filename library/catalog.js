@@ -16,6 +16,19 @@ const template = {
 
 export default [
   {
+    title: "The Good Enough Parent",
+    subtitle: "How to Raise Contented, Interesting and Resilient Children",
+    ids: [
+      [ "isbn10", "1912891549" ],
+      [ "isbn13", "9781912891542" ],
+      [ "lccn", "" ],
+    ],
+    external: "https://www.goodreads.com/book/show/58644937-the-good-enough-parent",
+    txns: [
+      [ "purchase", { date: "August 12, 2022", location: "Fayes", city: "San Francisco" } ],
+    ],
+  },
+  {
     title: "A Book of Staves",
     ids: [
       [ "isbn13", "9781527222137" ],
