@@ -16,6 +16,28 @@ const template = {
 
 export default [
   {
+    title: "The Asian Male",
+    ids: [
+      [ "isbn10", "9889825910" ],
+      [ "isbn13", "9789889825911" ],
+    ],
+    external: "https://www.goodreads.com/book/show/2447120.The_Asian_Male",
+    txns: [
+      [ "purchase", { date: "August 12, 2022", location: "Auto Erotica", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Olympic Portraits",
+    ids: [
+      [ "isbn10", "0821223666" ],
+      [ "isbn13", "9780821223666" ],
+    ],
+    external: "https://www.goodreads.com/book/show/406735.Olympic_Portraits",
+    txns: [
+      [ "purchase", { date: "August 12, 2022", location: "Auto Erotica", city: "San Francisco" } ],
+    ],
+  },
+  {
     title: "Bible Road",
     subtitle: "Signs of Faith in the American Landscape",
     ids: [
