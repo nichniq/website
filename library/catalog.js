@@ -16,6 +16,40 @@ const template = {
 
 export default [
   {
+    title: "A Book of Staves",
+    ids: [
+      [ "isbn13", "9781527222137" ],
+    ],
+    external: "https://www.goodreads.com/book/show/40058382-a-book-of-staves",
+    txns: [
+      [ "purchase", { date: "August 11, 2022", location: "Sword and Rose", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Taro as Colour",
+    ids: [
+      [ "isbn10", "1527219763" ],
+      [ "isbn13", "9781527219762" ],
+    ],
+    external: "https://www.goodreads.com/book/show/40855094-taro-as-colour",
+    txns: [
+      [ "purchase", { date: "August 11, 2022", location: "Sword and Rose", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "The Emerald Tablet of Hermes & The Kybalion",
+    subtitle: "Two Classic Books on Hermetic Philosophy",
+    ids: [
+      [ "isbn10", "1946774804" ],
+      [ "isbn13", "9781946774804" ],
+    ],
+    external: "https://www.goodreads.com/book/show/54866060-the-emerald-tablet-of-hermes-the-kybalion",
+    txns: [
+      [ "purchase", { date: "August 11, 2022", location: "Sword and Rose", city: "San Francisco" } ],
+    ],
+    notes: "The clerk recommended this one. I had been asking various questions and she asked if I was familiar with Hermetic Philosophy which underpins a lot of modern Western occultism"
+  },
+  {
     title: "Duke Riley",
     subtitle: "Tides and Transgressions",
     ids: [
