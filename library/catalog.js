@@ -16,6 +16,134 @@ const template = {
 
 export default [
   {
+    title: "Bible Road",
+    subtitle: "Signs of Faith in the American Landscape",
+    ids: [
+      [ "isbn10", "0715326856" ],
+      [ "isbn13", "9780715326855" ],
+    ],
+    external: "https://www.goodreads.com/book/show/616762.Bible_Road",
+    txns: [
+      [ "purchase", { date: "August 12, 2022", location: "Fabulosa Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "The Black Book",
+    ids: [
+      [ "isbn10", "3888142148" ],
+      [ "isbn13", "9783888142147" ],
+    ],
+    external: "https://www.goodreads.com/book/show/545722.Black_Book",
+    txns: [
+      [ "purchase", { date: "August 12, 2022", location: "Fabulosa Books", city: "San Francisco" } ],
+    ],
+    notes: "Nude photo book with the same name as a book on the black experience and its portrayal in America"
+  },
+  {
+    title: "The Beautiful Boy",
+    ids: [
+      [ "isbn10", "0847825868" ],
+      [ "isbn13", "9780847825868" ],
+    ],
+    external: "https://www.goodreads.com/book/show/118104.The_Beautiful_Boy",
+    txns: [
+      [ "purchase", { date: "August 12, 2022", location: "Fabulosa Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Tom of Finland",
+    subtitle: "An Imaginary Sketchbook",
+    ids: [
+      [ "isbn10", "8857246515" ],
+      [ "isbn13", "9788857246512" ],
+      [ "lccn", "" ],
+    ],
+    external: "https://www.artbook.com/9788857246512.html",
+    txns: [
+      [ "purchase", { date: "August 12, 2022", location: "Fabulosa Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Duane Michals",
+    subtitle: "Photographs / Sequences / Texts, 1958–1984",
+    ids: [
+      [ "isbn10", "0905836464" ],
+      [ "isbn13", "9780905836461" ],
+    ],
+    external: "https://www.goodreads.com/book/show/6604926-duane-michals",
+    txns: [
+      [ "purchase", { date: "August 12, 2022", location: "Fabulosa Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Merveilles d’Egypte",
+    external: "https://africainthephotobook.com/2020/10/23/merveilles-degypte-1978/",
+    txns: [
+      [ "purchase", { date: "August 12, 2022", location: "Fabulosa Books", city: "San Francisco" } ],
+    ],
+    notes: "This book is in French but its artist, Duane Michals, is a New York photographer that is also gay"
+  },
+  {
+    title: "A Book of a Hundred Hands",
+    external: "https://openlibrary.org/books/OL14620493M/The_book_of_a_hundred_hands",
+    txns: [
+      [ "purchase", { date: "August 12, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "The Procession",
+    external: "https://www.goodreads.com/book/show/22730840-the-procession",
+    txns: [
+      [ "purchase", { date: "August 12, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "The Legendary Artists of Taos",
+    subtitle: "The Founding of New Mexico's Famous Art Colony and Its Pioneer Artists",
+    ids: [
+      [ "isbn10", "0823027457" ],
+      [ "isbn13", "9780823027453" ],
+    ],
+    external: "https://www.goodreads.com/book/show/932223.Masters_of_Western_Art",
+    txns: [
+      [ "purchase", { date: "August 12, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "The Occult Reliquary",
+    subtitle: "Images and Artefacts of the Richel-Edlermans Collection",
+    external: "https://threehandspress.com/shop/the-occult-reliquary/",
+    txns: [
+      [ "purchase", { date: "August 12, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+    ],
+    notes: "Rare book behind the counter; only 700 printed",
+  },
+  {
+    title: "The Complete Book of Amulets & Talismans",
+    series: "Llewellyn's Sourcebook",
+    ids: [
+      [ "isbn10", "087542287X" ],
+      [ "isbn13", "9780875422879" ],
+    ],
+    external: "https://www.goodreads.com/book/show/19092129-the-complete-book-of-amulets-talismans",
+    txns: [
+      [ "purchase", { date: "August 12, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Welcome to Camp America",
+    subtitle: "Inside Guantánamo Bay",
+    ids: [
+      [ "isbn10", "1942185316" ],
+      [ "isbn13", "9781942185314" ],
+    ],
+    external: "https://www.goodreads.com/book/show/34416696-welcome-to-camp-america",
+    txns: [
+      [ "purchase", { date: "August 12, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+    ],
+    notes: "I saw this one in the locked rare books cabinet a few months ago. I looked for it this time and didn't see it so asked an employee. Someone remembered it being in storage downstairs and went and got it for me",
+  },
+  {
     title: "Homeland Wastleland Dreamland",
     subtitle: "American Deserts",
     ids: [
