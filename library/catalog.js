@@ -16,6 +16,19 @@ const template = {
 
 export default [
   {
+    title: "Homeland Wastleland Dreamland",
+    subtitle: "American Deserts",
+    ids: [
+      [ "isbn10", "0578327384" ],
+      [ "isbn13", "9780578327389" ],
+    ],
+    external: "https://www.kentklaudtphotography.com/store/homelandwastelanddreamland",
+    txns: [
+      [ "purchase", { date: "August 12, 2022", location: "Needles & Pens", city: "San Francisco" } ],
+    ],
+    notes: "Looks like this guy is a local photographer"
+  },
+  {
     title: "The Handbook of Yoruba Religious Concepts",
     ids: [
       [ "isbn10", "1578636671" ],
