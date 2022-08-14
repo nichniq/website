@@ -16,6 +16,30 @@ const template = {
 
 export default [
   {
+    title: "Alcatraz",
+    subtitle: "A Visual Essay",
+    ids: [
+      [ "isbn10", "0918684390" ],
+      [ "isbn13", "9780918684394" ],
+    ],
+    external: "https://www.goodreads.com/book/show/6120649-alcatraz",
+    txns: [
+      [ "purchase", { date: "August 13, 2022", location: "Green Arcade", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "San Francisco",
+    subtitle: "The Cool, Gray City of Love",
+    ids: [
+      [ "isbn10", "0525476636" ],
+      [ "isbn13", "9780525476634" ],
+    ],
+    external: "https://www.goodreads.com/book/show/11909051-san-francisco",
+    txns: [
+      [ "purchase", { date: "August 13, 2022", location: "Green Arcade", city: "San Francisco" } ],
+    ],
+  },
+  {
     title: "Chicago at the Turn of the Century in Photographs",
     subtitle: "122 Historic Views from the Collections of the Chicago Historical Society",
     ids: [
