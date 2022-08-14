@@ -16,6 +16,82 @@ const template = {
 
 export default [
   {
+    title: "Chicago at the Turn of the Century in Photographs",
+    subtitle: "122 Historic Views from the Collections of the Chicago Historical Society",
+    ids: [
+      [ "isbn10", "0486246566" ],
+      [ "isbn13", "9780486246567" ],
+    ],
+    external: "https://www.goodreads.com/book/show/480502.Chicago_at_the_Turn_of_the_Century_in_Photographs",
+    txns: [
+      [ "purchase", { date: "August 13, 2022", location: "Fabulosa Books", city: "San Francisco" } ],
+    ],
+    notes: "Bought for Dad",
+  },
+  {
+    title: "America's Hidden Wilderness",
+    subtitle: "Lands of Seclusion",
+    series: "National Geographic Special Publications",
+    ids: [
+      [ "isbn10", "0870446665" ],
+      [ "isbn13", "9780870446665" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1001452.America_s_Hidden_Wilderness",
+    txns: [
+      [ "purchase", { date: "August 13, 2022", location: "Fabulosa Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Majestic Island Worlds",
+    series: "National Geographic Special Publications",
+    ids: [
+      [ "isbn10", "0870446258" ],
+      [ "isbn13", "9780870446252" ],
+    ],
+    external: "https://www.goodreads.com/book/show/2437921.Majestic_Island_Worlds",
+    txns: [
+      [ "purchase", { date: "August 13, 2022", location: "Fabulosa Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "America's Majestic Canyons",
+    series: "National Geographic Special Publications",
+    ids: [
+      [ "isbn10", "0870442716" ],
+      [ "isbn13", "9780870442711" ],
+    ],
+    external: "https://www.goodreads.com/book/show/4559422-america-s-majestic-canyons",
+    txns: [
+      [ "purchase", { date: "August 13, 2022", location: "Fabulosa Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "America's Seashore Wonderlands",
+    subtitle: "",
+    series: "",
+    ids: [
+      [ "isbn10", "087044543X" ],
+      [ "isbn13", "9780870445439" ],
+    ],
+    external: "https://www.goodreads.com/book/show/2363383.America_s_Seashore_Wonderlands",
+    txns: [
+      [ "purchase", { date: "August 13, 2022", location: "Fabulosa Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Particular Voices",
+    subtitle: "Portraits of Gay and Lesbian Writers",
+    ids: [
+      [ "isbn10", "0262071800" ],
+      [ "isbn13", "9780262071802" ],
+    ],
+    external: "https://www.goodreads.com/book/show/239931.Particular_Voices",
+    txns: [
+      [ "purchase", { date: "August 13, 2022", location: "Fabulosa Books", city: "San Francisco" } ],
+    ],
+    notes: "I grabbed this book yesterday but accidentally left it after I had set it down. I remembered the book long after getting home and swung by on the way to Cafe Intl to see if it was still there",
+  },
+  {
     title: "The Asian Male",
     ids: [
       [ "isbn10", "9889825910" ],
