@@ -173,6 +173,10 @@ const groupings = {
     "menuitem",
     "menu",
   ],
+
+  scripting: [
+    "script",
+  ],
 };
 
 export const tags = Object.fromEntries(
