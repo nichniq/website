@@ -1,5 +1,51 @@
+- opt into gameplay
+- starts out simple, just the story
+- if you never touch it, it will run
+- invited to experiment and play
+- you invite new ways of experiencing and playing with the world
+- more layers are added
+
+---
+
+- imagine a literal storybook
+- simpler and more obvious interfaces + choices
+- modular and layered
+- an opportunity pops up (like a pull storybook)
+- easier to produce image assets
+  - can photograph or use a digital a physical drawing and use
+  - import + process arbitrary images
+  - can use any art program (to process pixels)
+  - computer tools to edit
+  - eventually, develop internal model and provide api
+    - api : {connectors,modules,plugins,interface,translators,constructors}
+
+---
+
+- intentions as daemons
+  - "devil and angel on shoulder"
+  - provide opportunities
+  - short lived, opportunities must be grabbed
+  - may have conditions attached, need to weigh them quickly
+- conditions become more complex and dangerous
+  - need to intuitively assess risk
+  - like fairy packs
+  - unintended consequences
+
+---
+
+- i'm trying to improve the library page
+- i want to separate the catalog data from the text
+- i want to add filters and controls to the table
+  - i want to create admin tools
+  - the admin tools are just tools, except fancy
+  - provide default simple tool set as a preset config
+
+---
+
 weaving and growing (cultivating) of opportunities
 but the opportunities are largely out of your control
 based on luck, fate, circumstance
+
+---
 
 only allowed to draw ephemeral maps (on transitory objects or with degrading like chalk)
