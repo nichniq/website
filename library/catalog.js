@@ -14,6 +14,9 @@ const template = {
   notes: "",
 };
 
+// I shipped these books to Pullman so I won't be able to record them until later
+// [ "purchase", { date: "August 15, 2022", location: "Green Apple", city: "San Francisco" } ]
+
 export default [
   {
     title: "Alcatraz",
