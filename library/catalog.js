@@ -216,7 +216,6 @@ export default [
     ids: [
       [ "isbn10", "8857246515" ],
       [ "isbn13", "9788857246512" ],
-      [ "lccn", "" ],
     ],
     external: "https://www.artbook.com/9788857246512.html",
     txns: [
@@ -333,7 +332,6 @@ export default [
     ids: [
       [ "isbn10", "1912891549" ],
       [ "isbn13", "9781912891542" ],
-      [ "lccn", "" ],
     ],
     external: "https://www.goodreads.com/book/show/58644937-the-good-enough-parent",
     txns: [
@@ -691,7 +689,6 @@ export default [
     ids: [
       [ "isbn10", "0985077743" ],
       [ "isbn13", "9780985077747" ],
-      [ "lccn", "" ],
     ],
     external: "https://www.goodreads.com/book/show/17876476-with-the-grain",
     txns: [
@@ -715,7 +712,6 @@ export default [
     ids: [
       [ "isbn10", "0931402018" ],
       [ "isbn13", "9780931402012" ],
-      [ "lccn", "" ],
     ],
     external: "https://www.goodreads.com/book/show/5919345-discovery-of-luray-caverns-virginia",
     txns: [
