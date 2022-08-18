@@ -19,6 +19,88 @@ const template = {
 
 export default [
   {
+    title: "Sudek",
+    ids: [
+      [ "isbn10", "051756419X" ],
+      [ "isbn13", "9780517564196" ],
+    ],
+    external: "https://www.goodreads.com/book/show/2470055.Sudek",
+    txns: [
+      [ "purchase", { date: "August 17, 2022", location: "Stuff", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Aubrey Beardsley",
+    subtitle: "Selected Drawings",
+    ids: [
+      [ "lccn", "67021210" ],
+    ],
+    external: "https://lccn.loc.gov/67021210",
+    txns: [
+      [ "purchase", { date: "August 17, 2022", location: "Stuff", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Books of the Dead",
+    subtitle: "Manuals for Living and Dying",
+    series: "Art and Imagination",
+    ids: [
+      [ "isbn10", "0500810419" ],
+      [ "isbn13", "9780500810415" ],
+    ],
+    external: "https://www.goodreads.com/book/show/208170.Books_of_the_Dead",
+    txns: [
+      [ "purchase", { date: "August 17, 2022", location: "Stuff", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "The Monkey and the Crocodile",
+    subtitle: "A Jataka Tale from India",
+    series: "Weekly Reader Children's Book Club",
+    ids: [
+      [ "lccn", "78079939" ],
+    ],
+    external: "https://lccn.loc.gov/78079939",
+    txns: [
+      [ "purchase", { date: "August 17, 2022", location: "Stuff", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Flying Animals",
+    subtitle: "The Airborne Species of the Animal Kingdom, and How They Achieve Flight",
+    series: "Golden Library of Knowledge",
+    ids: [
+      [ "lccn", "61015011" ],
+    ],
+    external: "https://lccn.loc.gov/61015011",
+    txns: [
+      [ "purchase", { date: "August 17, 2022", location: "Stuff", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Pop-Up Animal-Alphabet Book",
+    series: "Pop-Up",
+    ids: [
+      [ "isbn10", "0394818660" ],
+      [ "isbn13", "9780394818665" ],
+    ],
+    external: "https://www.goodreads.com/book/show/12584362-pop-up-animal-alphabet-book",
+    txns: [
+      [ "purchase", { date: "August 17, 2022", location: "Stuff", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Spooky Rhymes and Riddles",
+    ids: [
+      [ "isbn10", "0590093487" ],
+      [ "isbn13", "9780590093484" ],
+    ],
+    external: "https://www.goodreads.com/book/show/30749789-spooky-rhymes-and-riddles",
+    txns: [
+      [ "purchase", { date: "August 17, 2022", location: "Stuff", city: "San Francisco" } ],
+    ],
+  },
+  {
     title: "The Chinese Century",
     subtitle: "A Photographic History",
     ids: [
