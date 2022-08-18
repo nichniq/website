@@ -19,6 +19,41 @@ const template = {
 
 export default [
   {
+    title: "The Chinese Century",
+    subtitle: "A Photographic History",
+    ids: [
+      [ "isbn10", "0002558017" ],
+      [ "isbn13", "9780002558013" ],
+    ],
+    external: "https://www.goodreads.com/book/show/3719423-the-chinese-century",
+    txns: [
+      [ "purchase", { date: "August 17, 2022", location: "Community Thrift", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "The Hidden Life of Wolves",
+    ids: [
+      [ "isbn10", "1426210124" ],
+      [ "isbn13", "9781426210129" ],
+    ],
+    external: "https://www.goodreads.com/book/show/13642715-the-hidden-life-of-wolves",
+    txns: [
+      [ "purchase", { date: "August 17, 2022", location: "Community Thrift", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Jung",
+    series: "A Very Short Introduction",
+    ids: [
+      [ "isbn10", "0192854585" ],
+      [ "isbn13", "9780192854582" ],
+    ],
+    external: "https://www.goodreads.com/book/show/297554.Jung",
+    txns: [
+      [ "purchase", { date: "August 17, 2022", location: "Community Thrift", city: "San Francisco" } ],
+    ],
+  },
+  {
     title: "Alcatraz",
     subtitle: "A Visual Essay",
     ids: [
