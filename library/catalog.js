@@ -236,6 +236,13 @@ export default [
     notes: "I grabbed this book yesterday but accidentally left it after I had set it down. I remembered the book long after getting home and swung by on the way to Cafe Intl to see if it was still there",
   },
   {
+    title: "Kissa by Kiss",
+    external: "https://shop.specialprojects.jp/products/kissa-by-kissa-3rd-ed",
+    txns: [
+      [ "internet order", { ordered: "August 13, 2022", city: "San Francisco" } ],
+    ],
+  },
+  {
     title: "The Asian Male",
     ids: [
       [ "isbn10", "9889825910" ],
