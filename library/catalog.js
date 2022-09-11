@@ -19,6 +19,148 @@ const template = {
 
 export default [
   {
+    title: "Amaldus Nielsen",
+    ids: [
+      [ "isbn10", "8203170730" ],
+      [ "isbn13", "" ],
+      [ "lccn", "" ],
+    ],
+    external: "https://openlibrary.org/books/OL1469689M/Amaldus_Nielsen",
+    txns: [
+      [ "purchase", { date: "September 10, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "The Secrets of Aikido",
+    ids: [
+      [ "isbn10", "1570620067" ],
+      [ "isbn13", "9781570620065" ],
+    ],
+    external: "https://www.goodreads.com/book/show/4462600-the-secrets-of-aikido",
+    txns: [
+      [ "purchase", { date: "September 10, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "The Book of the Toad",
+    subtitle: "A Natural and Magical History of Toad-Human Relations",
+    ids: [
+      [ "isbn10", "0718828410" ],
+      [ "isbn13", "9780718828417" ],
+    ],
+    external: "https://www.goodreads.com/book/show/50043852-the-book-of-the-toad",
+    txns: [
+      [ "purchase", { date: "September 10, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Back Roads of Washington",
+    subtitle: "74 Trips on Scenic Byways",
+    ids: [
+      [ "isbn10", "0912365560" ],
+      [ "isbn13", "9780912365565" ],
+    ],
+    external: "https://www.goodreads.com/book/show/873625.Back_Roads_of_Washington",
+    txns: [
+      [ "purchase", { date: "September 10, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Keeping a Nature Journal",
+    subtitle: "Discover a Whole New Way of Seeing the World Around You",
+    ids: [
+      [ "isbn10", "1580174930" ],
+      [ "isbn13", "9781580174930" ],
+    ],
+    external: "https://www.goodreads.com/book/show/143262.Keeping_a_Nature_Journal",
+    txns: [
+      [ "purchase", { date: "September 10, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Inventing Kindergarten",
+    ids: [
+      [ "isbn10", "1930349270" ],
+      [ "isbn13", "9781930349278" ],
+    ],
+    external: "https://www.goodreads.com/book/show/53068933-inventing-kindergarten",
+    txns: [
+      [ "purchase", { date: "September 10, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Miradas en el tiempo",
+    ids: [
+      [ "isbn10", "9709467409" ],
+      [ "lccn", "2007471201" ],
+    ],
+    external: "https://lccn.loc.gov/2007471201",
+    txns: [
+      [ "purchase", { date: "September 10, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Tibetan Tantric Charms and Amulets",
+    subtitle: "230 Examples Reproduced from Original Woodblocks",
+    ids: [
+      [ "isbn10", "0486235890" ],
+      [ "isbn13", "9780486235899" ],
+    ],
+    external: "https://www.goodreads.com/book/show/11135393-tibetan-tantric-charms-and-amulets",
+    txns: [
+      [ "purchase", { date: "September 10, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Collecting Books",
+    series: "Miller's",
+    ids: [
+      [ "isbn10", "1857325435" ],
+      [ "isbn13", "9781857325430" ],
+    ],
+    external: "https://www.goodreads.com/book/show/6477210-miller-s",
+    txns: [
+      [ "purchase", { date: "September 10, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Dimensions of Black",
+    ids: [
+      [ "lccn", "72630858" ],
+    ],
+    external: "https://lccn.loc.gov/72630858",
+    txns: [
+      [ "purchase", { date: "September 10, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Manners and Customs of the Coeur d'Alene Indians",
+    ids: [
+      [ "lccn", "75028892" ],
+    ],
+    external: "https://www.goodreads.com/book/show/36577859-manners-and-customs-of-the-coeur-d-alene-indians",
+    txns: [
+      [ "purchase", { date: "September 10, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "This Is for You",
+    ids: [
+      [ "isbn10", "0811868419" ],
+      [ "isbn13", "9780811868419" ],
+    ],
+    external: "https://www.goodreads.com/book/show/6131587-this-is-for-you",
+    txns: [
+      [ "purchase", { date: "September 10, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "The Nepal Festivals",
+    txns: [
+      [ "purchase", { date: "September 10, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
     title: "Sudek",
     ids: [
       [ "isbn10", "051756419X" ],
