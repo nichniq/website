@@ -239,6 +239,112 @@ export default [
     ],
   },
   {
+    title: "Curiosa",
+    subtitle: "Celebrity Relics, Historical Fossils, and Other Metamorphic Rubbish",
+    ids: [
+      [ "isbn10", "0810935376" ],
+      [ "isbn13", "9780810935372" ],
+    ],
+    external: "https://www.goodreads.com/book/show/454246.Curiosa",
+    txns: [
+      [ "gift", { date: "August 28, 2022", from: "Jason Dana", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Chez Panisse Fruit",
+    ids: [
+      [ "isbn10", "0060199571" ],
+      [ "isbn13", "9780060199579" ],
+    ],
+    external: "https://www.goodreads.com/book/show/152707.Chez_Panisse_Fruit",
+    txns: [
+      [ "purchase", { date: "August 23, 2022", location: "Community Thrift", city: "San Francisco" } ],
+    ],
+    notes: "It's signed: For Dolores Ali, Alice Waters 9.12.02",
+  },
+  {
+    title: "Eighteen Songs of a Nomad Flute",
+    subtitle: "The Story of Lady Wen-chi",
+    ids: [
+      [ "isbn10", "0300193157" ],
+      [ "isbn13", "9780300193152" ],
+    ],
+    external: "https://www.goodreads.com/book/show/16115874-eighteen-songs-of-a-nomad-flute",
+    txns: [
+      [ "purchase", { date: "August 23, 2022", location: "Community Thrift", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Are You My Type?",
+    subtitle: "Or Why Aren't You More Like Me?",
+    ids: [
+      [ "isbn10", "0891060553" ],
+      [ "isbn13", "9780891060550" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1723139.Are_You_My_Type",
+    txns: [
+      [ "purchase", { date: "August 22, 2022", location: "Dolores Priest Little Free Library", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "For Forever I'll Be Here",
+    subtitle: "The Art of Marci Washington: Selected Works",
+    ids: [
+      [ "isbn10", "1584235152" ],
+      [ "isbn13", "9781584235156" ],
+    ],
+    external: "https://www.goodreads.com/book/show/17398627-for-forever-i-ll-be-here",
+    txns: [
+      [ "purchase", { date: "August 20, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "The History of Illustration",
+    ids: [
+      [ "isbn10", "1501342118" ],
+      [ "isbn13", "9781501342110" ],
+    ],
+    external: "https://www.goodreads.com/book/show/36902597-history-of-illustration",
+    txns: [
+      [ "purchase", { date: "August 20, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Gay Life & Culture",
+    subtitle: "A World History",
+    ids: [
+      [ "isbn10", "0789315114" ],
+      [ "isbn13", "9780789315113" ],
+    ],
+    external: "https://www.goodreads.com/book/show/103548.Gay_Life_Culture",
+    txns: [
+      [ "purchase", { date: "August 20, 2022", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "The Gay Kama Sutra",
+    ids: [
+      [ "isbn10", "0312167539" ],
+      [ "isbn13", "9780312167530" ],
+    ],
+    external: "https://www.goodreads.com/book/show/499000.The_Gay_Kama_Sutra",
+    txns: [
+      [ "purchase", { date: "August 20, 2022", location: "Fabulosa", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Bats",
+    subtitle: "An Illustrated Guide to All Species",
+    ids: [
+      [ "isbn10", "1588346471" ],
+      [ "isbn13", "9781588346476" ],
+    ],
+    external: "https://www.goodreads.com/book/show/40993432-bats",
+    txns: [
+      [ "purchase", { date: "August 20, 2022", location: "Fabulosa", city: "San Francisco" } ],
+    ],
+  },
+  {
     title: "Sudek",
     ids: [
       [ "isbn10", "051756419X" ],
