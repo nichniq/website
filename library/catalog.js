@@ -19,6 +19,84 @@ const template = {
 
 export default [
   {
+    title: "The Geometrical Foundation of Natural Structure",
+    subtitle: "A Source Book of Design",
+    ids: [
+      [ "isbn10", "048623729X" ],
+      [ "isbn13", "9780486237299" ],
+    ],
+    external: "https://www.goodreads.com/book/show/366946.The_Geometrical_Foundation_of_Natural_Structure",
+    txns: [
+      [ "purchase", { date: "September 11, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Tsonakwa And Yolaikia",
+    subtitle: "Legends In Stone, Bone And Wood",
+    ids: [
+      [ "isbn10", "093854103X" ],
+      [ "isbn13", "9780938541035" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1549974.Tsonakwa_And_Yolaikia",
+    txns: [
+      [ "purchase", { date: "September 11, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "The Woman's Way",
+    ids: [
+      [ "isbn10", "0809497298" ],
+      [ "isbn13", "9780809497294" ],
+    ],
+    external: "https://www.goodreads.com/book/show/4900107-the-woman-s-way",
+    txns: [
+      [ "purchase", { date: "September 11, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Architectural Composition",
+    ids: [
+      [ "isbn10", "084780965X" ],
+      [ "isbn13", "9780847809653" ],
+    ],
+    external: "https://www.goodreads.com/book/show/5134434-architectural-composition",
+    txns: [
+      [ "purchase", { date: "September 11, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Folk-toys",
+    subtitle: "Les jouets populaires",
+    external: "https://www.worldcat.org/title/folk-toys-les-jouets-populaires/oclc/3261805",
+    txns: [
+      [ "purchase", { date: "September 11, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Between Two Towers",
+    subtitle: "The Drawings of the School of Miami",
+    ids: [
+      [ "isbn10", "1885254075" ],
+      [ "isbn13", "9781885254078" ],
+    ],
+    external: "https://www.goodreads.com/book/show/28847.Between_Two_Towers",
+    txns: [
+      [ "purchase", { date: "September 11, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Animal Kingdom",
+    subtitle: "Stereoscopic Images of Natural History",
+    ids: [
+      [ "isbn10", "3791382470" ],
+      [ "isbn13", "9783791382470" ],
+    ],
+    external: "https://www.goodreads.com/book/show/27916111-animal-kingdom",
+    txns: [
+      [ "purchase", { date: "September 11, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
     title: "Amaldus Nielsen",
     ids: [
       [ "isbn10", "8203170730" ],
