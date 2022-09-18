@@ -16,8 +16,54 @@ const template = {
 
 // I shipped these books to Pullman so I won't be able to record them until later
 // [ "purchase", { date: "August 15, 2022", location: "Green Apple", city: "San Francisco" } ]
+// [ "purchase", { date: "September 15, 2022", location: "Bird & Beckett", city: "San Francisco" } ]
 
 export default [
+  {
+    title: "Hair",
+    subtitle: " Hairy Men in Gay Art",
+    ids: [
+      [ "isbn10", "386787137X" ],
+      [ "isbn13", "9783867871372" ],
+    ],
+    external: "https://www.goodreads.com/book/show/8897845-hair",
+    txns: [
+      [ "purchase", { date: "September 18, 2022", location: "Autoerotica", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Nice Ass",
+    ids: [
+      [ "isbn10", "1933841109" ],
+      [ "isbn13", "9781933841106" ],
+    ],
+    external: "https://www.goodreads.com/book/show/318979.Nice_Ass",
+    txns: [
+      [ "purchase", { date: "September 18, 2022", location: "Fabulosa", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "1001 Black Men",
+    subtitle: "Portraits of Masculinity at the Intersections",
+    ids: [
+      [ "isbn13", "9780999647264" ],
+    ],
+    external: "https://openlibrary.org/books/OL37579086M/1_001_Black_Men",
+    txns: [
+      [ "purchase", { date: "September 18, 2022", location: "Fabulosa", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Ice",
+    ids: [
+      [ "isbn10", "1942185863" ],
+      [ "isbn13", "9781942185864" ],
+    ],
+    external: "https://www.radiusbooks.org/all-books/p/meghann-riepenhoff-ice",
+    txns: [
+      [ "purchase", { date: "September 18, 2022", location: "Fabulosa", city: "San Francisco" } ],
+    ],
+  },
   {
     title: "The Geometrical Foundation of Natural Structure",
     subtitle: "A Source Book of Design",
