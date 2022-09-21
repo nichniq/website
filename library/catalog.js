@@ -2173,8 +2173,8 @@ export default [
     external: "https://www.goodreads.com/book/show/58275712-wingbearer",
     txns: [
       [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
+      [ "gift", { to: "Aster", city: "Pullman" } ],
     ],
-    notes: "I'm probably gunna give this to Aster"
   },
   {
     title: "Spectrum 19",
