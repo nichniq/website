@@ -146,8 +146,6 @@ export default [
     title: "Amaldus Nielsen",
     ids: [
       [ "isbn10", "8203170730" ],
-      [ "isbn13", "" ],
-      [ "lccn", "" ],
     ],
     external: "https://openlibrary.org/books/OL1469689M/Amaldus_Nielsen",
     txns: [
@@ -583,8 +581,6 @@ export default [
   },
   {
     title: "America's Seashore Wonderlands",
-    subtitle: "",
-    series: "",
     ids: [
       [ "isbn10", "087044543X" ],
       [ "isbn13", "9780870445439" ],
@@ -1581,7 +1577,6 @@ export default [
   {
     title: "The End of the Game",
     subtitle: "The Last Word from Paradise - A Pictoral Documentation of the origins, History and Prospects of the Big Game Africa",
-    series: "",
     ids: [
       [ "isbn10", "0811828816" ],
       [ "isbn13", "9780811828819" ],
@@ -2175,7 +2170,7 @@ export default [
       [ "isbn10", "0062741152" ],
       [ "isbn13", "9780062741158" ],
     ],
-    external: "",
+    external: "https://www.goodreads.com/book/show/58275712-wingbearer",
     txns: [
       [ "purchase", { date: "April 22, 2022", location: "Powell's Books", city: "Portland" } ],
     ],
@@ -7633,9 +7628,6 @@ export default [
       [ "isbn13", "9780316118408" ],
     ],
     external: "https://www.goodreads.com/book/show/4443485-the-flavor-bible?from_search=true&qid=hagsa09A8I&rank=1",
-    txns: [
-      [ "" ],
-    ],
   },
   {
     title: "The Flower Recipe Book",
@@ -8297,9 +8289,6 @@ export default [
   },
   {
     title: "The Secret Life of Flowers",
-    txns: [
-      [ "" ],
-    ],
   },
   {
     title: "The Sinister Beauty of Carnivorous Plants",
