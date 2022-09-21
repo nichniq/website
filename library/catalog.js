@@ -4445,7 +4445,7 @@ export default [
       [ "isbn10", "1854101137" ],
       [ "isbn13", "9781854101136" ],
     ],
-    external: "https://www.goodreads.com/book/show/27270.Glass_Houses?from_search=true&qid=1T0aigfXQG&rank=1",
+    external: "https://www.goodreads.com/book/show/27270.Glass_Houses",
     txns: [
       [ "purchase", { date: "February 11, 2020", location: "William Stout Architectural Books", city: "San Francisco" } ],
     ],
@@ -4859,7 +4859,7 @@ export default [
       [ "isbn10", "1782406026" ],
       [ "isbn13", "9781782406020" ],
     ],
-    external: "https://www.goodreads.com/book/show/35960218-how-to-read-the-landscape?from_search=true&qid=X4hOiUsokc&rank=3",
+    external: "https://www.goodreads.com/book/show/35960218-how-to-read-the-landscape",
     txns: [
       [ "purchase", { date: "February 23, 2020", location: "Point Reyes Books", city: "Point Reyes Station" } ],
     ],
@@ -5353,7 +5353,7 @@ export default [
       [ "isbn10", "0486223841" ],
       [ "isbn13", "9780486223841" ],
     ],
-    external: "https://www.goodreads.com/book/show/279352.Los_Caprichos?from_search=true&qid=aNQXTBHq5Q&rank=1",
+    external: "https://www.goodreads.com/book/show/279352.Los_Caprichos",
     txns: [
       [ "purchase", { date: "February 8, 2020", location: "Dog Eared Books (Castro)", city: "San Francisco" } ],
     ],
@@ -5696,7 +5696,7 @@ export default [
       [ "isbn10", "0816013098" ],
       [ "isbn13", "9780816013098" ],
     ],
-    external: "https://www.goodreads.com/book/show/1014313.Musical_Instruments_of_the_World?from_search=true&qid=9oMQGmpvMQ&rank=1",
+    external: "https://www.goodreads.com/book/show/1014313.Musical_Instruments_of_the_World",
     txns: [
       [ "purchase", { location: "Brused Books", city: "Pullman" } ],
     ],
@@ -7014,7 +7014,7 @@ export default [
       [ "isbn10", "3822877638" ],
       [ "isbn13", "9783822877630" ],
     ],
-    external: "https://www.goodreads.com/book/show/227129.Tahiti_Tattoos?from_search=true&qid=CHHcBp6Ahi&rank=1",
+    external: "https://www.goodreads.com/book/show/227129.Tahiti_Tattoos",
     txns: [
       [ "purchase", { date: "February 16, 2020", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
     ],
@@ -7426,7 +7426,7 @@ export default [
       [ "isbn10", "0004111176" ],
       [ "isbn13", "9780004111179" ],
     ],
-    external: "https://www.goodreads.com/book/show/2288710.Clans_and_Tartans_of_Scotland?from_search=true&qid=tUnFNzXEmG&rank=1",
+    external: "https://www.goodreads.com/book/show/2288710.Clans_and_Tartans_of_Scotland",
     txns: [
       [ "purchase", { date: "February 8, 2020", location: "Alley Cat Books", city: "San Francisco" } ],
     ],
@@ -7627,7 +7627,7 @@ export default [
       [ "isbn10", "0316118400" ],
       [ "isbn13", "9780316118408" ],
     ],
-    external: "https://www.goodreads.com/book/show/4443485-the-flavor-bible?from_search=true&qid=hagsa09A8I&rank=1",
+    external: "https://www.goodreads.com/book/show/4443485-the-flavor-bible",
   },
   {
     title: "The Flower Recipe Book",
@@ -7646,7 +7646,7 @@ export default [
       [ "isbn10", "0300102259" ],
       [ "isbn13", "9780300102253" ],
     ],
-    external: "https://www.goodreads.com/book/show/6174210-the-follies-and-garden-buildings-of-ireland?from_search=true&qid=wXCsTy0RHD&rank=1",
+    external: "https://www.goodreads.com/book/show/6174210-the-follies-and-garden-buildings-of-ireland",
     txns: [
       [ "purchase", { date: "February 11, 2020", location: "William Stout Architectural Books", city: "San Francisco" } ],
     ],
@@ -8587,7 +8587,7 @@ export default [
       [ "isbn10", "0811876985" ],
       [ "isbn13", "9780811876988" ],
     ],
-    external: "https://www.goodreads.com/book/show/8221214-thirty-six-views-of-the-eiffel-tower?from_search=true&qid=EDAplA2e43&rank=2",
+    external: "https://www.goodreads.com/book/show/8221214-thirty-six-views-of-the-eiffel-tower",
     txns: [
       [ "purchase", { date: "February 1, 2020", location: "Green Apple Books", city: "San Francisco" } ],
     ],
@@ -8705,7 +8705,7 @@ export default [
       [ "isbn10", "0226061892" ],
       [ "isbn13", "9780226061894" ],
     ],
-    external: "https://www.goodreads.com/book/show/465459.Turner_and_the_Sublime?from_search=true&qid=KdTk4l7RCV&rank=1",
+    external: "https://www.goodreads.com/book/show/465459.Turner_and_the_Sublime",
     txns: [
       [ "purchase", { date: "January 5, 2020", location: "Dog Eared Books (Valencia)", city: "San Francisco" } ],
     ],
