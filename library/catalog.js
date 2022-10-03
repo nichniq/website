@@ -20,6 +20,65 @@ const template = {
 
 export default [
   {
+    title: "Art Of Japanese Paper",
+    subtitle: "Masks, Lanterns, Kites, Dolls, Origami",
+    ids: [
+      [ "isbn10", "2879390095" ],
+      [ "isbn13", "9782879390093" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1713552.Art_Of_Japanese_Paper",
+    txns: [
+      [ "purchase", { date: "September 21, 2022", location: "Stuff", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Grand Illusions",
+    ids: [
+      [ "isbn10", "0517410192" ],
+      [ "isbn13", "9780517410196" ],
+    ],
+    external: "https://www.goodreads.com/book/show/2566587-grand-illusions",
+    txns: [
+      [ "purchase", { date: "September 21, 2022", location: "Stuff", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Encyclopedia of Mysterious Places",
+    subtitle: "The Life and Legends of Ancient Sites Around the World",
+    ids: [
+      [ "isbn10", "0670827940" ],
+      [ "isbn13", "9780670827947" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1371595.Encyclopedia_of_Mysterious_Places",
+    txns: [
+      [ "purchase", { date: "September 21, 2022", location: "Stuff", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Vanishing Steam",
+    subtitle: "A Photographer's Odyssey Around the World",
+    ids: [
+      [ "isbn10", "0810934825" ],
+      [ "isbn13", "9780810934825" ],
+    ],
+    external: "https://www.goodreads.com/book/show/4171908-vanishing-steam",
+    txns: [
+      [ "purchase", { date: "September 21, 2022", location: "Stuff", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Gulistan",
+    subtitle: "Tales of Ancient Persia",
+    ids: [
+      [ "isbn10", "0877731098" ],
+      [ "isbn13", "9780877731092" ],
+    ],
+    external: "Gulistan: Tales of Ancient Persia",
+    txns: [
+      [ "purchase", { date: "September 21, 2022", location: "Stuff", city: "San Francisco" } ],
+    ],
+  },
+  {
     title: "Hair",
     subtitle: " Hairy Men in Gay Art",
     ids: [
