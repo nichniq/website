@@ -15,8 +15,8 @@ const template = {
 };
 
 // I shipped these books to Pullman so I won't be able to record them until later
-// [ "purchase", { date: "August 15, 2022", location: "Green Apple", city: "San Francisco" } ]
 // [ "purchase", { date: "September 15, 2022", location: "Bird & Beckett", city: "San Francisco" } ]
+// [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ] // 31 books
 
 export default [
   {
@@ -562,6 +562,226 @@ export default [
     external: "https://www.goodreads.com/book/show/297554.Jung",
     txns: [
       [ "purchase", { date: "August 17, 2022", location: "Community Thrift", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Baskets, Nets and Rope",
+    subtitle: "The Art of Survival",
+    txns: [
+      [ "purchase", { date: "August 15, 2022", location: "Green Apple", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Arthur Rackham",
+    subtitle: "Masterpieces of Art",
+    ids: [
+      [ "isbn10", "1783613629" ],
+      [ "isbn13", "9781783613625" ],
+    ],
+    external: "https://www.goodreads.com/book/show/26231159-arthur-rackham-masterpieces-of-art",
+    txns: [
+      [ "purchase", { date: "August 15, 2022", location: "Green Apple", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Jukebox",
+    subtitle: "The Golden Age",
+    ids: [
+      [ "isbn10", "0895810352" ],
+      [ "isbn13", "9780895810359" ],
+    ],
+    external: "https://www.goodreads.com/book/show/5135910-jukebox",
+    txns: [
+      [ "purchase", { date: "August 15, 2022", location: "Green Apple", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Ex Crucible",
+    subtitle: "The Passion of Incarcerated Artists",
+    ids: [
+      [ "isbn13", "9781954119123" ],
+    ],
+    external: "https://daylightbooks.org/products/ex-crucible-the-passion-of-incarcerated-artists",
+    txns: [
+      [ "purchase", { date: "August 15, 2022", location: "Green Apple", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "The Centaur’s Smile",
+    subtitle: "The Human Animal in Early Greek Art",
+    ids: [
+      [ "isbn10", "0300101635" ],
+      [ "isbn13", "9780300101638" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1225329.The_Centaur_s_Smile",
+    txns: [
+      [ "purchase", { date: "August 15, 2022", location: "Green Apple", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "The Natural History Book",
+    subtitle: "The Ultimate Visual Guide to Everything on Earth",
+    ids: [
+      [ "isbn10", "0744035015" ],
+      [ "isbn13", "9780744035018" ],
+    ],
+    external: "https://www.goodreads.com/book/show/56294426-smithsonian-natural-history",
+    txns: [
+      [ "purchase", { date: "August 15, 2022", location: "Green Apple", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Luigi Lucioni",
+    subtitle: "Modern Light",
+    ids: [
+      [ "isbn10", "0847869911" ],
+      [ "isbn13", "9780847869916" ],
+    ],
+    external: "https://www.goodreads.com/book/show/58892081-luigi-lucioni",
+    txns: [
+      [ "purchase", { date: "August 15, 2022", location: "Green Apple", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Adi Nes",
+    ids: [
+      [ "isbn10", "9657161568" ],
+      [ "isbn13", "9789657161562" ],
+    ],
+    external: "https://www.goodreads.com/book/show/11807760-adi-nes",
+    txns: [
+      [ "purchase", { date: "August 15, 2022", location: "Green Apple", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Gnomes",
+    ids: [
+      [ "isbn10", "0810909650" ],
+      [ "isbn13", "9780810909656" ],
+    ],
+    external: "https://www.goodreads.com/book/show/926908.Gnomes",
+    txns: [
+      [ "purchase", { date: "August 15, 2022", location: "Green Apple", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "The Face in the Lens",
+    subtitle: "Anonymous Photographs",
+    ids: [
+      [ "isbn10", "0520259831" ],
+      [ "isbn13", "9780520259836" ],
+    ],
+    external: "https://www.goodreads.com/book/show/6284706-the-face-in-the-lens",
+    txns: [
+      [ "purchase", { date: "August 15, 2022", location: "Green Apple", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Infinite Perspectives",
+    subtitle: "Two Thousand Years of Three-Dimensional Mapmaking",
+    ids: [
+      [ "isbn10", "1568981953" ],
+      [ "isbn13", "9781568981956" ],
+    ],
+    external: "https://www.goodreads.com/book/show/574880.Infinite_Perspectives",
+    txns: [
+      [ "purchase", { date: "August 15, 2022", location: "Green Apple", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Zones of Exclusion",
+    subtitle: "Pripyat and Chernobyl",
+    ids: [
+      [ "isbn10", "3882439211" ],
+      [ "isbn13", "9783882439212" ],
+    ],
+    external: "https://www.goodreads.com/book/show/542274.Zones_of_Exclusion",
+    txns: [
+      [ "purchase", { date: "August 15, 2022", location: "Green Apple", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Empty Quarter",
+    subtitle: "A Photographic Journey to the Heart of the Arabian Desert",
+    ids: [
+      [ "isbn10", "0810983818" ],
+      [ "isbn13", "9780810983816" ],
+    ],
+    external: "https://www.goodreads.com/book/show/6763585-empty-quarter",
+    txns: [
+      [ "purchase", { date: "August 15, 2022", location: "Green Apple", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "A Compendium of Collective Nouns",
+    subtitle: "From an Armory of Aardvarks to a Zeal of Zebras",
+    ids: [
+      [ "isbn10", "1452108234" ],
+      [ "isbn13", "9781452108230" ],
+    ],
+    external: "https://www.goodreads.com/book/show/17557454-a-compendium-of-collective-nouns",
+    txns: [
+      [ "purchase", { date: "August 15, 2022", location: "Green Apple", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Morbid Curiosities",
+    subtitle: "Collections of the Uncommon and the Bizarre",
+    ids: [
+      [ "isbn10", "1780678665" ],
+      [ "isbn13", "9781780678665" ],
+    ],
+    external: "https://www.goodreads.com/book/show/28926466-morbid-curiosities",
+    txns: [
+      [ "purchase", { date: "August 15, 2022", location: "Green Apple", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Visions of Adventure",
+    subtitle: "N. C. Wyeth and the Brandywine Artists",
+    ids: [
+      [ "isbn10", "0823056082" ],
+      [ "isbn13", "9780823056088" ],
+    ],
+    external: "https://www.goodreads.com/book/show/94952.Visions_of_Adventure",
+    txns: [
+      [ "purchase", { date: "August 15, 2022", location: "Green Apple", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Supreme Instants",
+    subtitle: "The Photography Of Edward Weston",
+    ids: [
+      [ "isbn10", "0821216317" ],
+      [ "isbn13", "9780821216316" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1523992.Supreme_Instants",
+    txns: [
+      [ "purchase", { date: "August 15, 2022", location: "Green Apple", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Mind Fields",
+    subtitle: "The Art of Jacek Yerka, The Fiction of Harlan Ellison",
+    ids: [
+      [ "isbn10", "1883398037" ],
+      [ "isbn13", "9781883398033" ],
+    ],
+    external: "https://www.goodreads.com/book/show/680473.Mind_Fields",
+    txns: [
+      [ "purchase", { date: "August 15, 2022", location: "Green Apple", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Waterworks",
+    subtitle: "A Photographic Journey through New York's Hidden Water System",
+    ids: [
+      [ "isbn10", "1568983883" ],
+      [ "isbn13", "9781568983882" ],
+    ],
+    external: "https://www.goodreads.com/book/show/93092.Waterworks",
+    txns: [
+      [ "purchase", { date: "August 15, 2022", location: "Green Apple", city: "San Francisco" } ],
     ],
   },
   {
