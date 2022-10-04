@@ -19,6 +19,188 @@ const template = {
 
 export default [
   {
+    title: "Taken by the Wind",
+    subtitle: "Vanishing Architecture of the West",
+    ids: [
+      [ "isbn10", "0821207091" ],
+      [ "isbn13", "9780821207093" ],
+    ],
+    external: "https://www.goodreads.com/book/show/4465229-taken-by-the-wind",
+    txns: [
+      [ "purchase", { date: "September 23, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Romanesque Architecture",
+    ids: [
+      [ "isbn10", "0810910241" ],
+      [ "isbn13", "9780810910249" ],
+    ],
+    external: "https://www.goodreads.com/book/show/4047711-romanesque-architecture",
+    txns: [
+      [ "purchase", { date: "September 23, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Santiago",
+    subtitle: "Saint of Two Worlds",
+    ids: [
+      [ "isbn10", "0826312748" ],
+      [ "isbn13", "9780826312747" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1041317.Santiago",
+    txns: [
+      [ "purchase", { date: "September 23, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Technical Drawing for Stage Design",
+    ids: [
+      [ "isbn10", "1847971512" ],
+      [ "isbn13", "9781847971517" ],
+    ],
+    external: "https://www.goodreads.com/book/show/29583870-technical-drawing-for-stage-design",
+    txns: [
+      [ "purchase", { date: "September 23, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Model Making",
+    subtitle: "A Basic Guide",
+    ids: [
+      [ "isbn10", "0393730425" ],
+      [ "isbn13", "9780393730425" ],
+    ],
+    external: "https://www.goodreads.com/book/show/772588.Model_Making",
+    txns: [
+      [ "purchase", { date: "September 23, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Untitled",
+    ids: [
+      [ "isbn10", "089381623X" ],
+      [ "isbn13", "9780893816230" ],
+    ],
+    external: "https://www.goodreads.com/book/show/134362.Diane_Arbus",
+    txns: [
+      [ "purchase", { date: "September 23, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Mallorca",
+    subtitle: "Island in Progress",
+    ids: [
+      [ "isbn10", "1590051815" ],
+      [ "isbn13", "9781590051818" ],
+    ],
+    external: "https://www.goodreads.com/book/show/2574315-mallorca",
+    txns: [
+      [ "purchase", { date: "September 23, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "The Architect's Brother",
+    ids: [
+      [ "isbn10", "0944092845" ],
+      [ "isbn13", "9780944092842" ],
+    ],
+    external: "https://www.goodreads.com/book/show/399360.The_Architect_s_Brother",
+    txns: [
+      [ "purchase", { date: "September 23, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Maske",
+    ids: [
+      [ "isbn10", "1597113530" ],
+      [ "isbn13", "9781597113533" ],
+    ],
+    external: "https://www.goodreads.com/book/show/28213624-phyllis-galembo",
+    txns: [
+      [ "purchase", { date: "September 23, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Kahn / Selesnick",
+    subtitle: "The Circular River: Panoramic Photographs from the Siberian Expedition 1944-46",
+    txns: [
+      [ "purchase", { date: "September 23, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+    ],
+    notes: "Related website about expedition: https://web.archive.org/web/20070701204816/http://www.kahnselesnick.com/cr_river/cr.htm",
+  },
+  {
+    title: "Garden Seats and Benches",
+    ids: [
+      [ "isbn10", "2909838439" ],
+      [ "isbn13", "9782909838434" ],
+    ],
+    external: "https://lccn.loc.gov/2001428052",
+    txns: [
+      [ "purchase", { date: "September 23, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Photography And Architecture",
+    subtitle: "1839—1939",
+    series: "",
+    ids: [
+      [ "isbn10", "0935112073" ],
+      [ "isbn13", "9780935112078" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1661519.Photography_And_Architecture_1839_1939",
+    txns: [
+      [ "purchase", { date: "September 23, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Delta West",
+    subtitle: "The Land and the People of the Sacramento-San Joaquin Delta",
+    ids: [
+      [ "lccn", "71103110" ],
+    ],
+    external: "https://lccn.loc.gov/71103110",
+    txns: [
+      [ "purchase", { date: "September 23, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Lighthouses of the World",
+    subtitle: "A History of Where Land Meets Sea",
+    ids: [
+      [ "isbn10", "0785811028" ],
+      [ "isbn13", "9780785811022" ],
+    ],
+    external: "https://www.goodreads.com/book/show/2001741.Lighthouses_of_the_World",
+    txns: [
+      [ "purchase", { date: "September 23, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "James Casebere",
+    subtitle: "The Spatial Uncanny",
+    ids: [
+      [ "isbn10", "8881583151" ],
+      [ "isbn13", "9788881583157" ],
+    ],
+    external: "https://www.goodreads.com/book/show/85619.James_Casebere",
+    txns: [
+      [ "purchase", { date: "September 23, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Cereal Drying Racks",
+    subtitle: "Culture and Typology of Wood Buildings in Europe and East Asia",
+    ids: [
+      [ "isbn10", "3035619301" ],
+      [ "isbn13", "9783035619300" ],
+    ],
+    external: "https://www.goodreads.com/book/show/56537554-cereal-drying-racks",
+    txns: [
+      [ "purchase", { date: "September 23, 2022", location: "William Stout Architectural Books", city: "San Francisco" } ],
+    ],
+  },
+  {
     title: "Art Of Japanese Paper",
     subtitle: "Masks, Lanterns, Kites, Dolls, Origami",
     ids: [
