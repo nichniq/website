@@ -14,10 +14,329 @@ const template = {
   notes: "",
 };
 
-// I shipped these books to Pullman so I won't be able to record them until later
-// [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ] // 31 books
-
 export default [
+  {
+    title: "Kashmir",
+    subtitle: "The Heavenly Valley",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "The Art of Gaman",
+    subtitle: "Arts and Crafts from the Japanese American Internment Camps 1942-1946",
+    ids: [
+      [ "isbn10", "1580086896" ],
+      [ "isbn13", "9781580086899" ],
+    ],
+    external: "https://www.goodreads.com/book/show/222424.The_Art_of_Gaman",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "Appalachia",
+    subtitle: "A Self-Portrait",
+    ids: [
+      [ "isbn10", "0917788206" ],
+      [ "isbn13", "9780917788208" ],
+    ],
+    external: "https://www.goodreads.com/book/show/2465568.Appalachia_a_Self_Portrait",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "Children of a Vanished World",
+    ids: [
+      [ "isbn10", "0520221877" ],
+      [ "isbn13", "9780520221871" ],
+    ],
+    external: "https://www.goodreads.com/book/show/2506293.Children_of_a_Vanished_World",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "Typewriter",
+    subtitle: "A Celebration of the Ultimate Writing Machine",
+    ids: [
+      [ "isbn10", "1454920785" ],
+      [ "isbn13", "9781454920786" ],
+    ],
+    external: "https://www.goodreads.com/book/show/28692092-typewriter",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "Cruising",
+    ids: [
+      [ "isbn10", "1576875830" ],
+      [ "isbn13", "9781576875834" ],
+    ],
+    external: "https://www.goodreads.com/book/show/11459630-cruising",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "The Architecture of the Indian Sultanates",
+    ids: [
+      [ "isbn10", "8185026750" ],
+      [ "isbn13", "9788185026756" ],
+    ],
+    external: "https://www.goodreads.com/book/show/6918761-the-architecture-of-the-indian-sultanates",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "Splendeurs Du Maroc",
+    ids: [
+      [ "isbn10", "2841100782" ],
+      [ "isbn13", "9782841100781" ],
+    ],
+    external: "https://www.goodreads.com/book/show/15583062-splendeurs-du-maroc",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "Silent Spaces",
+    subtitle: "The Last of the Great Aisled Barns",
+    ids: [
+      [ "isbn10", "0821220934" ],
+      [ "isbn13", "9780821220931" ],
+    ],
+    external: "https://www.goodreads.com/book/show/2795789-silent-spaces",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "Legacy",
+    subtitle: "The Preservation of Wilderness in New York City Parks",
+    ids: [
+      [ "isbn10", "1597111228" ],
+      [ "isbn13", "9781597111225" ],
+    ],
+    external: "https://www.goodreads.com/book/show/6948824-legacy",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "Jan Saudek",
+    subtitle: "Jubilations and Obsessions",
+    ids: [
+      [ "isbn10", "905621005X" ],
+      [ "isbn13", "9789056210052" ],
+    ],
+    external: "https://www.goodreads.com/book/show/2252905.Jan_Saudek",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "Steps to Water",
+    subtitle: "The Ancient Stepwells of India",
+    ids: [
+      [ "isbn10", "1568983247" ],
+      [ "isbn13", "9781568983240" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1234603.Steps_to_Water",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "The Early Louis Sullivan Building Photographs",
+    ids: [
+      [ "isbn10", "097097311X" ],
+      [ "isbn13", "9780970973115" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1338173.The_Early_Louis_Sullivan_Building_Photographs",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "The Superorganism",
+    subtitle: "The Beauty, Elegance, and Strangeness of Insect Societies",
+    ids: [
+      [ "isbn10", "0393067041" ],
+      [ "isbn13", "9780393067040" ],
+    ],
+    external: "https://www.goodreads.com/book/show/3426920-the-superorganism",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "Nature's Night Life",
+    ids: [
+      [ "isbn10", "0713721294" ],
+      [ "isbn13", "9780713721294" ],
+    ],
+    external: "https://www.goodreads.com/book/show/3929558-nature-s-night-life",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "Print Workshop",
+    subtitle: "Hand-Printing Techniques and Truly Original Projects",
+    ids: [
+      [ "isbn10", "0307586545" ],
+      [ "isbn13", "9780307586544" ],
+    ],
+    external: "https://www.goodreads.com/book/show/9960622-print-workshop",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: " Gathering Places",
+    subtitle: "Balinese Architecture — A Spiritual and Spatial Orientation",
+    ids: [
+      [ "isbn10", "9812329188" ],
+      [ "isbn13", "9789812329189" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1207521.Gathering_Places",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "Language of the Robe",
+    subtitle: "American Indian Trade Blankets",
+    ids: [
+      [ "isbn10", "0879054689" ],
+      [ "isbn13", "9780879054687" ],
+    ],
+    external: "https://www.goodreads.com/book/show/3775275-language-of-the-robe",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "Transparent Window Scenes Through the Year",
+    ids: [
+      [ "isbn10", "1782503250" ],
+      [ "isbn13", "9781782503255" ],
+    ],
+    external: "https://www.goodreads.com/book/show/29956526-transparent-window-scenes-through-the-year?ac=1&from_search=true&qid=sED5ZukObw&rank=1",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "Light Screens",
+    subtitle: "The Leaded Glass of Frank Lloyd Wright",
+    ids: [
+      [ "isbn10", "0847823059" ],
+      [ "isbn13", "9780847823055)" ],
+    ],
+    external: "https://www.goodreads.com/book/show/690476.Light_Screens?ac=1&from_search=true&qid=3jT1eP0d7d&rank=2",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "The Stones Of Venice",
+    ids: [
+      [ "isbn10", "0865652457" ],
+      [ "isbn13", "9780865652453" ],
+    ],
+    external: "https://www.goodreads.com/book/show/953991.Stones_of_Venice",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "Rubber Stamping",
+    subtitle: "Get creative with stamps, rollers and other printmaking techniques",
+    ids: [
+      [ "isbn10", "1780678657" ],
+      [ "isbn13", "9781780678658" ],
+    ],
+    external: "https://www.goodreads.com/book/show/28926465-rubber-stamping",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "Rivers of Life",
+    subtitle: "Southwest Alaska, the Last Great Salmon Fishery",
+    ids: [
+      [ "isbn10", "0893819670" ],
+      [ "isbn13", "9780893819675" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1641595.Rivers_of_Life",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "Slow",
+    subtitle: "Life in a Tuscan Town",
+    ids: [
+      [ "isbn10", "1599620723" ],
+      [ "isbn13", "9781599620725" ],
+    ],
+    external: "https://www.goodreads.com/book/show/6620321-slow",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "Here Be Dragons",
+    subtitle: "A Fantastic Bestiary",
+    ids: [
+      [ "isbn10", "069111689X" ],
+      [ "isbn13", "9780691116891" ],
+    ],
+    external: "https://www.goodreads.com/book/show/100465.Here_Be_Dragons",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "Arthur Wesley Dow and the American Arts & Crafts",
+    ids: [
+      [ "isbn10", "0810942178" ],
+      [ "isbn13", "9780810942172" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1966961.Arthur_Wesley_Dow_and_the_American_Arts_and_Crafts_Movement",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "Driftwood Shacks",
+    subtitle: "Anonymous Architecture Along the California Coast",
+    ids: [
+      [ "isbn10", "0936070803" ],
+      [ "isbn13", "9780936070803" ],
+    ],
+    external: "https://www.goodreads.com/book/show/42361398-driftwood-shacks",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
+  {
+    title: "Roads of Arabia",
+    subtitle: "Archaeology and History of the Kingdom of Saudi Arabia",
+    ids: [
+      [ "isbn10", "2757203959" ],
+      [ "isbn13", "9782757203958" ],
+    ],
+    external: "https://www.goodreads.com/book/show/13198267-roads-of-arabia",
+    txns: [
+      [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ],
+    ],
+  },
   {
     title: "Taken by the Wind",
     subtitle: "Vanishing Architecture of the West",
