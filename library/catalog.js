@@ -15,7 +15,6 @@ const template = {
 };
 
 // I shipped these books to Pullman so I won't be able to record them until later
-// [ "purchase", { date: "September 15, 2022", location: "Bird & Beckett", city: "San Francisco" } ]
 // [ "purchase", { date: "September 25, 2022", location: "Moe's", city: "Berkeley" } ] // 31 books
 
 export default [
@@ -121,6 +120,221 @@ export default [
     external: "https://www.radiusbooks.org/all-books/p/meghann-riepenhoff-ice",
     txns: [
       [ "purchase", { date: "September 18, 2022", location: "Fabulosa", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "The San Quentin Project",
+    ids: [
+      [ "isbn10", "1597114928" ],
+      [ "isbn13", "9781597114929" ],
+    ],
+    external: "https://www.goodreads.com/book/show/55183553-nigel-poor",
+    txns: [
+      [ "purchase", { date: "September 15, 2022", location: "Bird & Beckett", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "The Land of the Anka Bird",
+    subtitle: "A Journey Through the Turkic Heartlands",
+    ids: [
+      [ "isbn10", "0995756627" ],
+      [ "isbn13", "9780995756625" ],
+    ],
+    external: "https://www.goodreads.com/book/show/51618563-the-land-of-the-anka-bird",
+    txns: [
+      [ "purchase", { date: "September 15, 2022", location: "Bird & Beckett", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Migrations",
+    ids: [
+      [ "isbn10", "0893818917" ],
+      [ "isbn13", "9780893818913" ],
+    ],
+    external: "https://www.goodreads.com/book/show/905081.Migrations",
+    txns: [
+      [ "purchase", { date: "September 15, 2022", location: "Bird & Beckett", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "The Art of Tim Burton",
+    ids: [
+      [ "isbn10", "1935539078" ],
+      [ "isbn13", "9781935539070" ],
+    ],
+    external: "https://www.goodreads.com/book/show/44077510-the-art-of-tim-burton-standard-edition",
+    txns: [
+      [ "purchase", { date: "September 15, 2022", location: "Bird & Beckett", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Megaliths",
+    ids: [
+      [ "isbn10", "0821216163" ],
+      [ "isbn13", "9780821216163" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1784044.Megaliths",
+    txns: [
+      [ "purchase", { date: "September 15, 2022", location: "Bird & Beckett", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Missouri",
+    subtitle: "Images of Nature",
+    ids: [
+      [ "isbn10", "0929969316" ],
+      [ "isbn13", "9780929969312" ],
+    ],
+    external: "https://www.goodreads.com/book/show/3269506-missouri",
+    txns: [
+      [ "purchase", { date: "September 15, 2022", location: "Bird & Beckett", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Secret Corners of the World",
+    series: "National Geographic Special Publications",
+    ids: [
+      [ "isbn10", "0870444123" ],
+      [ "isbn13", "9780870444128" ],
+    ],
+    external: "https://www.goodreads.com/book/show/2513552.Secret_Corners_of_the_World",
+    txns: [
+      [ "purchase", { date: "September 15, 2022", location: "Bird & Beckett", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "God of Money",
+    ids: [
+      [ "isbn10", "9383145498" ],
+      [ "isbn13", "9789383145492" ],
+    ],
+    external: "https://www.goodreads.com/book/show/38217937-god-of-money",
+    txns: [
+      [ "purchase", { date: "September 15, 2022", location: "Bird & Beckett", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Atlas of the Visible Human Male",
+    subtitle: "Reverse Engineering of the Human Body",
+    ids: [
+      [ "isbn10", "0763703478" ],
+      [ "isbn13", "9780763703479" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1504415.Atlas_of_Visible_Human_Male_Paper",
+    txns: [
+      [ "purchase", { date: "September 15, 2022", location: "Bird & Beckett", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "The Masks",
+    subtitle: "A Picture Pantomime",
+    ids: [
+      [ "isbn10", "395242966X" ],
+      [ "isbn13", "9783952429662" ],
+    ],
+    external: "https://www.goodreads.com/book/show/54579090-the-masks",
+    txns: [
+      [ "purchase", { date: "September 15, 2022", location: "Bird & Beckett", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Car Crashes & Other Sad Stories",
+    ids: [
+      [ "isbn10", "3822864110" ],
+      [ "isbn13", "9783822864111" ],
+    ],
+    external: "https://www.goodreads.com/book/show/91676.Car_Crashes_Other_Sad_Stories",
+    txns: [
+      [ "purchase", { date: "September 15, 2022", location: "Bird & Beckett", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Skyline",
+    subtitle: "Israel From Above",
+    ids: [
+      [ "isbn10", "9650505342" ],
+      [ "isbn13", "9789650505349" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1816592.Skyline",
+    txns: [
+      [ "purchase", { date: "September 15, 2022", location: "Bird & Beckett", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "This Was San Francisco",
+    external: "https://www.goodreads.com/book/show/30287798-this-was-san-francisco",
+    txns: [
+      [ "purchase", { date: "September 15, 2022", location: "Bird & Beckett", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Past Tents",
+    subtitle: "The Way We Camped",
+    ids: [
+      [ "isbn10", "1597140392" ],
+      [ "isbn13", "9781597140393" ],
+    ],
+    external: "https://www.goodreads.com/book/show/269488.Past_Tents",
+    txns: [
+      [ "purchase", { date: "September 15, 2022", location: "Bird & Beckett", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Juneau",
+    subtitle: "A Book of Woodcuts",
+    ids: [
+      [ "isbn10", "0882400215" ],
+      [ "lccn", "73082791" ],
+    ],
+    external: "https://www.goodreads.com/book/show/22173387-juneau-a-book-of-woodcuts",
+    txns: [
+      [ "purchase", { date: "September 15, 2022", location: "Bird & Beckett", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Perpetual Mirage",
+    subtitle: "Photographic Narratives of the Desert West",
+    ids: [
+      [ "isbn10", "0810968207" ],
+      [ "isbn13", "9780810968202" ],
+    ],
+    external: "https://www.goodreads.com/book/show/2420106.Perpetual_Mirage",
+    txns: [
+      [ "purchase", { date: "September 15, 2022", location: "Bird & Beckett", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "A Book of Books",
+    ids: [
+      [ "isbn10", "0821227696" ],
+      [ "isbn13", "9780821227695" ],
+    ],
+    external: "https://www.goodreads.com/book/show/2538239.A_Book_of_Books",
+    txns: [
+      [ "purchase", { date: "September 15, 2022", location: "Bird & Beckett", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "Point Reyes and the San Andreas Fault Zone",
+    ids: [
+      [ "isbn10", "0979945305" ],
+      [ "isbn13", "9780979945304" ],
+    ],
+    external: "https://www.goodreads.com/book/show/13822269-point-reyes-and-the-san-andreas-fault-zone",
+    txns: [
+      [ "purchase", { date: "September 15, 2022", location: "Bird & Beckett", city: "San Francisco" } ],
+    ],
+  },
+  {
+    title: "The Sacred & Secular",
+    subtitle: "A Decade of Aerial Photography",
+    ids: [
+      [ "isbn10", "093364213X" ],
+      [ "isbn13", "9780933642133" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1646148.Sacred_and_Secular",
+    txns: [
+      [ "purchase", { date: "September 15, 2022", location: "Bird & Beckett", city: "San Francisco" } ],
     ],
   },
   {
