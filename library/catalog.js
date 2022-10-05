@@ -16,6 +16,77 @@ const template = {
 
 export default [
   {
+    title: "Central Oregon",
+    ids: [
+      [ "isbn10", "0764359452" ],
+      [ "isbn13", "9780764359453" ],
+    ],
+    external: "https://www.goodreads.com/book/show/51292820-central-oregon",
+    txns: [
+      [ "purchase", { date: "October 1, 2022", location: "Dudley's Bookshop Cafe", city: "Bend" } ],
+    ],
+  },
+  {
+    title: "Book of Celtic Verse",
+    subtitle: "A Treasury of Poetry, Dreams & Visions",
+    ids: [
+      [ "isbn10", "1786786656" ],
+      [ "isbn13", "9781786786654" ],
+    ],
+    external: "https://www.goodreads.com/book/show/58680356-book-of-celtic-verse",
+    txns: [
+      [ "purchase", { date: "October 1, 2022", location: "Pegasus Books of Bend", city: "Bend" } ],
+    ],
+  },
+  {
+    title: "England on Fire",
+    subtitle: "A Visual Journey Through Albion's Psychic Landscape",
+    ids: [
+      [ "isbn10", "1786784289" ],
+      [ "isbn13", "9781786784285" ],
+    ],
+    external: "https://www.goodreads.com/book/show/58585129-england-on-fire",
+    txns: [
+      [ "purchase", { date: "October 1, 2022", location: "Pegasus Books of Bend", city: "Bend" } ],
+    ],
+  },
+  {
+    title: "Pirates, Patriots, and Princesses",
+    subtitle: "The Art of Howard Pyle",
+    ids: [
+      [ "isbn10", "0486448320" ],
+      [ "isbn13", "9780486448329" ],
+    ],
+    external: "",
+    txns: [
+      [ "purchase", { date: "October 1, 2022", location: "Pegasus Books of Bend", city: "Bend" } ],
+    ],
+    notes: "",
+  },
+  {
+    title: "Pre-Raphaelite Vision",
+    subtitle: "Truth to Nature",
+    ids: [
+      [ "isbn10", "1854374990" ],
+      [ "isbn13", "9781854374998" ],
+    ],
+    external: "https://www.goodreads.com/book/show/776525.Pre_Raphaelite_Vision",
+    txns: [
+      [ "purchase", { date: "October 1, 2022", location: "Pegasus Books of Bend", city: "Bend" } ],
+    ],
+  },
+  {
+    title: "The Goblins of Labyrinth",
+    ids: [
+      [ "isbn10", "0810970554" ],
+      [ "isbn13", "9780810970557" ],
+    ],
+    external: "https://www.goodreads.com/book/show/14977.The_Goblins_of_Labyrinth",
+    txns: [
+      [ "purchase", { date: "October 1, 2022", location: "Pegasus Books of Bend", city: "Bend" } ],
+    ],
+  },
+  {
     title: "Kashmir",
     subtitle: "The Heavenly Valley",
     txns: [
