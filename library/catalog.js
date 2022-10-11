@@ -16,6 +16,31 @@ const template = {
 
 export default [
   {
+    title: "Harmony For Guitar",
+    ids: [
+      [ "isbn10", "0711923884" ],
+      [ "isbn13", "9780711923881" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1725782.Harmony_For_Guitar",
+    txns: [
+      [ "purchase", { date: "October 8, 2022", location: "Atom Heart", city: "Pullman" } ],
+    ],
+    notes: "Store closing sale, BOGO",
+  },
+  {
+    title: "The Guitar Grimoire",
+    subtitle: "Scales & Modes",
+    ids: [
+      [ "isbn10", "0825821711" ],
+      [ "isbn13", "0798408021719" ],
+    ],
+    external: "https://www.goodreads.com/book/show/402483.The_Guitar_Grimoire",
+    txns: [
+      [ "purchase", { date: "October 8, 2022", location: "Atom Heart", city: "Pullman" } ],
+    ],
+    notes: "Store closing sale, BOGO",
+  },
+  {
     title: "Central Oregon",
     ids: [
       [ "isbn10", "0764359452" ],
