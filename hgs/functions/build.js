@@ -47,7 +47,7 @@ function create_home() {
       periods: past_work.map((period => summary(period))),
       second_highlight: {
         ...summary(sited_works),
-        long: links.images("sited-forest-long.jpg"),
+        long: links.images("images2/sited-works_thumb.jpg"),
         wide: links.images("sited-forest-wide.jpg"),
       },
     })

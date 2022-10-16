@@ -211,7 +211,7 @@ bottle. These three became anthropomorphic surrogates in my
 export const sited_works = {
   title: 'Sited Works',
   id: 'sited-works',
-  thumbnail: { source: 'images2/spaceholds_forest-clearing_thumb.jpg' },
+  thumbnail: { source: 'images2/sited-works_thumb.jpg' },
   year: '1967–present',
   sculptures: [
     sculptures.clearing_space_hold_forest,

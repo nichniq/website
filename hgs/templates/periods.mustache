@@ -1,17 +1,21 @@
 <style>
   .grid { display: grid }
   .grid.periods {
-    grid-template-columns: repeat(3, min-content);
+    grid-template-columns: min-content 1fr min-content min-content;
     gap: 1rem;
-    justify-content: space-between;
+    justify-content: center;
     font-size: 0.6rem;
   }
   .grid.past {
     grid-template-columns: repeat(3, min-content);
     gap: 1rem;
+    grid-column: 3;
   }
 
-  .highlight2 { align-self: end; }
+  .highlight2 {
+    align-self: end;
+    grid-column: 4;
+  }
 
   .highlight img { width: calc(150px * 2.3) }
   .past img { width: 150px }
@@ -37,16 +41,25 @@
       justify-items: center;
     }
 
-    .grid.past {
-      grid-template-columns: repeat(3, minmax(100px, 1fr));
+    .grid.past,
+    .grid.highlight2 {
+      grid-column: unset;
     }
 
-    .long { display: none }
-    .wide { display: block }
+    .grid.past {
+      grid-template-columns: repeat(3, minmax(100px, 1fr));
+      grid-row: 2;
+    }
+    .grid.highlight2 {
+      grid-row: 3;
+    }
+
+    /*.long { display: none }
+    .wide { display: block }*/
 
     .highlight img { width: calc(150px * 3.2); max-width: 100% }
     .past img { max-width: 100% } /* get width from .grid.past */
-    .highlight2 img { width: calc(150px * 3.2); max-width: 100% }
+    /*.highlight2 img { width: calc(150px * 3.2); max-width: 100% }*/
   }
 </style>
 

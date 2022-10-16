@@ -48,8 +48,9 @@ body {
   text-shadow: 1px 1px #111;
   font-family: "Open Sans", sans-serif;
   padding: 2rem;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-auto-flow: row;
+  align-content: start;
   gap: 2rem;
 }
 
@@ -69,103 +70,34 @@ h1, h2, h3, h4, h5, h6,
   font-weight: 300;
 }
 
-/*#periods {
-  display: grid;
-  grid-template-columns: 300px 1fr 300px;
-  gap: 1rem;
-}
-
-@media (max-width: 1000px) {
-  #periods {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  #periods .highlight,
-  #periods .second-highlight {
-    flex: 0 0 300px;
-    margin: 0 auto;
-  }
-}
-
-#periods > .past {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-}
-
-#periods > .past > * {
-  flex: 0 0 135px;
-}
-
-#periods img {
-  object-position: center;
-  object-fit: cover;
-  aspect-ratio: 1 / 1;
-  width: 100%;
-}
-
-#periods a {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}*/
-
-/*#periods a:hover,
-#periods a:focus {
-  text-decoration: underline rgba(255, 255, 255, 0.75);
-}*/
-
-/*
-#periods a > h2 {
-  order: 1;
-  font-size: 13px;
-}
-
-#periods a > img {
-  order: 0;
-}*/
-
 /**
  * PERIOD
  */
 
 #period {
-  display: flex;
+  display: grid;
   gap: 2rem;
-  flex-wrap: wrap-reverse;
+  grid-template-columns: auto 350px;
 }
 
-/*#period a:hover,
-#period a:focus {
-  text-decoration: underline rgba(255, 255, 255, 0.75);
-}*/
+@media (max-width: 865px) {
+  #period {
+    grid-template-columns: 1fr;
+    grid-auto-flow: row;
+  }
 
-#period #text {
-  flex: 0 0 350px;
-}
-
-@media (max-width: 800px) {
   #period #text {
-    flex-grow: 1;
+    grid-row: 1;
+  }
+
+  #period #info {
+    text-align: center;
   }
 }
 
-#period #sculptures {
-  flex: 1 1 350px;
-}
-
-/*#period .sticky {
-  position: sticky;
-  top: 2rem;
-}*/
-
 #period #text .spaced {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-auto-flow: row;
   gap: 1rem;
 }
 
@@ -185,29 +117,24 @@ h1, h2, h3, h4, h5, h6,
   width: 100%;
 }
 
-@media (max-width: 700px) {
-  #period #info {
-    text-align: center;
-  }
-}
-
 #period .sculpture {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  /*gap: 0.5rem;*/
   align-items: center;
   text-align: center;
 }
 
 #period #sculptures .list {
   display: flex;
-  gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
+  margin: -0.5rem;
 }
 
 #period #sculptures .list > * {
   flex: 0 0 200px;
+  margin: 0.5rem;
 }
 
 #period img {
