@@ -1,3 +1,20 @@
+---
+
+- keep all receipts
+- must be simple + easy
+- not meant to be a perfect record
+- interesting record of your life and habits
+- full of interesting little info, like employee names
+- helpful for locating dates and places (as much as payments)
+- already physical
+- I'm imagining a little pouch
+- periodically, they're impaled onto two spikes aka the receipt holder
+  - could insert labels/markers between chunks for easier scanning later
+- periodically, they're bound and compressed (physically)
+  - rolled? flattened? vacuumed?
+
+---
+
 - opt into gameplay
 - starts out simple, just the story
 - if you never touch it, it will run
