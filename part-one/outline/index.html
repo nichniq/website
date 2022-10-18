@@ -1,0 +1,17 @@
+<!doctype html>
+
+<title>Part One</title>
+
+<body></body>
+
+<script type="module">
+  import gingko from "./scripts/import_gingko.js";
+
+  const publish = obj => Object.entries(obj).forEach(([k,v]) => window[k] = v);
+  const print = obj => Object.entries(obj).forEach(([k,v]) => console.log(k, v));
+
+  const { origin, registry, generations } = await gingko("./gingko-export.json");
+
+  publish({ origin, registry, generations });
+  print({ origin, registry, generations });
+</script>
