@@ -2,11 +2,38 @@
 
 <title>Part One</title>
 
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  ol {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+
+  .outline {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-auto-flow: column;
+    overflow-y: hidden;
+  }
+
+  .outline li {
+    overflow-y: scroll;
+  }
+</style>
+
 <body></body>
 
 <script type="module">
+  import { tags } from "/modules/element.js";
   import gingko from "./scripts/import_gingko.js";
 
+  const { ol, li, textarea, div } = tags;
   const publish = obj => Object.entries(obj).forEach(([k,v]) => window[k] = v);
   const print = obj => Object.entries(obj).forEach(([k,v]) => console.log(k, v));
 
@@ -14,4 +41,24 @@
 
   publish({ origin, registry, generations });
   print({ origin, registry, generations });
+
+  const list_to_ui = (items, attrs) => ol(
+    items.map(x => li(x)),
+    attrs
+  );
+  const node_to_ui = node => div(
+    textarea(node.content, { readonly: true }),
+    { class: "node", "data-id": node.id, "data-parent-id": node.parent_id },
+  );
+  const generation_to_ui = generation => list_to_ui(
+    generation.map(node => node_to_ui(node)),
+    { class: "generation" },
+  );
+  const generations_to_ui = generations => list_to_ui(
+    generations.map(gen => generation_to_ui(gen)),
+    { class: "outline" },
+  );
+
+  const [ ui ] = generations_to_ui(generations);
+  document.body.append(ui);
 </script>
