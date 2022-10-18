@@ -32,6 +32,7 @@
 <script type="module">
   import { tags } from "/modules/element.js";
   import gingko from "./scripts/import_gingko.js";
+  import render_md from "./scripts/markdown.js";
 
   const { ol, li, textarea, div } = tags;
   const publish = obj => Object.entries(obj).forEach(([k,v]) => window[k] = v);
@@ -47,7 +48,7 @@
     attrs
   );
   const node_to_ui = node => div(
-    textarea(node.content, { readonly: true }),
+    render_md(node.content),
     { class: "node", "data-id": node.id, "data-parent-id": node.parent_id },
   );
   const generation_to_ui = generation => list_to_ui(
