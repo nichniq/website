@@ -5,25 +5,35 @@
 <style>
   body {
     margin: 0;
-    padding: 0;
   }
 
-  ol {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
+  *:first-child {
+    margin-top: 0;
+  }
+
+  *:last-child {
+    margin-bottom: 0;
   }
 
   .outline {
     height: 100vh;
-    width: 100vw;
-    display: grid;
-    grid-auto-flow: column;
-    overflow-y: hidden;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 15px;
   }
 
-  .outline li {
-    overflow-y: scroll;
+  .generation {
+    flex: 0 0 300px;
+    overflow: hidden scroll;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .node {
+    background-color: rgba(255, 255, 255, 0.5);
   }
 </style>
 
@@ -43,19 +53,15 @@
   publish({ origin, registry, generations });
   print({ origin, registry, generations });
 
-  const list_to_ui = (items, attrs) => ol(
-    items.map(x => li(x)),
-    attrs
-  );
   const node_to_ui = node => div(
     render_md(node.content),
     { class: "node", "data-id": node.id, "data-parent-id": node.parent_id },
   );
-  const generation_to_ui = generation => list_to_ui(
+  const generation_to_ui = generation => div(
     generation.map(node => node_to_ui(node)),
     { class: "generation" },
   );
-  const generations_to_ui = generations => list_to_ui(
+  const generations_to_ui = generations => div(
     generations.map(gen => generation_to_ui(gen)),
     { class: "outline" },
   );

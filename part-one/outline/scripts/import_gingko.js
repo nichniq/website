@@ -12,5 +12,5 @@ import descendency from "./descendency.js";
 export default async function import_gingko(filepath) {
   const fetch_json = path => fetch(path).then(response => response.json());
   const children = await fetch_json(filepath);
-  return descendency({ children });
+  return descendency({ content: "# Part One", children });
 }
