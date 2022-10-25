@@ -16,6 +16,63 @@ const template = {
 
 export default [
   {
+    title: "Wyeth at Kuerners",
+    ids: [
+      [ "isbn10", "0395219906" ],
+      [ "isbn13", "9780395219904" ],
+    ],
+    external: "https://www.goodreads.com/book/show/634065.Wyeth_at_Kuerners",
+    txns: [
+      [ "purchase", { date: "October 18, 2022", location: "Last Word Books", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Never Let a Fool Kiss You or a Kiss Fool You",
+    ids: [
+      [ "isbn10", "0670878278" ],
+      [ "isbn13", "9780670878277" ],
+      [ "lccn", "" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1445888.Never_Let_A_Fool_Kiss_You_Or_A_Kiss_Fool_You",
+    txns: [
+      [ "purchase", { date: "October 18, 2022", location: "Last Word Books", city: "Olympia" } ],
+    ],
+    notes: "Advanced uncorrected proofs, not for sale",
+  },
+  {
+    title: "Dreads",
+    ids: [
+      [ "isbn10", "157965150X" ],
+      [ "isbn13", "9781579651503" ],
+    ],
+    external: "https://www.goodreads.com/book/show/170967.Dreads",
+    txns: [
+      [ "purchase", { date: "October 18, 2022", location: "Last Word Books", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Adventure with Impossible Objects",
+    ids: [
+      [ "isbn10", "1886155011" ],
+      [ "isbn13", "9781886155015" ],
+    ],
+    external: "https://www.goodreads.com/book/show/147495.Adventure_with_Impossible_Objects",
+    txns: [
+      [ "purchase", { date: "October 18, 2022", location: "Last Word Books", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Roadside Geology of Washington",
+    ids: [
+      [ "isbn10", "0878426779" ],
+      [ "isbn13", "9780878426775" ],
+    ],
+    external: "https://www.goodreads.com/book/show/35415142-roadside-geology-of-washington",
+    txns: [
+      [ "purchase", { date: "October 18, 2022", location: "Last Word Books", city: "Olympia" } ],
+    ],
+  },
+  {
     title: "Harmony For Guitar",
     ids: [
       [ "isbn10", "0711923884" ],
