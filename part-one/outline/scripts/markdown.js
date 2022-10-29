@@ -21,7 +21,8 @@ const html_to_dom = html => dom_parser.parseFromString(html, "text/html");
  * library or creating an new element, assigning its `innerHTML`, and then
  * returning its children.)
  */
-export default function render_md(markdown = "") {
-  const dom = html_to_dom(sanitize_html(parse_md(markdown)));
+export default function render_md(markdown = "", santitized = true) {
+  const html = parse_md(markdown);
+  const dom = html_to_dom(santitized ? sanitize_html(html) : html);
   return [ ...dom.body.children ];
 }
