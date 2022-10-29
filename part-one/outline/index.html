@@ -35,6 +35,10 @@
   .node {
     background-color: rgba(255, 255, 255, 0.5);
   }
+
+  .node:hover {
+    background-color: rgba(255, 255, 200, 0.5);
+  }
 </style>
 
 <body></body>
@@ -48,19 +52,23 @@
   const publish = obj => Object.entries(obj).forEach(([k,v]) => window[k] = v);
   const print = obj => Object.entries(obj).forEach(([k,v]) => console.log(k, v));
 
-  const { origin, registry, generations } = await gingko("./gingko-export.json");
+  const {
+    origin, registry, ids, generations, ancestors, descendants, lineage
+  } = await gingko("./gingko-export.json");
 
-  publish({ origin, registry, generations });
-  print({ origin, registry, generations });
+  publish({ origin, registry, generations, ancestors, descendants });
+  print({ origin, registry, generations, ancestors, descendants });
 
   const node_to_ui = node => div(
-    render_md(node.content),
-    { class: "node", "data-id": node.id, "data-parent-id": node.parent_id },
+    render_md(node.content, false),
+    { class: "node", "data-id": registry.get(node) },
   );
+
   const generation_to_ui = generation => div(
-    generation.map(node => node_to_ui(node)),
+    generation.map(id => node_to_ui(ids[id])),
     { class: "generation" },
   );
+
   const generations_to_ui = generations => div(
     generations.map(gen => generation_to_ui(gen)),
     { class: "outline" },
@@ -68,4 +76,10 @@
 
   const [ ui ] = generations_to_ui(generations);
   document.body.append(ui);
+
+  ui.addEventListener('click', event => {
+    const node = event.target.closest(".node");
+    const { id } = node.dataset;
+    console.log(lineage(id));
+  });
 </script>

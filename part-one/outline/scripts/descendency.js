@@ -1,57 +1,54 @@
-/**
- * This function take a tree, mutates it, and returns an extended access API.
- *
- * A tree is represented by its root node. A tree node is an object with the
- * property `children` which is an array of tree nodes. Terminating nodes have
- * no children. Nodes may have additional properties.
- *
- * This function mutates each node by adding (or overriding) `id` and
- * `parent_id` (if provided).
- *
- * It returns a number of related ways to access the data:
- *
- * - `origin` : the root node
- * - `registry` : an object registry that maps ID to node object
- * - `generations` : a list of each level's nodes in the tree
- *
- * It is called a "descendency" as a generalization of the "tree" metaphor.
- * Other names for this structure/pattern include hierarchies, pyramids, rivers,
- * composition.
- */
 export default function descendency(origin) {
-  const registry = {};
-  const generations = [];
+  const registry = new Map(); // { node -> ID }
+  const ids = {}; // { ID -> node }
+  const ancestors = {}; // { ID -> parent chain } - [0] parent, [1] is grand-pt
+  const descendants = {}; // { ID => child levels } - [0] children, [1] grand-cn
 
-  function process_node(node, depth, parent_id) {
-    // 1. add a unique ID to the node
-    node.id = window.crypto.randomUUID();
+  function process_node(node, parent_chain) {
+    const id = window.crypto.randomUUID();
 
-    // 2. add the parent's ID, if provided
-    if (parent_id != null) {
-      node.parent_id = parent_id;
-    }
-
-    // 3. register the node with its ID
-    registry[node.id] = node;
-
-    // 4. if we haven't started recording nodes for the generation, then start
-    if (generations.length === depth) {
-      generations[depth] = [];
-    }
-
-    // 5. add the node to its generation from the root
-    generations[depth].push(node);
-
-    // 6. for each of the node's children, repeat this process
     for (const child of node.children || []) {
-      process_node(child, depth + 1, node.id);
+      process_node(child, [ id, ...parent_chain ]);
     }
 
-    // 7. return the mutated node (and any mutated children)
-    return node;
+    registry.set(node, id);
+    ids[id] = node;
+    ancestors[id] = parent_chain;
+
+    if (descendants[id] == null) {
+      descendants[id] = [ [] ];
+    }
+
+    parent_chain.forEach((parent_id, depth) => {
+      if (descendants[parent_id] == null) {
+        descendants[parent_id] = [];
+      }
+
+      if (descendants[parent_id][depth] == null) {
+        descendants[parent_id][depth] = [];
+      }
+
+      descendants[parent_id][depth].push(id);
+    });
   }
 
-  process_node(origin, 0);
+  process_node(origin, []);
 
-  return { origin, registry, generations };
+  return {
+    origin,
+    registry,
+    ids,
+    ancestors,
+    descendants,
+    generations: descendants[registry.get(origin)],
+    lineage: id => [ ancestors[id].reverse(), id, descendants[id][0][0] || [] ].flat(),
+  };
 }
+
+
+
+
+
+
+
+
