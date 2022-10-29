@@ -80,6 +80,12 @@
   ui.addEventListener('click', event => {
     const node = event.target.closest(".node");
     const { id } = node.dataset;
-    console.log(lineage(id));
+    const [ root, ...eldests ] = lineage(id);
+
+    for (const first_id of eldests) {
+      const selector = `[data-id="${first_id}"]`;
+      const first = document.querySelector(selector);
+      first.scrollIntoView({ behavior: "smooth" })
+    }
   });
 </script>
