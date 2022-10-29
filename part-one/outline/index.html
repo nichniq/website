@@ -85,9 +85,9 @@
 
   ui.addEventListener('click', event => {
     const node = event.target.closest(".node");
+    if (node == null) return;
     const { id } = node.dataset;
     const [ root, ...eldests ] = lineage(id);
-    console.log(id, root, ...eldests);
 
     for (const eldest_id of eldests) {
       const first = elements[eldest_id];

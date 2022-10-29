@@ -41,7 +41,11 @@ export default function descendency(origin) {
     ancestors,
     descendants,
     generations: descendants[registry.get(origin)],
-    lineage: id => [ ancestors[id].reverse(), id, descendants[id][0][0] || [] ].flat(),
+    lineage: id => [
+      ...ancestors[id].slice().reverse(),
+      id,
+      ...descendants[id].map(x => x[0] || []).flat()
+    ],
   };
 }
 
