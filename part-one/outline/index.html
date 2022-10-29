@@ -55,14 +55,20 @@
   const {
     origin, registry, ids, generations, ancestors, descendants, lineage
   } = await gingko("./gingko-export.json");
+  const elements = {};
 
-  publish({ origin, registry, generations, ancestors, descendants });
-  print({ origin, registry, generations, ancestors, descendants });
+  publish({ elements, origin, registry, generations, ancestors, descendants });
+  print({ elements, origin, registry, generations, ancestors, descendants });
 
-  const node_to_ui = node => div(
-    render_md(node.content, false),
-    { class: "node", "data-id": registry.get(node) },
-  );
+  const node_to_ui = node => {
+    const id = registry.get(node);
+    const [ element ] = div(
+      render_md(node.content, false),
+      { class: "node", "data-id": id }
+    );
+    elements[id] = element;
+    return element;
+  };
 
   const generation_to_ui = generation => div(
     generation.map(id => node_to_ui(ids[id])),
@@ -81,10 +87,10 @@
     const node = event.target.closest(".node");
     const { id } = node.dataset;
     const [ root, ...eldests ] = lineage(id);
+    console.log(id, root, ...eldests);
 
-    for (const first_id of eldests) {
-      const selector = `[data-id="${first_id}"]`;
-      const first = document.querySelector(selector);
+    for (const eldest_id of eldests) {
+      const first = elements[eldest_id];
       first.scrollIntoView({ behavior: "smooth" })
     }
   });
