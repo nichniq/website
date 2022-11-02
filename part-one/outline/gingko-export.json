@@ -232,12 +232,7 @@
             "content": "# Fernborn performance",
             "children": [
               {
-                "content": "# New Ferborn music\n\n## Melody, soloist\n\n- They're people reaching for the stars\n- The individualism is praised, everyone wants to be a soloist\n\n## Instrumentation\n\n- Probably evolution of former instruments\n- Maybe rhythms can be transformed into \"beats\"\n  - Queues from electronic music?\n  - Wisps used to power machines?\n    - People focus on the melody part so the rhythm pre-determined\n    - They're they're more detached from the act of playing the drone, forget its significance\n- Maybe pitched percussion comes out of non-pitched (e.g. marimbas)\n  - Dreamscapes use droning minimalism like [Steve Reich](https://www.youtube.com/watch?v=RaYvMwQd3cs)\n- Orchestras standardize instruments, allow soloist performance",
-                "children": [
-                  {
-                    "content": ""
-                  }
-                ]
+                "content": "# New Ferborn music\n\n## Melody, soloist\n\n- They're people reaching for the stars\n- The individualism is praised, everyone wants to be a soloist\n\n## Instrumentation\n\n- Probably evolution of former instruments\n- Maybe rhythms can be transformed into \"beats\"\n  - Queues from electronic music?\n  - Wisps used to power machines?\n    - People focus on the melody part so the rhythm pre-determined\n    - They're they're more detached from the act of playing the drone, forget its significance\n- Maybe pitched percussion comes out of non-pitched (e.g. marimbas)\n  - Dreamscapes use droning minimalism like [Steve Reich](https://www.youtube.com/watch?v=RaYvMwQd3cs)\n- Orchestras standardize instruments, allow soloist performance"
               },
               {
                 "content": "# Old Fernborn music\n\n## Drone\n\n- They're people of the earth\n- They hear the slow churn at the center of the earth\n- Rhythm within the drone\n  - Percussive instrument, monotone\n- Drone as echo of ancestors, the persistence of their influence\n- Formal structures give foundation for accompaniment\n\n## Styles and Instrumentation\n\n- Indian ([ektara](https://www.youtube.com/watch?v=pL9kXU7VlmQ))\n- Native American ([drone flute](https://www.youtube.com/watch?v=NRBx5NqysKs&t=651))\n- Aboriginal Australians ([digeridoo](https://www.youtube.com/watch?v=yG9ZX1FS20A))\n- Scandinavian ([taglharpe](https://www.youtube.com/watch?v=muRr8WqrU48))\n- Medieval ([Hurdy-gurdy](https://www.youtube.com/watch?v=bvNZeh6f8vE))"
@@ -394,12 +389,7 @@
                 "content": "# Song\n\nThroughout their widespread trade routes, the Riverspun have gathered many techniques in arts, design, and engineering. They have adopted a culture of apprenticeship where young citizens spend periods of time on land, working for craftspeople and learning their skills. As a result, they produce fine crafts and many excel in the arts.\n\n<figure>\n  ![A spirited young person with an easy expression holds a large guitar](https://www.filepicker.io/api/file/kKZvvrBASyyuqOL5Ocz3)\n  <figcaption>\n    <cite>[Conner Fawcett](https://www.instagram.com/p/BgUtsZ2ltDg/)</cite>\n  </figcaption>\n</figure>"
               },
               {
-                "content": "# Riverspun music\n\n* Use waterwheels to power instruments (drones)\n* A lot of queues from birds, birdsong\n* Balance of traditional and inspired/influenced instruments",
-                "children": [
-                  {
-                    "content": ""
-                  }
-                ]
+                "content": "# Riverspun music\n\n* Use waterwheels to power instruments (drones)\n* A lot of queues from birds, birdsong\n* Balance of traditional and inspired/influenced instruments"
               },
               {
                 "content": "# Stringed instruments\n\nLike their clothes, the Riverspun have mastery over strings when it comes to instruments.\n\nAt times bowed, at times plucked or strummed, at times hammered. Boats often have built-in instruments.\n\n![](https://www.filepicker.io/api/file/LzK83YTaTVWXt7hCNTaY)\n\nhttps://www.youtube.com/watch?v=iLZQuO_e3Hs"
@@ -454,9 +444,6 @@
             "content": "Snail racing"
           }
         ]
-      },
-      {
-        "content": ""
       }
     ]
   },
@@ -500,9 +487,6 @@
         "content": "# Browser as IDE / input device\n\n*Building upon Firefix via its extension API*\n\n* Use the browser to:\n  * Render local files\n  * Browse the world-wide-web\n  * Control tools and UIs\n\n\n* A browser like Firefox allows us to extend functionality via:\n  * Bookmarks + bookmarklets\n  * Toolbars\n  * Extensions\n  * Plugins\n\nThe important artifact is the independent data I collect and how it's defined, organized, and stored\n  * The browser plugs into me, not the other way around\n  * Other things may one day plug into the same system\n  * Multiple browsers even, if they access/modify the same data",
         "children": [
           {
-            "content": ""
-          },
-          {
             "content": "# Incorporating webpages\n\n**Make a copy**\n\n- Scrape (makes a local copy of the site)\n- Transform (automatically extracts the good stuff)\n- Confirm (quickly review and edit by human)\n\n**Make a citation**\n\n- Create an entry/citation\n- Link the source, timestamp, and copy\n\n**Add metadata**\n\n- Add to a collection\n  - To read\n  - Date(s) read\n  - Examples\n  - Source material\n  - Domain\n\n**Pull quotation**\n\n* Highlight quotation\n* Automatically generate citation with link\n\n**Exporting**\n\n* Transform into flat list of bookmarks for browsers\n* Transform into UI to link to local files (`file:///`)"
           },
           {
@@ -539,9 +523,6 @@
           },
           {
             "content": "# Subcomponents\n\n- Organ\n- Tissue\n- Cell\n- Organelle\n- Gear\n- Machine"
-          },
-          {
-            "content": ""
           }
         ]
       },
@@ -600,9 +581,6 @@
         "content": "# Curses\n\n## Trinity\n\n- Gray: Blood, inheritance\n- Lyric: Beauty, image\n- Haven: Bonds, independence\n\n## Healing\n\nSince healing is another major component of the game, curses are perhaps one of the things that can be healed and integrated.",
         "children": [
           {
-            "content": ""
-          },
-          {
             "content": "# Kinds of curses\n\n- **Original sin** and **inheritance**\n  - Blemishes passed on by ancestors\n- **Lessons**\n  - e.g. *Holes* or *Beauty and the Beast*\n  - Punishment for a wrongdoing that can be redeemed\n- **Cursed objects**\n  - e.g. shrunken head or haunted houses\n  - Objects possessed by malevolent forces\n- **Reincarnation**\n  - A repeating cycle that may one day be broken\n- **Manifestation**\n  - e.g. Negative things you believe, self-fulfilling prophecies\n  - Making true the things you think or believe\n- **Zero sum** like the Cursed Ring from Final *Fantasy*: Price paid for something gained, positive and negative balanced\n- **Deals with the devil**\n  - Something gained but with a sinister twist or catch\n- **Life**\n  - I didn't ask to be born\n- **Knowledge**\n  - Information that cannot be unlearned\n- **Broken oaths**\n  - Misery brought upon by a breach of contract\n- **Bad luck**\n  - e.g breaking a mirror\n  - Superstitious belief bringing misfortune\n- **Trauma**\n  - Involuntary reaction echoing from past events\n- **Personality traits**\n  - e.g. perfectionism\n  - Positive gifts that has a dark sides\n- **Reputation**\n  - e.g. Image, identity\n  - A self-imposed standard to uphold\n- **Fate**\n  - A destiny you cannot change, forces outside your control"
           }
         ]
@@ -642,12 +620,6 @@
     "children": [
       {
         "content": "# Narrative continuity, reverse foreshadowing, destiny\n\nIf we limit direct agency during certain \"cinematic\" moments (conversations, interactions), then we'd be able to play with time / characters interacting across time.\n\nThere's an interesting element with destiny/prophecy. If you build your character one way in the present moment, when you go back in time, it moves in the direction of your choice so you see it in its infancy. (e.g. If you choose the path of botany, when you go back in time, you'll encounter memories that involved plants/botany; they show the background / lead up / significance of your choice.)"
-      },
-      {
-        "content": ""
-      },
-      {
-        "content": ""
       },
       {
         "content": "# Onomancy + name signaling\n\n- Names in game are nouns\n- In some cultures, certain names are taboo/off-limits\n- Big concepts like Beauty, Memory, Hope are seen as bold\n  - Reserved for upper class / \"people destined to do great things\"\n- Imagine a conversation where someone lower class has one of these bold names and the rich kids are making fun of them (they're \"trying to look fancier than they are\"). As a rebuttable: \"You'd wish you had a name like mine. The greatest mystery you'll ever ponder in your life is why vines choke other plants to reach the sun\" (if their name is Morning Glory)"
@@ -712,9 +684,6 @@
           },
           {
             "content": "# Dreams\n\n*medium*\n\n- Part One\n  - Pull intention out of dream, code into Wisp\n- Sequel\n  - Apply Haven's knowledge to inspire and recruit all kinds of symbionts\n  - Manifest dream visions\n  - Realize your problems lay with humans\n    - Must apply leadership to society, can't rely on dream magic"
-          },
-          {
-            "content": ""
           }
         ]
       },
@@ -765,9 +734,6 @@
       },
       {
         "content": "# Image and expectation\n\n- Lyric cares a lot about their image and\n- Aware of the expectations put on them from many angles\n  - Put in a lot of effort to meet all expectations\n  - Compensation for being in the closet?\n- Optimizes for looking good / keeping up appearances\n  - Lessons and tools along the way but ultimately harmful"
-      },
-      {
-        "content": ""
       },
       {
         "content": "# Lyric themes\n\n- you\n- shifting\n- rivers\n- lens\n- perspective\n\n\n- Curses, superstitious\n- Conservative folk value racial purity\n  - i.e. Bigger deal in Delta than on River (source of bullying)\n  - Seen as \"diluting\" (or even giving away) the inherent power of race\n- Oaths?\n  - Breaking oaths brings curses\n  - Explains importance of marriage\n  - Is it too close to Haven's contracts?\n  - Fairies have a lot of pacts\n- Work families\n- Accessibility\n",
@@ -1007,15 +973,7 @@
         ]
       },
       {
-        "content": "# Windtamed cuisine\n\n## After conquest\n\nIslands are primarily agricultural producers for the mainland Empire.\n\n* Imperial\n  * Restrictive\n  * Kosher, Hillal\n* Islands\n  * Simple, almost ritual in quality\n  * Steak and potatoes, temple food\n\n## Before conquest\n\n* Communal gardens\n* Forest stewardship\n* Foraging\n* Vegetarian",
-        "children": [
-          {
-            "content": ""
-          },
-          {
-            "content": ""
-          }
-        ]
+        "content": "# Windtamed cuisine\n\n## After conquest\n\nIslands are primarily agricultural producers for the mainland Empire.\n\n* Imperial\n  * Restrictive\n  * Kosher, Hillal\n* Islands\n  * Simple, almost ritual in quality\n  * Steak and potatoes, temple food\n\n## Before conquest\n\n* Communal gardens\n* Forest stewardship\n* Foraging\n* Vegetarian"
       },
       {
         "content": "# Types of islands\n\n- Islands that are accessible during low tide\n- Agricultural islands\n- Spiritual islands\n- Pirate, smuggling islands\n- Wild/haunted islands\n- Imperial islands\n- Trade islands"
@@ -1171,18 +1129,10 @@
         "content": "# Homelessness\n\nI've imagined Haven being homeless for a while, but lately I've wondered whether it would be better for Lyric (during their wandering phase).\n\nMy recent exchange with Aaron Leighton made me realize that the spirits also are dealing with homeless and forced relocation.\n\nThis is a topic I want to take seriously and respectfully. I haven't thought very much yet about the specific ways I want to explore it in the game yet.\n\nInspiration:\n\n- [Spirit City Toronto](https://www.aaronleighton.com/books#/spirit-city-toronto/)\n- [Shelter](https://www.notion.so/Shelter-f36b0f98eb65452e8b9a41816a046c88)\n- Bren\n- Homeless folk in NY and SF\n- Lady in the van from church"
       },
       {
-        "content": ""
-      },
-      {
         "content": "# Healing\n\nI expect healing to have a major role across plot and gameplay.\n* **Personal**\n  * Physical: disease, physical trauma\n  * Emotional: emotional trauma, abuse\n  * Mental: addiction, greed\n  * Spiritual: hopelessness, simulacra\n* **Societal**: discrimination, infrastructure\n  * Generational: reparations, genocide\n* **Environmental**: agriculture, deforestation",
         "children": [
           {
-            "content": "# Healer's Journey\n\nAlternative to,\n* Hero's Journey\n* Fool's Journey (tarot)\n* Twelve Stages of Healing (network care)\n* Five Stages of Grief\n\nIt is the journey of healing oneself in order to heal others.",
-            "children": [
-              {
-                "content": ""
-              }
-            ]
+            "content": "# Healer's Journey\n\nAlternative to,\n* Hero's Journey\n* Fool's Journey (tarot)\n* Twelve Stages of Healing (network care)\n* Five Stages of Grief\n\nIt is the journey of healing oneself in order to heal others."
           },
           {
             "content": "# Core wounds\n\n- Core wounds\n- Keep hurting you in new ways, different faces, until healed\n- Through their healing we gain new perspectives and abilities\n- Without the wound, those lessons wouldn't have been learned\n- Curses as leading to / required by growth\n- Generational wounds, inheritance of curses"
@@ -1237,12 +1187,7 @@
         "content": "# Labyrinths\n\nThe inside of one is just the outside of another."
       },
       {
-        "content": "# Tuning in, alignment\n\n**Word cluster**\n\n- Frequency\n- Tuning\n- Adjusting\n- Synchronizing\n- Aligning\n- Coordinating\n- Rhythm\n- Calibration\n- Timing\n\n**Physical examples**\n\n- Finding you rhythm while exercising: your body's internal speed vs how hard you're controlling it\n- Matching or interacting with someone else's pace in a race\n- Orchestras coordinating around a conductor\n- Partners dancing\n\n**Tuning in**\n\n- Tuning into your body / the world around you\n- Tune into smell\n- Tune into a certain frequency\n  - Sprinting vs resting vs sustaining\n- Mindfulness is so not about the mind, it's tuning away from your mind and into your whole body",
-        "children": [
-          {
-            "content": ""
-          }
-        ]
+        "content": "# Tuning in, alignment\n\n**Word cluster**\n\n- Frequency\n- Tuning\n- Adjusting\n- Synchronizing\n- Aligning\n- Coordinating\n- Rhythm\n- Calibration\n- Timing\n\n**Physical examples**\n\n- Finding you rhythm while exercising: your body's internal speed vs how hard you're controlling it\n- Matching or interacting with someone else's pace in a race\n- Orchestras coordinating around a conductor\n- Partners dancing\n\n**Tuning in**\n\n- Tuning into your body / the world around you\n- Tune into smell\n- Tune into a certain frequency\n  - Sprinting vs resting vs sustaining\n- Mindfulness is so not about the mind, it's tuning away from your mind and into your whole body"
       }
     ]
   },
@@ -1534,12 +1479,7 @@
             "content": "# Avoid relying on outside funding\n\n* Investors expect a return; I'm not attempting to make money\n  * Don't want to be beholden to their profit-motivated influence\n* I don't see crowdfunding working out; don't want to invite mass expectation\n* I would take personal, anonymous donations"
           },
           {
-            "content": "# Self funding\n\n* I'm saving up!\n  * Enough for myself, not sure when/if I'll be able to pay others\n  * Stocks fluctuate around $150,000\n  * Savings is $30,000",
-            "children": [
-              {
-                "content": ""
-              }
-            ]
+            "content": "# Self funding\n\n* I'm saving up!\n  * Enough for myself, not sure when/if I'll be able to pay others\n  * Stocks fluctuate around $150,000\n  * Savings is $30,000"
           },
           {
             "content": "# Giving it away for free\n\n* Want it to be accessible to as many people as possible\n  * Financial cost, within the US and relative to other countries\n  * Governments could censor marketplaces / distributors\n* Give folks opportunity to pay/support if they want\n  * e.g. Free on website (which contains more info about project) but priced on Steam (game marketplace context; less context on project)\n* People gather around what they can access; more likely to build community\n* But also why not make a bunch of money?"
@@ -1581,17 +1521,8 @@
             ]
           },
           {
-            "content": ""
-          },
-          {
-            "content": ""
-          },
-          {
             "content": "# Enneagram",
             "children": [
-              {
-                "content": ""
-              },
               {
                 "content": "# Types",
                 "children": [
@@ -1687,9 +1618,6 @@
                     ]
                   },
                   {
-                    "content": ""
-                  },
-                  {
                     "content": "# Hornevian groups\n\n**Social style**\n\nHow each type tries to get their primary needs met; how we pursue desires.",
                     "children": [
                       {
@@ -1716,9 +1644,6 @@
                         "content": "# Reactive\n\n*React strongly, need response of others.*\n\n**[4]** \"I'm hurt and need to express myself\"\n\nSeeks a rescuer, support, to be seen. Fears abandonment. Deals with others by them interested, playing \"hard to get.\"\n\n**[6]** \"I'm feeling pressured and need to let off steam\"\n\nSeeks independence with support. Fears losing support or becoming dependent. Deals with others by balancing reliance and independence.\n\n**[8]** \"I'm angry and you're going to hear about it\"\n\nSeeks independence by self-reliance. Fears being controlled or dominated. Deals with others by keeping guard up."
                       }
                     ]
-                  },
-                  {
-                    "content": ""
                   }
                 ]
               },
@@ -1980,9 +1905,6 @@
       },
       {
         "content": "**Captioned blockquote** `<blockquote title=\"Title\" cite=\"www.example.com\">Blockquote text</blockquote>`\n\n<blockquote title=\"Title\" cite=\"www.example.com\">Blockquote text with both `title` and `cite`</blockquote>\n\n<blockquote cite=\"www.example.com/really/long/url/to/show/that/text/will/be/truncated\">Blockquote text with just `cite`</blockquote>\n\n<blockquote title=\"Title\">Blockquote text with just `title`</blockquote>\n\n<style>\n  blockquote[title]::after,\n  blockquote[cite]::after,\n  blockquote[title][cite]::after {\n    display: list-item;\n    font-size: 0.9em;\n    font-style: italic;\n    list-style-image: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1em 1em\" width=\"0.6em\" height=\"1em\"><text x=\"0\" y=\"1em\">—</text></svg>');\n    padding-left: 1em;\n    margin-left: -1em;\n    list-style-position: inside;\n    margin-top: 1rem;\n    overflow-x: hidden;\n    text-indent: -1em;\n    text-overflow: ellipsis;\n    white-space: pre;\n  }\n\n  blockquote[title]::after {\n    content: attr(title);\n  }\n\n  blockquote[cite]::after {\n    content: attr(cite);\n  }\n\n  blockquote[cite][title]::after {\n    content: attr(title)'\\a'attr(cite);\n  }\n</style>"
-      },
-      {
-        "content": ""
       }
     ]
   }
