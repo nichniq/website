@@ -29,9 +29,11 @@ export default function hierarchy(root) {
     get parents() { return parents },
 
     ancestors: node => recursive_ancestors([], parents.get(node)),
-    descendants: node => recursive_descendants(
-      [ node.children || [] ],
-      node.children || []
-    ),
+    descendants: node => node.children
+      ? recursive_descendants(
+        [ node.children || [] ],
+        node.children || []
+      )
+      : [],
   };
 }

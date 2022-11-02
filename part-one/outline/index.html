@@ -37,7 +37,15 @@
   }
 
   .node:hover {
-    background-color: rgba(255, 255, 200, 0.5);
+    background-color: rgba(255, 255, 0, 0.5);
+  }
+
+  .lineage {
+    background-color: rgba(255, 0, 255, 0.5);
+  }
+
+  .active {
+    background-color: rgba(0, 255, 255, 0.5);
   }
 </style>
 
@@ -45,53 +53,75 @@
 
 <script type="module">
   import { tags } from "/modules/element.js";
-  import gingko from "./scripts/import_gingko.js";
   import render_md from "./scripts/markdown.js";
+  import hierarchy from "./scripts/hierarchy.js";
 
-  const { ol, li, textarea, div } = tags;
-  const publish = obj => Object.entries(obj).forEach(([k,v]) => window[k] = v);
-  const print = obj => Object.entries(obj).forEach(([k,v]) => console.log(k, v));
+  const fetch_json = path => fetch(path).then(response => response.json());
+  const expose = o => Object.entries(o).forEach(([k,v]) => window[k] = v);
+  const print = o => Object.entries(o).forEach(([k,v]) => console.log(k, v));
 
-  const {
-    origin, registry, ids, generations, ancestors, descendants, lineage
-  } = await gingko("./gingko-export.json");
-  const elements = {};
+  const part_one = hierarchy(await fetch_json("./part-one.json"));
 
-  publish({ elements, origin, registry, generations, ancestors, descendants });
-  print({ elements, origin, registry, generations, ancestors, descendants });
+  const node_to_element = new Map();
+  const element_to_node = new Map();
 
-  const node_to_ui = node => {
-    const id = registry.get(node);
-    const [ element ] = div(
-      render_md(node.content, false),
-      { class: "node", "data-id": id }
+  function tree_to_ui(tree) {
+    const generations = tree.descendants(tree.root);
+    const [ ui ] = tags.div(
+      [ [ tree.root ], ...generations ].map(
+        generation => tags.div(
+          generation.flat().map(
+            node => {
+              const [ element ] = tags.div(
+                render_md(node.content, false),
+                { class: "node" }
+              );
+              element_to_node.set(element, node);
+              node_to_element.set(node, element);
+              return element;
+            },
+          ),
+          { class: "generation" }
+        )
+      ),
+      { class: "outline" },
     );
-    elements[id] = element;
-    return element;
-  };
+    return ui;
+  }
 
-  const generation_to_ui = generation => div(
-    generation.map(id => node_to_ui(ids[id])),
-    { class: "generation" },
-  );
-
-  const generations_to_ui = generations => div(
-    generations.map(gen => generation_to_ui(gen)),
-    { class: "outline" },
-  );
-
-  const [ ui ] = generations_to_ui(generations);
+  const ui = tree_to_ui(part_one);
   document.body.append(ui);
 
   ui.addEventListener('click', event => {
-    const node = event.target.closest(".node");
-    if (node == null) return;
-    const { id } = node.dataset;
-    const [ root, ...eldests ] = lineage(id);
+    const element = event.target.closest(".node");
 
-    for (const eldest_id of eldests) {
-      const first = elements[eldest_id];
-      first.scrollIntoView({ behavior: "smooth" })
+    if (element == null) return;
+
+    const node = element_to_node.get(element);
+    const ancestors = part_one.ancestors(node);
+    const descendants = part_one.descendants(node);
+
+    for (const x of [ ...ancestors, node, ...descendants.flatMap(d => d[0]) ]) {
+      node_to_element.get(x).scrollIntoView({ behavior: "smooth" });
     }
+
+    for (const x of document.querySelectorAll(".lineage")) {
+      x.classList.remove("lineage");
+    }
+
+    const lineage = [
+    ...ancestors,
+    ...part_one.descendants(ancestors[0]).flat(Infinity),
+    ];
+
+    for (const x of lineage) {
+      node_to_element.get(x).classList.add("lineage");
+    }
+
+    for (const x of document.querySelectorAll(".active")) {
+      x.classList.remove("active");
+    }
+
+    element.classList.add("active");
   });
 </script>
