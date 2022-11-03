@@ -3,17 +3,9 @@
 <title>Part One</title>
 
 <style>
-  body {
-    margin: 0;
-  }
-
-  *:first-child {
-    margin-top: 0;
-  }
-
-  *:last-child {
-    margin-bottom: 0;
-  }
+  body { margin: 0 }
+  *:first-child { margin-top: 0 }
+  *:last-child { margin-bottom: 0 }
 
   .outline {
     height: 100vh;
@@ -24,7 +16,7 @@
   }
 
   .generation {
-    flex: 0 0 300px;
+    flex: 0 0 60ch;
     overflow: hidden scroll;
     background-color: rgba(0, 0, 0, 0.2);
     display: flex;
@@ -53,8 +45,8 @@
 
 <script type="module">
   import { tags } from "/modules/element.js";
-  import render_md from "./scripts/markdown.js";
-  import hierarchy from "./scripts/hierarchy.js";
+  import render_md from "./markdown.js";
+  import hierarchy from "./hierarchy.js";
 
   const fetch_json = path => fetch(path).then(response => response.json());
   const expose = o => Object.entries(o).forEach(([k,v]) => window[k] = v);
