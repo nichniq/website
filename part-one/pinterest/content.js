@@ -1,17 +1,38 @@
-console.log("content");
+const q = (selector, parent = document) => parent.querySelector(selector);
+const qq = (selector, parent = document) => [ ...parent.querySelectorAll(selector) ];
 
-browser.runtime.onMessage.addListener(message => {
-  console.log({ received: "content", message });
-});
+const add_message_listener = listener => { browser.runtime.onMessage.addListener(listener) };
+const send_message = message => browser.runtime.sendMessage({ from: "content_script", message });
 
-browser.runtime.sendMessage({ from: "content", to: "browser.runtime" });
+const visit_url = url => { window.location.href = url };
 
-function notifyExtension(e) {
-  console.log("content script sending message");
-  browser.runtime.sendMessage({"clicked": e.target.tagName});
+const profile_href = () => q("[data-test-id='header-profile'] a").href;
+
+const profile_boards = () => {
+  const [ all_pins, ...boards ] = qq("[data-test-id='pwt-grid-item']");
+  return boards.map(board => ({
+    title: q("h2", board).textContent,
+    href: q("a", board).href,
+  }));
+};
+
+const board_sections = () => {
+
+  const uncategorized = qq("[role='listitem']").map(x => q("a", x).href);
+  const sections = qq("[data-test-id*='section-']").map(section => [
+    q("h2", section).textContent,
+    q("a", section).href,
+  ]);
+  return [
+    uncategorized.length > 0 ? [ "Uncategorized", uncategorized ] : [],
+    ...sections,
+  ].filter(x => x.length > 0);
 }
 
-/*
-Add notifyExtension() as a listener to click events.
-*/
-window.addEventListener("click", notifyExtension);
+const get_
+
+function main() {
+  add_message_listener(message => {
+    console.log("content script received message", message)
+  });
+}
