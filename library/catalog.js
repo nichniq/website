@@ -31,7 +31,6 @@ export default [
     ids: [
       [ "isbn10", "0670878278" ],
       [ "isbn13", "9780670878277" ],
-      [ "lccn", "" ],
     ],
     external: "https://www.goodreads.com/book/show/1445888.Never_Let_A_Fool_Kiss_You_Or_A_Kiss_Fool_You",
     txns: [
@@ -139,11 +138,10 @@ export default [
       [ "isbn10", "0486448320" ],
       [ "isbn13", "9780486448329" ],
     ],
-    external: "",
+    external: "https://www.goodreads.com/book/show/546120.Pirates_Patriots_and_Princesses",
     txns: [
       [ "purchase", { date: "October 1, 2022", location: "Pegasus Books of Bend", city: "Bend" } ],
     ],
-    notes: "",
   },
   {
     title: "Pre-Raphaelite Vision",
@@ -606,6 +604,7 @@ export default [
     ids: [
       [ "isbn10", "2909838439" ],
       [ "isbn13", "9782909838434" ],
+      [ "lccn", "2001428052" ],
     ],
     external: "https://lccn.loc.gov/2001428052",
     txns: [
@@ -615,7 +614,6 @@ export default [
   {
     title: "Photography And Architecture",
     subtitle: "1839—1939",
-    series: "",
     ids: [
       [ "isbn10", "0935112073" ],
       [ "isbn13", "9780935112078" ],
