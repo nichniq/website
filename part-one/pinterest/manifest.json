@@ -40,5 +40,5 @@
     "page": "bg.html"
   },
 
-  "permissions": [ "tabs", "activeTab" ]
+  "permissions": [ "tabs", "activeTab", "storage" ]
 }

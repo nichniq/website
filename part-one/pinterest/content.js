@@ -1,38 +1,39 @@
+/* DEFINITIONS */
+
+// DOM searching
+
 const q = (selector, parent = document) => parent.querySelector(selector);
 const qq = (selector, parent = document) => [ ...parent.querySelectorAll(selector) ];
 
-const add_message_listener = listener => { browser.runtime.onMessage.addListener(listener) };
-const send_message = message => browser.runtime.sendMessage({ from: "content_script", message });
+// navigation
 
 const visit_url = url => { window.location.href = url };
 
-const profile_href = () => q("[data-test-id='header-profile'] a").href;
+// Pinterest data
 
-const profile_boards = () => {
-  const [ all_pins, ...boards ] = qq("[data-test-id='pwt-grid-item']");
-  return boards.map(board => ({
-    title: q("h2", board).textContent,
-    href: q("a", board).href,
-  }));
-};
+const profile_url = () => q("[data-test-id='header-profile'] a").href;
+const profile_boards = () => qq("[data-test-id='pwt-grid-item']").map(board => ({
+  title: q("h2", board).textContent,
+  href: q("a", board).href,
+})).slice(1);
+const board_sections = () => qq("[data-test-id*='section-']").map(section => [
+  q("h2", section).textContent,
+  q("a", section).href,
+]);
+const pin_urls = () => qq("[role='listitem']").map(pin => q("a", pin).href);
+const pin_data = () => ({
+  title: q("h1").textContent,
+  img_url: q("[data-test-id='closeup-image'] img").src,
+  link: q(".actionButton a").href,
+});
 
-const board_sections = () => {
+// script messaging
 
-  const uncategorized = qq("[role='listitem']").map(x => q("a", x).href);
-  const sections = qq("[data-test-id*='section-']").map(section => [
-    q("h2", section).textContent,
-    q("a", section).href,
-  ]);
-  return [
-    uncategorized.length > 0 ? [ "Uncategorized", uncategorized ] : [],
-    ...sections,
-  ].filter(x => x.length > 0);
+const send_message = (type, payload) => {
+  console.log("sent", type, payload);
+  browser.runtime.sendMessage({ type, payload });
 }
 
-const get_
+/* EXECUTION */
 
-function main() {
-  add_message_listener(message => {
-    console.log("content script received message", message)
-  });
-}
+send_message("content_script_loaded", { last_loaded: Date.now() });
