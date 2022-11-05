@@ -16,6 +16,237 @@ const template = {
 
 export default [
   {
+    title: "Qayaqs",
+    subtitle: "Kayaks of Alaska Siberia",
+    ids: [
+      [ "isbn10", "1889963100" ],
+      [ "isbn13", "9781889963105" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1496978.Qayaq",
+    txns: [
+      [ "purchase", { date: "November 4, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Between Worlds",
+    subtitle: "Contemporary Mexican Photography",
+    ids: [
+      [ "isbn10", "1561310034" ],
+      [ "isbn13", "9781561310036" ],
+    ],
+    external: "https://www.goodreads.com/book/show/3478169-between-worlds",
+    txns: [
+      [ "purchase", { date: "November 4, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "The White Deer",
+    subtitle: "A Latvian Folk-tale",
+    ids: [
+      [ "isbn10", "0714713686" ],
+      [ "isbn13", "9780714713687" ],
+      [ "lccn", "82155172" ],
+    ],
+    txns: [
+      [ "purchase", { date: "November 4, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+    external: "https://lccn.loc.gov/82155172",
+    notes: "No Identification numbers in the book; the ones recorded here were found online"
+  },
+  {
+    title: "The 500 Years of Indigenous Resistance Comic Book",
+    subtitle: "Revised and Expanded",
+    ids: [
+      [ "isbn10", "1551528525" ],
+      [ "isbn13", "9781551528526" ],
+    ],
+    external: "https://www.goodreads.com/book/show/58155957-the-500-years-of-indigenous-resistance-comic-book",
+    txns: [
+      [ "purchase", { date: "November 4, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "The Arts and Crafts Movement in the Pacific Northwest",
+    ids: [
+      [ "isbn10", "0881928496" ],
+      [ "isbn13", "9780881928495" ],
+    ],
+    external: "https://www.goodreads.com/book/show/2062940.The_Arts_and_Crafts_Movement_in_the_Pacific_Northwest",
+    txns: [
+      [ "purchase", { date: "November 4, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "The Caves At Aurangabad",
+    subtitle: "Early Buddhist Tantric Art In India",
+    ids: [
+      [ "isbn10", "0295964626" ],
+      [ "isbn13", "9780295964621" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1462926.The_Caves_At_Aurangabad",
+    txns: [
+      [ "purchase", { date: "November 4, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Arts of Oceania / Shells of Oceania",
+    external: "https://catalogue.nla.gov.au/Record/651463/Details",
+    txns: [
+      [ "purchase", { date: "November 4, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "New Land, North of the Columbia",
+    subtitle: "Historic Documents That Tell the Story of Washington State from Territory to Today",
+    ids: [
+      [ "isbn10", "1570616930" ],
+      [ "isbn13", "9781570616938" ],
+    ],
+    external: "https://www.goodreads.com/book/show/12593675-new-land-north-of-the-columbia",
+    txns: [
+      [ "purchase", { date: "November 4, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Washington",
+    subtitle: "Images of a State's Heritage",
+    ids: [
+      [ "isbn10", "0961644133" ],
+      [ "isbn13", "9780961644130" ],
+    ],
+    external: "https://isbndb.com/book/9780961644130",
+    txns: [
+      [ "purchase", { date: "November 4, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Pécs",
+    series: "Ortofotók sorozat",
+    ids: [
+      [ "isbn10", "9630061147" ],
+      [ "issn", "15873242" ],
+    ],
+    external: "https://portal.issn.org/resource/ISSN/1587-3242",
+    txns: [
+      [ "purchase", { date: "November 4, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Signs & Symbols",
+    subtitle: "An Illustrated Guide to Their Origins and Meanings",
+    ids: [
+      [ "isbn10", "0756674891" ],
+      [ "isbn13", "9780756674892" ],
+    ],
+    external: "https://isbndb.com/book/9780756674892",
+    txns: [
+      [ "purchase", { date: "November 4, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "The World of the Coyote",
+    ids: [
+      [ "isbn10", "087156405X" ],
+      [ "isbn13", "9780871564054" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1173657.The_World_Of_The_Coyote",
+    txns: [
+      [ "purchase", { date: "November 4, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "The Mystic Spiral",
+    subtitle: "Journey of the Soul",
+    series: "Art and Imagination",
+    ids: [
+      [ "isbn10", "0500810052" ],
+      [ "isbn13", "9780500810057" ],
+    ],
+    external: "https://www.goodreads.com/book/show/128313.The_Mystic_Spiral",
+    txns: [
+      [ "purchase", { date: "November 4, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Between the Mountains",
+    subtitle: "A Portrait of Eastern Washington",
+    ids: [
+      [ "isbn10", "0961378700" ],
+      [ "isbn13", "9780961378707" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1872637.Between_the_Mountains",
+    txns: [
+      [ "purchase", { date: "November 4, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Beautiful Wounds",
+    subtitle: "A Search for Solace and Light in Washington's Channeled Scablands",
+    ids: [
+      [ "isbn10", "1682686809" ],
+      [ "isbn13", "9781682686805" ],
+    ],
+    external: "https://www.goodreads.com/book/show/58999278-beautiful-wounds",
+    txns: [
+      [ "purchase", { date: "November 4, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Metamagical Themas",
+    subtitle: "Questing for the Essence of Mind and Pattern",
+    ids: [
+      [ "isbn10", "0465045405" ],
+      [ "isbn13", "9780465045402" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1120014.Metamagical_Themas",
+    txns: [
+      [ "purchase", { date: "November 4, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Everything Under a Mushroom",
+    series: "Scholastic Book Services",
+    external: "https://openlibrary.org/books/OL24975246M/Everything_under_a_mushroom",
+    txns: [
+      [ "purchase", { date: "November 4, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "A Guide to Spiders and Their Kin",
+    series: "Golden Guide",
+    ids: [
+      [ "lccn", "68023522" ],
+    ],
+    external: "https://lccn.loc.gov/68023522",
+    txns: [
+      [ "purchase", { date: "November 4, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "North American Indian Arts",
+    series: "Golden Guide",
+    ids: [
+      [ "lccn", "74103423" ],
+    ],
+    external: "https://lccn.loc.gov/74103423",
+    txns: [
+      [ "purchase", { date: "November 4, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Women",
+    subtitle: "The National Geographic Image Collection",
+    ids: [
+      [ "isbn10", "1426220650" ],
+      [ "isbn13", "9781426220654" ],
+    ],
+    external: "https://www.goodreads.com/book/show/43996876-women",
+    txns: [
+      [ "gift", { date: "October 20, 2022", from: "Beth", city: "Olympia" } ],
+    ],
+    notes: "Emily's roommate Beth was getting rid of this book in anticipation of moving and offered it to me"
+  },
+  {
     title: "Wyeth at Kuerners",
     ids: [
       [ "isbn10", "0395219906" ],
