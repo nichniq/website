@@ -1,10 +1,3 @@
-/** IMPORTS **/
-
-import { predictLength, downloadZip, makeZip } from "./third-party/client_zip/index.js";
-
-
-/** DEFINITIONS **/
-
 const save = data => browser.storage.local.set(data);
 const load = keys => browser.storage.local.get(keys);
 
@@ -12,8 +5,6 @@ const send_to_tab = (tab_id, type, payload) => {
   browser.tabs.sendMessage(tab_id, [ type, payload ]);
   console.log(`bg sent: ${type}`, payload);
 };
-
-/** EXECUTION **/
 
 browser.runtime.onMessage.addListener(([ type, payload ], sender, sendResponse) => {
   console.log(`bg received: ${type}`, payload);
@@ -33,9 +24,9 @@ browser.runtime.onMessage.addListener(([ type, payload ], sender, sendResponse) 
       });
 
       break;
+
     default:
       console.log("did nothing");
-
       break;
   }
 });

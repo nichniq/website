@@ -1,3 +1,8 @@
+// 1. zoom out to like 30% to get all of the pins on the page
+// 2. paste the script into the console
+// 3. once the mouseover has completed for each pin, run `pins()`
+// 4. copy the output from the terminal as JSON
+
 const q = (selector, parent) => (parent ?? document).querySelector(selector);
 const qq = (selector, parent) => [ ...(parent ?? document).querySelectorAll(selector) ];
 
