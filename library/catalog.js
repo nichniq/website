@@ -16,6 +16,148 @@ const template = {
 
 export default [
   {
+    title: "Greenhouses and Conservatories",
+    ids: [
+      [ "isbn10", "208010585X" ],
+      [ "isbn13", "9782080105851" ],
+    ],
+    external: "https://www.goodreads.com/book/show/4212136-greenhouses-and-conservatories",
+    txns: [
+      [ "purchase", { date: "November 12, 2022", location: "Powell's", city: "Portland" } ],
+    ],
+  },
+  {
+    title: "The Paper Ark",
+    subtitle: "An Extraordinary Illustrated Journey to the Wildlife World of the Holy Land",
+    ids: [
+      [ "isbn10", "0896960331" ],
+      [ "isbn13", "9780896960336" ],
+    ],
+    external: "https://www.goodreads.com/book/show/4468290-the-paper-ark",
+    txns: [
+      [ "purchase", { date: "November 12, 2022", location: "Powell's", city: "Portland" } ],
+    ],
+  },
+  {
+    title: "Forests",
+    subtitle: "From the Amazon Rainforest to the Siberian Taiga",
+    ids: [
+      [ "isbn10", "183886167X" ],
+      [ "isbn13", "9781838861674" ],
+    ],
+    external: "https://www.goodreads.com/book/show/60129707-forests",
+    txns: [
+      [ "purchase", { date: "November 12, 2022", location: "Powell's", city: "Portland" } ],
+    ],
+  },
+  {
+    title: "Once Upon a Time",
+    subtitle: "The Fairy Tale World of Arthur Rackham",
+    ids: [
+      [ "isbn10", "067052574X" ],
+      [ "isbn13", "9780670525744" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1164843.Once_Upon_a_Time",
+    txns: [
+      [ "purchase", { date: "November 12, 2022", location: "Powell's", city: "Portland" } ],
+    ],
+  },
+  {
+    title: "The Undercliff",
+    subtitle: "A Naturalist's Sketchbook of the Devon to Dorset Coast",
+    ids: [
+      [ "isbn10", "0821217291" ],
+      [ "isbn13", "9780821217290" ],
+    ],
+    external: "https://www.goodreads.com/book/show/686541.The_Undercliff",
+    txns: [
+      [ "purchase", { date: "November 12, 2022", location: "Powell's", city: "Portland" } ],
+    ],
+  },
+  {
+    title: "The Keeping Quilt",
+    ids: [
+      [ "isbn10", "0590062131" ],
+      [ "isbn13", "9780590062138" ],
+    ],
+    external: "https://www.goodreads.com/book/show/2957248-the-keeping-quilt",
+    txns: [
+      [ "purchase", { date: "November 12, 2022", location: "Powell's", city: "Portland" } ],
+    ],
+  },
+  {
+    title: "Aesop",
+    subtitle: "Five Centuries of Illustrated Fables",
+    ids: [
+      [ "isbn10", "0870990292" ],
+      [ "isbn13", "9780870990298" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1965995.Aesop",
+    txns: [
+      [ "purchase", { date: "November 12, 2022", location: "Powell's", city: "Portland" } ],
+    ],
+  },
+  {
+    title: "Mole",
+    series: "Animal Series",
+    ids: [
+      [ "isbn10", "1789142229" ],
+      [ "isbn13", "9781789142228" ],
+    ],
+    external: "https://www.goodreads.com/book/show/51511445-mole",
+    txns: [
+      [ "purchase", { date: "November 12, 2022", location: "Powell's", city: "Portland" } ],
+    ],
+  },
+  {
+    title: "Puppets & Automata",
+    ids: [
+      [ "isbn10", "0486228487" ],
+      [ "isbn13", "9780486228488" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1464167.Puppets_And_Automata",
+    txns: [
+      [ "purchase", { date: "November 12, 2022", location: "Powell's", city: "Portland" } ],
+    ],
+  },
+  {
+    title: "Botany For Gardeners",
+    subtitle: "An Introduction And Guide",
+    ids: [
+      [ "isbn10", "0881922587" ],
+      [ "isbn13", "9780881922585" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1462444.Botany_For_Gardeners",
+    txns: [
+      [ "purchase", { date: "November 12, 2022", location: "Powell's", city: "Portland" } ],
+    ],
+    notes: "I first read this by recommendation of the Brooklyn Botanic Garden whose library I checked the book out from",
+  },
+  {
+    title: "The Art of Migration",
+    subtitle: "Birds, Insects, and the Changing Seasons in Chicagoland",
+    ids: [
+      [ "isbn10", "022604629X" ],
+      [ "isbn13", "9780226046297" ],
+    ],
+    external: "https://www.goodreads.com/book/show/15999956-the-art-of-migration",
+    txns: [
+      [ "purchase", { date: "November 12, 2022", location: "Powell's", city: "Portland" } ],
+    ],
+  },
+  {
+    title: "How to Read Gardens",
+    subtitle: "A Crash Course in Garden Appreciation",
+    ids: [
+      [ "isbn10", "1782406034" ],
+      [ "isbn13", "9781782406037" ],
+    ],
+    external: "https://www.goodreads.com/book/show/35658684-how-to-read-gardens",
+    txns: [
+      [ "purchase", { date: "November 12, 2022", location: "Powell's", city: "Portland" } ],
+    ],
+  },
+  {
     title: "The Insect Wonderland",
     ids: [
       [ "isbn10", "0977735605" ],
