@@ -3,9 +3,9 @@ import fs from "fs";
 
 const PORT = 8080;
 
-const bookmarks = JSON.parse(fs.readFileSync("./raw-bookmarks.json"));
+const raw_bookmarks = JSON.parse(fs.readFileSync("./raw-bookmarks.json"));
 
-const ui = `
+const ui = bookmarks => `
 <h1>Bookmark Processor</h1>
 <ul>${bookmarks.map(x => `
   <li>
@@ -20,7 +20,7 @@ http.createServer((request, response) => {
   switch (url.pathname) {
     case "/":
       response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
-      response.end(ui);
+      response.end(ui(raw_bookmarks));
       break;
 
     default:
