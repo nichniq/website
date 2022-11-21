@@ -16,11 +16,13 @@ const ui = bookmarks => `
 
 http.createServer((request, response) => {
   const url = new URL(request.url, `http://${request.headers.host}`);
+  const start = url.searchParams.get("start");
+  const end = url.searchParams.get("end");
 
   switch (url.pathname) {
     case "/":
       response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
-      response.end(ui(raw_bookmarks));
+      response.end(ui(raw_bookmarks.slice(start || 0, end || undefined)));
       break;
 
     default:
