@@ -1,6 +1,18 @@
 import http from "http";
+import fs from "fs";
 
 const PORT = 8080;
+
+const bookmarks = JSON.parse(fs.readFileSync("./raw-bookmarks.json"));
+
+const ui = `
+<h1>Bookmark Processor</h1>
+<ul>${bookmarks.map(x => `
+  <li>
+    <a href="${x.url}" target="_blank">${x.title}</a>
+  </li>`).join("")}
+</ul>
+`;
 
 http.createServer((request, response) => {
   const url = new URL(request.url, `http://${request.headers.host}`);
@@ -8,7 +20,7 @@ http.createServer((request, response) => {
   switch (url.pathname) {
     case "/":
       response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
-      response.end("<h1>Bookmark Processor</h1>");
+      response.end(ui);
       break;
 
     default:
