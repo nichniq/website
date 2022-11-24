@@ -1,0 +1,39 @@
+body {
+  font-size: 12px;
+  font-family: monospace;
+}
+
+table {
+  background-color: white;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+thead {
+  background-color: inherit;
+  position: sticky;
+  top: 0;
+}
+
+thead::after {
+  display: block;
+  content: "";
+  background-color: black;
+  height: 1px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+thead > tr > th {
+  padding: 0.5em;
+}
+
+tbody > tr > td {
+  padding: 0.25em 0.5em;
+}
+
+tr:nth-child(2n) {
+  background-color: lightgray;
+}

@@ -1,5 +1,6 @@
 import http from "http";
 import fs from "fs";
+import path from "path";
 
 const PORT = 8080;
 
@@ -8,63 +9,49 @@ const raw_bookmarks = JSON.parse(fs.readFileSync("./raw-bookmarks.json"));
 const ui = bookmarks => `
 <!doctype html>
 
-<style>
-  body {
-    font-size: 12px;
-    font-family: monospace;
-  }
-
-  table {
-    background-color: white;
-    border-collapse: collapse;
-    text-align: left;
-  }
-
-  thead {
-    background-color: inherit;
-    position: sticky;
-    top: 0;
-  }
-
-  thead::after {
-    display: block;
-    content: "";
-    background-color: black;
-    height: 1px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-
-  thead > tr > th {
-    padding: 0.5em;
-  }
-
-  tbody > tr > td {
-    padding: 0.25em 0.5em;
-  }
-
-  tr:nth-child(2n) {
-    background-color: lightgray;
-  }
-</style>
+<link rel="stylesheet" href="/static/styles.css" />
 
 <h1>Bookmark Processor</h1>
 
-<table>
+<datalist id="bookmark-types">
+  <option value="article">Article</option>
+  <option value="site">Personal site</option>
+  <option value="tutorial">Tutorial</option>
+</datalist>
+
+<table style="width: 100%">
   <thead>
     <tr>
-      <th>Title</th>
+      <th>Bookmark</th>
+      <th>Type</th>
+      <th>Added</th>
       <th>Save</th>
     </tr>
   </thead>
   <tbody>${bookmarks.map(x => `
     <tr>
-      <td><a href="${x.url}" target="_blank">${x.title}</a></td>
       <td>
-        <form action="/bookmarks" method="post">
-          <input type="hidden" name="url" value="${x.url}" />
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+          <input type="text" name="title" value="${x.title}" style="flex-basis: 100%" />
+          <div style="flex-basis: 100%; display: flex; gap: 10px;">
+            <input
+              type="text" name="url" value="${x.url}"
+              style="flex: 1 0 auto"
+              oninput="this.nextElementSibling.href = this.value"
+            />
+            <a href="${x.url}" target="_blank" style="flex: 0 0 auto">↪︎</a>
+          </div>
+        </div>
+      </td>
+      <td>
+        <input type="text" name="type" list="bookmark-types" />
+      </td>
+      <td>
+        ${new Date(parseInt(x.added)).toISOString().slice(0, 10)}
+      </td>
+      <td>
+        <form action="/" method="post">
+          <input type="hidden" name="added" value="${x.added}" />
           <button type="submit">Save</button>
         </form>
       </td>
@@ -72,10 +59,10 @@ const ui = bookmarks => `
   </tbody>
 </table>
 <script>
-  document.addEventListener("submit", event => {
-    const form = event.target;
-    debugger;
-  });
+  // document.addEventListener("submit", event => {
+  //   const form = event.target;
+  //   debugger;
+  // });
 </script>
 `.trim();
 
@@ -84,23 +71,55 @@ http.createServer((request, response) => {
   const start = url.searchParams.get("start");
   const end = url.searchParams.get("end");
 
-  switch (url.pathname) {
+  switch (path.dirname(url.pathname)) {
     case "/":
-      response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
-      response.end(
-        ui(
-          raw_bookmarks.slice(start || 0, end || undefined)
-        )
-      );
-      break;
+      switch (request.method.toLowerCase()) {
+        case "get":
+          response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
+          response.end(
+            ui(
+              raw_bookmarks.slice(start || 0, end || undefined)
+            )
+          );
+        break;
 
-    case "/bookmarks":
-      console.log(request);
+        case "post":
+          console.log("post");
+          let data = "";
 
-      if (/POST/i.test(request.mathod)) {
-        console.log("POST")
+          request.on("data", chunk => {
+              console.log("chunk: " + chunk);
+              data += chunk;
+
+              if (data.length > 1e6) {
+                  data = "";
+                  response.writeHead(413, { "Content-Type": "text/plain" });
+                  response.end();
+                  request.connection.destroy();
+              }
+          });
+
+          request.on("end", () => {
+            console.log("end");
+            console.log("data: " + data)
+          });
+        break;
+
+        default:
+        break;
       }
-      break;
+    break;
+
+    case "/static":
+      const MIME_TYPES = {
+        ".css": "text/css; charset=utf-8",
+      };
+
+      const stream = fs.createReadStream(path.join("./", url.pathname));
+      const ext = path.extname(url.pathname);
+      response.writeHead(200, { "Content-Type": MIME_TYPES[ext] });
+      stream.pipe(response);
+    break;
 
     default:
       response.writeHead(404, { "Content-Type": "text/plain" });
