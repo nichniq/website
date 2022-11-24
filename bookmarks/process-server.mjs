@@ -28,13 +28,20 @@ const ui = bookmarks => `
       <th>Save</th>
     </tr>
   </thead>
-  <tbody>${bookmarks.map(x => `
+  <tbody>${bookmarks.map((x, index) => `
     <tr>
       <td>
         <div style="display: flex; flex-direction: column; gap: 5px;">
-          <input type="text" name="title" value="${x.title}" style="flex-basis: 100%" />
+          <input
+            form="bookmark-${index}"
+            type="text"
+            name="title"
+            value="${x.title}"
+            style="flex-basis: 100%"
+          />
           <div style="flex-basis: 100%; display: flex; gap: 10px;">
             <input
+              form="bookmark-${index}"
               type="text" name="url" value="${x.url}"
               style="flex: 1 0 auto"
               oninput="this.nextElementSibling.href = this.value"
@@ -44,13 +51,18 @@ const ui = bookmarks => `
         </div>
       </td>
       <td>
-        <input type="text" name="type" list="bookmark-types" />
+        <input
+          form="bookmark-${index}"
+          type="text"
+          name="type"
+          list="bookmark-types"
+        />
       </td>
       <td>
         ${new Date(parseInt(x.added)).toISOString().slice(0, 10)}
       </td>
       <td>
-        <form action="/" method="post">
+        <form id="bookmark-${index}" action="/" method="post">
           <input type="hidden" name="added" value="${x.added}" />
           <button type="submit">Save</button>
         </form>
@@ -84,11 +96,9 @@ http.createServer((request, response) => {
         break;
 
         case "post":
-          console.log("post");
           let data = "";
 
           request.on("data", chunk => {
-              console.log("chunk: " + chunk);
               data += chunk;
 
               if (data.length > 1e6) {
@@ -100,8 +110,18 @@ http.createServer((request, response) => {
           });
 
           request.on("end", () => {
-            console.log("end");
-            console.log("data: " + data)
+            data = Object.fromEntries(
+              data.split("&").map(x => x.split("=").map(x => decodeURIComponent(x.replace(/\+/g, " "))))
+            );
+
+            console.log("data: " + JSON.stringify(data, null, 2));
+
+            response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
+            response.end(
+              ui(
+                raw_bookmarks.slice(start || 0, end || undefined)
+              )
+            );
           });
         break;
 
