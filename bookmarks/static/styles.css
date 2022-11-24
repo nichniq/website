@@ -37,3 +37,19 @@ tbody > tr > td {
 tr:nth-child(2n) {
   background-color: lightgray;
 }
+
+input {
+  font-size: 11px;
+}
+
+a {
+  align-items: center;
+  aspect-ratio: 1;
+  border: 1px solid #8f8f9d;
+  border-radius: 2px;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+}
