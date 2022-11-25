@@ -72,17 +72,25 @@ const ui = bookmarks => `
 </table>
 `.trim();
 
-const gather_request_data = request => new Promise((resolve, reject) => {
-  const data = [];
+const gather_text_stream = stream => new Promise((resolve, reject) => {
+  const chunks = [];
 
-  request.on("data", chunk => {
-    data.push(chunk);
+  stream.on("data", chunk => {
+    chunks.push(chunk);
   });
 
-  request.on("end", () => {
-    resolve(data.join(""));
+  stream.on("end", () => {
+    resolve(chunks.join(""));
   });
 });
+
+const parse_form_url = data => Object.fromEntries(
+  data.split("&").map(
+    pair => pair.split("=").map(
+      component => decodeURIComponent(component.replace(/\+/g, " "))
+    )
+  )
+);
 
 http.createServer(async (request, response) => {
   const url = new URL(request.url, `http://${request.headers.host}`);
@@ -102,11 +110,7 @@ http.createServer(async (request, response) => {
         break;
 
         case "post":
-          const data = await gather_request_data(request).then(
-            x => Object.fromEntries(
-              x.split("&").map(x => x.split("=").map(x => decodeURIComponent(x.replace(/\+/g, " "))))
-            )
-          );
+          const data = await gather_text_stream(request).then(parse_form_url);
 
           console.log("data: " + JSON.stringify(data, null, 2));
 
