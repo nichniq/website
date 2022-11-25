@@ -88,10 +88,12 @@ const parse_form_url = data => Object.fromEntries(
   )
 );
 
+const request_url = request => new URL(request.url, `http://${request.headers.host}`);
+const search_params = url => Object.fromEntries(url.searchParams.entries());
+
 http.createServer(async (request, response) => {
-  const url = new URL(request.url, `http://${request.headers.host}`);
-  const start = url.searchParams.get("start");
-  const end = url.searchParams.get("end");
+  const url = request_url(request);
+  const { start, end } = search_params(url);
 
   switch (path.dirname(url.pathname)) {
     case "/":
