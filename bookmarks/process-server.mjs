@@ -39,7 +39,7 @@ const ui = bookmarks => `
             value="${x.title}"
             style="flex-basis: 100%"
           />
-          <div style="flex-basis: 100%; display: flex; gap: 10px;">
+          <div style="flex-basis: 100%; display: flex; gap: 5px;">
             <input
               form="bookmark-${index}"
               type="text" name="url" value="${x.url}"
@@ -70,15 +70,21 @@ const ui = bookmarks => `
     </tr>`).join("")}
   </tbody>
 </table>
-<script>
-  // document.addEventListener("submit", event => {
-  //   const form = event.target;
-  //   debugger;
-  // });
-</script>
 `.trim();
 
-http.createServer((request, response) => {
+const gather_request_data = request => new Promise((resolve, reject) => {
+  const data = [];
+
+  request.on("data", chunk => {
+    data.push(chunk);
+  });
+
+  request.on("end", () => {
+    resolve(data.join(""));
+  });
+});
+
+http.createServer(async (request, response) => {
   const url = new URL(request.url, `http://${request.headers.host}`);
   const start = url.searchParams.get("start");
   const end = url.searchParams.get("end");
@@ -96,33 +102,20 @@ http.createServer((request, response) => {
         break;
 
         case "post":
-          let data = "";
+          const data = await gather_request_data(request).then(
+            x => Object.fromEntries(
+              x.split("&").map(x => x.split("=").map(x => decodeURIComponent(x.replace(/\+/g, " "))))
+            )
+          );
 
-          request.on("data", chunk => {
-              data += chunk;
+          console.log("data: " + JSON.stringify(data, null, 2));
 
-              if (data.length > 1e6) {
-                  data = "";
-                  response.writeHead(413, { "Content-Type": "text/plain" });
-                  response.end();
-                  request.connection.destroy();
-              }
-          });
-
-          request.on("end", () => {
-            data = Object.fromEntries(
-              data.split("&").map(x => x.split("=").map(x => decodeURIComponent(x.replace(/\+/g, " "))))
-            );
-
-            console.log("data: " + JSON.stringify(data, null, 2));
-
-            response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
-            response.end(
-              ui(
-                raw_bookmarks.slice(start || 0, end || undefined)
-              )
-            );
-          });
+          response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
+          response.end(
+            ui(
+              raw_bookmarks.slice(start || 0, end || undefined)
+            )
+          );
         break;
 
         default:
