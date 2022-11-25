@@ -72,16 +72,12 @@ const ui = bookmarks => `
 </table>
 `.trim();
 
-const gather_text_stream = stream => new Promise((resolve, reject) => {
-  const chunks = [];
-
-  stream.on("data", chunk => {
-    chunks.push(chunk);
-  });
-
-  stream.on("end", () => {
-    resolve(chunks.join(""));
-  });
+const gather_stream_text = readable => new Promise((resolve, reject) => {
+  let data = "";
+  readable.setEncoding("utf8");
+  readable.on("data", chunk => { data += chunk });
+  readable.on("end", () => { resolve(data) });
+  readable.on("error", error => { reject(error) });
 });
 
 const parse_form_url = data => Object.fromEntries(
@@ -110,7 +106,7 @@ http.createServer(async (request, response) => {
         break;
 
         case "post":
-          const data = await gather_text_stream(request).then(parse_form_url);
+          const data = await gather_stream_text(request).then(parse_form_url);
 
           console.log("data: " + JSON.stringify(data, null, 2));
 
