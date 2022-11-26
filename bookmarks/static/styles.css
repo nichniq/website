@@ -49,8 +49,9 @@ textarea {
   min-width: 100%;
 }
 
+textarea,
 input {
-  font-size: 11px;
+  font-size: inherit;
 }
 
 a {
