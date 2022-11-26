@@ -9,6 +9,7 @@ const raw_bookmarks = JSON.parse(fs.readFileSync("./raw-bookmarks.json"));
 const ui = bookmarks => `
 <!doctype html>
 
+<meta charset="utf8" />
 <link rel="stylesheet" href="/static/styles.css" />
 
 <h1>Bookmark Processor</h1>
@@ -26,6 +27,7 @@ const ui = bookmarks => `
       <th>Type</th>
       <th>Added</th>
       <th>Save</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody>${bookmarks.map((x, index) => `
@@ -62,14 +64,44 @@ const ui = bookmarks => `
         ${new Date(parseInt(x.added)).toISOString().slice(0, 10)}
       </td>
       <td>
-        <form id="bookmark-${index}" action="/" method="post">
+        <form id="bookmark-${index}" data-endpoint="/" data-method="PUT">
           <input type="hidden" name="added" value="${x.added}" />
           <button type="submit">Save</button>
+        </form>
+      </td>
+      <td>
+        <form data-endpoint="/" data-method="DELETE">
+          <input type="hidden" name="url" value="${x.url}" />
+          <button type="submit">Delete</button>
         </form>
       </td>
     </tr>`).join("")}
   </tbody>
 </table>
+
+<script>
+  const form_obj = form => Object.fromEntries(
+    [ ...form.elements ].filter(x => x.name).map(x => [ x.name, x.value ])
+  );
+
+  document.addEventListener("submit", event => {
+    event.preventDefault();
+    const form = event.target;
+
+    fetch(
+      form.dataset.endpoint, {
+        method: form.dataset.method,
+        body: JSON.stringify(form_obj(form))
+      }
+    );
+  });
+
+  const submit = (url, method) => {
+    const body = new FormData(event.target);
+    console.log(data);
+    fetch(url, { method, body });
+  };
+</script>
 `.trim();
 
 const gather_stream_text = readable => new Promise((resolve, reject) => {
@@ -80,47 +112,48 @@ const gather_stream_text = readable => new Promise((resolve, reject) => {
   readable.on("error", error => { reject(error) });
 });
 
-const parse_form_url = data => Object.fromEntries(
-  data.split("&").map(
-    pair => pair.split("=").map(
-      component => decodeURIComponent(component.replace(/\+/g, " "))
-    )
-  )
-);
-
 const request_url = request => new URL(request.url, `http://${request.headers.host}`);
 const search_params = url => Object.fromEntries(url.searchParams.entries());
 
 http.createServer(async (request, response) => {
   const url = request_url(request);
   const { start, end } = search_params(url);
+  const request_body = await gather_stream_text(request);
+  const log = (method, body) => { console.log(method, body) };
 
   switch (path.dirname(url.pathname)) {
     case "/":
-      switch (request.method.toLowerCase()) {
-        case "get":
-          response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
-          response.end(
-            ui(
-              raw_bookmarks.slice(start || 0, end || undefined)
-            )
-          );
+      switch (request.method.toUpperCase()) {
+        case "GET":
+          log("GET", request_body);
+
+          response.writeHead(200, { "Content-Type": "text/html" });
+          response.end(ui(raw_bookmarks.slice(start || 0, end || undefined)));
         break;
 
-        case "post":
-          const data = await gather_stream_text(request).then(parse_form_url);
+        case "PUT":
+          log("PUT", request_body);
 
-          console.log("data: " + JSON.stringify(data, null, 2));
+          const parsed_request = JSON.parse(request_body);
 
-          response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
-          response.end(
-            ui(
-              raw_bookmarks.slice(start || 0, end || undefined)
-            )
-          );
+          if (raw_bookmarks.some(b => b.url === parsed_request.url)) {
+            response.writeHead(204).end();
+          } else {
+            response.writeHead(204, { "Content-Type": "text/plain" }).end();
+          }
+        break;
+
+        case "DELETE":
+          log("DELETE", request_body);
+
+          response.writeHead(204).end();
         break;
 
         default:
+          log("UNKNOWN", request_body);
+
+          response.writeHead(501, { "Content-Type": "text/plain" });
+          response.end("Unknown method: " + request_body);
         break;
       }
     break;
