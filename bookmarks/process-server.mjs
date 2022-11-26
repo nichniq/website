@@ -43,7 +43,12 @@ const ui = bookmarks => `
             />
             <a href="${x.url}" target="_blank" style="flex: 0 0 auto">↪︎</a>
           </div>
-          <div>${new Date(parseInt(x.added)).toISOString().slice(0, 10)}</div>
+          <div>${
+            new Date(parseInt(x.added)).toLocaleString("en-US", {
+              dateStyle: "medium",
+              timeStyle: "short"
+            })
+          }</div>
         </div>
       </td>
       <td>
