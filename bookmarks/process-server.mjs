@@ -14,17 +14,11 @@ const ui = bookmarks => `
 
 <h1>Bookmark Processor</h1>
 
-<datalist id="bookmark-types">
-  <option value="article">Article</option>
-  <option value="site">Personal site</option>
-  <option value="tutorial">Tutorial</option>
-</datalist>
-
 <table style="width: 100%">
   <thead>
     <tr>
       <th>Bookmark</th>
-      <th>Type</th>
+      <th>Notes</th>
       <th>Added</th>
       <th>Save</th>
       <th>Delete</th>
@@ -53,12 +47,10 @@ const ui = bookmarks => `
         </div>
       </td>
       <td>
-        <input
+        <textarea
           form="bookmark-${index}"
-          type="text"
-          name="type"
-          list="bookmark-types"
-        />
+          name="notes"
+        ></textarea>
       </td>
       <td>
         ${new Date(parseInt(x.added)).toISOString().slice(0, 10)}
