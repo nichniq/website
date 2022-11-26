@@ -19,7 +19,6 @@ const ui = bookmarks => `
     <tr>
       <th>Bookmark</th>
       <th>Notes</th>
-      <th>Added</th>
       <th>Save</th>
       <th>Delete</th>
     </tr>
@@ -44,6 +43,7 @@ const ui = bookmarks => `
             />
             <a href="${x.url}" target="_blank" style="flex: 0 0 auto">↪︎</a>
           </div>
+          <div>${new Date(parseInt(x.added)).toISOString().slice(0, 10)}</div>
         </div>
       </td>
       <td>
@@ -51,9 +51,6 @@ const ui = bookmarks => `
           form="bookmark-${index}"
           name="notes"
         ></textarea>
-      </td>
-      <td>
-        ${new Date(parseInt(x.added)).toISOString().slice(0, 10)}
       </td>
       <td>
         <form id="bookmark-${index}" data-endpoint="/" data-method="PUT">
