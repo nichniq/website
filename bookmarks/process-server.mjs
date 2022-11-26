@@ -111,24 +111,23 @@ const search_params = url => Object.fromEntries(url.searchParams.entries());
 
 http.createServer(async (request, response) => {
   const url = request_url(request);
+  const pathname = path.dirname(url.pathname);
   const { start, end } = search_params(url);
-  const request_body = await gather_stream_text(request);
-  const log = (method, body) => { console.log(method, body) };
+  const req_body_json = await gather_stream_text(request);
+  const method = request.method.toUpperCase();
 
-  switch (path.dirname(url.pathname)) {
+  console.log(method, pathname, req_body_json);
+
+  switch (pathname) {
     case "/":
-      switch (request.method.toUpperCase()) {
+      switch (method) {
         case "GET":
-          log("GET", request_body);
-
           response.writeHead(200, { "Content-Type": "text/html" });
           response.end(ui(raw_bookmarks.slice(start || 0, end || undefined)));
         break;
 
         case "PUT":
-          log("PUT", request_body);
-
-          const parsed_request = JSON.parse(request_body);
+          const parsed_request = JSON.parse(req_body_json);
 
           if (raw_bookmarks.some(b => b.url === parsed_request.url)) {
             response.writeHead(204).end();
@@ -138,16 +137,12 @@ http.createServer(async (request, response) => {
         break;
 
         case "DELETE":
-          log("DELETE", request_body);
-
           response.writeHead(204).end();
         break;
 
         default:
-          log("UNKNOWN", request_body);
-
           response.writeHead(501, { "Content-Type": "text/plain" });
-          response.end("Unknown method: " + request_body);
+          response.end("Method not implemented\n\n" + req_body_json);
         break;
       }
     break;
