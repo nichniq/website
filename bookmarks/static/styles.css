@@ -26,16 +26,21 @@ thead::after {
   bottom: 0;
 }
 
-thead > tr > th {
+th {
   padding: 0.5em;
 }
 
-tbody > tr > td {
-  padding: 0.25em 0.5em;
+td {
+  padding: 1em 0.5em;
+  vertical-align: top;
 }
 
 tr:nth-child(2n) {
   background-color: lightgray;
+}
+
+tbody > tr:nth-child(n-1) {
+  border-top: 1px solid black;
 }
 
 input {
