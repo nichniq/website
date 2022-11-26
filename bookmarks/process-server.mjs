@@ -148,6 +148,12 @@ http.createServer(async (request, response) => {
     break;
 
     case "/static":
+      if (method !== "GET") {
+        response.writeHead(501, { "Content-Type": "text/plain" });
+        response.end("Method not implemented\n\n" + req_body_json);
+        break;
+      }
+
       const MIME_TYPES = {
         ".css": "text/css; charset=utf-8",
       };
@@ -160,7 +166,7 @@ http.createServer(async (request, response) => {
 
     default:
       response.writeHead(404, { "Content-Type": "text/plain" });
-      response.end("Nothing here");
+      response.end("Not found");
       break;
   }
 }).listen(PORT);
