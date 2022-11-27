@@ -4,8 +4,6 @@ import path from "path";
 
 const PORT = 8080;
 
-const raw_bookmarks = JSON.parse(fs.readFileSync("./raw-bookmarks.json"));
-
 const ui = bookmarks => `
 <!doctype html>
 
@@ -17,10 +15,10 @@ const ui = bookmarks => `
 <table style="width: 100%">
   <thead>
     <tr>
-      <th>Bookmark</th>
+      <th style="width: 500px">Bookmark</th>
       <th>Notes</th>
-      <th>Save</th>
-      <th>Delete</th>
+      <th style="width: 0">Save</th>
+      <th style="width: 0">Delete</th>
     </tr>
   </thead>
   <tbody>${bookmarks.map((x, index) => `
@@ -32,7 +30,7 @@ const ui = bookmarks => `
             type="text"
             name="title"
             value="${x.title}"
-            style="flex-basis: 100%"
+            style="flex-basis: 100%; font-weight: bold"
           />
           <div style="flex-basis: 100%; display: flex; gap: 5px;">
             <input
@@ -98,6 +96,8 @@ const ui = bookmarks => `
 </script>
 `.trim();
 
+const raw_bookmarks = JSON.parse(fs.readFileSync("./raw-bookmarks.json"));
+
 const gather_stream_text = readable => new Promise((resolve, reject) => {
   let data = "";
   readable.setEncoding("utf8");
@@ -108,44 +108,69 @@ const gather_stream_text = readable => new Promise((resolve, reject) => {
 
 const request_url = request => new URL(request.url, `http://${request.headers.host}`);
 const search_params = url => Object.fromEntries(url.searchParams.entries());
+const subset = array => ({ start, end, limit }) => array.slice(
+  start || 0,
+  end
+).slice(0, limit);
 
 http.createServer(async (request, response) => {
   const url = request_url(request);
-  const pathname = path.dirname(url.pathname);
-  const { start, end } = search_params(url);
-  const req_body_json = await gather_stream_text(request);
+  const dir = path.dirname(url.pathname);
+
+  const { start, end, limit } = search_params(url);
+  const bookmark_subset = subset(raw_bookmarks)({ start, end, limit });
+
   const method = request.method.toUpperCase();
 
-  console.log(method, pathname, req_body_json);
+  const req_body_json = await gather_stream_text(request);
+  const req_body = req_body_json.length > 0 ? JSON.parse(req_body_json) : null;
+  const requested_bookmark = req_body ? raw_bookmarks.find(b => b.url === req_body.url) : null;
 
-  switch (pathname) {
+  console.log(method, url.href, req_body_json);
+
+  switch (dir) {
     case "/":
       switch (method) {
         case "GET":
           response.writeHead(200, { "Content-Type": "text/html" });
-          response.end(ui(raw_bookmarks.slice(start || 0, end || undefined)));
-        break;
+          response.end(ui(bookmark_subset));
+          break;
 
         case "PUT":
-          const parsed_request = JSON.parse(req_body_json);
-
-          if (raw_bookmarks.some(b => b.url === parsed_request.url)) {
-            response.writeHead(204).end();
+          if (requested_bookmark == null) {
+            response.writeHead(200, { "Content-Type": "application/json" }).end(
+              JSON.stringify({
+                created: req_body,
+              })
+            );
           } else {
-            response.writeHead(204, { "Content-Type": "text/plain" }).end();
+            response.writeHead(200, { "Content-Type": "application/json" }).end(
+              JSON.stringify({
+                replaced: requested_bookmark,
+                with: req_body,
+              })
+            );
           }
-        break;
+          // response.writeHead(204).end();
+          break;
 
         case "DELETE":
-          response.writeHead(204).end();
-        break;
+          response.writeHead(200, { "Content-Type": "application/json" }).end(
+            JSON.stringify({ deleted: requested_bookmark })
+          );
+          // response.writeHead(204).end();
+          break;
+
+        case "QUERY":
+          response.writeHead(204, { "Allow": "GET, PUT, DELETE" });
+          break;
 
         default:
           response.writeHead(501, { "Content-Type": "text/plain" });
           response.end("Method not implemented\n\n" + req_body_json);
-        break;
+          break;
       }
-    break;
+      break;
 
     case "/static":
       if (method !== "GET") {
@@ -158,11 +183,11 @@ http.createServer(async (request, response) => {
         ".css": "text/css; charset=utf-8",
       };
 
-      const stream = fs.createReadStream(path.join("./", url.pathname));
+      const stream = fs.createReadStream(path.join("./", url.pathname + url.search));
       const ext = path.extname(url.pathname);
       response.writeHead(200, { "Content-Type": MIME_TYPES[ext] });
       stream.pipe(response);
-    break;
+      break;
 
     default:
       response.writeHead(404, { "Content-Type": "text/plain" });
