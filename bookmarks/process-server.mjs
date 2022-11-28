@@ -4,8 +4,56 @@ import path from "path";
 
 const PORT = 8080;
 
-const ui = bookmarks => `
-<!doctype html>
+const indent = (spaces, content) => content.split("\n").map(x => " ".repeat(spaces) + x).join("\n");
+
+const tr = (x, form_id) => `<tr>
+  <td>
+    <div style="display: flex; flex-direction: column; gap: 5px;">
+      <input
+        form="${form_id}"
+        type="text"
+        name="title"
+        value="${x.title}"
+        style="flex-basis: 100%; font-weight: bold"
+      />
+      <div style="flex-basis: 100%; display: flex; gap: 5px;">
+        <input
+          form="${form_id}"
+          type="text" name="url" value="${x.url}"
+          style="flex: 1 0 auto"
+          oninput="this.nextElementSibling.href = this.value"
+        />
+        <a href="${x.url}" target="_blank" style="flex: 0 0 auto">↪︎</a>
+      </div>
+      <div>${
+        new Date(parseInt(x.added)).toLocaleString("en-US", {
+          dateStyle: "medium",
+          timeStyle: "short"
+        })
+      }</div>
+    </div>
+  </td>
+  <td>
+    <textarea
+      form="${form_id}"
+      name="notes"
+    ></textarea>
+  </td>
+  <td>
+    <form id="${form_id}" data-endpoint="/" data-method="PUT">
+      <input type="hidden" name="added" value="${x.added}" />
+      <button type="submit">Save</button>
+    </form>
+  </td>
+  <td>
+    <form data-endpoint="/" data-method="DELETE">
+      <input type="hidden" name="url" value="${x.url}" />
+      <button type="submit">Delete</button>
+    </form>
+  </td>
+</tr>`;
+
+const ui = bookmarks => `<!doctype html>
 
 <meta charset="utf8" />
 <link rel="stylesheet" href="/static/styles.css" />
@@ -21,54 +69,9 @@ const ui = bookmarks => `
       <th style="width: 0">Delete</th>
     </tr>
   </thead>
-  <tbody>${bookmarks.map((x, index) => `
-    <tr>
-      <td>
-        <div style="display: flex; flex-direction: column; gap: 5px;">
-          <input
-            form="bookmark-${index}"
-            type="text"
-            name="title"
-            value="${x.title}"
-            style="flex-basis: 100%; font-weight: bold"
-          />
-          <div style="flex-basis: 100%; display: flex; gap: 5px;">
-            <input
-              form="bookmark-${index}"
-              type="text" name="url" value="${x.url}"
-              style="flex: 1 0 auto"
-              oninput="this.nextElementSibling.href = this.value"
-            />
-            <a href="${x.url}" target="_blank" style="flex: 0 0 auto">↪︎</a>
-          </div>
-          <div>${
-            new Date(parseInt(x.added)).toLocaleString("en-US", {
-              dateStyle: "medium",
-              timeStyle: "short"
-            })
-          }</div>
-        </div>
-      </td>
-      <td>
-        <textarea
-          form="bookmark-${index}"
-          name="notes"
-        ></textarea>
-      </td>
-      <td>
-        <form id="bookmark-${index}" data-endpoint="/" data-method="PUT">
-          <input type="hidden" name="added" value="${x.added}" />
-          <button type="submit">Save</button>
-        </form>
-      </td>
-      <td>
-        <form data-endpoint="/" data-method="DELETE">
-          <input type="hidden" name="url" value="${x.url}" />
-          <button type="submit">Delete</button>
-        </form>
-      </td>
-    </tr>`).join("")}
-  </tbody>
+  <tbody>${
+    "\n" + indent(4, bookmarks.map((x, index) => tr(x, `bookmark_${index}`)).join("\n"))
+  }</tbody>
 </table>
 
 <script>
@@ -93,8 +96,7 @@ const ui = bookmarks => `
     console.log(data);
     fetch(url, { method, body });
   };
-</script>
-`.trim();
+</script>`;
 
 const raw_bookmarks = JSON.parse(fs.readFileSync("./raw-bookmarks.json"));
 
