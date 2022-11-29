@@ -69,9 +69,9 @@ const ui = bookmarks => `<!doctype html>
       <th style="width: 0">Delete</th>
     </tr>
   </thead>
-  <tbody>${
-    "\n" + indent(4, bookmarks.map((x, index) => tr(x, `bookmark_${index}`)).join("\n"))
-  }</tbody>
+  <tbody>
+${indent(4, bookmarks.map((x, index) => tr(x, `bookmark_${index}`)).join("\n"))}
+  </tbody>
 </table>
 
 <script>
