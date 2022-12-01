@@ -26,7 +26,9 @@ const MIME_TYPES = {
   ".mp4": "video/mp4",
 };
 
-const mime_type = filepath => MIME_TYPES[path.extname(filepath)] || "text/plain";
+const ext_content_type = ext => (ext in MIME_TYPES)
+  ? { "Content-Type": MIME_TYPES[ext] }
+  : {};
 
 const path_info = local_path => Promise.all([
   fs.promises.stat(local_path),
@@ -37,26 +39,30 @@ const path_info = local_path => Promise.all([
   { is_file: false, is_directory: false, children: [] }
 ));
 
-export default async (request, response) => {
+export default (request, response) => {
   const local_path = path.join(process.cwd(), request.url);
-  const { is_file, is_directory, children } = await path_info(local_path);
 
-  if (is_file) {
-    response.writeHead(200, { "Content-Type": mime_type(local_path) });
-    fs.createReadStream(local_path).pipe(response);
-  } else if (is_directory && children.includes("index.html")) {
-    response.writeHead(200, { "Content-Type": MIME_TYPES[".html"] });
-    fs.createReadStream(path.join(local_path, "index.html")).pipe(response);
-  } else if (is_directory && children.length) {
-    response.writeHead(200, { "Content-Type": MIME_TYPES[".html"] });
-    response.end(`<!doctype html><ul>${
-      children
-        .map(x => path.join(request.url, x))
-        .map(x => `<li><a href="${x}">${x}</a></li>`)
-        .join("")
-    }</ul>`);
-  } else {
-    response.writeHead(404, { "Content-Type": "text/plain" });
-    response.end(`No file at ${local_path}`);
-  }
+  path_info(local_path).then(({ is_file, is_directory, children }) => {
+    if (is_file) {
+      response.writeHead(200, ext_content_type(path.extname(local_path)));
+      fs.createReadStream(local_path).pipe(response);
+    } else if (is_directory && children.includes("index.html")) {
+      response.writeHead(200, ext_content_type(".html"));
+      fs.createReadStream(path.join(local_path, "index.html")).pipe(response);
+    } else if (is_directory && children.length > 0) {
+      response.writeHead(200, ext_content_type(".html"));
+      response.end(`<!doctype html><ul>${
+        children
+          .map(x => path.join(request.url, x))
+          .map(x => `<li><a href="${x}">${x}</a></li>`)
+          .join("")
+      }</ul>`);
+    } else {
+      response.writeHead(404, { "Content-Type": "text/plain" });
+      response.end(`Not found: ${local_path}`);
+    }
+  }).catch(err => {
+    response.writeHead(500, { "Content-Type": "text/plain" });
+    response.end(`Server error: ${err}`);
+  })
 };
