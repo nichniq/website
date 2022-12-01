@@ -1,0 +1,81 @@
+<!doctype html>
+
+<meta charset="utf8" />
+<link rel="stylesheet" href="/static/styles.css" />
+
+<h1>Bookmark Processor</h1>
+
+<table style="width: 100%">
+  <thead>
+    <tr>
+      <th style="width: 500px">Bookmark</th>
+      <th>Notes</th>
+      <th style="width: 0">Save</th>
+      <th style="width: 0">Delete</th>
+    </tr>
+  </thead>
+  <tbody>{{# bookmarks }}
+    <tr>
+      <td>
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+          <input
+            form="{{ form_id }}"
+            type="text"
+            name="title"
+            value="{{ title }}"
+            style="flex-basis: 100%; font-weight: bold"
+          />
+          <div style="flex-basis: 100%; display: flex; gap: 5px;">
+            <input
+              form="{{ form_id }}"
+              type="text" name="url" value="{{ url }}"
+              style="flex: 1 0 auto"
+              oninput="this.nextElementSibling.href = this.value"
+            />
+            <a href="{{ url }}" target="_blank" style="flex: 0 0 auto">↪︎</a>
+          </div>
+          <div>{{ added }}</div>
+        </div>
+      </td>
+      <td>
+        <textarea form="{{ form_id }}" name="notes"></textarea>
+      </td>
+      <td>
+        <form id="{{ form_id }}" data-endpoint="/" data-method="PUT">
+          <input type="hidden" name="added" value="{{ added }}" />
+          <button type="submit">Save</button>
+        </form>
+      </td>
+      <td>
+        <form data-endpoint="/" data-method="DELETE">
+          <input type="hidden" name="url" value="{{ url }}" />
+          <button type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>{{/ bookmarks }}
+  </tbody>
+</table>
+
+<script>
+  const form_obj = form => Object.fromEntries(
+    [ ...form.elements ].filter(x => x.name).map(x => [ x.name, x.value ])
+  );
+
+  document.addEventListener("submit", event => {
+    event.preventDefault();
+    const form = event.target;
+
+    fetch(
+      form.dataset.endpoint, {
+        method: form.dataset.method,
+        body: JSON.stringify(form_obj(form))
+      }
+    );
+  });
+
+  const submit = (url, method) => {
+    const body = new FormData(event.target);
+    console.log(data);
+    fetch(url, { method, body });
+  };
+</script>

@@ -2,101 +2,22 @@ import http from "http";
 import fs from "fs";
 import path from "path";
 
+import mustache from "./mustache.mjs";
+
 const PORT = 8080;
 
-const indent = (spaces, content) => content.split("\n").map(x => " ".repeat(spaces) + x).join("\n");
-
-const tr = (x, form_id) => `<tr>
-  <td>
-    <div style="display: flex; flex-direction: column; gap: 5px;">
-      <input
-        form="${form_id}"
-        type="text"
-        name="title"
-        value="${x.title}"
-        style="flex-basis: 100%; font-weight: bold"
-      />
-      <div style="flex-basis: 100%; display: flex; gap: 5px;">
-        <input
-          form="${form_id}"
-          type="text" name="url" value="${x.url}"
-          style="flex: 1 0 auto"
-          oninput="this.nextElementSibling.href = this.value"
-        />
-        <a href="${x.url}" target="_blank" style="flex: 0 0 auto">↪︎</a>
-      </div>
-      <div>${
-        new Date(parseInt(x.added)).toLocaleString("en-US", {
-          dateStyle: "medium",
-          timeStyle: "short"
-        })
-      }</div>
-    </div>
-  </td>
-  <td>
-    <textarea
-      form="${form_id}"
-      name="notes"
-    ></textarea>
-  </td>
-  <td>
-    <form id="${form_id}" data-endpoint="/" data-method="PUT">
-      <input type="hidden" name="added" value="${x.added}" />
-      <button type="submit">Save</button>
-    </form>
-  </td>
-  <td>
-    <form data-endpoint="/" data-method="DELETE">
-      <input type="hidden" name="url" value="${x.url}" />
-      <button type="submit">Delete</button>
-    </form>
-  </td>
-</tr>`;
-
-const ui = bookmarks => `<!doctype html>
-
-<meta charset="utf8" />
-<link rel="stylesheet" href="/static/styles.css" />
-
-<h1>Bookmark Processor</h1>
-
-<table style="width: 100%">
-  <thead>
-    <tr>
-      <th style="width: 500px">Bookmark</th>
-      <th>Notes</th>
-      <th style="width: 0">Save</th>
-      <th style="width: 0">Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-${indent(4, bookmarks.map((x, index) => tr(x, `bookmark_${index}`)).join("\n"))}
-  </tbody>
-</table>
-
-<script>
-  const form_obj = form => Object.fromEntries(
-    [ ...form.elements ].filter(x => x.name).map(x => [ x.name, x.value ])
-  );
-
-  document.addEventListener("submit", event => {
-    event.preventDefault();
-    const form = event.target;
-
-    fetch(
-      form.dataset.endpoint, {
-        method: form.dataset.method,
-        body: JSON.stringify(form_obj(form))
-      }
-    );
-  });
-
-  const submit = (url, method) => {
-    const body = new FormData(event.target);
-    console.log(data);
-    fetch(url, { method, body });
-  };
-</script>`;
+const ui_tempate = fs.readFileSync("main-template.mustache", "utf-8");
+const ui = bookmarks => mustache.render(ui_tempate, {
+  bookmarks: bookmarks.map(({ title, url, added }, index) => ({
+    form_id: `bookmark_${index}`,
+    title,
+    url,
+    added: new Date(parseInt(added)).toLocaleString("en-US", {
+      dateStyle: "medium",
+      timeStyle: "short",
+    })
+  }))
+});
 
 const raw_bookmarks = JSON.parse(fs.readFileSync("./raw-bookmarks.json"));
 
