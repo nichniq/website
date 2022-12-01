@@ -16,6 +16,104 @@ const template = {
 
 export default [
   {
+    title: "Tomorrow, and Tomorrow, and Tomorrow",
+    ids: [
+      [ "isbn10", "0593321200" ],
+      [ "isbn13", "9780593321201" ],
+    ],
+    external: "https://www.goodreads.com/book/show/58784475-tomorrow-and-tomorrow-and-tomorrow",
+    txns: [
+      [ "gift", { date: "November 30, 2022", from: "Cam", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "The 99% Invisible City",
+    subtitle: "A Field Guide to the Hidden World of Everyday Design",
+    ids: [
+      [ "isbn10", "0358126606" ],
+      [ "isbn13", "9780358126607" ],
+    ],
+    external: "https://www.goodreads.com/book/show/50416393-the-99-invisible-city",
+    txns: [
+      [ "gift", { date: "November 30, 2022", from: "Cam", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Animal Tracks and Hunter Signs",
+    ids: [
+      [ "lccn", "58007366" ],
+    ],
+    external: "https://lccn.loc.gov/58007366",
+    txns: [
+      [ "purchase", { date: "November 30, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "How Things Work",
+    subtitle: "The Inner Life of Everyday Machines",
+    ids: [
+      [ "isbn10", "0316445436" ],
+      [ "isbn13", "9780316445436" ],
+    ],
+    external: "https://www.goodreads.com/book/show/43885008-how-things-work",
+    txns: [
+      [ "purchase", { date: "November 30, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Spirit of Place",
+    subtitle: "Contemporary Landscape Painting & the American Tradition",
+    ids: [
+      [ "isbn10", "0821217070" ],
+      [ "isbn13", "9780821217078" ],
+    ],
+    external: "https://www.goodreads.com/book/show/5348351-spirit-of-place",
+    txns: [
+      [ "purchase", { date: "November 27, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "The Way to Start a Day",
+    ids: [
+      [ "isbn10", "0684156512" ],
+      [ "isbn13", "9780684156514" ],
+    ],
+    external: "https://www.goodreads.com/book/show/2611266-the-way-to-start-a-day",
+    txns: [
+      [ "purchase", { date: "November 27, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "The World of the Fox",
+    ids: [
+      [ "isbn10", "0871563770" ],
+      [ "isbn13", "9780871563774" ],
+    ],
+    external: "https://www.goodreads.com/book/show/2834989-the-world-of-the-fox",
+    txns: [
+      [ "purchase", { date: "November 27, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
+    title: "Arms and Armor in Africa",
+    ids: [
+      [ "lccn", "75115090" ],
+    ],
+    external: "https://lccn.loc.gov/75115090",
+    txns: [
+      [ "purchase", { date: "November 27, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+    notes: "I thought I bought this and asked about it on a subsequent trip after I couldn't find it. Turns out it was in the rare book section and the reason I didn't buy it was because it was very expensive ($90). I decided to get it because it was so on my mind.",
+  },
+  {
+    title: "A Private Anthropological Cabinet",
+    subtitle: "500 Authentic Racial-Esoteric Photographs and Illustrations",
+    external: "https://www.goodreads.com/book/show/17876647-a-private-anthropological-cabinet-of-500-authentic-racial-esoteric-photo",
+    txns: [
+      [ "purchase", { date: "November 27, 2022", location: "Orca Books Co-op", city: "Olympia" } ],
+    ],
+  },
+  {
     title: "Greenhouses and Conservatories",
     ids: [
       [ "isbn10", "208010585X" ],
