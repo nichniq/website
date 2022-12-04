@@ -7,14 +7,39 @@ import serve_file from "./file-system-handler.mjs";
 
 const PORT = 8080;
 
+const read_json = filename => JSON.parse(fs.readFileSync(filename, "utf-8"));
+
+const raw_bookmarks = read_json("./raw-bookmarks.json");
+const processed_bookmarks = read_json("./processed-bookmarks.json");
+const combined_bookmarks = Object.entries(processed_bookmarks).reduce(
+  (bookmarks, [ key, [ method, payload ] ]) => {
+    switch (method.toUpperCase()) {
+      case "PUT":
+        bookmarks[key] = payload;
+        break;
+
+      case "DELETE":
+        delete bookmarks[key];
+        break;
+
+      default:
+        break;
+    }
+
+    return bookmarks;
+  },
+  Object.assign({}, raw_bookmarks)
+);
+
 const ui = bookmarks => mustache.render(
   fs.readFileSync("main-template.mustache", "utf-8"),
   {
-    bookmarks: bookmarks.map(({ title, url, added }, index) => ({
+    bookmarks: bookmarks.map(({ title, url, added, notes = "" }, index) => ({
       form_id: `bookmark_${index}`,
       title,
       url,
       added,
+      notes,
       added_formatted: new Date(parseInt(added)).toLocaleString("en-US", {
         dateStyle: "medium",
         timeStyle: "short",
@@ -22,8 +47,6 @@ const ui = bookmarks => mustache.render(
     }))
   }
 );
-
-const raw_bookmarks = JSON.parse(fs.readFileSync("./raw-bookmarks.json")).reverse();
 
 const gather_stream_text = readable => new Promise((resolve, reject) => {
   let data = "";
@@ -48,7 +71,9 @@ http.createServer(async (request, response) => {
 
   const req_body_json = await gather_stream_text(request);
   const req_body = req_body_json.length > 0 ? JSON.parse(req_body_json) : null;
-  const requested_bookmark = req_body ? raw_bookmarks.find(b => b.url === req_body.url) : null;
+
+  const bookmarks = Object.values(combined_bookmarks).reverse();
+  const requested_bookmark = req_body ? bookmarks.find(b => b.url === req_body.url) : null;
 
   console.log(method, url.href, req_body_json);
 
@@ -57,7 +82,7 @@ http.createServer(async (request, response) => {
       switch (method) {
         case "GET":
           response.writeHead(200, { "Content-Type": "text/html" });
-          response.end(ui(raw_bookmarks));
+          response.end(ui(bookmarks));
           break;
 
         case "PUT":
