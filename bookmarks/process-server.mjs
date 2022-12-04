@@ -7,18 +7,21 @@ import serve_file from "./file-system-handler.mjs";
 
 const PORT = 8080;
 
-const ui_tempate = fs.readFileSync("main-template.mustache", "utf-8");
-const ui = bookmarks => mustache.render(ui_tempate, {
-  bookmarks: bookmarks.map(({ title, url, added }, index) => ({
-    form_id: `bookmark_${index}`,
-    title,
-    url,
-    added: new Date(parseInt(added)).toLocaleString("en-US", {
-      dateStyle: "medium",
-      timeStyle: "short",
-    })
-  }))
-});
+const ui = bookmarks => mustache.render(
+  fs.readFileSync("main-template.mustache", "utf-8"),
+  {
+    bookmarks: bookmarks.map(({ title, url, added }, index) => ({
+      form_id: `bookmark_${index}`,
+      title,
+      url,
+      added,
+      added_formatted: new Date(parseInt(added)).toLocaleString("en-US", {
+        dateStyle: "medium",
+        timeStyle: "short",
+      })
+    }))
+  }
+);
 
 const raw_bookmarks = JSON.parse(fs.readFileSync("./raw-bookmarks.json"));
 
@@ -75,14 +78,12 @@ http.createServer(async (request, response) => {
               })
             );
           }
-          // response.writeHead(204).end();
           break;
 
         case "DELETE":
           response.writeHead(200, { "Content-Type": "application/json" }).end(
             JSON.stringify({ deleted: requested_bookmark })
           );
-          // response.writeHead(204).end();
           break;
 
         case "QUERY":

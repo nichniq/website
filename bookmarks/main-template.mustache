@@ -10,6 +10,7 @@
     <tr>
       <th style="width: 500px">Bookmark</th>
       <th>Notes</th>
+      <th style="width: 0">Revert</th>
       <th style="width: 0">Save</th>
       <th style="width: 0">Delete</th>
     </tr>
@@ -34,11 +35,14 @@
             />
             <a href="{{ url }}" target="_blank" style="flex: 0 0 auto">↪︎</a>
           </div>
-          <div>{{ added }}</div>
+          <div>{{ added_formatted }}</div>
         </div>
       </td>
       <td>
         <textarea form="{{ form_id }}" name="notes"></textarea>
+      </td>
+      <td>
+        <button form="{{ form_id }}" type="reset">Revert</button>
       </td>
       <td>
         <form id="{{ form_id }}" data-endpoint="/" data-method="PUT">
