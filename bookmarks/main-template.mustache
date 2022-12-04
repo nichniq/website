@@ -8,11 +8,9 @@
 <table style="width: 100%">
   <thead>
     <tr>
-      <th style="width: 500px">Bookmark</th>
+      <th style="width: 550px">Bookmark</th>
       <th>Notes</th>
-      <th style="width: 0">Revert</th>
-      <th style="width: 0">Save</th>
-      <th style="width: 0">Delete</th>
+      <th style="width: 0">Actions</th>
     </tr>
   </thead>
   <tbody>{{# bookmarks }}
@@ -39,22 +37,20 @@
         </div>
       </td>
       <td>
-        <textarea form="{{ form_id }}" name="notes"></textarea>
+        <textarea form="{{ form_id }}" rows="3" name="notes"></textarea>
       </td>
       <td>
-        <button form="{{ form_id }}" type="reset">Revert</button>
-      </td>
-      <td>
-        <form id="{{ form_id }}" data-endpoint="/" data-method="PUT">
-          <input type="hidden" name="added" value="{{ added }}" />
-          <button type="submit">Save</button>
-        </form>
-      </td>
-      <td>
-        <form data-endpoint="/" data-method="DELETE">
-          <input type="hidden" name="url" value="{{ url }}" />
-          <button type="submit">Delete</button>
-        </form>
+        <div style="display: flex; flex-direction: column; gap: 5px">
+          <button form="{{ form_id }}" type="reset">Revert</button>
+          <form id="{{ form_id }}" data-endpoint="/" data-method="PUT">
+            <input type="hidden" name="added" value="{{ added }}" />
+            <button type="submit">Save</button>
+          </form>
+          <form data-endpoint="/" data-method="DELETE">
+            <input type="hidden" name="url" value="{{ url }}" />
+            <button type="submit">Delete</button>
+          </form>
+        </div>
       </td>
     </tr>{{/ bookmarks }}
   </tbody>
