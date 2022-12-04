@@ -23,7 +23,7 @@ const ui = bookmarks => mustache.render(
   }
 );
 
-const raw_bookmarks = JSON.parse(fs.readFileSync("./raw-bookmarks.json"));
+const raw_bookmarks = JSON.parse(fs.readFileSync("./raw-bookmarks.json")).reverse();
 
 const gather_stream_text = readable => new Promise((resolve, reject) => {
   let data = "";
