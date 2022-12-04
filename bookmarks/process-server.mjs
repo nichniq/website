@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 
 import mustache from "./mustache.mjs";
+import serve_file from "./file-system-handler.mjs";
 
 const PORT = 8080;
 
@@ -96,25 +97,12 @@ http.createServer(async (request, response) => {
       break;
 
     case "/static":
-      if (method !== "GET") {
-        response.writeHead(501, { "Content-Type": "text/plain" });
-        response.end("Method not implemented\n\n" + req_body_json);
-        break;
-      }
-
-      const MIME_TYPES = {
-        ".css": "text/css; charset=utf-8",
-      };
-
-      const stream = fs.createReadStream(path.join("./", url.pathname + url.search));
-      const ext = path.extname(url.pathname);
-      response.writeHead(200, { "Content-Type": MIME_TYPES[ext] });
-      stream.pipe(response);
+      serve_file(request, response);
       break;
 
     default:
       response.writeHead(404, { "Content-Type": "text/plain" });
-      response.end("Not found");
+      response.end(`Not found: ${request.url}`);
       break;
   }
 }).listen(PORT);
