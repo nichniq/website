@@ -44,9 +44,6 @@ http.createServer(async (request, response) => {
   const url = request_url(request);
   const dir = path.dirname(url.pathname);
 
-  const { start, end, limit } = search_params(url);
-  const bookmark_subset = subset(raw_bookmarks)({ start, end, limit });
-
   const method = request.method.toUpperCase();
 
   const req_body_json = await gather_stream_text(request);
@@ -60,7 +57,7 @@ http.createServer(async (request, response) => {
       switch (method) {
         case "GET":
           response.writeHead(200, { "Content-Type": "text/html" });
-          response.end(ui(bookmark_subset));
+          response.end(ui(raw_bookmarks));
           break;
 
         case "PUT":
