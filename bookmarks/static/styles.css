@@ -71,6 +71,6 @@ a:hover {
   background: ghostwhite;
 }
 
-.hide-processed [data-processed="true"] {
+.processed-hidden [data-processed="true"] {
   display: none;
 }

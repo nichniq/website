@@ -7,11 +7,11 @@
 
 <div>
   <label>
-    Show processed <input id="show-processed" type="checkbox" />
+    Show processed <input id="toggle-processed" type="checkbox" checked />
   </label>
 </div>
 
-<table id="bookmarks" class="hide-processed" style="width: 100%">
+<table id="bookmarks" style="width: 100%">
   <thead>
     <tr>
       <th style="width: 550px">Bookmark</th>
@@ -88,11 +88,15 @@
     }
   });
 
-  document.getElementById("show-processed").addEventListener("change", e => {
+  document.getElementById("toggle-processed").addEventListener("change", e => {
     if (e.target.checked) {
-      document.getElementById("bookmarks").classList.remove("hide-processed");
+      document.getElementById("bookmarks").classList.remove("processed-hidden");
     } else {
-      document.getElementById("bookmarks").classList.add("hide-processed");
+      document.getElementById("bookmarks").classList.add("processed-hidden");
     }
   });
+
+  if (!document.getElementById("toggle-processed").checked) {
+    document.getElementById("bookmarks").classList.add("processed-hidden");
+  }
 </script>
