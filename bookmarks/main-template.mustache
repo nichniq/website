@@ -46,11 +46,13 @@
       <td>
         <div style="display: flex; flex-direction: column; gap: 5px">
           <button form="{{ form_id }}" type="reset">Revert</button>
-          <form id="{{ form_id }}" action="/" data-method="PUT">
+          <form id="{{ form_id }}" action="/" method="POST">
+            <input type="hidden" name="event" value="SAVE" />
             <input type="hidden" name="added" value="{{ added }}" />
             <button type="submit">Save</button>
           </form>
-          <form action="/" data-method="DELETE">
+          <form action="/" method="POST">
+            <input type="hidden" name="event" value="DELETE" />
             <input type="hidden" name="url" value="{{ url }}" />
             <button type="submit">Delete</button>
           </form>
@@ -68,21 +70,15 @@
   document.addEventListener("submit", event => {
     const form = event.target;
 
-    if (form.dataset.method != null) {
+    if (/POST/i.test(form.method)) {
       event.preventDefault();
 
       fetch(
         form.action, {
-          method: form.dataset.method,
+          method: form.method,
           body: JSON.stringify(form_obj(form))
         }
-      );
+      ).then(response => response.json()).then(console.log);
     }
   });
-
-  const submit = (url, method) => {
-    const body = new FormData(event.target);
-    console.log(data);
-    fetch(url, { method, body });
-  };
 </script>

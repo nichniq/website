@@ -10,26 +10,6 @@ const PORT = 8080;
 const read_json = filename => JSON.parse(fs.readFileSync(filename, "utf-8"));
 
 const raw_bookmarks = read_json("./raw-bookmarks.json");
-const processed_bookmarks = read_json("./processed-bookmarks.json");
-const combined_bookmarks = Object.entries(processed_bookmarks).reduce(
-  (bookmarks, [ key, [ method, payload ] ]) => {
-    switch (method.toUpperCase()) {
-      case "PUT":
-        bookmarks[key] = payload;
-        break;
-
-      case "DELETE":
-        delete bookmarks[key];
-        break;
-
-      default:
-        break;
-    }
-
-    return bookmarks;
-  },
-  Object.assign({}, raw_bookmarks)
-);
 
 const ui = bookmarks => mustache.render(
   fs.readFileSync("main-template.mustache", "utf-8"),
@@ -72,7 +52,7 @@ http.createServer(async (request, response) => {
   const req_body_json = await gather_stream_text(request);
   const req_body = req_body_json.length > 0 ? JSON.parse(req_body_json) : null;
 
-  const bookmarks = Object.values(combined_bookmarks).reverse();
+  const bookmarks = raw_bookmarks.slice(-100).reverse();
   const requested_bookmark = req_body ? bookmarks.find(b => b.url === req_body.url) : null;
 
   console.log(method, url.href, req_body_json);
@@ -85,31 +65,13 @@ http.createServer(async (request, response) => {
           response.end(ui(bookmarks));
           break;
 
-        case "PUT":
-          if (requested_bookmark == null) {
-            response.writeHead(200, { "Content-Type": "application/json" }).end(
-              JSON.stringify({
-                created: req_body,
-              })
-            );
-          } else {
-            response.writeHead(200, { "Content-Type": "application/json" }).end(
-              JSON.stringify({
-                replaced: requested_bookmark,
-                with: req_body,
-              })
-            );
-          }
-          break;
-
-        case "DELETE":
-          response.writeHead(200, { "Content-Type": "application/json" }).end(
-            JSON.stringify({ deleted: requested_bookmark })
-          );
+        case "POST":
+          response.writeHead(200, { "Content-Type": "text/html" });
+          response.end(req_body_json);
           break;
 
         case "QUERY":
-          response.writeHead(204, { "Allow": "GET, PUT, DELETE" });
+          response.writeHead(204, { "Allow": "GET, POST" });
           break;
 
         default:
