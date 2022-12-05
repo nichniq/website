@@ -5,7 +5,13 @@
 
 <h1>Bookmark Processor</h1>
 
-<table style="width: 100%">
+<div>
+  <label>
+    Show processed <input id="show-processed" type="checkbox" />
+  </label>
+</div>
+
+<table id="bookmarks" class="hide-processed" style="width: 100%">
   <thead>
     <tr>
       <th style="width: 550px">Bookmark</th>
@@ -14,7 +20,7 @@
     </tr>
   </thead>
   <tbody>{{# bookmarks }}
-    <tr>
+    <tr data-processed="{{ processed }}">
       <td>
         <div style="display: flex; flex-direction: column; gap: 5px;">
           <input
@@ -79,6 +85,14 @@
           body: JSON.stringify(form_obj(form))
         }
       ).then(response => response.json()).then(console.log);
+    }
+  });
+
+  document.getElementById("show-processed").addEventListener("change", e => {
+    if (e.target.checked) {
+      document.getElementById("bookmarks").classList.remove("hide-processed");
+    } else {
+      document.getElementById("bookmarks").classList.add("hide-processed");
     }
   });
 </script>

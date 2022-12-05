@@ -70,3 +70,7 @@ a {
 a:hover {
   background: ghostwhite;
 }
+
+.hide-processed [data-processed="true"] {
+  display: none;
+}

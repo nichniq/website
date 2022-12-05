@@ -8,19 +8,20 @@ import serve_file from "./file-system-handler.mjs";
 const PORT = 8080;
 
 const read_json = filename => JSON.parse(fs.readFileSync(filename, "utf-8"));
-
 const raw_bookmarks = read_json("./raw-bookmarks.json");
+const processed_bookmarks = read_json("./processed-bookmarks.json");
 
 const ui = bookmarks => mustache.render(
   fs.readFileSync("main-template.mustache", "utf-8"),
   {
-    bookmarks: bookmarks.map(({ title, url, added, notes = "" }, index) => ({
+    bookmarks: bookmarks.map((bookmark, index) => ({
       form_id: `bookmark_${index}`,
-      title,
-      url,
-      added,
-      notes,
-      added_formatted: new Date(parseInt(added)).toLocaleString("en-US", {
+      title: bookmark.title,
+      url: bookmark.url,
+      added: bookmark.added,
+      notes: bookmark.notes || "",
+      processed: bookmark.processed,
+      added_formatted: new Date(parseInt(bookmark.added)).toLocaleString("en-US", {
         dateStyle: "medium",
         timeStyle: "short",
       })
@@ -52,7 +53,10 @@ http.createServer(async (request, response) => {
   const req_body_json = await gather_stream_text(request);
   const req_body = req_body_json.length > 0 ? JSON.parse(req_body_json) : null;
 
-  const bookmarks = raw_bookmarks.slice(-100).reverse();
+  const bookmarks = [
+    ...raw_bookmarks.slice(-100).map(x => ({ ...x, processed: false })),
+    ...processed_bookmarks.slice().map(x => ({ ...x, processed: true })),
+  ].sort((a, b) => b.added - a.added);
   const requested_bookmark = req_body ? bookmarks.find(b => b.url === req_body.url) : null;
 
   console.log(method, url.href, req_body_json);
