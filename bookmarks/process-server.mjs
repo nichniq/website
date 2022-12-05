@@ -8,7 +8,7 @@ import serve_file from "./file-system-handler.mjs";
 const PORT = 8080;
 
 const read_json = filename => JSON.parse(fs.readFileSync(filename, "utf-8"));
-const raw_bookmarks = read_json("./raw-bookmarks.json");
+const unprocessed_bookmarks = read_json("./unprocessed-bookmarks.json");
 const processed_bookmarks = read_json("./processed-bookmarks.json");
 
 const ui = bookmarks => mustache.render(
@@ -54,7 +54,7 @@ http.createServer(async (request, response) => {
   const req_body = req_body_json.length > 0 ? JSON.parse(req_body_json) : null;
 
   const bookmarks = [
-    ...raw_bookmarks.slice(-100).map(x => ({ ...x, processed: false })),
+    ...unprocessed_bookmarks.slice(-100).map(x => ({ ...x, processed: false })),
     ...processed_bookmarks.slice().map(x => ({ ...x, processed: true })),
   ].sort((a, b) => b.added - a.added);
   const requested_bookmark = req_body ? bookmarks.find(b => b.url === req_body.url) : null;

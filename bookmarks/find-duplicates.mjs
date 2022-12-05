@@ -18,7 +18,7 @@ for (const bookmark of bookmarks) {
 console.log(
   JSON.stringify(
     bookmarks.reverse().filter(x => !duplicate.has(x)),
-    null,
+    Object.keys(bookmarks[0]).sort(),
     2
   )
 );
