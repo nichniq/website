@@ -2,19 +2,23 @@ import fs from "fs";
 
 const bookmarks = JSON.parse(
   fs.readFileSync("./raw-bookmarks.json")
-).map((bookmark, index) => [ index, bookmark ]).reverse();
+).reverse();
 
-const processed = new Set();
-const output = {};
+const visited = new Set();
+const duplicate = new Set();
 
-for (const [ index, bookmark ] of bookmarks) {
-  const url = bookmark.url;
-
-  if (processed.has(url)) {
-    output[index] = [ "DELETE" ];
+for (const bookmark of bookmarks) {
+  if (visited.has(bookmark.url)) {
+    duplicate.add(bookmark);
   } else {
-    processed.add(url);
+    visited.add(bookmark.url);
   }
 }
 
-console.log(JSON.stringify(output, null, 2));
+console.log(
+  JSON.stringify(
+    bookmarks.reverse().filter(x => !duplicate.has(x)),
+    null,
+    2
+  )
+);
