@@ -1,7 +1,7 @@
 import fs from "fs";
 
 const bookmarks = JSON.parse(
-  fs.readFileSync("./raw-bookmarks.json")
+  fs.readFileSync("./unprocessed-bookmarks.json")
 ).reverse();
 
 const visited = new Set();
@@ -18,7 +18,7 @@ for (const bookmark of bookmarks) {
 console.log(
   JSON.stringify(
     bookmarks.reverse().filter(x => !duplicate.has(x)),
-    Object.keys(bookmarks[0]).sort(),
+    [ "title", "url", "added" ],
     2
   )
 );
