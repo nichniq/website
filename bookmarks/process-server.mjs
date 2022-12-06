@@ -21,7 +21,7 @@ const ui = bookmarks => mustache.render(
       added: bookmark.added,
       notes: bookmark.notes || "",
       processed: bookmark.processed,
-      added_formatted: new Date(parseInt(bookmark.added)).toLocaleString("en-US", {
+      added_formatted: new Date(bookmark.added).toLocaleString("en-US", {
         dateStyle: "medium",
         timeStyle: "short",
       })
@@ -44,34 +44,82 @@ const subset = array => ({ start, end, limit }) => array.slice(
   end
 ).slice(0, limit);
 
+const delete_bookmark = url => {
+  const unprocessed_index = unprocessed_bookmarks.findIndex(x => x.url === url);
+  const processed_index = processed_bookmarks.findIndex(x => x.url === url);
+
+  if (unprocessed_index > -1) {
+    unprocessed_bookmarks.splice(unprocessed_index, 1);
+  }
+
+  if (processed_index > -1) {
+    processed_bookmarks.splice(processed_index, 1);
+  }
+};
+
+const list_to_file = list => JSON.stringify(
+  list, [ "title", "url", "notes", "added" ], 2
+) + "\n";
+
+const save_bookmarks = () => Promise.all([
+  fs.promises.writeFile(
+    "./unprocessed-bookmarks.json",
+    list_to_file(unprocessed_bookmarks)
+  ),
+
+  fs.promises.writeFile(
+    "./processed-bookmarks.json",
+    list_to_file(processed_bookmarks)
+  ),
+]);
+
 http.createServer(async (request, response) => {
   const url = request_url(request);
-  const dir = path.dirname(url.pathname);
-
-  const method = request.method.toUpperCase();
-
+  const method = request.method;
   const req_body_json = await gather_stream_text(request);
-  const req_body = req_body_json.length > 0 ? JSON.parse(req_body_json) : null;
-
-  const bookmarks = [
-    ...unprocessed_bookmarks.slice(-100).map(x => ({ ...x, processed: false })),
-    ...processed_bookmarks.slice().map(x => ({ ...x, processed: true })),
-  ].sort((a, b) => b.added - a.added);
-  const requested_bookmark = req_body ? bookmarks.find(b => b.url === req_body.url) : null;
 
   console.log(method, url.href, req_body_json);
 
-  switch (dir) {
+  switch (path.dirname(url.pathname)) {
     case "/":
-      switch (method) {
+      switch (request.method.toUpperCase()) {
         case "GET":
+          const bookmarks = [
+            ...unprocessed_bookmarks.slice(-100).map(x => ({ ...x, processed: false })),
+            ...processed_bookmarks.slice().map(x => ({ ...x, processed: true })),
+          ].sort((a, b) => b.added - a.added);
+
           response.writeHead(200, { "Content-Type": "text/html" });
           response.end(ui(bookmarks));
           break;
 
         case "POST":
-          response.writeHead(200, { "Content-Type": "text/html" });
-          response.end(req_body_json);
+          const { event, ...payload } = JSON.parse(req_body_json);
+          const { url } = payload;
+
+          switch (event.toUpperCase()) {
+            case "SAVE":
+              delete_bookmark(url);
+              payload.added = parseInt(payload.added);
+              processed_bookmarks.push(payload);
+              processed_bookmarks.sort((a, b) => b.added - a.added);
+              save_bookmarks();
+              response.writeHead(202, { "Content-Type": "text/plain" });
+              response.end(`Saving ${JSON.stringify(payload)}`);
+              break;
+
+            case "DELETE":
+              delete_bookmark(url);
+              save_bookmarks();
+              response.writeHead(202, { "Content-Type": "text/plain" });
+              response.end(`Deleting ${url}`);
+              break;
+
+            default:
+              response.writeHead(400, { "Content-Type": "text/plain" });
+              response.end(`POST event not found: ${event}`);
+              break;
+          }
           break;
 
         case "QUERY":
