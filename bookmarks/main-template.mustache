@@ -5,12 +5,24 @@
 
 <h1>Bookmark Processor</h1>
 
-<div>
+<form action="/" method="GET">
   <label>
-    Show processed <input id="toggle-processed" type="checkbox" checked />
+    Oldest first <input type="radio" name="order" value="asc" />
   </label>
-  <button id="reverse-bookmarks" type="button">Reverse</button>
-</div>
+  <label>
+    Newest first <input type="radio" name="order" value="desc" />
+  </label>
+  <label>
+    Limit <input type="number" name="limit" />
+  </label>
+  <button type="submit">Refresh</button>
+</form>
+
+<label>
+  Show processed <input id="toggle-processed" type="checkbox" checked />
+</label>
+
+<button id="reverse-bookmarks" type="button">Reverse</button>
 
 <table id="bookmarks" style="width: 100%">
   <thead>

@@ -73,6 +73,9 @@ const save_bookmarks = () => Promise.all([
   ),
 ]);
 
+const newest_first = (a, b) => b.added - a.added;
+const oldest_first = (a, b) => a.added - b.added;
+
 http.createServer(async (request, response) => {
   const url = request_url(request);
   const method = request.method;
@@ -84,10 +87,14 @@ http.createServer(async (request, response) => {
     case "/":
       switch (request.method.toUpperCase()) {
         case "GET":
+          const { order = "DESC" , limit } = search_params(url);
+
           const bookmarks = [
-            ...unprocessed_bookmarks.slice(-100).map(x => ({ ...x, processed: false })),
-            ...processed_bookmarks.slice().map(x => ({ ...x, processed: true })),
-          ].sort((a, b) => b.added - a.added);
+            ...unprocessed_bookmarks.map(x => ({ ...x, processed: false })),
+            ...processed_bookmarks.map(x => ({ ...x, processed: true })),
+          ].sort(
+            order.toUpperCase() === "ASC" ? oldest_first : newest_first
+          ).slice(0, parseInt(limit));
 
           response.writeHead(200, { "Content-Type": "text/html" });
           response.end(ui(bookmarks));
@@ -95,11 +102,10 @@ http.createServer(async (request, response) => {
 
         case "POST":
           const { event, ...payload } = JSON.parse(req_body_json);
-          const { url } = payload;
 
           switch (event.toUpperCase()) {
             case "SAVE":
-              delete_bookmark(url);
+              delete_bookmark(payload.url);
               payload.added = parseInt(payload.added);
               processed_bookmarks.push(payload);
               processed_bookmarks.sort((a, b) => b.added - a.added);
@@ -109,10 +115,10 @@ http.createServer(async (request, response) => {
               break;
 
             case "DELETE":
-              delete_bookmark(url);
+              delete_bookmark(payload.url);
               save_bookmarks();
               response.writeHead(202, { "Content-Type": "text/plain" });
-              response.end(`Deleting ${url}`);
+              response.end(`Deleting ${payload.url}`);
               break;
 
             default:
