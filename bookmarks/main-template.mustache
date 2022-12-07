@@ -9,6 +9,7 @@
   <label>
     Show processed <input id="toggle-processed" type="checkbox" checked />
   </label>
+  <button id="reverse-bookmarks" type="button">Reverse</button>
 </div>
 
 <table id="bookmarks" style="width: 100%">
@@ -99,4 +100,12 @@
   if (!document.getElementById("toggle-processed").checked) {
     document.getElementById("bookmarks").classList.add("processed-hidden");
   }
+
+  document.getElementById("reverse-bookmarks").addEventListener("click", e => {
+    const [ tbody ] = document.getElementById("bookmarks").tBodies;
+
+    for (const row of [ ...tbody.rows ].reverse()) {
+      tbody.appendChild(tbody.removeChild(row));
+    }
+  });
 </script>
