@@ -87,14 +87,14 @@ http.createServer(async (request, response) => {
     case "/":
       switch (request.method.toUpperCase()) {
         case "GET":
-          const { order = "DESC" , limit } = search_params(url);
+          const { order = "DESC", limit } = search_params(url);
 
           const bookmarks = [
             ...unprocessed_bookmarks.map(x => ({ ...x, processed: false })),
             ...processed_bookmarks.map(x => ({ ...x, processed: true })),
           ].sort(
             order.toUpperCase() === "ASC" ? oldest_first : newest_first
-          ).slice(0, parseInt(limit));
+          ).slice(0, parseInt(limit) || undefined);
 
           response.writeHead(200, { "Content-Type": "text/html" });
           response.end(ui(bookmarks));
