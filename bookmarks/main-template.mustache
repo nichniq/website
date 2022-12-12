@@ -5,7 +5,7 @@
 
 <h1>Bookmark Processor</h1>
 
-<form action="/" method="GET">
+<form id="search-params" action="/" method="GET">
   <label>
     Oldest first <input type="radio" name="order" value="asc" />
   </label>
@@ -120,4 +120,11 @@
       tbody.appendChild(tbody.removeChild(row));
     }
   });
+
+  const search_params = new URLSearchParams(window.location.search);
+  const order = search_params.get("order");
+  const limit = parseInt(search_params.get("limit")) || null;
+  const query_form = document.getElementById("search-params");
+  query_form.order.value = order;
+  query_form.limit.value = limit;
 </script>
