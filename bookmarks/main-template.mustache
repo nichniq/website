@@ -88,6 +88,7 @@
 
   document.addEventListener("submit", event => {
     const form = event.target;
+    const data = form_obj(form);
 
     if (/POST/i.test(form.method)) {
       event.preventDefault();
@@ -95,9 +96,22 @@
       fetch(
         form.action, {
           method: form.method,
-          body: JSON.stringify(form_obj(form))
+          body: JSON.stringify(data)
         }
-      );
+      ).then(() => {
+        const row = form.closest("tr");
+
+        switch (data.event.toUpperCase()) {
+          case "SAVE":
+            row.dataset.processed = true;
+            break;
+          case "DELETE":
+            row.remove();
+            break;
+          default:
+            break;
+        }
+      });
     }
   });
 
