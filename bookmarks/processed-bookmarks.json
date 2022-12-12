@@ -1,14 +1,32 @@
 [
   {
-    "title": "“I am no man”: For Zelda-playing daughter, dad gives Link a sex change",
-    "url": "http://arstechnica.com/gaming/2012/11/i-am-no-man-for-zelda-playing-daughter-dad-gives-link-a-sex-change/",
-    "notes": "Article about a dad who modified the hex code for Zelda: Wind Waker to make the game text refer to Link as female. The number of characters needed to match exactly, so he had to rewrite some of sentences.",
-    "added": 1357503142000
+    "title": "Quiet Signs of Love on Vimeo",
+    "url": "http://vimeo.com/27754373",
+    "notes": "Deaf/hearing love story + ad for Australian National Relay Service [video]",
+    "added": 1357503142010
+  },
+  {
+    "title": "WIMP",
+    "url": "https://www.wimp.com/",
+    "notes": "Aggregator posting (mostly) videos daily since 2018 [aggregator]",
+    "added": 1357503142008
+  },
+  {
+    "title": "Public key cryptography - Diffie-Hellman Key Exchange",
+    "url": "https://www.youtube.com/watch?v=YEBfamv-_do",
+    "notes": "Video explaining encryption with great visuals, like mixing and 'unmixing' paint [video]",
+    "added": 1357503142007
   },
   {
     "title": "The Great Fire: A Traveling Truck Show",
-    "url": "http://travelingtruckshow.org/what/",
-    "notes": "Info about a traveling circus/vaudeville show in 2012 Chicago. They performed out of a truck that they took to different neighborhoods in the city. The show's theme centers around the Great Chicago Fire and explores the city's history, community, and triumph [archived]",
+    "url": "https://web.archive.org/web/20120903063836/http://travelingtruckshow.org/what/",
+    "notes": "Info about a traveling circus/vaudeville show in 2012 Chicago. They performed out of a truck that they took to different neighborhoods in the city. The show's theme centers around the Great Chicago Fire and explores the city's history, community, and triumph. Someone in the UChicago circus must have shared it while I was there [event]",
     "added": 1357503142001
+  },
+  {
+    "title": "“I am no man”: For Zelda-playing daughter, dad gives Link a sex change",
+    "url": "http://arstechnica.com/gaming/2012/11/i-am-no-man-for-zelda-playing-daughter-dad-gives-link-a-sex-change/",
+    "notes": "Article about a dad who modified the hex code for Zelda: Wind Waker to make the game text refer to Link as female. The number of characters needed to match exactly, so he had to rewrite some of sentences [article]",
+    "added": 1357503142000
   }
 ]
