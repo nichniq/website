@@ -16,6 +16,18 @@ const template = {
 
 export default [
   {
+    title: "The Father and His Two Sons",
+    subtitle: "The Art of Forgiveness",
+    ids: [
+      [ "isbn13", "9781495169588" ],
+    ],
+    external: "https://www.google.com/books/edition/The_Father_and_His_Two_Sons/DZ0dswEACAAJ",
+    txns: [
+      [ "purchase", { date: "December 16, 2022", location: "Hope Thrift Store", city: "Moscow" } ],
+    ],
+    notes: "Saw this and went back to purchase a few days later. Couldn't find the ISBN registered anywhere online",
+  },
+  {
     title: "Tomorrow, and Tomorrow, and Tomorrow",
     ids: [
       [ "isbn10", "0593321200" ],
