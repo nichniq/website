@@ -4361,7 +4361,7 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/126537.A_Field_Guide_to_Sprawl",
     txns: [
-      [ "gift", { date: "December 25, 2021", city: "Pullman" } ],
+      [ "gift", { from: "Bren", date: "December 25, 2021", city: "Pullman" } ],
     ],
     notes: "Christmas gift from Bren. He got it from Book People",
   },
@@ -4529,9 +4529,8 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/90029.Aikido_and_the_Harmony_of_Nature",
     txns: [
-      [ "gift", { city: "Chicago" } ],
+      [ "gift", { from: "Don Sensei", city: "Chicago" } ],
     ],
-    notes: "Don Sensei",
   },
   {
     title: "Airline Maps",
@@ -4812,9 +4811,9 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/16084509-the-art-of-journey",
     txns: [
-      [ "gift", { city: "New York" } ],
+      [ "gift", { from: "Anna or Kalil or Erin?", city: "New York" } ],
     ],
-    notes: "Anna or Kalil?",
+    notes: "I think this was a gift from one of my roommates in New York"
   },
   {
     title: "Arts of Clay",
@@ -4928,7 +4927,7 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/17286692-beasts",
     txns: [
-      [ "gift", { date: "April 9, 2021", city: "Portland" } ],
+      [ "gift", { from: "MBC", date: "April 9, 2021", city: "Portland" } ],
     ],
     notes: "Christmas gift from MBC",
   },
@@ -5672,9 +5671,8 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/3860222-earth-ascending",
     txns: [
-      [ "gift", { date: "November 6, 2021", city: "San Francisco" } ],
+      [ "gift", { from: "Alan from Cafe International", date: "November 6, 2021", city: "San Francisco" } ],
     ],
-    notes: "Gift from Alan (Cafe Intl)",
   },
   {
     title: "Earth from Above",
@@ -5695,9 +5693,9 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/2721727-earthquakes-and-geological-discovery",
     txns: [
-      [ "gift", { date: "March 14, 2020", city: "San Francisco" } ],
+      [ "gift", { from: "Bren", date: "March 14, 2020", city: "San Francisco" } ],
     ],
-    notes: "Bren",
+    notes: "I think he gave this to me at the same time as Water",
   },
   {
     title: "Easy-to-Make Old-Fashioned Toys",
@@ -5754,9 +5752,9 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/30280541-egon-schiele-masterpieces-of-art",
     txns: [
-      [ "gift", { city: "New York" } ],
+      [ "gift", { from: "Julia", city: "New York" } ],
     ],
-    notes: "Julia",
+    notes: "Julia got this for me after seeing an exhibit on Schiele at Neue Galerie in NYC",
   },
   {
     title: "Egypt and the Holy Land in Historic Photographs",
@@ -5949,9 +5947,9 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/26449543-field-guide-to-the-neighborhood-birds-of-new-york-city",
     txns: [
-      [ "gift", { location: "Brooklyn Botanic Garden", city: "New York" } ],
+      [ "gift", { from: "Bradley Klein", location: "Brooklyn Botanic Garden", city: "New York" } ],
     ],
-    notes: "Bradley Klein",
+    notes: "I went to a few bird watching tours at BBG and got this from the guide who was giving it away",
   },
   {
     title: "Fieldbook",
@@ -5961,9 +5959,8 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/2172557.Fieldbook",
     txns: [
-      [ "gift", { date: "March 14, 2020", city: "San Francisco" } ],
+      [ "gift", { from: "Bren", date: "March 14, 2020", city: "San Francisco" } ],
     ],
-    notes: "Bren",
   },
   {
     title: "Fighting Techniques of the Ancient World",
@@ -6021,9 +6018,8 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/51951218-floriography",
     txns: [
-      [ "gift", { date: "October 9, 2021", city: "San Francisco" } ],
+      [ "gift", { from: "Adam Sussman", date: "October 9, 2021", city: "San Francisco" } ],
     ],
-    notes: "Adam's bday present to me",
   },
   {
     title: "Flower Color Guide",
@@ -6300,9 +6296,8 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/1472273.Goblin_Market",
     txns: [
-      [ "gift", { city: "Pullman" } ],
+      [ "gift", { from: "John", city: "Pullman" } ],
     ],
-    notes: "John",
   },
   {
     title: "Gods and Goddesses",
@@ -6538,9 +6533,8 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/2536014.Hershel_And_The_Hanukkah_Goblins",
     txns: [
-      [ "gift", { city: "Pullman" } ],
+      [ "gift", { from: "John", city: "Pullman" } ],
     ],
-    notes: "John",
   },
   {
     title: "Hilma af Klint",
@@ -6680,7 +6674,9 @@ export default [
     external: "https://www.goodreads.com/book/show/35960218-how-to-read-the-landscape",
     txns: [
       [ "purchase", { date: "February 23, 2020", location: "Point Reyes Books", city: "Point Reyes Station" } ],
+      [ "gift", { to: "Irish guy from Cafe International" }]
     ],
+    notes: "I gave this to the guy from Cafe Intl when he said he was going to walk across the country, figured it might be interesting",
   },
   {
     title: "How to Solve It",
@@ -7647,9 +7643,8 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/58973.The_Necronomicon",
     txns: [
-      [ "gift", { date: "November 6, 2021", city: "San Francisco" } ],
+      [ "gift", { from: "Alan from Cafe International", date: "November 6, 2021", city: "San Francisco" } ],
     ],
-    notes: "Gift from Alan (Cafe Intl)",
   },
   {
     title: "New Garden Book",
@@ -7671,9 +7666,8 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/23841432-night-sky-with-exit-wounds",
     txns: [
-      [ "gift", { city: "New York" } ],
+      [ "gift", { from: "Michael George", city: "New York" } ],
     ],
-    notes: "MG",
   },
   {
     title: "Nomads of the Serengeti",
@@ -7718,7 +7712,7 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/943107.Northwest_Weeds",
     txns: [
-      [ "gift", { date: "April 9, 2021", city: "Portland" } ],
+      [ "gift", { from: "MBC", date: "April 9, 2021", city: "Portland" } ],
     ],
     notes: "Christmas gift from MBC",
   },
@@ -7864,7 +7858,7 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/6824746-palouse-perspective",
     txns: [
-      [ "gift", { city: "Pullman" } ],
+      [ "gift", { from: "Mom and Dad", city: "Pullman" } ],
     ],
     notes: "Mom and Dad",
   },
@@ -7903,6 +7897,7 @@ export default [
     external: "https://www.goodreads.com/book/show/6345021-pathfinder-roleplaying-game",
     txns: [
       [ "found" ],
+      [ "gift", { to: "John", date: "December 6, 2022", location: "Pullman" } ],
     ],
   },
   {
@@ -8462,9 +8457,9 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/8255031-semiology-of-graphics",
     txns: [
-      [ "gift", { date: "January 7, 2022", city: "San Francisco" } ],
+      [ "gift", { from: "Rilka and Chris", date: "January 7, 2022", city: "San Francisco" } ],
     ],
-    notes: "Gift from Rikla and Chris for letting them stay in my room over the holidays. They got it from Dog Eared Books on Valencia",
+    notes: "Gift from Rilka and Chris for letting them stay in my room over the holidays. They got it from Dog Eared Books on Valencia",
   },
   {
     title: "Seven Simeons",
@@ -8985,9 +8980,8 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/431274.The_Arrival",
     txns: [
-      [ "gift" ],
+      [ "gift", { from: "Rachel" } ],
     ],
-    notes: "Rachel",
   },
   {
     title: "The Art of Game Design",
@@ -9129,9 +9123,8 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/38746152-the-book-of-delightsz",
     txns: [
-      [ "gift", { date: "January 4, 2022", city: "Seattle" } ],
+      [ "gift", { from: "Jessica Rock", date: "January 4, 2022", city: "Seattle" } ],
     ],
-    notes: "Christmas gift from Jessica",
   },
   {
     title: "The Book of Pears",
@@ -9234,9 +9227,8 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/967782.The_Circus_In_America",
     txns: [
-      [ "gift", { city: "Chicago" } ],
+      [ "gift", { from: "Berenice Fernandez", city: "Chicago" } ],
     ],
-    notes: "Berenice",
   },
   {
     title: "The Clans and Tartans of Scotland",
@@ -9287,9 +9279,9 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/36750091-the-creative-curve",
     txns: [
-      [ "gift", { city: "New York" } ],
+      [ "gift", { from: "Yext", city: "New York" } ],
     ],
-    notes: "Yext",
+    notes: "Yext hosted this speaker to come and talk and I got a copy of the book afterwards",
   },
   {
     title: "The Cruising Diaries",
@@ -9358,9 +9350,8 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/1342348.The_Egyptian_Miracle",
     txns: [
-      [ "gift", { date: "November 6, 2021", city: "San Francisco" } ],
+      [ "gift", { from: "Alan from Cafe International", date: "November 6, 2021", city: "San Francisco" } ],
     ],
-    notes: "Gift from Alan (Cafe Intl)",
   },
   {
     title: "The Elements of Sculpture",
@@ -9563,9 +9554,9 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/39833838-the-hidden-tracks",
     txns: [
-      [ "gift", { date: "January 12, 2021", location: "Green Apple Books on the Park", city: "San Francisco" } ],
+      [ "gift", { from: "Jason", date: "January 12, 2021", location: "Green Apple Books on the Park", city: "San Francisco" } ],
     ],
-    notes: "Jason",
+    notes: "Jason bought this for me after I mentioned wanting it",
   },
   {
     title: "The Historical Encyclopedia of Costume",
@@ -9866,9 +9857,8 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/442019.New_Aikido_Complete",
     txns: [
-      [ "gift", { city: "Chicago" } ],
+      [ "gift", { from: "Don Sensei", city: "Chicago" } ],
     ],
-    notes: "Don Sensei",
   },
   {
     title: "The New View Over Atlantis",
@@ -9878,7 +9868,7 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/4565897-the-new-view-over-atlantis",
     txns: [
-      [ "gift", { date: "November 13, 2021", city: "San Francisco" } ],
+      [ "gift", { from: "Alan from Cafe International", date: "November 13, 2021", city: "San Francisco" } ],
     ],
     notes: "Another gift from Alan. We'd been talking about ley lines a few weeks ago and he remembered he had this book, which is about them",
   },
@@ -9909,9 +9899,8 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/20652071-pea-and-lentil-cookbook-from-everyday-to-gourmet",
     txns: [
-      [ "gift", { city: "Pullman" } ],
+      [ "gift", { from: "Mom and Dad", city: "Pullman" } ],
     ],
-    notes: "Mom and Dad",
   },
   {
     title: "The Pebble Spotter's Guide",
@@ -9978,9 +9967,9 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/378.The_Phantom_Tollbooth",
     txns: [
-      [ "gift", { city: "Pullman" } ],
+      [ "gift", { from: "Linda Howell", city: "Pullman" } ],
     ],
-    notes: "Linda",
+    notes: "Gifted from Linda as a graduation present",
   },
   {
     title: "The Phenomenon of Life",
@@ -10003,7 +9992,7 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/2058384.The_Physiology_of_Taste",
     txns: [
-      [ "gift", { date: "September 30, 2021", city: "San Francisco" } ],
+      [ "gift", { from: "Josh Chang", date: "September 30, 2021", city: "San Francisco" } ],
     ],
     notes: "Gift from Josh; I saw it in his house and coveted it and he said I could have it; I told him it could be my birthday present",
   },
@@ -10145,9 +10134,9 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/21535271-the-slow-regard-of-silent-things",
     txns: [
-      [ "gift", { city: "Pullman" } ],
+      [ "gift", { city: "Pullman", from: "Dad" } ],
     ],
-    notes: "Dad",
+    notes: "I think I had mentioned Patrick Rothfuss to Dad and he bought this for me",
   },
   {
     title: "The Speedball Textbook",
@@ -10235,9 +10224,9 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/1683181.The_Technique_of_Copperplate_Calligraphy",
     txns: [
-      [ "gift", { city: "New York" } ],
+      [ "gift", { from: "Willie and Erin", city: "New York" } ],
     ],
-    notes: "Prettiest Girls",
+    notes: "I think this was a birthday gift from the Prettiest Girls",
   },
   {
     title: "The Topography of Tears",
@@ -10327,9 +10316,8 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/46318627-the-wisdom-of-the-enneagram",
     txns: [
-      [ "gift", { city: "New York" } ],
+      [ "gift", { from: "Zak Martellucci", city: "New York" } ],
     ],
-    notes: "Zak",
   },
   {
     title: "The Wisdom of Trees",
@@ -10662,9 +10650,9 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/29598744-water",
     txns: [
-      [ "gift", { date: "March 14, 2020", city: "San Francisco" } ],
+      [ "gift", { from: "Bren", date: "March 14, 2020", city: "San Francisco" } ],
     ],
-    notes: "Bren",
+    notes: "I think Bren bought this for me during his travels and gave it to me when he visited SF",
   },
   {
     title: "Water and Architecture",
@@ -10722,7 +10710,9 @@ export default [
     external: "https://www.goodreads.com/book/show/15984618-weather-almanac",
     txns: [
       [ "purchase", { date: "February 8, 2020", location: "Alley Cat Books", city: "San Francisco" } ],
+      [ "gift" , { to: "Irish guy from Cafe International" }]
     ],
+    notes: "I gave this to the guy from Cafe Intl when he said he was going to walk across the country, figured it might be interesting",
   },
   {
     title: "Weather of the San Francisco Bay Region",
@@ -10847,7 +10837,7 @@ export default [
     ],
     external: "https://www.goodreads.com/book/show/903861.Witchcraft",
     txns: [
-      [ "gift", { date: "November 6, 2021", city: "San Francisco" } ],
+      [ "gift", { from: "Alan from Cafe International", date: "November 6, 2021", city: "San Francisco" } ],
     ],
     notes: "Gift from Alan (Cafe Intl). I already have a copy (another gift, from Myles), but this is a first-edition copy. Really liked this review: https://www.goodreads.com/review/show/3303698149",
   },
@@ -10855,9 +10845,8 @@ export default [
     title: "Witchcraft and the Gay Counterculture",
     external: "https://www.goodreads.com/book/show/15999090-witchcraft-and-the-gay-counterculture",
     txns: [
-      [ "gift", { city: "New York" } ],
+      [ "gift", { from: "Myles", city: "New York" } ],
     ],
-    notes: "Myles",
   },
   {
     title: "Wizards and Witches",
