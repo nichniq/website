@@ -16,6 +16,55 @@ const template = {
 
 export default [
   {
+    title: "Struggle",
+    subtitle: "The Art of Szukalski",
+    ids: [
+      [ "isbn10", "0867194790" ],
+      [ "isbn13", "9780867194791" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1356697.Struggle",
+    txns: [
+      [ "gift", { from: "Bren", date: "December 25, 2022", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "The Incal",
+    series: "The Incal Saga",
+    ids: [
+      [ "isbn10", "1594650152" ],
+      [ "isbn13", "9781594650932" ],
+    ],
+    external: "https://www.goodreads.com/book/show/26190565-the-incal",
+    txns: [
+      [ "gift", { from: "Bren", date: "December 25, 2022", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "Awaking Beauty",
+    subtitle: "The Art of Eyvind Earle",
+    ids: [
+      [ "isbn10", "168188271X" ],
+      [ "isbn13", "9781681882710" ],
+    ],
+    external: "https://www.goodreads.com/book/show/34466731-awaking-beauty",
+    txns: [
+      [ "gift", { from: "Bren", date: "December 25, 2022", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "Secrets of a Wildlife Watcher",
+    subtitle: "A Beginner's Field Guide",
+    ids: [
+      [ "isbn10", "0688105319" ],
+      [ "isbn13", "9780688105310" ],
+    ],
+    external: "https://www.goodreads.com/book/show/12080911-secrets-of-a-wildlife-watcher",
+    txns: [
+      [ "purchase", { date: "December 17, 2022", location: "Hope Thrift Store", city: "Moscow" } ],
+    ],
+    notes: "Went in to buy a book about 'gem trails of Idaho' but it was gone and this was in its place",
+  },
+  {
     title: "The Father and His Two Sons",
     subtitle: "The Art of Forgiveness",
     ids: [
