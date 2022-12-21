@@ -58,7 +58,7 @@ const delete_bookmark = url => {
 };
 
 const list_to_file = list => JSON.stringify(
-  list, [ "title", "url", "notes", "added" ], 2
+  list, [ "title", "url", "archived", "notes", "added" ], 2
 ) + "\n";
 
 const save_bookmarks = () => Promise.all([
@@ -75,6 +75,38 @@ const save_bookmarks = () => Promise.all([
 
 const newest_first = (a, b) => b.added - a.added;
 const oldest_first = (a, b) => a.added - b.added;
+
+const archive_available = bookmark => `http://archive.org/wayback/available?url=${
+  encodeURI(bookmark.url)
+}&timestamp=${
+  new Date(bookmark.added).toISOString().replace(/[^\d]/g,"").slice(0, 14)
+}`;
+
+const http_get = url => new Promise((resolve, reject) => {
+  http.get(url, response => {
+    if (response.statusCode !== 200) {
+      reject(response.statusCode);
+    } else {
+      gather_stream_text(response).then(resolve);
+    }
+  });
+})
+
+const archival_link = bookmark => http_get(
+  archive_available(bookmark)
+).then(
+  JSON.parse
+).then(
+  ({ archived_snapshots }) => {
+    if ("closest" in archived_snapshots) {
+      return { archived: archived_snapshots.closest.url }
+    } else {
+      return {};
+    }
+  }
+).catch(
+  () => ({})
+);
 
 http.createServer(async (request, response) => {
   const url = request_url(request);
@@ -107,6 +139,7 @@ http.createServer(async (request, response) => {
             case "SAVE":
               delete_bookmark(payload.url);
               payload.added = parseInt(payload.added);
+              Object.assign(payload, await archival_link(payload));
               processed_bookmarks.push(payload);
               processed_bookmarks.sort((a, b) => b.added - a.added);
               save_bookmarks();

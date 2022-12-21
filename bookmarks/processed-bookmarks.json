@@ -1,5 +1,12 @@
 [
   {
+    "title": "A Dad Took Photos of His Naked Toddler for the Doctor. Google Flagged Him as a Criminal",
+    "url": "https://www.nytimes.com/2022/08/21/technology/google-surveillance-toddler-photo.html",
+    "archived": "http://web.archive.org/web/20221123083907/https://www.nytimes.com/2022/08/21/technology/google-surveillance-toddler-photo.html",
+    "notes": "Saved this to add to list of articles that make un-moderated AI / Google / parenting scary",
+    "added": 1668807088000
+  },
+  {
     "title": "Quiet Signs of Love on Vimeo",
     "url": "http://vimeo.com/27754373",
     "notes": "Deaf/hearing love story + ad for Australian National Relay Service [video]",
@@ -19,13 +26,14 @@
   },
   {
     "title": "The Great Fire: A Traveling Truck Show",
-    "url": "https://web.archive.org/web/20120903063836/http://travelingtruckshow.org/what/",
+    "archived": "https://web.archive.org/web/20120903063836/http://travelingtruckshow.org/what/",
     "notes": "Info about a traveling circus/vaudeville show in 2012 Chicago. They performed out of a truck that they took to different neighborhoods in the city. The show's theme centers around the Great Chicago Fire and explores the city's history, community, and triumph. Someone in the UChicago circus must have shared it while I was there [event]",
     "added": 1357503142001
   },
   {
     "title": "“I am no man”: For Zelda-playing daughter, dad gives Link a sex change",
     "url": "http://arstechnica.com/gaming/2012/11/i-am-no-man-for-zelda-playing-daughter-dad-gives-link-a-sex-change/",
+    "archived": "http://web.archive.org/web/20130103042257/http://arstechnica.com/gaming/2012/11/i-am-no-man-for-zelda-playing-daughter-dad-gives-link-a-sex-change/",
     "notes": "Article about a dad who modified the hex code for Zelda: Wind Waker to make the game text refer to Link as female. The number of characters needed to match exactly, so he had to rewrite some of sentences [article]",
     "added": 1357503142000
   }
