@@ -16,6 +16,129 @@ const template = {
 
 export default [
   {
+    title: "Cliff Dwellers of Cedar Mesa",
+    subtitle: "The Culture, Sites, and Exodus of the Ancestral Puebloans",
+    ids: [
+      [ "isbn10", "0937407224" ],
+      [ "isbn13", "9780937407226" ],
+      [ "lccn", "2012956169" ],
+    ],
+    external: "https://lccn.loc.gov/2012956169",
+    txns: [
+      [ "purchase", { date: "December 21, 2022", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "The Art and Character of Nutcrackers",
+    ids: [
+      [ "isbn10", "1933112085" ],
+      [ "isbn13", "9781933112084" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1105419.The_Art_and_Character_of_Nutcrackers",
+    txns: [
+      [ "purchase", { date: "December 21, 2022", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "Geometric Designs for Artists and Craftsmen",
+    external: "https://openlibrary.org/books/OL5777296M/Geometric_designs_for_artists_and_craftsmen",
+    txns: [
+      [ "purchase", { date: "December 21, 2022", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "Anasazi",
+    subtitle: "Ancient People of the Rock",
+    ids: [
+      [ "isbn10", "0517526905" ],
+      [ "isbn13", "9780517526903" ],
+    ],
+    external: "https://www.goodreads.com/book/show/2324353.Anasazi",
+    txns: [
+      [ "purchase", { date: "December 21, 2022", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "Dimensional Mazes",
+    subtitle: "An Entirely New Way of Losing Yourself In a Book",
+    ids: [
+      [ "isbn10", "0670827096" ],
+      [ "isbn13", "9780670827091" ],
+    ],
+    external: "https://www.goodreads.com/book/show/4375549-dimensional-mazes",
+    txns: [
+      [ "purchase", { date: "December 21, 2022", location: "Brused Books", city: "Pullman" } ],
+    ],
+    notes: "I saw this one a long time ago and it was still there!"
+  },
+  {
+    title: "Little Monsters",
+    external: "https://www.goodreads.com/book/show/3410698-little-monsters",
+    txns: [
+      [ "purchase", { date: "December 21, 2022", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "Panoramas of Promise",
+    subtitle: "Pacific Northwest Cities and Towns on Nineteenth-Century Lithographs",
+    ids: [
+      [ "isbn10", "0874220165" ],
+      [ "isbn13", "9780874220162" ],
+    ],
+    external: "https://www.goodreads.com/book/show/636120.Panoramas_of_Promise",
+    txns: [
+      [ "purchase", { date: "December 21, 2022", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "Early Churches of Washington State",
+    ids: [
+      [ "isbn10", "0295957131" ],
+      [ "isbn13", "9780295957135" ],
+    ],
+    external: "https://www.goodreads.com/book/show/4733643-early-churches-of-washington-state",
+    txns: [
+      [ "purchase", { date: "December 21, 2022", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "Myth, Magic, and Mystery",
+    subtitle: "One Hundred Years of American Children's Book Illustration",
+    ids: [
+      [ "isbn10", "1570980799" ],
+      [ "isbn13", "9781570980794" ],
+    ],
+    external: "https://www.goodreads.com/book/show/6876317-myth-magic-and-mystery",
+    txns: [
+      [ "purchase", { date: "December 21, 2022", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "The Mapmaker's Eye",
+    subtitle: "David Thompson on the Columbia Plateau",
+    ids: [
+      [ "isbn10", "0874222850" ],
+      [ "isbn13", "9780874222852" ],
+    ],
+    external: "https://www.goodreads.com/book/show/243305.The_Mapmaker_s_Eye",
+    txns: [
+      [ "purchase", { date: "December 21, 2022", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "Shaman",
+    subtitle: "The Wounded Healer",
+    series: "The Illustrated Library of Sacred Imagination",
+    ids: [
+      [ "isbn10", "0824500660" ],
+      [ "isbn13", "9780824500665" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1451998.Shaman",
+    txns: [
+      [ "purchase", { date: "December 21, 2022", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
     title: "Struggle",
     subtitle: "The Art of Szukalski",
     ids: [
@@ -3823,7 +3946,7 @@ export default [
   {
     title: "Grail",
     subtitle: "Quest for the Eternal",
-    series: "Art and Imagination",
+    series: "The Illustrated Library of Sacred Imagination",
     ids: [
       [ "isbn10", "0824500350" ],
       [ "isbn13", "9780824500351" ],
