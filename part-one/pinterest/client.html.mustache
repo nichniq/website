@@ -8,11 +8,16 @@
 </style>
 
 <div id="canvas">{{# paths }}
-  <img src="/images/thumbnails/{{{ . }}}" />{{/ paths }}
+  <img async src="/images/thumbnails/{{{ . }}}" />{{/ paths }}
 </div>
 
 <script>
-  const data = {{{ data }}};
+  const images = [{{# paths }}
+    {
+      path: "{{{ . }}}",
+      visible: true,
+    },{{/ paths }}
+  ];
 </script>
 
 <script type="module">
