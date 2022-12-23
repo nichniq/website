@@ -6,7 +6,7 @@ import mustache from "./mustache.mjs";
 
 const PORT = 8080;
 const CLIENT_TEMPLATE_PATH = path.join(process.cwd(), "client.html.mustache");
-const IMAGES_DIR_PATH = "Part One";
+const IMAGES_DIR_PATH = "./images/Part One";
 
 const list_files = directory => fs.readdirSync(directory).reduce(
   (files, child) => {
@@ -34,33 +34,42 @@ const gather_stream_text = readable => new Promise((resolve, reject) => {
 
 http.createServer(async (request, response) => {
   if (request.url === "/") {
-    switch (request.method) {
-      case "GET":
-        const paths = list_files(IMAGES_DIR_PATH);
-        response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
-        response.end( client({ paths }) );
-        break;
+    if (request.method === "GET") {
+      const paths = list_files(IMAGES_DIR_PATH)
+        .filter(x => x.endsWith(".jpg"))
+        .map(x => x.slice("images/".length))
+        .slice(0, 10);
+      response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
+      response.end( client({ paths }) );
+    }
 
-      case "POST":
-        const [ event, payload ] = await gather_stream_text(request).then(JSON.parse);
-        console.log(event, payload);
-        response.writeHead(200).end();
-        break;
+    else if (request.method === "POST") {
+      const [ event, payload ] = await gather_stream_text(request).then(JSON.parse);
+      console.log(event, payload);
+      response.writeHead(200).end();
+    }
 
-      default:
-        response.writeHead(501).end();
-        break;
+    else {
+      response.writeHead(501).end();
     }
   }
 
-  else if (request.url.startsWith("/image/") && request.url.endsWith(".jpg")) {
-    const local_path = path.join(process.cwd(), decodeURI(request.url.slice("/image/".length)));
+  else if (request.url.startsWith("/images/")) {
+    if (request.method !== "GET") {
+      response.writeHead(501).end();
+    }
 
-    if (fs.existsSync(local_path)) {
-      response.writeHead(200, { "Content-Type": "image/jpeg" });
-      fs.createReadStream(local_path).pipe(response);
-    } else {
-      response.writeHead(404).end();
+    else if (request.method === "GET") {
+      const local_path = path.join(process.cwd(), decodeURI(request.url));
+
+      if (local_path.endsWith(".jpg") && fs.existsSync(local_path)) {
+        response.writeHead(200, { "Content-Type": "image/jpeg" });
+        fs.createReadStream(local_path).pipe(response);
+      }
+
+      else {
+        response.writeHead(404).end();
+      }
     }
   }
 
