@@ -5,15 +5,24 @@
 <meta charset="utf-8" />
 
 <style>
-  body { background: red; }
-
-  #canvas { border: 1px solid black }
 </style>
 
 <div id="canvas">
 </div>
 
+
 <script type="module">
   const canvas = document.getElementById("canvas");
   console.log(canvas);
+
+  fetch("/", {
+    method: "POST",
+    body: JSON.stringify([ "TEST", {
+      path: "path/to/file",
+      x: 0,
+      y: 0,
+    }])
+  });
+
+  const paths = {{{ paths }}};
 </script>

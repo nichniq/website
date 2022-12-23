@@ -1,9 +1,17 @@
 import http from "http";
 import fs from "fs";
 import path from "path";
+import mustache from "./mustache.mjs";
 
 const PORT = 8080;
-const CLIENT_HTML_PATH = path.join(process.cwd(), "client.html");
+const CLIENT_TEMPLATE_PATH = path.join(process.cwd(), "client.html.mustache");
+
+const client = () => mustache.render(
+  fs.readFileSync(CLIENT_TEMPLATE_PATH, "utf-8"),
+  {
+    paths: JSON.stringify([ "path/to/a", "path/to/b" ])
+  }
+);
 
 const gather_stream_text = readable => new Promise((resolve, reject) => {
   let data = "";
@@ -17,17 +25,19 @@ http.createServer(async (request, response) => {
   switch (request.method.toUpperCase()) {
     case "GET":
       response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
-      fs.createReadStream(CLIENT_HTML_PATH).pipe(response);
+      response.end(client());
       break;
 
     case "POST":
-      const { event, ...payload } = await gather_stream_text(request).then(JSON.parse);
-      console.log(request, event, payload);
+      const [ event, payload ] = await gather_stream_text(request).then(JSON.parse);
+      console.log(event, payload);
+      response.writeHead(200);
+      response.end("OK");
       break;
 
     default:
-      response.writeHead(501, { "Content-Type": "text/plain; charset=utf-8" });
-      response.end("Method not implemented");
+      response.writeHead(501);
+      response.end();
       break;
   }
 }).listen(PORT);
