@@ -19,12 +19,19 @@ const list_files = directory => fs.readdirSync(directory).reduce(
   []
 );
 
-const client = ({ paths }) => mustache.render(
+const load_images = limit => list_files(IMAGES_DIR_PATH)
+  .filter(x => x.endsWith(".jpg"))
+  .map(path => ({
+    path: /images\/(.+)/.exec(path)[1],
+  }))
+  .slice(0, limit);
+
+const client_html = ({ images }) => mustache.render(
   fs.readFileSync(CLIENT_TEMPLATE_PATH, "utf-8"),
-  { paths }
+  { images }
 );
 
-const gather_stream_text = readable => new Promise((resolve, reject) => {
+const gather_body = readable => new Promise((resolve, reject) => {
   let data = "";
   readable.setEncoding("utf8");
   readable.on("data", chunk => { data += chunk });
@@ -32,19 +39,23 @@ const gather_stream_text = readable => new Promise((resolve, reject) => {
   readable.on("error", error => { reject(error) });
 });
 
+const images_from_paths = paths => paths.map(
+  path => ({
+    path: /images\/(.+)/.exec(path)[1],
+  })
+);
+
 http.createServer(async (request, response) => {
   if (request.url === "/") {
     if (request.method === "GET") {
-      const paths = list_files(IMAGES_DIR_PATH)
-        .filter(x => x.endsWith(".jpg"))
-        .map(x => x.slice("images/".length))
-        .slice(0, 10);
       response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
-      response.end( client({ paths }) );
+      response.end(
+        client_html({ images: load_images(10) })
+      );
     }
 
     else if (request.method === "POST") {
-      const [ event, payload ] = await gather_stream_text(request).then(JSON.parse);
+      const [ event, payload ] = await gather_body(request).then(JSON.parse);
       console.log(event, payload);
       response.writeHead(200).end();
     }

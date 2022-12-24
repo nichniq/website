@@ -7,18 +7,9 @@
 <style>
 </style>
 
-<div id="canvas">{{# paths }}
-  <img async src="/images/thumbnails/{{{ . }}}" />{{/ paths }}
+<div id="canvas">{{# images }}
+  <img async src="/images/thumbnails/{{{ path }}}" />{{/ images }}
 </div>
-
-<script>
-  const images = [{{# paths }}
-    {
-      path: "{{{ . }}}",
-      visible: true,
-    },{{/ paths }}
-  ];
-</script>
 
 <script type="module">
   const canvas = document.getElementById("canvas");
