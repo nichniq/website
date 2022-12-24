@@ -39,20 +39,39 @@
     }])
   });
 
+  const set_position = (image, x, y) => {
+    image.style.left = `${x}px`;
+    image.style.top = `${y}px`;
+  };
+
   for (const image of document.querySelectorAll(".image")) {
+    const container = image.parentElement;
+
     image.addEventListener("mousedown", down_event => {
       down_event.preventDefault();
 
-      const move = event => {
-        image.style.top = `${event.y}px`;
-        image.style.left = `${event.x}px`;
+      const initial = {
+        x: image.offsetLeft,
+        y: image.offsetTop,
+      };
+
+      const move = event => set_position(image, event.x, event.y);
+      const cancel = event => {
+        if (event.key === "Escape") {
+          set_position(image, initial.x, initial.y);
+
+          document.removeEventListener("mousemove", move);
+          document.removeEventListener("keydown", cancel);
+        }
       };
 
       document.addEventListener("mousemove", move);
+      document.addEventListener("keydown", cancel);
 
       document.addEventListener("mouseup", () => {
         document.removeEventListener("mousemove", move);
-      })
+        document.removeEventListener("keydown", cancel);
+      });
     })
   }
 </script>
