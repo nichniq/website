@@ -21,8 +21,11 @@ const list_files = directory => fs.readdirSync(directory).reduce(
 
 const load_images = limit => list_files(IMAGES_DIR_PATH)
   .filter(x => x.endsWith(".jpg"))
-  .map(path => ({
+  .map((path, index) => ({
     path: /images\/(.+)/.exec(path)[1],
+    zIndex: index,
+    x: 0,
+    y: 0,
   }))
   .slice(0, limit);
 
@@ -38,15 +41,6 @@ const gather_body = readable => new Promise((resolve, reject) => {
   readable.on("end", () => { resolve(data) });
   readable.on("error", error => { reject(error) });
 });
-
-const images_from_paths = paths => paths.map(
-  (path, index) => ({
-    path: /images\/(.+)/.exec(path)[1],
-    zIndex: index,
-    x: 0,
-    y: 0,
-  })
-);
 
 http.createServer(async (request, response) => {
   if (request.url === "/") {

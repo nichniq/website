@@ -6,12 +6,14 @@
 
 <style>
   .canvas {
-    position: relative;
     border: 1px solid black;
     height: 400px;
+    overflow: hidden;
+    position: relative;
   }
 
   .canvas > .image {
+    cursor: move;
     position: absolute;
   }
 </style>
@@ -21,11 +23,7 @@
     loading="lazy"
     class="image"
     src="/images/thumbnails/{{{ path }}}"
-    style="
-      z-index: {{ zIndex }};
-      left: {{ x }}px;
-      top: {{ y }}px;
-    "
+    style="z-index: {{ zIndex }}; left: {{ x }}px; top: {{ y }}px;"
   />{{/ images }}
 </div>
 
@@ -39,7 +37,7 @@
     }])
   });
 
-  const set_position = (image, x, y) => {
+  const set_position = ({ image, x, y }) => {
     image.style.left = `${x}px`;
     image.style.top = `${y}px`;
   };
@@ -47,18 +45,25 @@
   for (const image of document.querySelectorAll(".image")) {
     const container = image.parentElement;
 
-    image.addEventListener("mousedown", down_event => {
-      down_event.preventDefault();
+    image.addEventListener("mousedown", event => {
+      event.preventDefault();
 
-      const initial = {
-        x: image.offsetLeft,
-        y: image.offsetTop,
-      };
+      const initial = { x: image.offsetLeft, y: image.offsetTop };
+      const offset = { x: event.x - image.x, y: event.y - image.y };
 
-      const move = event => set_position(image, event.x, event.y);
+      console.log(initial);
+      console.log(offset);
+
+      const move = event => {
+        set_position({
+          image,
+          x: event.x - offset.x - container.offsetLeft,
+          y: event.y - offset.y - container.offsetTop,
+        });
+      }
       const cancel = event => {
         if (event.key === "Escape") {
-          set_position(image, initial.x, initial.y);
+          set_position({ image, x: initial.x, y: initial.y });
 
           document.removeEventListener("mousemove", move);
           document.removeEventListener("keydown", cancel);
