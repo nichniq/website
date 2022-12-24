@@ -21,9 +21,8 @@ const list_files = directory => fs.readdirSync(directory).reduce(
 
 const load_images = limit => list_files(IMAGES_DIR_PATH)
   .filter(x => x.endsWith(".jpg"))
-  .map((path, index) => ({
+  .map(path => ({
     path: /images\/(.+)/.exec(path)[1],
-    zIndex: index,
     x: 0,
     y: 0,
   }))
