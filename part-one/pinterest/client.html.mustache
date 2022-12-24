@@ -5,8 +5,15 @@
 <meta charset="utf-8" />
 
 <style>
-  .canvas { position: relative }
-  .canvas > .image { position: absolute }
+  .canvas {
+    position: relative;
+    border: 1px solid black;
+    height: 400px;
+  }
+
+  .canvas > .image {
+    position: absolute;
+  }
 </style>
 
 <div class="canvas">{{# images }}
@@ -31,4 +38,21 @@
       y: 0,
     }])
   });
+
+  for (const image of document.querySelectorAll(".image")) {
+    image.addEventListener("mousedown", down_event => {
+      down_event.preventDefault();
+
+      const move = event => {
+        image.style.top = `${event.y}px`;
+        image.style.left = `${event.x}px`;
+      };
+
+      document.addEventListener("mousemove", move);
+
+      document.addEventListener("mouseup", () => {
+        document.removeEventListener("mousemove", move);
+      })
+    })
+  }
 </script>
