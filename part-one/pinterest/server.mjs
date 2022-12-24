@@ -40,8 +40,11 @@ const gather_body = readable => new Promise((resolve, reject) => {
 });
 
 const images_from_paths = paths => paths.map(
-  path => ({
+  (path, index) => ({
     path: /images\/(.+)/.exec(path)[1],
+    zIndex: index,
+    x: 0,
+    y: 0,
   })
 );
 

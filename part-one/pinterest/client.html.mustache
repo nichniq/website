@@ -5,15 +5,24 @@
 <meta charset="utf-8" />
 
 <style>
+  .canvas { position: relative }
+  .canvas > .image { position: absolute }
 </style>
 
-<div id="canvas">{{# images }}
-  <img async src="/images/thumbnails/{{{ path }}}" />{{/ images }}
+<div class="canvas">{{# images }}
+  <img
+    async
+    class="image"
+    src="/images/thumbnails/{{{ path }}}"
+    style="
+      z-index: {{ zIndex }};
+      left: {{ x }}px;
+      top: {{ y }}px;
+    "
+  />{{/ images }}
 </div>
 
 <script type="module">
-  const canvas = document.getElementById("canvas");
-
   fetch("/", {
     method: "POST",
     body: JSON.stringify([ "TEST", {
