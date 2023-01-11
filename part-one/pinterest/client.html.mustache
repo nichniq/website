@@ -12,40 +12,44 @@
     position: relative;
   }
 
-  .canvas > .image {
+  .canvas > .item {
     cursor: move;
     position: absolute;
   }
 </style>
 
-<div class="canvas">{{# images }}
-  <img
-    loading="lazy"
-    class="image"
-    src="/images/thumbnails/{{{ path }}}"
-    style="left: {{ x }}px; top: {{ y }}px;"
-  />{{/ images }}
+<div class="viewport">
+  <div class="canvas">{{# images }}
+    <div class="item" style="left: {{ x }}px; top: {{ y }}px;">
+      <img class="image" loading="lazy" src="/images/thumbnails/{{{ path }}}" />
+    </div>{{/ images }}
+  </div>
 </div>
 
-<script type="module">
-  fetch("/", {
-    method: "POST",
-    body: JSON.stringify([ "TEST", {
-      path: "path/to/file",
-      x: 0,
-      y: 0,
-    }])
-  });
+<script>
+  const to = url => ({
+    post_event: event => ({
+      with_json: payload => fetch(url, {
+        method: "POST",
+        body: JSON.stringify([ event, payload ]),
+        headers: { "Content-Type": "application/json" },
+      }),
+    }),
+  })
+</script>
 
-  const set_position = ({ image, x, y }) => {
-    image.style.left = `${x}px`;
-    image.style.top = `${y}px`;
+<script type="module">
+  const set_position = ({ item, x, y }) => {
+    item.style.left = `${x}px`;
+    item.style.top = `${y}px`;
   };
 
   for (const image of document.querySelectorAll(".image")) {
-    const container = image.parentElement;
-
     image.addEventListener("mousedown", event => {
+      const item = event.target.closest(".item");
+      const canvas = event.target.closest(".canvas");
+      const viewport = event.target.closest(".viewport");
+
       event.preventDefault();
 
       const initial = { x: image.offsetLeft, y: image.offsetTop };
@@ -55,15 +59,14 @@
       console.log(offset);
 
       const move = event => {
-        set_position({
-          image,
-          x: event.x - offset.x - container.offsetLeft,
-          y: event.y - offset.y - container.offsetTop,
-        });
+        const x = event.x - offset.x - canvas.offsetLeft;
+        const y = event.y - offset.y - canvas.offsetTop;
+
+        set_position({ item, x, y });
       }
       const cancel = event => {
         if (event.key === "Escape") {
-          set_position({ image, x: initial.x, y: initial.y });
+          set_position({ item, x: initial.x, y: initial.y });
 
           document.removeEventListener("mousemove", move);
           document.removeEventListener("keydown", cancel);
@@ -74,6 +77,12 @@
       document.addEventListener("keydown", cancel);
 
       document.addEventListener("mouseup", () => {
+        to("/").post_event("MOVE").with_json({
+          path: image.src,
+          x: parseInt(item.style.left.slice(0, -2)),
+          y: parseInt(item.style.top.slice(0, -2)),
+        });
+
         document.removeEventListener("mousemove", move);
         document.removeEventListener("keydown", cancel);
       });
