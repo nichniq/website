@@ -16,6 +16,99 @@ const template = {
 
 export default [
   {
+    title: "Pendragon Castle",
+    subtitle: "A Panorama Pop-up Book",
+    ids: [
+      [ "isbn10", "0030620767" ],
+      [ "isbn13", "9780030620768" ],
+    ],
+    external: "https://www.goodreads.com/book/show/11448759-pendragon-castle",
+    txns: [
+      [ "gift", { from: "John", date: "December 25, 2022", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "Anno's Medieval World",
+    ids: [
+      [ "isbn10", "0399611533" ],
+      [ "isbn13", "9780399611537" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1076045.Anno_s_Medieval_World_GB",
+    txns: [
+      [ "gift", { from: "John", date: "December 25, 2022", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "Anno's Alphabet",
+    ids: [
+      [ "isbn10", "0690005407" ],
+      [ "isbn13", "9780690005400" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1702297.Anno_s_Alphabet",
+    txns: [
+      [ "gift", { from: "John", date: "December 25, 2022", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "The Woodbook",
+    subtitle: "The Complete Plates",
+    ids: [
+      [ "isbn10", "3822838187" ],
+      [ "isbn13", "9783822838181" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1460801.The_Woodbook",
+    txns: [
+      [ "gift", { from: "Brendan", date: "December 25, 2022", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "Orientalism",
+    subtitle: "The Orient in Western Art",
+    ids: [
+      [ "isbn10", "3848003171" ],
+      [ "isbn13", "9783848003174" ],
+    ],
+    external: "https://www.goodreads.com/book/show/17724046-orientalism",
+    txns: [
+      [ "purchase", { date: "January 11, 2023", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "The Art of Bev Doolittle",
+    ids: [
+      [ "isbn10", "0867130083" ],
+      [ "isbn13", "9780867130089" ],
+    ],
+    external: "https://www.goodreads.com/book/show/853000.The_Art_of_Bev_Doolittle",
+    txns: [
+      [ "purchase", { date: "January 11, 2023", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "The Surface Plane",
+    series: "The Golden Relationship: Art, Math & Nature",
+    ids: [
+      [ "isbn10", "0961450428" ],
+      [ "isbn13", "9780961450427" ],
+    ],
+    external: "https://www.goodreads.com/book/show/2855573-the-surface-plane",
+    txns: [
+      [ "purchase", { date: "January 11, 2023", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "Indian Summers",
+    subtitle: "Washington State College and the Nespelem Art Colony, 1937–41",
+    ids: [
+      [ "isbn10", "0874221919" ],
+      [ "isbn13", "9780874221916" ],
+    ],
+    external: "https://www.goodreads.com/book/show/4512533-indian-summers",
+    txns: [
+      [ "purchase", { date: "January 11, 2023", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
     title: "Cliff Dwellers of Cedar Mesa",
     subtitle: "The Culture, Sites, and Exodus of the Ancestral Puebloans",
     ids: [
