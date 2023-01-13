@@ -16,6 +16,137 @@ const template = {
 
 export default [
   {
+    title: "Paintings of Maine",
+    subtitle: "A New Collection Selected by Carl Little",
+    ids: [
+      [ "isbn10", "0892727128" ],
+      [ "isbn13", "9780892727124" ],
+    ],
+    external: "https://www.goodreads.com/book/show/1841513.Paintings_of_Maine",
+    txns: [
+      [ "purchase", { date: "January 13, 2023", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "Frederic Whitaker",
+    subtitle: "An illustrated biography of one America's foremost watercolorists",
+    ids: [
+      [ "isbn10", "087358094X" ],
+      [ "isbn13", "9780873580946" ],
+    ],
+    external: "https://www.goodreads.com/book/show/4839896-frederic-whitaker",
+    txns: [
+      [ "purchase", { date: "January 13, 2023", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "Frank Boyden",
+    subtitle: "The Empathies",
+    ids: [
+      [ "isbn10", "1930957572" ],
+      [ "isbn13", "9781930957572" ],
+    ],
+    external: "https://www.goodreads.com/book/show/346377.Frank_Boyden",
+    txns: [
+      [ "purchase", { date: "January 13, 2023", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "Southeast Alaska",
+    subtitle: "A Photographic Passage",
+    ids: [
+      [ "isbn13", "9780692353936" ],
+    ],
+    external: "https://www.goodreads.com/book/show/36281382-southeast-alaska-a-photographic-passage",
+    txns: [
+      [ "purchase", { date: "January 13, 2023", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "Messages from Washington",
+    external: "https://openlibrary.org/books/OL16995219M/Messages_from_Washington",
+    txns: [
+      [ "purchase", { date: "January 13, 2023", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "Vanishing Ice",
+    subtitle: "Alpine and Polar Landscapes in Art, 1775–2012",
+    ids: [
+      [ "isbn10", "0295993421" ],
+      [ "isbn13", "9780295993423" ],
+    ],
+    external: "https://www.goodreads.com/book/show/17740331-vanishing-ice",
+    txns: [
+      [ "purchase", { date: "January 13, 2023", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "Buried Treasures",
+    subtitle: "The Black-and-White Work of Maxfield Parrish, 1896–1905",
+    ids: [
+      [ "isbn10", "0876549687" ],
+      [ "isbn13", "9780876549681" ],
+    ],
+    external: "https://www.goodreads.com/book/show/94882.Buried_Treasures",
+    txns: [
+      [ "purchase", { date: "January 13, 2023", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "Angels in Art",
+    ids: [
+      [ "isbn10", "0896600629" ],
+      [ "isbn13", "9780896600621" ],
+    ],
+    external: "https://www.goodreads.com/book/show/6705472-angels-in-art",
+    txns: [
+      [ "purchase", { date: "January 13, 2023", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "The Art of James Christensen",
+    subtitle: "A Journey of the Imagination",
+    ids: [
+      [ "isbn10", "0867130210" ],
+      [ "isbn13", "9780867130218" ],
+    ],
+    external: "https://www.goodreads.com/book/show/144025.The_Art_of_James_Christensen",
+    txns: [
+      [ "purchase", { date: "January 13, 2023", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "Over Washington",
+    ids: [
+      [ "isbn10", "1892374048" ],
+      [ "isbn13", "9781892374042" ],
+    ],
+    external: "https://www.goodreads.com/book/show/62213258-over-washington",
+    txns: [
+      [ "purchase", { date: "January 13, 2023", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "Window to the Palouse",
+    external: "https://openlibrary.org/books/OL17592481M/Window_to_the_Palouse",
+    txns: [
+      [ "purchase", { date: "January 13, 2023", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "Palouse Country",
+    subtitle: "A Land and Its People, Oral History Edition",
+    ids: [
+      [ "isbn10", "0963731017" ],
+      [ "isbn13", "9780963731012" ],
+    ],
+    external: "https://www.goodreads.com/book/show/3325717-palouse-country",
+    txns: [
+      [ "purchase", { date: "January 13, 2023", location: "Brused Books", city: "Pullman" } ],
+    ],
+  },
+  {
     title: "Pendragon Castle",
     subtitle: "A Panorama Pop-up Book",
     ids: [
