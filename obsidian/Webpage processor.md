@@ -1,0 +1,14 @@
+- [ ] Download page
+	- Does a plain download including all assets
+	- Take screenshot?
+- [ ] Simplify page
+	- Takes a document and cleans it up
+	- Removes styling, standarizes markup
+- [ ] Highlight quote
+	- Saves just the text
+	- Eventually, able to specify where in the document it is
+- [ ] Archiver
+	- Automatically generates link to Internet archive
+
+- Separate tools
+- Integrated together in a tool
