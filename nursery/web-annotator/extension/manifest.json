@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Web annotator",
   "version": "1.0",
 
@@ -7,7 +7,13 @@
     "page": "bg.html"
   },
 
-  "permissions": [
+  "action": {
+    "default_icon": "icon.svg"
+  },
+
+  "permissions": [ "scripting", "activeTab" ],
+
+  "host_permissions": [
     "http://localhost/*"
   ]
 }
