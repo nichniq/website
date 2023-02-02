@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "Web annotator",
+  "version": "1.0",
+
+  "background": {
+    "page": "bg.html"
+  },
+
+  "permissions": [
+    "http://localhost/*"
+  ]
+}
