@@ -1,23 +1,37 @@
-console.log("bg script loaded");
+// requires url in "host_permissions"
+const post_to_server = body => fetch(
+  "http://localhost:8090",
+  {
+    method: "POST",
+    body: JSON.stringify(body),
+    headers: { "Content-Type": "application/json" },
+  }
+);
 
-// requires that we include host in extension "permissions" config (no port)
-fetch("http://localhost:8090")
-  .then(x => x.text())
-  .then(console.log)
-  .catch(console.error);
+// requires "scripting" and "currentTab" permission
+const insert_scripts = (tab_id, ...files) => browser.scripting.executeScript({
+  target: { tabId: tab_id },
+  files,
+});
 
 browser.action.onClicked.addListener(tab => {
-  browser.scripting.executeScript({
-    target: { tabId: tab.id },
-    files: [ "./content.js" ],
-  }).then(x => {
-    console.log("successfully inserted content script", x);
-  }).catch(x => {
-    console.error("failed to insert content script", x);
-  })
+  console.log("browser action clicked");
+
+  insert_scripts(tab.id, "./content.js").catch(x => {
+    console.error("failed to load script", x)
+  });
 });
 
-browser.runtime.onMessage.addListener(([ type, payload ]) => {
-  console.log(type, payload);
-  return Promise.resolve("bg received message");
-});
+browser.runtime.onMessage.addListener(message =>
+  post_to_server(message).then(
+    x => x.text()
+  ).then(x => {
+    console.log("response from server", x);
+    return x;
+  }).catch(x => {
+    console.error("error posting to server", x);
+    return x;
+  })
+);
+
+console.log("bg loaded");

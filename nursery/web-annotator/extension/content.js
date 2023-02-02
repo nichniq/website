@@ -10,10 +10,14 @@ const insert_element = () => {
   element.style.left = "0";
   element.style.border = "1px solid black";
   element.style.background = "white";
+  element.style.zIndex = "9999";
 
   element.addEventListener("click", event => {
-    console.log("clicked element");
-    message_to_bg("clicked element").then(console.log).catch(console.error);
+    console.log("clicked element")
+
+    message_to_bg("clicked element", { location: window.location.href }).then(
+      x => { console.log("response from bg", x) }
+    );
   })
 
   document.body.append(element);
@@ -21,3 +25,4 @@ const insert_element = () => {
 
 insert_element();
 
+console.log("content script loaded");
