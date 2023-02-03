@@ -1,4 +1,4 @@
-// requires url in "host_permissions"
+// url required in permissions list for CORS
 const post_to_server = body => fetch(
   "http://localhost:8090",
   {
@@ -14,7 +14,7 @@ const insert_scripts = (tab_id, ...files) => browser.scripting.executeScript({
   files,
 });
 
-browser.action.onClicked.addListener(tab => {
+browser.browserAction.onClicked.addListener(tab => {
   console.log("browser action clicked");
 
   insert_scripts(tab.id, "./content.js").catch(x => {

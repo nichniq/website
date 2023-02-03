@@ -18,5 +18,5 @@ http.createServer(async (request, response) => {
   console.log(method, url.href, req_body);
 
   response.writeHead(200, { "Content-Type": "text/plain; charset=utf-8" });
-  response.end("Successful response")
+  response.end("Successful response");
 }).listen(PORT);
