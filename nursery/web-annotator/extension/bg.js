@@ -8,30 +8,40 @@ const post_to_server = body => fetch(
   }
 );
 
-// requires "scripting" and "currentTab" permission
-const insert_scripts = (tab_id, ...files) => browser.scripting.executeScript({
-  target: { tabId: tab_id },
-  files,
+browser.runtime.onMessage.addListener(message => {
+  const [ type, payload ] = message;
+
+  if (type === "server") {
+    post_to_server(payload).then(
+      x => x.text()
+    ).then(x => {
+      console.log("response from server", x);
+      return x;
+    }).catch(x => {
+      console.error("error posting to server", x);
+      return x;
+    })
+  }
 });
 
 browser.browserAction.onClicked.addListener(tab => {
   console.log("browser action clicked");
 
-  insert_scripts(tab.id, "./content.js").catch(x => {
-    console.error("failed to load script", x)
-  });
+  browser.sidebarAction.toggle();
 });
 
-browser.runtime.onMessage.addListener(message =>
-  post_to_server(message).then(
-    x => x.text()
-  ).then(x => {
-    console.log("response from server", x);
-    return x;
-  }).catch(x => {
-    console.error("error posting to server", x);
-    return x;
-  })
-);
+let last_selection = "";
+
+browser.runtime.onMessage.addListener(message => {
+  const [ type, payload ] = message;
+
+  if (type === "selection") {
+    last_selection = payload;
+  }
+
+  if (type === "last_selection") {
+    browser.runtime.sendMessage([ "selection", last_selection ]);
+  }
+});
 
 console.log("bg loaded");

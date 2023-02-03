@@ -1,6 +1,13 @@
 import http from "http";
+import fs from "fs";
 
 const PORT = 8090;
+const DATA_FILE = "./data.json";
+
+const load = () => JSON.parse(fs.readFileSync(DATA_FILE, "utf-8"));
+const save = x => fs.writeFileSync(DATA_FILE, JSON.stringify(x, null, 2));
+
+const data = load();
 
 const gather_stream_text = stream => new Promise((resolve, reject) => {
   let data = "";
@@ -13,10 +20,13 @@ const gather_stream_text = stream => new Promise((resolve, reject) => {
 http.createServer(async (request, response) => {
   const url = new URL(request.url, `http://${request.headers.host}`);
   const method = request.method;
-  const req_body = await gather_stream_text(request);
 
-  console.log(method, url.href, req_body);
+  console.log(method, url.href);
 
-  response.writeHead(200, { "Content-Type": "text/plain; charset=utf-8" });
-  response.end("Successful response");
+  if (method === "POST") {
+    const req_body = await gather_stream_text(request);
+
+    response.writeHead(200, { "Content-Type": "text/plain; charset=utf-8" });
+    response.end("Successful response");
+  }
 }).listen(PORT);

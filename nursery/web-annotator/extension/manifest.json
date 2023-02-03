@@ -11,9 +11,21 @@
     "default_icon": "icon.svg"
   },
 
+  "content_scripts": [
+    {
+      "matches": [ "http://*/*", "https://*/*" ],
+      "js": [ "content.js" ]
+    }
+  ],
+
+  "sidebar_action": {
+    "default_icon": "icon.svg",
+    "default_title" : "Web annotator",
+    "default_panel": "sidebar.html",
+    "open_at_install": false
+  },
+
   "permissions": [
-    "http://localhost/*",
-    "scripting",
-    "activeTab"
+    "http://localhost/*"
   ]
 }

@@ -13,9 +13,9 @@ const insert_element = () => {
   element.style.zIndex = "9999";
 
   element.addEventListener("click", event => {
-    console.log("clicked element")
+    console.log("clicked element");
 
-    message_to_bg("clicked element", { location: window.location.href }).then(
+    message_to_bg("clicked element", { href: window.location.href }).then(
       x => { console.log("response from bg", x) }
     );
   })
@@ -23,6 +23,9 @@ const insert_element = () => {
   document.body.append(element);
 };
 
-insert_element();
+document.addEventListener("selectionchange", () => {
+  const selection = document.getSelection().toString();
+  browser.runtime.sendMessage([ "selection", selection ]);
+});
 
 console.log("content script loaded");
