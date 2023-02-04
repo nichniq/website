@@ -11,8 +11,11 @@
 ## Feb 4
 
 - Update the sidebar when the tab changes
+	- If a new window receives focus but a tab has not been activated, the sidebar won't update new text
+- Send selections to server
+	- Using form submission
 
 ## Future
 
-- Save highlighted text for specific URLs
+- Save submissions to file
 - Convert selection to Markup (bold, italic, links)

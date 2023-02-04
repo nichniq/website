@@ -27,15 +27,23 @@ const insert_element = () => {
 
 // event (text selection changes): send selection to runtime
 document.addEventListener("selectionchange", () => {
-  const selection = document.getSelection().toString();
-  browser.runtime.sendMessage([ "selection", selection ]);
+  const payload = {
+    selection: document.getSelection().toString(),
+    url: document.location.href,
+  };
+
+  browser.runtime.sendMessage([ "selection", payload ]);
 });
 
 // event (page visibility changes): if made visible, send selection to runtime
 document.addEventListener("visibilitychange", () => {
   if (document.visibilityState === "visible") {
-    const selection = document.getSelection().toString();
-    browser.runtime.sendMessage([ "selection", selection ]);
+    const payload = {
+      selection: document.getSelection().toString(),
+      url: document.location.href,
+    };
+
+    browser.runtime.sendMessage([ "selection", payload ]);
   }
 });
 

@@ -21,10 +21,10 @@ http.createServer(async (request, response) => {
   const url = new URL(request.url, `http://${request.headers.host}`);
   const method = request.method;
 
-  console.log(method, url.href);
 
   if (method === "POST") {
     const req_body = await gather_stream_text(request);
+    console.log(method, url.href, req_body);
 
     response.writeHead(200, { "Content-Type": "text/plain; charset=utf-8" });
     response.end("Successful response");

@@ -9,8 +9,9 @@ const post_to_server = body => fetch(
 );
 
 // event (runtime receives message): handle the event based on its type
-let last_selection = "";
+let last_selection;
 browser.runtime.onMessage.addListener(message => {
+  console.log("bg received message", message)
   const [ type, payload ] = message;
 
   // type ("server"): send payload to the localhost server

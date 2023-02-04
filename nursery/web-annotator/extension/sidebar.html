@@ -4,7 +4,11 @@
 
 <h1>Web annotator</h1>
 
-<textarea id="selection"></textarea>
+<form id="add">
+  <input id="url" name="url" readonly style="border: 0; width: 100%;" />
+  <textarea id="selection" name="selection"></textarea>
+  <button type="submit">Add</button>
+</form>
 
 <!-- can't have inline scripts; must load from a script file -->
 <script type="module" src="sidebar.js"></script>
