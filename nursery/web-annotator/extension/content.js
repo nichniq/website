@@ -1,5 +1,7 @@
+// function: sends a message to the runtime
 const message_to_bg = (type, payload) => browser.runtime.sendMessage([ type, payload ]);
 
+// function: appends a box to the document that sends a runtime message on click
 const insert_element = () => {
   const element = document.createElement("div");
 
@@ -23,9 +25,19 @@ const insert_element = () => {
   document.body.append(element);
 };
 
+// event (text selection changes): send selection to runtime
 document.addEventListener("selectionchange", () => {
   const selection = document.getSelection().toString();
   browser.runtime.sendMessage([ "selection", selection ]);
 });
 
+// event (page visibility changes): if made visible, send selection to runtime
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") {
+    const selection = document.getSelection().toString();
+    browser.runtime.sendMessage([ "selection", selection ]);
+  }
+});
+
+// do stuff
 console.log("content script loaded");
