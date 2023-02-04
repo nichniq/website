@@ -16,6 +16,160 @@ const template = {
 
 export default [
   {
+    title: "Nature's Chaos",
+    ids: [
+      [ "isbn10", "0670835323" ],
+      [ "isbn13", "9780670835324" ],
+    ],
+    external: "https://www.goodreads.com/book/show/992530.Nature_s_Chaos",
+    txns: [
+      [ "purchase", { date: "February 3, 2023", location: "Global Neighborhood Thrift", city: "Spokane" } ],
+    ],
+  },
+  {
+    title: "Frederick",
+    txns: [
+      [ "purchase", { date: "February 3, 2023", location: "Global Neighborhood Thrift", city: "Spokane" } ],
+    ],
+  },
+  {
+    title: "Elton Bennett",
+    subtitle: "His Life and Art",
+    ids: [
+      [ "isbn10", "0916076288" ],
+      [ "isbn13", "9780916076283" ],
+    ],
+    external: "https://www.goodreads.com/book/show/2420833.Elton_Bennett_his_life_and_art",
+    txns: [
+      [ "purchase", { date: "February 3, 2023", location: "Global Neighborhood Thrift", city: "Spokane" } ],
+    ],
+  },
+  {
+    title: "Eric Sloane's America",
+    ids: [
+      [ "isbn10", "0883656485" ],
+      [ "isbn13", "9780883656488" ],
+    ],
+    external: "https://www.goodreads.com/book/show/11245618-eric-sloanes-america",
+    txns: [
+      [ "purchase", { date: "February 3, 2023", location: "Global Neighborhood Thrift", city: "Spokane" } ],
+    ],
+    notes: "Originally published in three volumes: American Barns and Covered Bridges, Our Vanishing Landscape, American Yesterday"
+  },
+  {
+    title: "The Book of Giant Stories",
+    ids: [
+      [ "lccn", "79148125" ],
+    ],
+    external: "https://lccn.loc.gov/79148125",
+    txns: [
+      [ "purchase", { date: "February 3, 2023", location: "Global Neighborhood Thrift", city: "Spokane" } ],
+    ],
+  },
+  {
+    title: "Paco Goes to the Fair",
+    subtitle: "A Story of Far-away Ecuador",
+    external: "https://www.goodreads.com/book/show/59945547-paco-goes-to-the-fair",
+    txns: [
+      [ "purchase", { date: "February 3, 2023", location: "Global Neighborhood Thrift", city: "Spokane" } ],
+    ],
+  },
+  {
+    title: "Day Hiking Eastern Washington",
+    subtitle: "Kettles-Selkirks, Columbia Plateau, Blue Mountains",
+    ids: [
+      [ "isbn10", "1594854947" ],
+      [ "isbn13", "9781594854941" ],
+    ],
+    external: "https://www.goodreads.com/book/show/16160364-day-hiking",
+    txns: [
+      [ "purchase", { date: "February 3, 2023", location: "Auntie's", city: "Spokane" } ],
+    ],
+  },
+  {
+    title: "The Complete Adventures of Snugglepot and Cuddlepie",
+    external: "https://www.goodreads.com/book/show/35553447-the-complete-adventures-of-snugglepot-and-cuddlepie",
+    txns: [
+      [ "purchase", { date: "February 3, 2023", location: "Auntie's", city: "Spokane" } ],
+    ],
+  },
+  {
+    title: "The Mill",
+    ids: [
+      [ "isbn10", "0821207024" ],
+      [ "isbn13", "9780821207024" ],
+    ],
+    external: "https://www.goodreads.com/book/show/4803234-the-mill",
+    txns: [
+      [ "purchase", { date: "February 3, 2023", location: "Fringe and Fray", city: "Spokane" } ],
+    ],
+  },
+  {
+    title: "Wild Animals of North America",
+    ids: [
+      [ "isbn10", "0870446991" ],
+      [ "isbn13", "9780870446993" ],
+    ],
+    external: "https://www.goodreads.com/book/show/12865501-wild-animals-of-north-america",
+    txns: [
+      [ "purchase", { date: "February 3, 2023", location: "Fringe and Fray", city: "Spokane" } ],
+    ],
+  },
+  {
+    title: "America Land of Beauty and Splendor",
+    external: "https://www.goodreads.com/book/show/13501435-america-land-of-beauty-and-splendor",
+    txns: [
+      [ "purchase", { date: "February 3, 2023", location: "Fringe and Fray", city: "Spokane" } ],
+    ],
+  },
+  {
+    title: "Nomads of the World",
+    ids: [
+      [ "isbn10", "0870440985" ],
+      [ "isbn13", "9780870440984" ],
+    ],
+    external: "https://www.goodreads.com/book/show/3762541-nomads-of-the-world",
+    txns: [
+      [ "purchase", { date: "February 3, 2023", location: "Fringe and Fray", city: "Spokane" } ],
+    ],
+  },
+  {
+    title: "Barns of Idaho",
+    subtitle: "Sentinels of Yesteryear",
+    ids: [
+      [ "isbn10", "0998566993" ],
+      [ "isbn13", "9780998566993" ],
+    ],
+    external: "https://www.goodreads.com/book/show/58033296-barns-of-idaho",
+    txns: [
+      [ "purchase", { date: "January 20, 2023", location: "Pie Safe", city: "Troy" } ],
+    ],
+  },
+  {
+    title: "Adventure Time",
+    subtitle: "The Art of Ooo",
+    ids: [
+      [ "isbn10", "1419704508" ],
+      [ "isbn13", "9781419704505" ],
+    ],
+    external: "https://www.goodreads.com/book/show/20701976-adventure-time",
+    txns: [
+      [ "internet order", { date: "January 17, 2023", city: "Pullman" } ],
+    ],
+  },
+  {
+    title: "Steven Universe",
+    subtitle: "Art & Origins",
+    ids: [
+      [ "isbn10", "1419724436" ],
+      [ "isbn13", "9781419724435" ],
+    ],
+    external: "https://www.goodreads.com/book/show/31305566-steven-universe",
+    txns: [
+      [ "internet order", { date: "January 17, 2023", city: "Pullman" } ],
+    ],
+  },
+  {
     title: "Paintings of Maine",
     subtitle: "A New Collection Selected by Carl Little",
     ids: [
